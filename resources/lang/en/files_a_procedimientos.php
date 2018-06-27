@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'file_path' => 'File Path',
+    'file_path__placeholder' => 'Capturar file path ...',
+    'descripcion' => 'Descripcion',
+    'descripcion__placeholder' => 'Capturar descripcion ...',
+    'a_procedimiento_id' => 'A Procedimiento',
+    'a_procedimiento_id__placeholder' => 'Seleccionar a procedimiento',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Files A Procedimiento',
+    'delete' => 'Borrar Files A Procedimiento',
+    'edit' => 'Editar Files A Procedimiento',
+    'show' => 'Mostrar Files A Procedimiento',
+    'show_all' => 'Mostrar Todos Files A Procedimiento',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Files A Procedimiento?',
+    'none_available' => 'No hay Files A Procedimientos Disponibles!',
+    'model_plural' => 'Files A Procedimientos',
+    'model_was_added' => 'Files A Procedimiento fué agregado exitosamente!',
+    'model_was_updated' => 'Files A Procedimiento fué actualizado exitosamente!',
+    'model_was_deleted' => 'Files A Procedimiento fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

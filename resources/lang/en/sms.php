@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'monto' => 'Monto',
+    'monto__placeholder' => 'Capturar monto ...',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Sm',
+    'delete' => 'Borrar Sm',
+    'edit' => 'Editar Sm',
+    'show' => 'Mostrar Sm',
+    'show_all' => 'Mostrar Todos Sm',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Sm?',
+    'none_available' => 'No hay Sms Disponibles!',
+    'model_plural' => 'Sms',
+    'model_was_added' => 'Sm fué agregado exitosamente!',
+    'model_was_updated' => 'Sm fué actualizado exitosamente!',
+    'model_was_deleted' => 'Sm fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

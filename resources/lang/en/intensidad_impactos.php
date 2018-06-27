@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'intensidad_impacto' => 'Intensidad Impacto',
+    'intensidad_impacto__placeholder' => 'Capturar intensidad impacto ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Intensidad Impacto',
+    'delete' => 'Borrar Intensidad Impacto',
+    'edit' => 'Editar Intensidad Impacto',
+    'show' => 'Mostrar Intensidad Impacto',
+    'show_all' => 'Mostrar Todos Intensidad Impacto',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Intensidad Impacto?',
+    'none_available' => 'No hay Intensidad Impactos Disponibles!',
+    'model_plural' => 'Intensidad Impactos',
+    'model_was_added' => 'Intensidad Impacto fué agregado exitosamente!',
+    'model_was_updated' => 'Intensidad Impacto fué actualizado exitosamente!',
+    'model_was_deleted' => 'Intensidad Impacto fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

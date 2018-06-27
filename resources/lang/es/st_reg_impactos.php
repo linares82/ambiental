@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'st_reg_impacto' => 'St Reg Impacto',
+    'st_reg_impacto__placeholder' => 'Capturar st reg impacto ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo St Reg Impacto',
+    'delete' => 'Borrar St Reg Impacto',
+    'edit' => 'Editar St Reg Impacto',
+    'show' => 'Mostrar St Reg Impacto',
+    'show_all' => 'Mostrar Todos St Reg Impacto',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar St Reg Impacto?',
+    'none_available' => 'No hay St Reg Impactos Disponibles!',
+    'model_plural' => 'St Reg Impactos',
+    'model_was_added' => 'St Reg Impacto fué agregado exitosamente!',
+    'model_was_updated' => 'St Reg Impacto fué actualizado exitosamente!',
+    'model_was_deleted' => 'St Reg Impacto fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

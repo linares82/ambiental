@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'area' => 'Area',
+    'area__placeholder' => 'Capturar area ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Acheck',
+    'delete' => 'Borrar Acheck',
+    'edit' => 'Editar Acheck',
+    'show' => 'Mostrar Acheck',
+    'show_all' => 'Mostrar Todos Acheck',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Acheck?',
+    'none_available' => 'No hay Achecks Disponibles!',
+    'model_plural' => 'Achecks',
+    'model_was_added' => 'Acheck fué agregado exitosamente!',
+    'model_was_updated' => 'Acheck fué actualizado exitosamente!',
+    'model_was_deleted' => 'Acheck fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

@@ -1,0 +1,66 @@
+@extends('layouts.master1')
+
+@section('content')
+	<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+		<ul class="breadcrumb">
+			<li>
+				<a href="{{route('home')}}">
+				<i class="ace-icon fa fa-home home-icon"></i>
+				</a>
+			</li>
+
+			<li>
+				<a href="{{ route('[% index_route_name %]') }}">[% model_plural %]</a>
+			</li>
+			<li class="active">Editar</li>
+		</ul><!-- /.breadcrumb -->
+	</div>
+    <div class="panel panel-default">
+  
+        <div class="panel-heading clearfix">
+
+            <div class="pull-left">
+                <h4 class="mt-5 mb-5">{{ !empty([% model_header %]) ? [% model_header %] : '[% model_plural %]' }}</h4>
+            </div>
+            <div class="btn-group btn-group-sm pull-right" role="group">
+                @ifUserCan('[% index_route_name %]')
+                <a href="{{ route('[% index_route_name %]') }}" class="btn btn-primary" title="[% show_all_models %]">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                </a>
+                @endif
+                @ifUserCan('[% create_route_name %]')
+                <a href="{{ route('[% create_route_name %]') }}" class="btn btn-success" title="[% create_model %]">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+                @endif
+            </div>
+        </div>
+
+        <div class="panel-body">
+
+            @if ($errors->any())
+                <ul class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+
+            <form method="POST" action="{{ route('[% update_route_name %]', $[% model_name_singular_variable %]->[% primary_key %]) }}" id="[% form_id %]" name="[% form_name %]" accept-charset="UTF-8" class=""[% upload_files %]>
+            {{ csrf_field() }}
+            <input name="_method" type="hidden" value="PUT">
+            @include ('[% form_view_name %]', [
+                                        '[% model_name_singular_variable %]' => $[% model_name_singular_variable %],
+                                      ])
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input class="btn btn-primary" type="submit" value="[% update %]">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+@endsection

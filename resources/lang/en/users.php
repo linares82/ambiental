@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'name' => 'Name',
+    'name__placeholder' => 'Capturar name ...',
+    'email' => 'Email',
+    'email__placeholder' => 'Capturar email ...',
+    'password' => 'Password',
+    'password__placeholder' => 'Capturar password ...',
+    'remember_token' => 'Remember Token',
+    'remember_token__placeholder' => 'Capturar remember token ...',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'create' => 'Create New User',
+    'delete' => 'Delete User',
+    'edit' => 'Edit User',
+    'show' => 'Show User',
+    'show_all' => 'Show All User',
+    'add' => 'Add',
+    'update' => 'Update',
+    'confirm_delete' => 'Delete User?',
+    'none_available' => 'No Users Available!',
+    'model_plural' => 'Users',
+    'model_was_added' => 'User was successfully added!',
+    'model_was_updated' => 'User was successfully updated!',
+    'model_was_deleted' => 'User was successfully deleted!',
+    'unexpected_error' => 'Unexpected error occurred while trying to process your request!',
+
+];

@@ -1,0 +1,1 @@
+php artisan create:resources Role --table-exists --force --with-form-request --translation-for=en,es --with-soft-delete

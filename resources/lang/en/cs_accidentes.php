@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'accidente' => 'Accidente',
+    'accidente__placeholder' => 'Capturar accidente ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Cs Accidente',
+    'delete' => 'Borrar Cs Accidente',
+    'edit' => 'Editar Cs Accidente',
+    'show' => 'Mostrar Cs Accidente',
+    'show_all' => 'Mostrar Todos Cs Accidente',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Cs Accidente?',
+    'none_available' => 'No hay Cs Accidentes Disponibles!',
+    'model_plural' => 'Cs Accidentes',
+    'model_was_added' => 'Cs Accidente fué agregado exitosamente!',
+    'model_was_updated' => 'Cs Accidente fué actualizado exitosamente!',
+    'model_was_deleted' => 'Cs Accidente fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

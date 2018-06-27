@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'area' => 'Area Chequeo',
+    'area__placeholder' => 'Capturar Area Chequeo ...',
+    'usu_alta_id' => 'Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Ultima modificación',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Creado el',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Actualizado',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted ',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear',
+    'delete' => 'Borrar',
+    'edit' => 'Editar',
+    'show' => 'Mostrar',
+    'show_all' => 'Mostrar Todos',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Area Chequeo?',
+    'none_available' => 'No hay Areas Chequeo Disponibles!',
+    'model_plural' => 'Areas Chequeo',
+    'model_was_added' => 'Area Chequeo fué agregado exitosamente!',
+    'model_was_updated' => 'Area Chequeo fué actualizado exitosamente!',
+    'model_was_deleted' => 'Area Chequeo fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

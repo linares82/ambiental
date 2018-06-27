@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'file_path' => 'File Path',
+    'file_path__placeholder' => 'Capturar file path ...',
+    'descripcion' => 'Descripcion',
+    'descripcion__placeholder' => 'Capturar descripcion ...',
+    's_registro_id' => 'S Registro',
+    's_registro_id__placeholder' => 'Seleccionar s registro',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Files S Registro',
+    'delete' => 'Borrar Files S Registro',
+    'edit' => 'Editar Files S Registro',
+    'show' => 'Mostrar Files S Registro',
+    'show_all' => 'Mostrar Todos Files S Registro',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Files S Registro?',
+    'none_available' => 'No hay Files S Registros Disponibles!',
+    'model_plural' => 'Files S Registros',
+    'model_was_added' => 'Files S Registro fué agregado exitosamente!',
+    'model_was_updated' => 'Files S Registro fué actualizado exitosamente!',
+    'model_was_deleted' => 'Files S Registro fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

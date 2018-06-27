@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'cat_doc' => 'Cat Doc',
+    'cat_doc__placeholder' => 'Capturar cat doc ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Cs Cat Doc',
+    'delete' => 'Borrar Cs Cat Doc',
+    'edit' => 'Editar Cs Cat Doc',
+    'show' => 'Mostrar Cs Cat Doc',
+    'show_all' => 'Mostrar Todos Cs Cat Doc',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Cs Cat Doc?',
+    'none_available' => 'No hay Cs Cat Docs Disponibles!',
+    'model_plural' => 'Cs Cat Docs',
+    'model_was_added' => 'Cs Cat Doc fué agregado exitosamente!',
+    'model_was_updated' => 'Cs Cat Doc fué actualizado exitosamente!',
+    'model_was_deleted' => 'Cs Cat Doc fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

@@ -1,0 +1,1586 @@
+{
+    "fields": [
+        {
+            "name": "id",
+            "labels": {
+                "en": "Id",
+                "es": "Id"
+            },
+            "html-type": "number",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": false,
+            "is-on-form": false,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": true,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": true,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar id ...",
+                "es": "Capturar id ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "proceso_id",
+            "labels": {
+                "en": "Proceso",
+                "es": "Proceso"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar proceso",
+                "es": "Seleccionar proceso"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "aaProceso",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\AaProceso",
+                    "proceso_id",
+                    "id"
+                ],
+                "field": "proceso"
+            },
+            "foreign-constraint": {
+                "field": "proceso_id",
+                "references": "aa_procesos",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\AaProceso",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "area_id",
+            "labels": {
+                "en": "Area",
+                "es": "Area"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar area",
+                "es": "Seleccionar area"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "area",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Area",
+                    "area_id",
+                    "id"
+                ],
+                "field": "area"
+            },
+            "foreign-constraint": {
+                "field": "area_id",
+                "references": "areas",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Area",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "actividad",
+            "labels": {
+                "en": "Actividad",
+                "es": "Actividad"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar actividad ...",
+                "es": "Capturar actividad ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "descripcion",
+            "labels": {
+                "en": "Descripcion",
+                "es": "Descripcion"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar descripcion ...",
+                "es": "Capturar descripcion ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "efecto",
+            "labels": {
+                "en": "Efecto",
+                "es": "Efecto"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar efecto ...",
+                "es": "Capturar efecto ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "aspecto_id",
+            "labels": {
+                "en": "Aspecto",
+                "es": "Aspecto"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar aspecto",
+                "es": "Seleccionar aspecto"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "aaAspecto",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\AaAspecto",
+                    "aspecto_id",
+                    "id"
+                ],
+                "field": "aspectos"
+            },
+            "foreign-constraint": {
+                "field": "aspecto_id",
+                "references": "aa_aspectos",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\AaAspecto",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "eme_id",
+            "labels": {
+                "en": "Eme",
+                "es": "Eme"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar eme",
+                "es": "Seleccionar eme"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "aaEme",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\AaEme",
+                    "eme_id",
+                    "id"
+                ],
+                "field": "id"
+            },
+            "foreign-constraint": {
+                "field": "eme_id",
+                "references": "aa_emes",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\AaEme",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "condicion_id",
+            "labels": {
+                "en": "Condicion",
+                "es": "Condicion"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar condicion",
+                "es": "Seleccionar condicion"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "aaCondicione",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\AaCondicione",
+                    "condicion_id",
+                    "id"
+                ],
+                "field": "id"
+            },
+            "foreign-constraint": {
+                "field": "condicion_id",
+                "references": "aa_condiciones",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\AaCondicione",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "impacto_id",
+            "labels": {
+                "en": "Impacto",
+                "es": "Impacto"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar impacto",
+                "es": "Seleccionar impacto"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "aaImpacto",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\AaImpacto",
+                    "impacto_id",
+                    "id"
+                ],
+                "field": "impacto"
+            },
+            "foreign-constraint": {
+                "field": "impacto_id",
+                "references": "aa_impactos",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\AaImpacto",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "puesto_id",
+            "labels": {
+                "en": "Puesto",
+                "es": "Puesto"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar puesto",
+                "es": "Seleccionar puesto"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "puesto",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Puesto",
+                    "puesto_id",
+                    "id"
+                ],
+                "field": "puesto"
+            },
+            "foreign-constraint": {
+                "field": "puesto_id",
+                "references": "puestos",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Puesto",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "al_federal_bnd",
+            "labels": {
+                "en": "Al Federal Bnd",
+                "es": "Al Federal Bnd"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar al federal bnd ...",
+                "es": "Capturar al federal bnd ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "bnd",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Bnd",
+                    "al_federal_bnd",
+                    "id"
+                ],
+                "field": "bnd"
+            },
+            "foreign-constraint": {
+                "field": "al_federal_bnd",
+                "references": "bnds",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Bnd",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "al_estatal_bnd",
+            "labels": {
+                "en": "Al Estatal Bnd",
+                "es": "Al Estatal Bnd"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar al estatal bnd ...",
+                "es": "Capturar al estatal bnd ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "bnd",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Bnd",
+                    "al_estatal_bnd",
+                    "id"
+                ],
+                "field": "bnd"
+            },
+            "foreign-constraint": {
+                "field": "al_estatal_bnd",
+                "references": "bnds",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Bnd",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "obj_corporativo_bnd",
+            "labels": {
+                "en": "Obj Corporativo Bnd",
+                "es": "Obj Corporativo Bnd"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar obj corporativo bnd ...",
+                "es": "Capturar obj corporativo bnd ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "bnd",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Bnd",
+                    "obj_corporativo_bnd",
+                    "id"
+                ],
+                "field": "bnd"
+            },
+            "foreign-constraint": {
+                "field": "obj_corporativo_bnd",
+                "references": "bnds",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Bnd",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "quejas_bnd",
+            "labels": {
+                "en": "Quejas Bnd",
+                "es": "Quejas Bnd"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar quejas bnd ...",
+                "es": "Capturar quejas bnd ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "bnd",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Bnd",
+                    "quejas_bnd",
+                    "id"
+                ],
+                "field": "bnd"
+            },
+            "foreign-constraint": {
+                "field": "quejas_bnd",
+                "references": "bnds",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Bnd",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "severidad_id",
+            "labels": {
+                "en": "Severidad",
+                "es": "Severidad"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar severidad",
+                "es": "Seleccionar severidad"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "efecto",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Efecto",
+                    "severidad_id",
+                    "id"
+                ],
+                "field": "efecto"
+            },
+            "foreign-constraint": {
+                "field": "severidad_id",
+                "references": "efectos",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Efecto",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "bnd_potencial",
+            "labels": {
+                "en": "Bnd Potencial",
+                "es": "Bnd Potencial"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar bnd potencial ...",
+                "es": "Capturar bnd potencial ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "bnd",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Bnd",
+                    "bnd_potencial",
+                    "id"
+                ],
+                "field": "bnd"
+            },
+            "foreign-constraint": {
+                "field": "bnd_potencial",
+                "references": "bnds",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Bnd",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "frecuencia_id",
+            "labels": {
+                "en": "Frecuencia",
+                "es": "Frecuencia"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar frecuencia",
+                "es": "Seleccionar frecuencia"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "duracionAccion",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\DuracionAccion",
+                    "frecuencia_id",
+                    "id"
+                ],
+                "field": "duracion_accion"
+            },
+            "foreign-constraint": {
+                "field": "frecuencia_id",
+                "references": "duracion_accions",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\DuracionAccion",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "bnd_real",
+            "labels": {
+                "en": "Bnd Real",
+                "es": "Bnd Real"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar bnd real ...",
+                "es": "Capturar bnd real ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "bnd",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Bnd",
+                    "bnd_real",
+                    "id"
+                ],
+                "field": "bnd"
+            },
+            "foreign-constraint": {
+                "field": "bnd_real",
+                "references": "bnds",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Bnd",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "probabilidad_id",
+            "labels": {
+                "en": "Probabilidad",
+                "es": "Probabilidad"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar probabilidad",
+                "es": "Seleccionar probabilidad"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "probabilidad",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Probabilidad",
+                    "probabilidad_id",
+                    "id"
+                ],
+                "field": "probabilidad"
+            },
+            "foreign-constraint": {
+                "field": "probabilidad_id",
+                "references": "probabilidads",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Probabilidad",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "imp_potencial_id",
+            "labels": {
+                "en": "Imp Potencial",
+                "es": "Imp Potencial"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar imp potencial",
+                "es": "Seleccionar imp potencial"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "impPotencial",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\ImpPotencial",
+                    "imp_potencial_id",
+                    "id"
+                ],
+                "field": "imp_potencial"
+            },
+            "foreign-constraint": {
+                "field": "imp_potencial_id",
+                "references": "imp_potencials",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\ImpPotencial",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "imp_real_id",
+            "labels": {
+                "en": "Imp Real",
+                "es": "Imp Real"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar imp real",
+                "es": "Seleccionar imp real"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "impReal",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\ImpReal",
+                    "imp_real_id",
+                    "id"
+                ],
+                "field": "imp_real"
+            },
+            "foreign-constraint": {
+                "field": "imp_real_id",
+                "references": "imp_reals",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\ImpReal",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "observaciones",
+            "labels": {
+                "en": "Observaciones",
+                "es": "Observaciones"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar observaciones ...",
+                "es": "Capturar observaciones ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "ctrls_opracionales",
+            "labels": {
+                "en": "Ctrls Opracionales",
+                "es": "Ctrls Opracionales"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar ctrls opracionales ...",
+                "es": "Capturar ctrls opracionales ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "entity_id",
+            "labels": {
+                "en": "Entity",
+                "es": "Entity"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar entity",
+                "es": "Seleccionar entity"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "entity",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Entity",
+                    "entity_id",
+                    "id"
+                ],
+                "field": "rzon_social"
+            },
+            "foreign-constraint": {
+                "field": "entity_id",
+                "references": "entities",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Entity",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "usu_alta_id",
+            "labels": {
+                "en": "Usu Alta",
+                "es": "Usu Alta"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar usu alta",
+                "es": "Seleccionar usu alta"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "user",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\User",
+                    "usu_alta_id",
+                    "id"
+                ],
+                "field": "name"
+            },
+            "foreign-constraint": {
+                "field": "usu_alta_id",
+                "references": "users",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\User",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "usu_mod_id",
+            "labels": {
+                "en": "Usu Mod",
+                "es": "Usu Mod"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar usu mod",
+                "es": "Seleccionar usu mod"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "user",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\User",
+                    "usu_mod_id",
+                    "id"
+                ],
+                "field": "name"
+            },
+            "foreign-constraint": {
+                "field": "usu_mod_id",
+                "references": "users",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\User",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "created_at",
+            "labels": {
+                "en": "Created At",
+                "es": "Created At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": "0000-00-00 00:00:00",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar created at ...",
+                "es": "Capturar created at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "updated_at",
+            "labels": {
+                "en": "Updated At",
+                "es": "Updated At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": "0000-00-00 00:00:00",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar updated at ...",
+                "es": "Capturar updated at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "deleted_at",
+            "labels": {
+                "en": "Deleted At",
+                "es": "Deleted At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar deleted at ...",
+                "es": "Capturar deleted at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        }
+    ],
+    "relations": [],
+    "indexes": [],
+    "auto-manage-created-and-updated-at": true,
+    "table-name": "aspectos_ambientales",
+    "protection": {
+        "is-model-protected": false,
+        "is-controller-protected": false,
+        "is-form-request-protected": false,
+        "is-languages-protected": false,
+        "is-form-view-protected": false,
+        "is-index-view-protected": false,
+        "is-create-view-protected": false,
+        "is-edit-view-protected": false,
+        "is-show-view-protected": false
+    }
+}

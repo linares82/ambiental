@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'probabilidad' => 'Probabilidad',
+    'probabilidad__placeholder' => 'Capturar probabilidad ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Probabilidad',
+    'delete' => 'Borrar Probabilidad',
+    'edit' => 'Editar Probabilidad',
+    'show' => 'Mostrar Probabilidad',
+    'show_all' => 'Mostrar Todos Probabilidad',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Probabilidad?',
+    'none_available' => 'No hay Probabilidads Disponibles!',
+    'model_plural' => 'Probabilidads',
+    'model_was_added' => 'Probabilidad fué agregado exitosamente!',
+    'model_was_updated' => 'Probabilidad fué actualizado exitosamente!',
+    'model_was_deleted' => 'Probabilidad fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

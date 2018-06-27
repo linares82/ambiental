@@ -1,0 +1,42 @@
+
+    Route::get('/', [
+        'uses'=>'[% controller_name %]@index',
+        'middleware'=>'permission:[% index_route_name %]',
+        'as'=>'[% index_route_name %]'
+    ])->middleware('auth');
+
+    Route::get('/create',[
+        'uses'=>'[% controller_name %]@create',
+        'middleware'=> 'permission:[% create_route_name %]',
+        'as'=>'[% create_route_name %]'
+    ])->middleware('auth');
+
+    Route::get('/show/{[% model_name_singular_variable %]}',[
+        'uses'=>'[% controller_name %]@show',
+        'middleware'=>'permission:[% show_route_name %]',
+        'as'=>'[% show_route_name %]'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::get('/{[% model_name_singular_variable %]}/edit',[
+        'uses'=>'[% controller_name %]@edit',
+        'middleware'=>'permission:[% edit_route_name %]',
+        'as'=>'[% edit_route_name %]'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::post('/', [
+        'uses'=>'[% controller_name %]@store',
+        'middleware'=>'permission:[% store_route_name %]',
+        'as'=>'[% store_route_name %]'
+    ])->middleware('auth');
+               
+    Route::put('[% model_name_snake %]/{[% model_name_singular_variable %]}', [
+        'uses'=>'[% controller_name %]@update',
+        'middleware'=>'permission:[% update_route_name %]',
+        'as'=>'[% update_route_name %]'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::delete('/[% model_name_snake %]/{[% model_name_singular_variable %]}',[
+        'uses'=>'[% controller_name %]@destroy',
+        'middleware'=>'permission:[% destroy_route_name %]',
+        'as'=>'[% destroy_route_name %]'
+    ])->middleware('auth')->where('id', '[0-9]+');

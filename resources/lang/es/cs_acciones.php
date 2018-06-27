@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'accion' => 'Accion',
+    'accion__placeholder' => 'Capturar Accion ...',
+    'usu_alta_id' => 'Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Ultima Modifiación',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Creado el',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Actualizado el',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear',
+    'delete' => 'Borrar',
+    'edit' => 'Editar',
+    'show' => 'Mostrar',
+    'show_all' => 'Mostrar',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar?',
+    'none_available' => 'No hayAcciones Disponibles!',
+    'model_plural' => 'Acciones',
+    'model_was_added' => 'Accion fué agregado exitosamente!',
+    'model_was_updated' => 'Accion fué actualizado exitosamente!',
+    'model_was_deleted' => 'Accion fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

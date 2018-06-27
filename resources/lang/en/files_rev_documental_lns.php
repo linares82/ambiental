@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'file_path' => 'File Path',
+    'file_path__placeholder' => 'Capturar file path ...',
+    'descripcion' => 'Descripcion',
+    'descripcion__placeholder' => 'Capturar descripcion ...',
+    'rev_documental_ln_id' => 'Rev Documental Ln',
+    'rev_documental_ln_id__placeholder' => 'Seleccionar rev documental ln',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Files Rev Documental Ln',
+    'delete' => 'Borrar Files Rev Documental Ln',
+    'edit' => 'Editar Files Rev Documental Ln',
+    'show' => 'Mostrar Files Rev Documental Ln',
+    'show_all' => 'Mostrar Todos Files Rev Documental Ln',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Files Rev Documental Ln?',
+    'none_available' => 'No hay Files Rev Documental Lns Disponibles!',
+    'model_plural' => 'Files Rev Documental Lns',
+    'model_was_added' => 'Files Rev Documental Ln fué agregado exitosamente!',
+    'model_was_updated' => 'Files Rev Documental Ln fué actualizado exitosamente!',
+    'model_was_deleted' => 'Files Rev Documental Ln fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

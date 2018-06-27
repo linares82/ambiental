@@ -1,0 +1,532 @@
+{
+    "fields": [
+        {
+            "name": "id",
+            "labels": {
+                "en": "Id",
+                "es": "Id"
+            },
+            "html-type": "number",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": false,
+            "is-on-form": false,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": true,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": true,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar id ...",
+                "es": "Capturar id ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "bnd",
+            "labels": {
+                "en": "Bnd",
+                "es": "Bnd"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar bnd ...",
+                "es": "Capturar bnd ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "created_at",
+            "labels": {
+                "en": "Created At",
+                "es": "Created At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": "0000-00-00 00:00:00",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar created at ...",
+                "es": "Capturar created at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "updated_at",
+            "labels": {
+                "en": "Updated At",
+                "es": "Updated At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": "0000-00-00 00:00:00",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar updated at ...",
+                "es": "Capturar updated at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "deleted_at",
+            "labels": {
+                "en": "Deleted At",
+                "es": "Deleted At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": "0000-00-00 00:00:00",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar deleted at ...",
+                "es": "Capturar deleted at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        }
+    ],
+    "relations": [
+        {
+            "name": "aArchivos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AArchivo",
+                "aviso",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aProcedimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AProcedimiento",
+                "aviso",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aRrAmbientales",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\ARrAmbientale",
+                "aviso",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aspectosAmbientales",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AspectosAmbientale",
+                "al_estatal_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aspectosAmbientales",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AspectosAmbientale",
+                "al_federal_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aspectosAmbientales",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AspectosAmbientale",
+                "bnd_potencial",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aspectosAmbientales",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AspectosAmbientale",
+                "bnd_real",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aspectosAmbientales",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AspectosAmbientale",
+                "obj_corporativo_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aspectosAmbientales",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AspectosAmbientale",
+                "quejas_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraPendientes",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraPendiente",
+                "aviso",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraResiduos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraResiduo",
+                "cedula_operacion",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraResiduos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraResiduo",
+                "registro_residuos",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraResiduos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraResiduo",
+                "requiere_vobo",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "empleados",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\Empleado",
+                "bnd_subordinados",
+                "id"
+            ],
+            "field": "ctrl_interno"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "aviso_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "conoce_procedimiento_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "cumple_puntos_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "eventualidades_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "levantar_formato_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "lleva_equipo_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "registro_bitacora_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "supervision_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "tpp_bnd",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "pAmbientalCorreo",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\PAmbientalCorreo",
+                "bnd_envio",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "pAmbientalCorreo",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\PAmbientalCorreo",
+                "bnd_jefe",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "pAmbientalCorreo",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\PAmbientalCorreo",
+                "bnd_responsable",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "pCorreoBitacoras",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\PCorreoBitacora",
+                "bnd_enviar",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "pCorreoBitacoras",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\PCorreoBitacora",
+                "bnd_jefe",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "sDocumento",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\SDocumento",
+                "aviso",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "sProcedimiento",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\SProcedimiento",
+                "aviso",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "sRegistro",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\SRegistro",
+                "aviso",
+                "id"
+            ],
+            "field": "id"
+        }
+    ],
+    "indexes": [],
+    "auto-manage-created-and-updated-at": true,
+    "table-name": "bnds",
+    "protection": {
+        "is-model-protected": false,
+        "is-controller-protected": false,
+        "is-form-request-protected": false,
+        "is-languages-protected": false,
+        "is-form-view-protected": false,
+        "is-index-view-protected": false,
+        "is-create-view-protected": false,
+        "is-edit-view-protected": false,
+        "is-show-view-protected": false
+    }
+}

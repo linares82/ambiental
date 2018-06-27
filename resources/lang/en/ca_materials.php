@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'material' => 'Material',
+    'material__placeholder' => 'Capturar material ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Ca Material',
+    'delete' => 'Borrar Ca Material',
+    'edit' => 'Editar Ca Material',
+    'show' => 'Mostrar Ca Material',
+    'show_all' => 'Mostrar Todos Ca Material',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Ca Material?',
+    'none_available' => 'No hay Ca Materials Disponibles!',
+    'model_plural' => 'Ca Materials',
+    'model_was_added' => 'Ca Material fué agregado exitosamente!',
+    'model_was_updated' => 'Ca Material fué actualizado exitosamente!',
+    'model_was_deleted' => 'Ca Material fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

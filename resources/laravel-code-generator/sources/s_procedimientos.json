@@ -1,0 +1,810 @@
+{
+    "fields": [
+        {
+            "name": "id",
+            "labels": {
+                "en": "Id",
+                "es": "Id"
+            },
+            "html-type": "number",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": false,
+            "is-on-form": false,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": true,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": true,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar id ...",
+                "es": "Capturar id ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "tpo_procedimiento_id",
+            "labels": {
+                "en": "Tpo Procedimiento",
+                "es": "Tpo Procedimiento"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar tpo procedimiento",
+                "es": "Seleccionar tpo procedimiento"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "csTpoProcedimiento",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\CsTpoProcedimiento",
+                    "tpo_procedimiento_id",
+                    "id"
+                ],
+                "field": "tpo_procedimiento"
+            },
+            "foreign-constraint": {
+                "field": "tpo_procedimiento_id",
+                "references": "cs_tpo_procedimientos",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\CsTpoProcedimiento",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "tpo_doc_id",
+            "labels": {
+                "en": "Tpo Doc",
+                "es": "Tpo Doc"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar tpo doc",
+                "es": "Seleccionar tpo doc"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "csTpoDoc",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\CsTpoDoc",
+                    "tpo_doc_id",
+                    "id"
+                ],
+                "field": "tpo_doc"
+            },
+            "foreign-constraint": {
+                "field": "tpo_doc_id",
+                "references": "cs_tpo_docs",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\CsTpoDoc",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "descripcion",
+            "labels": {
+                "en": "Descripcion",
+                "es": "Descripcion"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar descripcion ...",
+                "es": "Capturar descripcion ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "archivo",
+            "labels": {
+                "en": "Archivo",
+                "es": "Archivo"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar archivo ...",
+                "es": "Capturar archivo ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "aviso",
+            "labels": {
+                "en": "Aviso",
+                "es": "Aviso"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar aviso ...",
+                "es": "Capturar aviso ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "bnd",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Bnd",
+                    "aviso",
+                    "id"
+                ],
+                "field": "bnd"
+            },
+            "foreign-constraint": {
+                "field": "aviso",
+                "references": "bnds",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Bnd",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "dias_aviso",
+            "labels": {
+                "en": "Dias Aviso",
+                "es": "Dias Aviso"
+            },
+            "html-type": "number",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar dias aviso ...",
+                "es": "Capturar dias aviso ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "responsable_id",
+            "labels": {
+                "en": "Responsable",
+                "es": "Responsable"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar responsable",
+                "es": "Seleccionar responsable"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "empleado",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Empleado",
+                    "responsable_id",
+                    "id"
+                ],
+                "field": "ctrl_interno"
+            },
+            "foreign-constraint": {
+                "field": "responsable_id",
+                "references": "empleados",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Empleado",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "fec_fin_vigencia",
+            "labels": {
+                "en": "Fec Fin Vigencia",
+                "es": "Fec Fin Vigencia"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|date_format:j/n/Y g:i A",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "date",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar fec fin vigencia ...",
+                "es": "Capturar fec fin vigencia ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "estatus_id",
+            "labels": {
+                "en": "Estatus",
+                "es": "Estatus"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar estatus",
+                "es": "Seleccionar estatus"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "sEstatusProcedimiento",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\SEstatusProcedimiento",
+                    "estatus_id",
+                    "id"
+                ],
+                "field": "id"
+            },
+            "foreign-constraint": {
+                "field": "estatus_id",
+                "references": "s_estatus_procedimientos",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\SEstatusProcedimiento",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "entity_id",
+            "labels": {
+                "en": "Entity",
+                "es": "Entity"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar entity",
+                "es": "Seleccionar entity"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "entity",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Entity",
+                    "entity_id",
+                    "id"
+                ],
+                "field": "rzon_social"
+            },
+            "foreign-constraint": {
+                "field": "entity_id",
+                "references": "entities",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\Entity",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "usu_alta_id",
+            "labels": {
+                "en": "Usu Alta",
+                "es": "Usu Alta"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar usu alta",
+                "es": "Seleccionar usu alta"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "user",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\User",
+                    "usu_alta_id",
+                    "id"
+                ],
+                "field": "name"
+            },
+            "foreign-constraint": {
+                "field": "usu_alta_id",
+                "references": "users",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\User",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "usu_mod_id",
+            "labels": {
+                "en": "Usu Mod",
+                "es": "Usu Mod"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar usu mod",
+                "es": "Seleccionar usu mod"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "user",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\User",
+                    "usu_mod_id",
+                    "id"
+                ],
+                "field": "name"
+            },
+            "foreign-constraint": {
+                "field": "usu_mod_id",
+                "references": "users",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\User",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "created_at",
+            "labels": {
+                "en": "Created At",
+                "es": "Created At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": "0000-00-00 00:00:00",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar created at ...",
+                "es": "Capturar created at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "updated_at",
+            "labels": {
+                "en": "Updated At",
+                "es": "Updated At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": "0000-00-00 00:00:00",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar updated at ...",
+                "es": "Capturar updated at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "deleted_at",
+            "labels": {
+                "en": "Deleted At",
+                "es": "Deleted At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar deleted at ...",
+                "es": "Capturar deleted at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        }
+    ],
+    "relations": [
+        {
+            "name": "sComentariosProcedimiento",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\SComentariosProcedimiento",
+                "s_procedimiento_id",
+                "id"
+            ],
+            "field": "id"
+        }
+    ],
+    "indexes": [],
+    "auto-manage-created-and-updated-at": true,
+    "table-name": "s_procedimientos",
+    "protection": {
+        "is-model-protected": false,
+        "is-controller-protected": false,
+        "is-form-request-protected": false,
+        "is-languages-protected": false,
+        "is-form-view-protected": false,
+        "is-index-view-protected": false,
+        "is-create-view-protected": false,
+        "is-edit-view-protected": false,
+        "is-show-view-protected": false
+    }
+}

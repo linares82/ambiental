@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'emision_efecto' => 'Emision Efecto',
+    'emision_efecto__placeholder' => 'Capturar emision efecto ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Emision Efecto',
+    'delete' => 'Borrar Emision Efecto',
+    'edit' => 'Editar Emision Efecto',
+    'show' => 'Mostrar Emision Efecto',
+    'show_all' => 'Mostrar Todos Emision Efecto',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Emision Efecto?',
+    'none_available' => 'No hay Emision Efectos Disponibles!',
+    'model_plural' => 'Emision Efectos',
+    'model_was_added' => 'Emision Efecto fué agregado exitosamente!',
+    'model_was_updated' => 'Emision Efecto fué actualizado exitosamente!',
+    'model_was_deleted' => 'Emision Efecto fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'estatus' => 'Estatus',
+    'estatus__placeholder' => 'Capturar estatus ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo A St Archivo',
+    'delete' => 'Borrar A St Archivo',
+    'edit' => 'Editar A St Archivo',
+    'show' => 'Mostrar A St Archivo',
+    'show_all' => 'Mostrar Todos A St Archivo',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar A St Archivo?',
+    'none_available' => 'No hay A St Archivos Disponibles!',
+    'model_plural' => 'A St Archivos',
+    'model_was_added' => 'A St Archivo fué agregado exitosamente!',
+    'model_was_updated' => 'A St Archivo fué actualizado exitosamente!',
+    'model_was_deleted' => 'A St Archivo fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

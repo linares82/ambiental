@@ -1,0 +1,948 @@
+{
+    "fields": [
+        {
+            "name": "id",
+            "labels": {
+                "en": "Id",
+                "es": "Id"
+            },
+            "html-type": "number",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": false,
+            "is-on-form": false,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": true,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": true,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar id ...",
+                "es": "Capturar id ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "rzon_social",
+            "labels": {
+                "en": "Rzon Social",
+                "es": "Rzon Social"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar rzon social ...",
+                "es": "Capturar rzon social ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "responsable",
+            "labels": {
+                "en": "Responsable",
+                "es": "Responsable"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar responsable ...",
+                "es": "Capturar responsable ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "dir1",
+            "labels": {
+                "en": "Dir1",
+                "es": "Dir1"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar dir1 ...",
+                "es": "Capturar dir1 ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "dir2",
+            "labels": {
+                "en": "Dir2",
+                "es": "Dir2"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar dir2 ...",
+                "es": "Capturar dir2 ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "rfc",
+            "labels": {
+                "en": "Rfc",
+                "es": "Rfc"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar rfc ...",
+                "es": "Capturar rfc ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "abreviatura",
+            "labels": {
+                "en": "Abreviatura",
+                "es": "Abreviatura"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar abreviatura ...",
+                "es": "Capturar abreviatura ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "logo",
+            "labels": {
+                "en": "Logo",
+                "es": "Logo"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar logo ...",
+                "es": "Capturar logo ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "usu_alta_id",
+            "labels": {
+                "en": "Usu Alta",
+                "es": "Usu Alta"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar usu alta",
+                "es": "Seleccionar usu alta"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "user",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\User",
+                    "usu_alta_id",
+                    "id"
+                ],
+                "field": "name"
+            },
+            "foreign-constraint": {
+                "field": "usu_alta_id",
+                "references": "users",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\User",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "usu_mod_id",
+            "labels": {
+                "en": "Usu Mod",
+                "es": "Usu Mod"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar usu mod",
+                "es": "Seleccionar usu mod"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "user",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\User",
+                    "usu_mod_id",
+                    "id"
+                ],
+                "field": "name"
+            },
+            "foreign-constraint": {
+                "field": "usu_mod_id",
+                "references": "users",
+                "on": "id",
+                "on-delete": "restrict",
+                "on-update": "restrict",
+                "references-model": "App\\Models\\User",
+                "is-self-reference": false
+            },
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "created_at",
+            "labels": {
+                "en": "Created At",
+                "es": "Created At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": "0000-00-00 00:00:00",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar created at ...",
+                "es": "Capturar created at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "updated_at",
+            "labels": {
+                "en": "Updated At",
+                "es": "Updated At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": "0000-00-00 00:00:00",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar updated at ...",
+                "es": "Capturar updated at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "deleted_at",
+            "labels": {
+                "en": "Deleted At",
+                "es": "Deleted At"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "",
+            "is-on-index": false,
+            "is-on-show": true,
+            "is-on-form": false,
+            "data-type": "timestamp",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "j/n/Y g:i A",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar deleted at ...",
+                "es": "Capturar deleted at ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "multi_entidad",
+            "labels": {
+                "en": "Multi Entidad",
+                "es": "Multi Entidad"
+            },
+            "html-type": "number",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar multi entidad ...",
+                "es": "Capturar multi entidad ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "entidad_id",
+            "labels": {
+                "en": "Entidad",
+                "es": "Entidad"
+            },
+            "html-type": "select",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "nullable",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "int",
+            "data-type-params": [],
+            "data-value": null,
+            "is-index": true,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": true,
+            "is-header": false,
+            "is-unsigned": true,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Seleccionar entidad",
+                "es": "Seleccionar entidad"
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": {
+                "name": "entidad",
+                "type": "belongsTo",
+                "params": [
+                    "App\\Models\\Entidad",
+                    "entidad_id"
+                ],
+                "field": "id"
+            },
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        },
+        {
+            "name": "tema",
+            "labels": {
+                "en": "Tema",
+                "es": "Tema"
+            },
+            "html-type": "text",
+            "css-class": "",
+            "options": {},
+            "html-value": null,
+            "validation": "required|string|min:1|max:255",
+            "is-on-index": true,
+            "is-on-show": true,
+            "is-on-form": true,
+            "data-type": "string",
+            "data-type-params": [
+                255
+            ],
+            "data-value": "metro-blue",
+            "is-index": false,
+            "is-unique": false,
+            "is-primary": false,
+            "comment": null,
+            "is-nullable": false,
+            "is-header": false,
+            "is-unsigned": false,
+            "is-auto-increment": false,
+            "is-inline-options": false,
+            "is-date": false,
+            "date-format": "",
+            "cast-as": "",
+            "placeholder": {
+                "en": "Capturar tema ...",
+                "es": "Capturar tema ..."
+            },
+            "delimiter": "; ",
+            "range": [],
+            "foreign-relation": null,
+            "foreign-constraint": null,
+            "on-store": null,
+            "on-update": null
+        }
+    ],
+    "relations": [
+        {
+            "name": "aArchivos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AArchivo",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aNoConformidades",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\ANoConformidade",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aProcedimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AProcedimiento",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aRrAmbientales",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\ARrAmbientale",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "areas",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\Area",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "aspectosAmbientales",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\AspectosAmbientale",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraAccidente",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\BitacoraAccidente",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraConsumibles",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraConsumible",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraEnfermedades",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraEnfermedade",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraFfs",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraFf",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraPendientes",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraPendiente",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraPlantas",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraPlantum",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraResiduos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraResiduo",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "bitacoraSeguridads",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\BitacoraSeguridad",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "empleados",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\Empleado",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "encImpactos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\EncImpacto",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "mMantenimientos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\MMantenimiento",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "pCorreoBitacoras",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\PCorreoBitacora",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "revDocumentals",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\RevDocumental",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "revRequisitos",
+            "type": "hasMany",
+            "params": [
+                "App\\Models\\RevRequisito",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "sDocumento",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\SDocumento",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "sProcedimiento",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\SProcedimiento",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        },
+        {
+            "name": "sRegistro",
+            "type": "hasOne",
+            "params": [
+                "App\\Models\\SRegistro",
+                "cia_id",
+                "id"
+            ],
+            "field": "id"
+        }
+    ],
+    "indexes": [],
+    "auto-manage-created-and-updated-at": true,
+    "table-name": "entities",
+    "protection": {
+        "is-model-protected": false,
+        "is-controller-protected": false,
+        "is-form-request-protected": false,
+        "is-languages-protected": false,
+        "is-form-view-protected": false,
+        "is-index-view-protected": false,
+        "is-create-view-protected": false,
+        "is-edit-view-protected": false,
+        "is-show-view-protected": false
+    }
+}

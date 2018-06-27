@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'estatus' => 'Estatus',
+    'estatus__placeholder' => 'Capturar estatus ...',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'create' => 'Crear Nuevo M Estatus',
+    'delete' => 'Borrar M Estatus',
+    'edit' => 'Editar M Estatus',
+    'show' => 'Mostrar M Estatus',
+    'show_all' => 'Mostrar Todos M Estatus',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar M Estatus?',
+    'none_available' => 'No hay M Estatuses Disponibles!',
+    'model_plural' => 'M Estatuses',
+    'model_was_added' => 'M Estatus fué agregado exitosamente!',
+    'model_was_updated' => 'M Estatus fué actualizado exitosamente!',
+    'model_was_deleted' => 'M Estatus fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

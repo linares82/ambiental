@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'mitigacion' => 'Mitigacion',
+    'mitigacion__placeholder' => 'Capturar mitigacion ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Mitigacion',
+    'delete' => 'Borrar Mitigacion',
+    'edit' => 'Editar Mitigacion',
+    'show' => 'Mostrar Mitigacion',
+    'show_all' => 'Mostrar Todos Mitigacion',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Mitigacion?',
+    'none_available' => 'No hay Mitigacions Disponibles!',
+    'model_plural' => 'Mitigacions',
+    'model_was_added' => 'Mitigacion fué agregado exitosamente!',
+    'model_was_updated' => 'Mitigacion fué actualizado exitosamente!',
+    'model_was_deleted' => 'Mitigacion fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

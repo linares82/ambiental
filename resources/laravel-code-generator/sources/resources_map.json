@@ -1,0 +1,622 @@
+[
+    {
+        "model-name": "Role",
+        "resource-file": "roles.json",
+        "table-name": "roles"
+    },
+    {
+        "model-name": "Permission",
+        "resource-file": "permissions.json",
+        "table-name": "permissions"
+    },
+    {
+        "model-name": "PermissionGroup",
+        "resource-file": "permission_groups.json",
+        "table-name": "permission_groups"
+    },
+    {
+        "model-name": "Menu",
+        "resource-file": "menus.json",
+        "table-name": "menus"
+    },
+    {
+        "model-name": "User",
+        "resource-file": "users.json",
+        "table-name": "users"
+    },
+    {
+        "model-name": "Entity",
+        "resource-file": "entities.json",
+        "table-name": "entities"
+    },
+    {
+        "model-name": "Puesto",
+        "resource-file": "puestos.json",
+        "table-name": "puestos"
+    },
+    {
+        "model-name": "Empleado",
+        "resource-file": "empleados.json",
+        "table-name": "empleados"
+    },
+    {
+        "model-name": "Area",
+        "resource-file": "areas.json",
+        "table-name": "areas"
+    },
+    {
+        "model-name": "Bnd",
+        "resource-file": "bnds.json",
+        "table-name": "bnds"
+    },
+    {
+        "model-name": "Cliente",
+        "resource-file": "clientes.json",
+        "table-name": "clientes"
+    },
+    {
+        "model-name": "Factor",
+        "resource-file": "factors.json",
+        "table-name": "factors"
+    },
+    {
+        "model-name": "Rubro",
+        "resource-file": "rubros.json",
+        "table-name": "rubros"
+    },
+    {
+        "model-name": "Especifico",
+        "resource-file": "especificos.json",
+        "table-name": "especificos"
+    },
+    {
+        "model-name": "Caracteristica",
+        "resource-file": "caracteristicas.json",
+        "table-name": "caracteristicas"
+    },
+    {
+        "model-name": "Matriz",
+        "resource-file": "matrizs.json",
+        "table-name": "matrizs"
+    },
+    {
+        "model-name": "Efecto",
+        "resource-file": "efectos.json",
+        "table-name": "efectos"
+    },
+    {
+        "model-name": "Sm",
+        "resource-file": "sms.json",
+        "table-name": "sms"
+    },
+    {
+        "model-name": "Acheck",
+        "resource-file": "achecks.json",
+        "table-name": "achecks"
+    },
+    {
+        "model-name": "Norma",
+        "resource-file": "normas.json",
+        "table-name": "normas"
+    },
+    {
+        "model-name": "Mcheck",
+        "resource-file": "mchecks.json",
+        "table-name": "mchecks"
+    },
+    {
+        "model-name": "CaCaDoc",
+        "resource-file": "ca_ca_docs.json",
+        "table-name": "ca_ca_docs"
+    },
+    {
+        "model-name": "CaProcedimiento",
+        "resource-file": "ca_procedimientos.json",
+        "table-name": "ca_procedimientos"
+    },
+    {
+        "model-name": "CaMaterial",
+        "resource-file": "ca_materials.json",
+        "table-name": "ca_materials"
+    },
+    {
+        "model-name": "CaCategoria",
+        "resource-file": "ca_categorias.json",
+        "table-name": "ca_categorias"
+    },
+    {
+        "model-name": "CaAaDoc",
+        "resource-file": "ca_aa_docs.json",
+        "table-name": "ca_aa_docs"
+    },
+    {
+        "model-name": "CaFuentesfija",
+        "resource-file": "ca_fuentesfijas.json",
+        "table-name": "ca_fuentesfijas"
+    },
+    {
+        "model-name": "CaFuentesFija",
+        "resource-file": "ca_fuentes_fijas.json",
+        "table-name": "ca_fuentes_fijas"
+    },
+    {
+        "model-name": "CaPlanta",
+        "resource-file": "ca_plantas.json",
+        "table-name": "ca_plantas"
+    },
+    {
+        "model-name": "CaResiduo",
+        "resource-file": "ca_residuos.json",
+        "table-name": "ca_residuos"
+    },
+    {
+        "model-name": "CaConsumible",
+        "resource-file": "ca_consumibles.json",
+        "table-name": "ca_consumibles"
+    },
+    {
+        "model-name": "CaTpoInconformidad",
+        "resource-file": "ca_tpo_inconformidads.json",
+        "table-name": "ca_tpo_inconformidads"
+    },
+    {
+        "model-name": "CaTpoBitacora",
+        "resource-file": "ca_tpo_bitacoras.json",
+        "table-name": "ca_tpo_bitacoras"
+    },
+    {
+        "model-name": "CaTpoNoConformidad",
+        "resource-file": "ca_tpo_no_conformidads.json",
+        "table-name": "ca_tpo_no_conformidads"
+    },
+    {
+        "model-name": "CsTpoProcedimiento",
+        "resource-file": "cs_tpo_procedimientos.json",
+        "table-name": "cs_tpo_procedimientos"
+    },
+    {
+        "model-name": "CsTpoDoc",
+        "resource-file": "cs_tpo_docs.json",
+        "table-name": "cs_tpo_docs"
+    },
+    {
+        "model-name": "CsGrupoNorma",
+        "resource-file": "cs_grupo_normas.json",
+        "table-name": "cs_grupo_normas"
+    },
+    {
+        "model-name": "CsNorma",
+        "resource-file": "cs_normas.json",
+        "table-name": "cs_normas"
+    },
+    {
+        "model-name": "CsElementosInspeccion",
+        "resource-file": "cs_elementos_inspeccions.json",
+        "table-name": "cs_elementos_inspeccions"
+    },
+    {
+        "model-name": "CsCatDoc",
+        "resource-file": "cs_cat_docs.json",
+        "table-name": "cs_cat_docs"
+    },
+    {
+        "model-name": "CsAccidente",
+        "resource-file": "cs_accidentes.json",
+        "table-name": "cs_accidentes"
+    },
+    {
+        "model-name": "CsAccione",
+        "resource-file": "cs_acciones.json",
+        "table-name": "cs_acciones"
+    },
+    {
+        "model-name": "CsEnfermedade",
+        "resource-file": "cs_enfermedades.json",
+        "table-name": "cs_enfermedades"
+    },
+    {
+        "model-name": "CsTpoBitacora",
+        "resource-file": "cs_tpo_bitacoras.json",
+        "table-name": "cs_tpo_bitacoras"
+    },
+    {
+        "model-name": "CsTpoInconformidade",
+        "resource-file": "cs_tpo_inconformidades.json",
+        "table-name": "cs_tpo_inconformidades"
+    },
+    {
+        "model-name": "AaProceso",
+        "resource-file": "aa_procesos.json",
+        "table-name": "aa_procesos"
+    },
+    {
+        "model-name": "AaAspecto",
+        "resource-file": "aa_aspectos.json",
+        "table-name": "aa_aspectos"
+    },
+    {
+        "model-name": "AaImpacto",
+        "resource-file": "aa_impactos.json",
+        "table-name": "aa_impactos"
+    },
+    {
+        "model-name": "TpoDoc",
+        "resource-file": "tpo_docs.json",
+        "table-name": "tpo_docs"
+    },
+    {
+        "model-name": "RDocumento",
+        "resource-file": "r_documentos.json",
+        "table-name": "r_documentos"
+    },
+    {
+        "model-name": "Condicione",
+        "resource-file": "condiciones.json",
+        "table-name": "condiciones"
+    },
+    {
+        "model-name": "MObjetivo",
+        "resource-file": "m_objetivos.json",
+        "table-name": "m_objetivos"
+    },
+    {
+        "model-name": "MClaseManto",
+        "resource-file": "m_clase_mantos.json",
+        "table-name": "m_clase_mantos"
+    },
+    {
+        "model-name": "MTpoManto",
+        "resource-file": "m_tpo_mantos.json",
+        "table-name": "m_tpo_mantos"
+    },
+    {
+        "model-name": "Subequipo",
+        "resource-file": "subequipos.json",
+        "table-name": "subequipos"
+    },
+    {
+        "model-name": "TipoImpacto",
+        "resource-file": "tipo_impactos.json",
+        "table-name": "tipo_impactos"
+    },
+    {
+        "model-name": "EncImpacto",
+        "resource-file": "enc_impactos.json",
+        "table-name": "enc_impactos"
+    },
+    {
+        "model-name": "LnImpacto",
+        "resource-file": "ln_impactos.json",
+        "table-name": "ln_impactos"
+    },
+    {
+        "model-name": "StRegImpacto",
+        "resource-file": "st_reg_impactos.json",
+        "table-name": "st_reg_impactos"
+    },
+    {
+        "model-name": "LnCaracteristica",
+        "resource-file": "ln_caracteristicas.json",
+        "table-name": "ln_caracteristicas"
+    },
+    {
+        "model-name": "ImpPotencial",
+        "resource-file": "imp_potencials.json",
+        "table-name": "imp_potencials"
+    },
+    {
+        "model-name": "ImpReal",
+        "resource-file": "imp_reals.json",
+        "table-name": "imp_reals"
+    },
+    {
+        "model-name": "IntensidadImpacto",
+        "resource-file": "intensidad_impactos.json",
+        "table-name": "intensidad_impactos"
+    },
+    {
+        "model-name": "Impacto",
+        "resource-file": "impactos.json",
+        "table-name": "impactos"
+    },
+    {
+        "model-name": "Mitigacion",
+        "resource-file": "mitigacions.json",
+        "table-name": "mitigacions"
+    },
+    {
+        "model-name": "Probabilidad",
+        "resource-file": "probabilidads.json",
+        "table-name": "probabilidads"
+    },
+    {
+        "model-name": "Reversibilidad",
+        "resource-file": "reversibilidads.json",
+        "table-name": "reversibilidads"
+    },
+    {
+        "model-name": "ContinuidadEfecto",
+        "resource-file": "continuidad_efectos.json",
+        "table-name": "continuidad_efectos"
+    },
+    {
+        "model-name": "DuracionAccion",
+        "resource-file": "duracion_accions.json",
+        "table-name": "duracion_accions"
+    },
+    {
+        "model-name": "EmisionEfecto",
+        "resource-file": "emision_efectos.json",
+        "table-name": "emision_efectos"
+    },
+    {
+        "model-name": "ACheck",
+        "resource-file": "a_checks.json",
+        "table-name": "a_checks"
+    },
+    {
+        "model-name": "Check",
+        "resource-file": "checks.json",
+        "table-name": "checks"
+    },
+    {
+        "model-name": "CheckL",
+        "resource-file": "check_ls.json",
+        "table-name": "check_ls"
+    },
+    {
+        "model-name": "Cumplimiento",
+        "resource-file": "cumplimientos.json",
+        "table-name": "cumplimientos"
+    },
+    {
+        "model-name": "AspectosAmbientale",
+        "resource-file": "aspectos_ambientales.json",
+        "table-name": "aspectos_ambientales"
+    },
+    {
+        "model-name": "AaEme",
+        "resource-file": "aa_emes.json",
+        "table-name": "aa_emes"
+    },
+    {
+        "model-name": "AaCondicione",
+        "resource-file": "aa_condiciones.json",
+        "table-name": "aa_condiciones"
+    },
+    {
+        "model-name": "RevRequisito",
+        "resource-file": "rev_requisitos.json",
+        "table-name": "rev_requisitos"
+    },
+    {
+        "model-name": "Mese",
+        "resource-file": "mese.json",
+        "table-name": "mese"
+    },
+    {
+        "model-name": "Meses",
+        "resource-file": "meses.json",
+        "table-name": "meses"
+    },
+    {
+        "model-name": "RevRequisitosLn",
+        "resource-file": "rev_requisitos_lns.json",
+        "table-name": "rev_requisitos_lns"
+    },
+    {
+        "model-name": "EstatusCondicione",
+        "resource-file": "estatus_condiciones.json",
+        "table-name": "estatus_condiciones"
+    },
+    {
+        "model-name": "Importancium",
+        "resource-file": "importancia.json",
+        "table-name": "importancia"
+    },
+    {
+        "model-name": "RevDocumental",
+        "resource-file": "rev_documentals.json",
+        "table-name": "rev_documentals"
+    },
+    {
+        "model-name": "RevDocumentalLn",
+        "resource-file": "rev_documental_lns.json",
+        "table-name": "rev_documental_lns"
+    },
+    {
+        "model-name": "EstatusRequisito",
+        "resource-file": "estatus_requisitos.json",
+        "table-name": "estatus_requisitos"
+    },
+    {
+        "model-name": "MMantenimiento",
+        "resource-file": "m_mantenimientos.json",
+        "table-name": "m_mantenimientos"
+    },
+    {
+        "model-name": "MEstatus",
+        "resource-file": "m_estatuses.json",
+        "table-name": "m_estatuses"
+    },
+    {
+        "model-name": "AProcedimiento",
+        "resource-file": "a_procedimientos.json",
+        "table-name": "a_procedimientos"
+    },
+    {
+        "model-name": "AStArchivo",
+        "resource-file": "a_st_archivos.json",
+        "table-name": "a_st_archivos"
+    },
+    {
+        "model-name": "AArchivo",
+        "resource-file": "a_archivos.json",
+        "table-name": "a_archivos"
+    },
+    {
+        "model-name": "ARrAmbientale",
+        "resource-file": "a_rr_ambientales.json",
+        "table-name": "a_rr_ambientales"
+    },
+    {
+        "model-name": "ANoConformidade",
+        "resource-file": "a_no_conformidades.json",
+        "table-name": "a_no_conformidades"
+    },
+    {
+        "model-name": "CsTpoDeteccion",
+        "resource-file": "cs_tpo_deteccions.json",
+        "table-name": "cs_tpo_deteccions"
+    },
+    {
+        "model-name": "AStNc",
+        "resource-file": "a_st_ncs.json",
+        "table-name": "a_st_ncs"
+    },
+    {
+        "model-name": "BitacoraFf",
+        "resource-file": "bitacora_ffs.json",
+        "table-name": "bitacora_ffs"
+    },
+    {
+        "model-name": "Turno",
+        "resource-file": "turnos.json",
+        "table-name": "turnos"
+    },
+    {
+        "model-name": "BitacoraPlanta",
+        "resource-file": "bitacora_plantas.json",
+        "table-name": "bitacora_plantas"
+    },
+    {
+        "model-name": "BitacoraResiduo",
+        "resource-file": "bitacora_residuos.json",
+        "table-name": "bitacora_residuos"
+    },
+    {
+        "model-name": "BitacoraConsumible",
+        "resource-file": "bitacora_consumibles.json",
+        "table-name": "bitacora_consumibles"
+    },
+    {
+        "model-name": "BitacoraPendiente",
+        "resource-file": "bitacora_pendientes.json",
+        "table-name": "bitacora_pendientes"
+    },
+    {
+        "model-name": "BitSt",
+        "resource-file": "bit_sts.json",
+        "table-name": "bit_sts"
+    },
+    {
+        "model-name": "BitacoraAccidente",
+        "resource-file": "bitacora_accidentes.json",
+        "table-name": "bitacora_accidentes"
+    },
+    {
+        "model-name": "BitacoraEnfermedade",
+        "resource-file": "bitacora_enfermedades.json",
+        "table-name": "bitacora_enfermedades"
+    },
+    {
+        "model-name": "SProcedimiento",
+        "resource-file": "s_procedimientos.json",
+        "table-name": "s_procedimientos"
+    },
+    {
+        "model-name": "SEstatusProcedimiento",
+        "resource-file": "s_estatus_procedimientos.json",
+        "table-name": "s_estatus_procedimientos"
+    },
+    {
+        "model-name": "SRegistro",
+        "resource-file": "s_registros.json",
+        "table-name": "s_registros"
+    },
+    {
+        "model-name": "BitacoraSeguridad",
+        "resource-file": "bitacora_seguridads.json",
+        "table-name": "bitacora_seguridads"
+    },
+    {
+        "model-name": "SStB",
+        "resource-file": "s_st_bs.json",
+        "table-name": "s_st_bs"
+    },
+    {
+        "model-name": "SDocumento",
+        "resource-file": "s_documentos.json",
+        "table-name": "s_documentos"
+    },
+    {
+        "model-name": "FilesSDocumento",
+        "resource-file": "files_s_documentos.json",
+        "table-name": "files_s_documentos"
+    },
+    {
+        "model-name": "SComentariosDocumento",
+        "resource-file": "s_comentarios_documentos.json",
+        "table-name": "s_comentarios_documentos"
+    },
+    {
+        "model-name": "ComentariosB",
+        "resource-file": "comentarios_bs.json",
+        "table-name": "comentarios_bs"
+    },
+    {
+        "model-name": "SComentariosProcedimiento",
+        "resource-file": "s_comentarios_procedimientos.json",
+        "table-name": "s_comentarios_procedimientos"
+    },
+    {
+        "model-name": "SComentariosRegistro",
+        "resource-file": "s_comentarios_registros.json",
+        "table-name": "s_comentarios_registros"
+    },
+    {
+        "model-name": "FilesSProcedimiento",
+        "resource-file": "files_s_procedimientos.json",
+        "table-name": "files_s_procedimientos"
+    },
+    {
+        "model-name": "FilesSRegistro",
+        "resource-file": "files_s_registros.json",
+        "table-name": "files_s_registros"
+    },
+    {
+        "model-name": "AComentariosProcedimiento",
+        "resource-file": "a_comentarios_procedimientos.json",
+        "table-name": "a_comentarios_procedimientos"
+    },
+    {
+        "model-name": "FilesAProcedimiento",
+        "resource-file": "files_a_procedimientos.json",
+        "table-name": "files_a_procedimientos"
+    },
+    {
+        "model-name": "AComentariosArchivo",
+        "resource-file": "a_comentarios_archivos.json",
+        "table-name": "a_comentarios_archivos"
+    },
+    {
+        "model-name": "FilesAArchivo",
+        "resource-file": "files_a_archivos.json",
+        "table-name": "files_a_archivos"
+    },
+    {
+        "model-name": "FilesARrAmbientale",
+        "resource-file": "files_a_rr_ambientales.json",
+        "table-name": "files_a_rr_ambientales"
+    },
+    {
+        "model-name": "AComentariosRrs",
+        "resource-file": "a_comentarios_rrs.json",
+        "table-name": "a_comentarios_rrs"
+    },
+    {
+        "model-name": "FilesRevDocumentalLn",
+        "resource-file": "files_rev_documental_lns.json",
+        "table-name": "files_rev_documental_lns"
+    }
+]

@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'tipo_impacto' => 'Tipo Impacto',
+    'tipo_impacto__placeholder' => 'Capturar tipo impacto ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Tipo Impacto',
+    'delete' => 'Borrar Tipo Impacto',
+    'edit' => 'Editar Tipo Impacto',
+    'show' => 'Mostrar Tipo Impacto',
+    'show_all' => 'Mostrar Todos Tipo Impacto',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Tipo Impacto?',
+    'none_available' => 'No hay Tipo Impactos Disponibles!',
+    'model_plural' => 'Tipo Impactos',
+    'model_was_added' => 'Tipo Impacto fué agregado exitosamente!',
+    'model_was_updated' => 'Tipo Impacto fué actualizado exitosamente!',
+    'model_was_deleted' => 'Tipo Impacto fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

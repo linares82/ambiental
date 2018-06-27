@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'enfermedad' => 'Enfermedad',
+    'enfermedad__placeholder' => 'Capturar enfermedad ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Cs Enfermedade',
+    'delete' => 'Borrar Cs Enfermedade',
+    'edit' => 'Editar Cs Enfermedade',
+    'show' => 'Mostrar Cs Enfermedade',
+    'show_all' => 'Mostrar Todos Cs Enfermedade',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Cs Enfermedade?',
+    'none_available' => 'No hay Cs Enfermedades Disponibles!',
+    'model_plural' => 'Cs Enfermedades',
+    'model_was_added' => 'Cs Enfermedade fué agregado exitosamente!',
+    'model_was_updated' => 'Cs Enfermedade fué actualizado exitosamente!',
+    'model_was_deleted' => 'Cs Enfermedade fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

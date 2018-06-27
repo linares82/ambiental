@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'grupo_norma' => 'Grupo Norma',
+    'grupo_norma__placeholder' => 'Capturar grupo norma ...',
+    'usu_alta_id' => 'Usu Alta',
+    'usu_alta_id__placeholder' => 'Seleccionar usu alta',
+    'usu_mod_id' => 'Usu Mod',
+    'usu_mod_id__placeholder' => 'Seleccionar usu mod',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Cs Grupo Norma',
+    'delete' => 'Borrar Cs Grupo Norma',
+    'edit' => 'Editar Cs Grupo Norma',
+    'show' => 'Mostrar Cs Grupo Norma',
+    'show_all' => 'Mostrar Todos Cs Grupo Norma',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Cs Grupo Norma?',
+    'none_available' => 'No hay Cs Grupo Normas Disponibles!',
+    'model_plural' => 'Cs Grupo Normas',
+    'model_was_added' => 'Cs Grupo Norma fué agregado exitosamente!',
+    'model_was_updated' => 'Cs Grupo Norma fué actualizado exitosamente!',
+    'model_was_deleted' => 'Cs Grupo Norma fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];
