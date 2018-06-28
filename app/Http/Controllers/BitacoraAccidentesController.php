@@ -75,6 +75,8 @@ class BitacoraAccidentesController extends Controller
 	    $data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
             $data['entity_id']=Auth::user()->entity_id;
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             BitacoraAccidente::create($data);
 
             return redirect()->route('bitacora_accidentes.bitacora_accidente.index')
@@ -138,7 +140,8 @@ class BitacoraAccidentesController extends Controller
             
             $bitacoraAccidente = BitacoraAccidente::findOrFail($id);
 			$data['usu_mod_id']=Auth::user()->id;
-            
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             $bitacoraAccidente->update($data);
 
             return redirect()->route('bitacora_accidentes.bitacora_accidente.index')

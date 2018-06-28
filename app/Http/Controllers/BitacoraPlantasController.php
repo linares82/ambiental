@@ -70,6 +70,8 @@ $users = User::pluck('name','id')->all();
             
 			$data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             BitacoraPlanta::create($data);
 
             return redirect()->route('bitacora_plantas.bitacora_planta.index')
@@ -131,7 +133,8 @@ $users = User::pluck('name','id')->all();
             
             $bitacoraPlanta = BitacoraPlanta::findOrFail($id);
 			$data['usu_mod_id']=Auth::user()->id;
-            
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             $bitacoraPlanta->update($data);
 
             return redirect()->route('bitacora_plantas.bitacora_planta.index')

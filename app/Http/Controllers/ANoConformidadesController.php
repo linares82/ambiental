@@ -78,6 +78,8 @@ class ANoConformidadesController extends Controller
             $data['usu_alta_id']=Auth::user()->id;
             $data['entity_id']=Auth::user()->entity_id;
             $data['estatus_id']=1;
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             ANoConformidade::create($data);
 
             return redirect()->route('a_no_conformidades.a_no_conformidade.index')
@@ -139,7 +141,8 @@ class ANoConformidadesController extends Controller
         try {
             
             $data = $request->getData();
-            
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             $aNoConformidade = ANoConformidade::findOrFail($id);
 			$data['usu_mod_id']=Auth::user()->id;
             
@@ -149,7 +152,7 @@ class ANoConformidadesController extends Controller
                              ->with('success_message', trans('a_no_conformidades.model_was_updated'));
 
         } catch (Exception $exception) {
-
+            Log::info($exception);
             return back()->withInput()
                          ->withErrors(['unexpected_error' => trans('a_no_conformidades.unexpected_error')]);
         }        

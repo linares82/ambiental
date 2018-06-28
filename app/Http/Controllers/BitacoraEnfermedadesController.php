@@ -75,6 +75,8 @@ class BitacoraEnfermedadesController extends Controller
             $data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
             $data['entity_id']=Auth::user()->entity_id;
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             BitacoraEnfermedade::create($data);
 
             return redirect()->route('bitacora_enfermedades.bitacora_enfermedade.index')
@@ -138,7 +140,8 @@ class BitacoraEnfermedadesController extends Controller
             
             $bitacoraEnfermedade = BitacoraEnfermedade::findOrFail($id);
 			$data['usu_mod_id']=Auth::user()->id;
-            
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             $bitacoraEnfermedade->update($data);
 
             return redirect()->route('bitacora_enfermedades.bitacora_enfermedade.index')

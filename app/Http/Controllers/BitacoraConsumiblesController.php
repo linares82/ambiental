@@ -67,6 +67,8 @@ $users = User::pluck('name','id')->all();
             $data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
             $data['entity_id']=Auth::user()->entity_id;
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             BitacoraConsumible::create($data);
 
             return redirect()->route('bitacora_consumibles.bitacora_consumible.index')
@@ -126,7 +128,8 @@ $users = User::pluck('name','id')->all();
             
             $bitacoraConsumible = BitacoraConsumible::findOrFail($id);
 			$data['usu_mod_id']=Auth::user()->id;
-            
+            $data['anio']=date('Y', strtotime($request->get('fecha')));;
+            $data['mes']=date('m', strtotime($request->get('fecha')));
             $bitacoraConsumible->update($data);
 
             return redirect()->route('bitacora_consumibles.bitacora_consumible.index')
