@@ -30,7 +30,7 @@ class UsersFormRequest extends FormRequest
             'password' => 'confirmed',
             'remember_token' => 'nullable|string|min:0|max:100',
             'multi_entidad' => 'boolean',
-            'entity_id' => 'required'
+//            'entity_id' => 'required'
         ];
 
         return $rules;

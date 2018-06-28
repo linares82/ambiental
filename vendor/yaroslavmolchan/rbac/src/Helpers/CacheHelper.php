@@ -10,10 +10,14 @@ class CacheHelper {
      */
     static function get($role) {
         $key = $role->getCacheKey();
-        if (true === \Cache::has($key)) {
+        $key = $role->getCacheKey();
+//        if (true === \Cache::has($key)) {
             $permissions = $role->permissions()->pluck('slug')->toArray();
-            \Cache::forever($key, $permissions);
-        }
+        if(count($permissions)>0){
+		\Cache::forever($key, $permissions);
+	}  
+	  
+        //}
 
         return \Cache::get($key);
     }

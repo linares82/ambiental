@@ -10,6 +10,7 @@ use App\Http\Requests\UsersFormRequest;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -61,6 +62,9 @@ class UsersController extends Controller
         try {
             
             $data = $request->getData();
+            if(!isset($data['entity_id'])){
+                $data['entity_id']=Auth::user()->id;
+            }
             if(isset($data['password'])){
                 $data['password']=Hash::make($data['password']);
             }
@@ -139,6 +143,9 @@ class UsersController extends Controller
             //dd($data);
             
             $user = User::findOrFail($id);
+            if(!isset($data['entity_id'])){
+                $data['entity_id']=Auth::user()->id;
+            }
             //dd($data);
             $user->update($data);
 
