@@ -26,17 +26,31 @@ class MatrizsController extends Controller
     public function index(Request $request)
     {
 		$input=$request->all();
+                //dd($input);
 		$r=Matriz::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['tipo_impacto_id']) and $input['tipo_impacto_id']<>0){
+			$r->where('tipo_impacto_id', '=', $input['tipo_impacto_id']);
+		}
+                if(isset($input['factor_id']) and $input['factor_id']<>0){
+			$r->where('factor_id', '=', $input['factor_id']);
+		}
+		if(isset($input['rubro_id']) and $input['rubro_id']<>0){
+			$r->where('rubro_id', '=', $input['rubro_id']);
+		}
+                if(isset($input['especifico_id']) and $input['especifico_id']<>0){
+			$r->where('especifico_id', '=', $input['especifico_id']);
+		}
+                $tipoImpactos = TipoImpacto::pluck('tipo_impacto','id')->all();
+                $factors = Factor::pluck('factor','id')->all();
+                $rubros = Rubro::pluck('rubro','id')->all();
+                $especificos = Especifico::pluck('especifico','id')->all();
 		$matrizs = $r->with('tipoimpacto','factor','rubro','especifico','user')->paginate(25);
 		//$matrizs = Matriz::with('tipoimpacto','factor','rubro','especifico','user')->paginate(25);
 
-        return view('matrizs.index', compact('matrizs'));
+        return view('matrizs.index', compact('matrizs','tipoImpactos','factors','rubros','especificos'));
     }
 
     /**

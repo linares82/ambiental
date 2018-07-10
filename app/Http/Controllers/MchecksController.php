@@ -24,17 +24,26 @@ class MchecksController extends Controller
     public function index(Request $request)
     {
 		$input=$request->all();
+                
 		$r=Mcheck::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['a_chequeo']) and $input['a_chequeo']<>0){
+			$r->where('a_chequeo', '=', $input['a_chequeo']);
+		}
+                if(isset($input['norma_id']) and $input['norma_id']<>0){
+			$r->where('norma_id', '=', $input['norma_id']);
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                
 		$mchecks = $r->with('acheck','norma')->paginate(25);
 		//$mchecks = Mcheck::with('acheck','norma')->paginate(25);
-
-        return view('mchecks.index', compact('mchecks'));
+                $achecks = Acheck::pluck('area','id')->all();
+                $normas = Norma::pluck('norma','id')->all();
+        return view('mchecks.index', compact('mchecks','achecks','normas'));
     }
 
     /**

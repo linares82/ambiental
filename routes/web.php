@@ -6016,13 +6016,13 @@ Route::group(
         'as'=>'consultas.consulta.getFuentefija'
     ])->middleware('auth');
     
-    Route::get('/postFuenteFija', [
+    Route::post('/postFuenteFija', [
         'uses'=>'ConsultasController@postFuentefija',
         'middleware'=>'permission:consultas.consulta.getFuentefija',
         'as'=>'consultas.consulta.postFuentefija'
     ])->middleware('auth');
 
-    Route::post('/getPlanta',[
+    Route::get('/getPlanta',[
         'uses'=>'ConsultasController@getPlanta',
         'middleware'=> 'permission:consultas.consulta.getPlanta',
         'as'=>'consultas.consulta.getPlanta'
@@ -6040,7 +6040,7 @@ Route::group(
         'as'=>'consultas.consulta.getResiduo'
     ])->middleware('auth')->where('id', '[0-9]+');
 
-    Route::get('/postResiduo',[
+    Route::post('/postResiduo',[
         'uses'=>'ConsultasController@postResiduo',
         'middleware'=>'permission:consultas.consulta.getResiduo',
         'as'=>'consultas.consulta.postResiduo'
@@ -6052,7 +6052,7 @@ Route::group(
         'as'=>'consultas.consulta.getConsumible'
     ])->middleware('auth')->where('id', '[0-9]+');
     
-    Route::get('/postConsumible',[
+    Route::post('/postConsumible',[
         'uses'=>'ConsultasController@postConsumible',
         'middleware'=>'permission:consultas.consulta.getConsumible',
         'as'=>'consultas.consulta.postConsumible'
@@ -6064,7 +6064,7 @@ Route::group(
         'as'=>'consultas.consulta.getNoConformidades'
     ])->middleware('auth');
     
-    Route::get('/postNoConformidades', [
+    Route::post('/postNoConformidades', [
         'uses'=>'ConsultasController@postNoConformidades',
         'middleware'=>'permission:consultas.consulta.getNoConformidades',
         'as'=>'consultas.consulta.postNoConformidades'
@@ -6076,7 +6076,7 @@ Route::group(
         'as'=>'consultas.consulta.getAccidentes'
     ])->middleware('auth');
     
-    Route::get('/postAccidentes', [
+    Route::post('/postAccidentes', [
         'uses'=>'ConsultasController@postAccidentes',
         'middleware'=>'permission:consultas.consulta.getAccidentes',
         'as'=>'consultas.consulta.postAccidentes'
@@ -6088,7 +6088,7 @@ Route::group(
         'as'=>'consultas.consulta.getEnfermedades'
     ])->middleware('auth');
     
-    Route::get('/postEnfermedades', [
+    Route::post('/postEnfermedades', [
         'uses'=>'ConsultasController@postEnfermedades',
         'middleware'=>'permission:consultas.consulta.getEnfermedades',
         'as'=>'consultas.consulta.postEnfermedades'

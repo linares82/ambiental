@@ -23,8 +23,11 @@ class FactorsController extends Controller
     {
 		$input=$request->all();
 		$r=Factor::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['factor']) and $input['factor']<>null){
+			$r->where('factor', 'like', '%'.$input['factor'].'%');
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');

@@ -69,6 +69,54 @@
                         <label for="id" class="control-label">Id</label>
                         <input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
                     </div>
+                    <div class="form-group col-md-4 {{ $errors->has('cliente_id') ? 'has-error' : '' }}">
+                        <label for="cliente_id" class="control-label">{{ trans('enc_impactos.cliente_id') }}</label>
+                        <!--<div class="col-md-10">-->
+                            <select class="form-control chosen" id="cliente_id" name="cliente_id">
+                                        <option value="" style="display: none;" {{ old('cliente_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('enc_impactos.cliente_id__placeholder') }}</option>
+                                    @foreach ($clientes as $key => $cliente)
+                                                <option value="{{ $key }}" {{ old('cliente_id') == $key ? 'selected' : '' }}>
+                                                    {{ $cliente }}
+                                                </option>
+                                            @endforeach
+                            </select>
+
+                            {!! $errors->first('cliente_id', '<p class="help-block">:message</p>') !!}
+                        <!--</div>-->
+                    </div>
+
+
+                    <div class="form-group col-md-4 {{ $errors->has('tipo_impacto_id') ? 'has-error' : '' }}">
+                        <label for="tipo_impacto_id" class="control-label">{{ trans('enc_impactos.tipo_impacto_id') }}</label>
+                        <!--<div class="col-md-10">-->
+                            <select class="form-control chosen" id="tipo_impacto_id" name="tipo_impacto_id">
+                                        <option value="" style="display: none;" {{ old('tipo_impacto_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('enc_impactos.tipo_impacto_id__placeholder') }}</option>
+                                    @foreach ($tipoImpactos as $key => $tipoImpacto)
+                                                <option value="{{ $key }}" {{ old('tipo_impacto_id') == $key ? 'selected' : '' }}>
+                                                    {{ $tipoImpacto }}
+                                                </option>
+                                            @endforeach
+                            </select>
+
+                            {!! $errors->first('tipo_impacto_id', '<p class="help-block">:message</p>') !!}
+                        <!--</div>-->
+                    </div>
+
+                    <div class="form-group col-md-4 {{ $errors->has('fecha_inicio') ? 'has-error' : '' }}" style="clear:left;">
+                        <label for="fecha_inicio" class="control-label">{{ trans('enc_impactos.fecha_inicio') }}</label>
+                        <!--<div class="col-md-10">-->
+                            <input class="form-control input-sm date-picker" name="fecha_inicio" type="text" id="fecha_inicio" value="{{ old('fecha_inicio') }}" placeholder="{{ trans('enc_impactos.fecha_inicio__placeholder') }}">
+                            {!! $errors->first('fecha_inicio', '<p class="help-block">:message</p>') !!}
+                        <!--</div>-->
+                    </div>
+
+                    <div class="form-group col-md-4 {{ $errors->has('fecha_fin') ? 'has-error' : '' }}">
+                        <label for="fecha_fin" class="control-label">{{ trans('enc_impactos.fecha_fin') }}</label>
+                        <!--<div class="col-md-10">-->
+                            <input class="form-control input-sm date-picker" name="fecha_fin" type="text" id="fecha_fin" value="{{ old('fecha_fin') }}" placeholder="{{ trans('enc_impactos.fecha_fin__placeholder') }}">
+                            {!! $errors->first('fecha_fin', '<p class="help-block">:message</p>') !!}
+                        <!--</div>-->
+                    </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -159,7 +207,16 @@
 
 @push('scripts')
 <script>
-  
+
+$('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+    })
+    //show datepicker when clicking on the icon
+    .next().on(ace.click_event, function(){
+            $(this).prev().focus();
+    });
+
 $('.show-details-btn').on('click', function(e) {
         e.preventDefault();
         $(this).closest('tr').next().toggleClass('open');

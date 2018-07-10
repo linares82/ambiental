@@ -69,6 +69,28 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('procedimiento_id') ? 'has-error' : '' }}">
+                                                    <label for="procedimiento_id" class="control-label">{{ trans('a_procedimientos.procedimiento_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="procedimiento_id" name="procedimiento_id">
+                                                                    <option value="" style="display: none;" {{ old('procedimiento_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('a_procedimientos.procedimiento_id__placeholder') }}</option>
+                                                                @foreach ($caProcedimientos as $key => $caProcedimiento)
+                                                                            <option value="{{ $key }}" {{ old('procedimiento_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $caProcedimiento }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('procedimiento_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('fec_fin_vigencia') ? 'has-error' : '' }}">
+                                                    <label for="fec_fin_vigencia" class="control-label">{{ trans('a_procedimientos.fec_fin_vigencia') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fec_fin_vigencia" type="text" id="fec_fin_vigencia" value="{{ old('fec_fin_vigencia') }}" placeholder="{{ trans('a_procedimientos.fec_fin_vigencia__placeholder') }}">
+                                                        {!! $errors->first('fec_fin_vigencia', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +104,7 @@
                 <table class="table table-striped table-bordered table-hover tblEnc" id="postTable">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('a_procedimientos.procedimiento_id') }}</th>
                             <th>{{ trans('a_procedimientos.descripcion') }}</th>
                             <th>{{ trans('a_procedimientos.archivo') }}</th>
@@ -97,6 +120,7 @@
                         $dias = \Carbon\Carbon::now()->diffInDays($aProcedimiento->fec_fin_vigencia);
                         ?>
                         <tr>
+                            <td>{{ $aProcedimiento->id }}</td>
                             <td>{{ optional($aProcedimiento->caProcedimiento)->procedimiento }}</td>
                             <td>{{ $aProcedimiento->descripcion }}</td>
                             <td>

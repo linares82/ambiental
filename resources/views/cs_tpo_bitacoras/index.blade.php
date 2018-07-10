@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_bitacora') ? 'has-error' : '' }}">
+                                                    <label for="tpo_bitacora" class="control-label">{{ trans('cs_tpo_bitacoras.tpo_bitacora') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="tpo_bitacora" type="text" id="tpo_bitacora" value="{{ old('tpo_bitacora') }}" minlength="1" maxlength="255" placeholder="{{ trans('cs_tpo_bitacoras.tpo_bitacora__placeholder') }}">
+                                                        {!! $errors->first('tpo_bitacora', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('cs_tpo_bitacoras.tpo_bitacora') }}</th>
                             
                             <th></th>
@@ -90,6 +98,7 @@
                     <tbody>
                     @foreach($csTpoBitacoras as $csTpoBitacora)
                         <tr>
+                            <td>{{ $csTpoBitacora->id }}</td>
                             <td>{{ $csTpoBitacora->tpo_bitacora }}</td>
                             
                             <td>

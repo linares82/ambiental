@@ -30,17 +30,29 @@ class ARrAmbientalesController extends Controller
     {
 		$input=$request->all();
 		$r=ARrAmbientale::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['material_id']) and $input['material_id']<>null){
+			$r->where('material_id', '=', $input['material_id']);
+		}
+                if(isset($input['categoria_id']) and $input['categoria_id']<>null){
+			$r->where('categoria_id', '=', $input['categoria_id']);
+		}
+                if(isset($input['documento_id']) and $input['documento_id']<>null){
+			$r->where('documento_id', '=', $input['documento_id']);
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
                 $aStRrs = AStArchivo::pluck('estatus','id')->all();
+                $caMaterials = CaMaterial::pluck('material','id')->all();
+                $caCategorias = CaCategoria::pluck('categoria','id')->all();
+                $caAaDocs = CaAaDoc::pluck('doc','id')->all();
 		$aRrAmbientales = $r->with('camaterial','cacategoria','caaadoc','bnd','empleado','astarchivo','entity','user')->paginate(25);
 		//$aRrAmbientales = ARrAmbientale::with('camaterial','cacategoria','caaadoc','bnd','empleado','astarchivo','entity','user')->paginate(25);
 
-        return view('a_rr_ambientales.index', compact('aRrAmbientales','aStRrs'));
+        return view('a_rr_ambientales.index', compact('aRrAmbientales','aStRrs','caMaterials','caCategorias','caAaDocs'));
     }
 
     /**

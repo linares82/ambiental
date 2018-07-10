@@ -28,17 +28,27 @@ class AArchivosController extends Controller
     {
 		$input=$request->all();
 		$r=AArchivo::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['documento_id']) and $input['documento_id']<>null){
+			$r->where('documento_id', '=', $input['documento_id']);
+		}
+                if(isset($input['fec_ini_vigencia']) and $input['fec_ini_vigencia']<>null){
+			$r->where('fec_ini_vigencia', '=', date_format(date_create($input['fec_ini_vigencia']),'Y/m/d'));
+		}
+                if(isset($input['fec_fin_vigencia']) and $input['fec_fin_vigencia']<>null){
+			$r->where('fec_fin_vigencia', '=', date_format(date_create($input['fec_fin_vigencia']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
                 $aStArchivos = AStArchivo::pluck('estatus','id')->all();
+                $caCaDocs = CaCaDoc::pluck('doc','id')->all();
 		$aArchivos = $r->with('cacadoc','bnd','empleado','astarchivo','entity','user')->paginate(25);
 		//$aArchivos = AArchivo::with('cacadoc','bnd','empleado','astarchivo','entity','user')->paginate(25);
 
-        return view('a_archivos.index', compact('aArchivos','aStArchivos'));
+        return view('a_archivos.index', compact('aArchivos','aStArchivos','caCaDocs'));
     }
 
     /**

@@ -69,6 +69,29 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('ca_material_id') ? 'has-error' : '' }}">
+                                                    <label for="ca_material_id" class="control-label">{{ trans('ca_categorias.ca_material_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="ca_material_id" name="ca_material_id">
+                                                                    <option value="" style="display: none;" {{ old('ca_material_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('ca_categorias.ca_material_id__placeholder') }}</option>
+                                                                @foreach ($caMaterials as $key => $caMaterial)
+                                                                            <option value="{{ $key }}" {{ old('ca_material_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $caMaterial }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('ca_material_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('categoria') ? 'has-error' : '' }}">
+                                                    <label for="categoria" class="control-label">{{ trans('ca_categorias.categoria') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="categoria" type="text" id="categoria" value="{{ old('categoria') }}" minlength="1" maxlength="255" placeholder="{{ trans('ca_categorias.categoria__placeholder') }}">
+                                                        {!! $errors->first('categoria', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +105,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('ca_categorias.ca_material_id') }}</th>
                             <th>{{ trans('ca_categorias.categoria') }}</th>
                    
@@ -91,6 +115,7 @@
                     <tbody>
                     @foreach($caCategorias as $caCategoria)
                         <tr>
+                            <td>{{ $caCategoria->id }}</td>
                             <td>{{ optional($caCategoria->caMaterial)->material }}</td>
                             <td>{{ $caCategoria->categoria }}</td>
                    

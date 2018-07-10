@@ -29,8 +29,14 @@ class AProcedimientosController extends Controller
 		$input=$request->all();
 		$r=AProcedimiento::where('id', '<>', '0');
                 
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['procedimiento_id']) and $input['procedimiento_id']<>null){
+			$r->where('procedimiento_id', '=', $input['procedimiento_id']);
+		}
+                if(isset($input['fec_fin_vigencia']) and $input['fec_fin_vigencia']<>null){
+			$r->where('fec_fin_vigencia', '=', date_format(date_create($input['fec_fin_vigencia']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
@@ -38,8 +44,8 @@ class AProcedimientosController extends Controller
 		$aProcedimientos = $r->with('caprocedimiento','bnd','empleado','astarchivo','entity','user')->paginate(25);
 		//$aProcedimientos = AProcedimiento::with('caprocedimiento','bnd','empleado','astarchivo','entity','user')->paginate(25);
                 $aStArchivos = AStArchivo::pluck('estatus','id')->all();
-                
-        return view('a_procedimientos.index', compact('aProcedimientos','aStArchivos'));
+                $caProcedimientos = CaProcedimiento::pluck('procedimiento','id')->all();
+        return view('a_procedimientos.index', compact('aProcedimientos','aStArchivos','caProcedimientos'));
     }
 
     /**

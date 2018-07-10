@@ -69,6 +69,29 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('consumible_id') ? 'has-error' : '' }}">
+                                                    <label for="consumible_id" class="control-label">{{ trans('bitacora_consumibles.consumible_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="consumible_id" name="consumible_id">
+                                                                    <option value="" style="display: none;" {{ old('consumible_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('bitacora_consumibles.consumible_id__placeholder') }}</option>
+                                                                @foreach ($caConsumibles as $key => $caConsumible)
+                                                                            <option value="{{ $key }}" {{ old('consumible_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $caConsumible }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('consumible_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('fecha') ? 'has-error' : '' }}">
+                                                    <label for="fecha" class="control-label">{{ trans('bitacora_consumibles.fecha') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fecha" type="text" id="fecha" value="{{ old('fecha') }}" placeholder="{{ trans('bitacora_consumibles.fecha__placeholder') }}">
+                                                        {!! $errors->first('fecha', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +105,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('bitacora_consumibles.consumible_id') }}</th>
                             <th>{{ trans('bitacora_consumibles.consumo') }}</th>
                             <th>{{ trans('bitacora_consumibles.fecha') }}</th>
@@ -96,6 +120,7 @@
                         $dias = \Carbon\Carbon::now()->diffInDays($bitacoraConsumible->fecha);
                         ?>
                         <tr>
+                            <td>{{ $bitacoraConsumible->id }}</td>
                             <td>{{ optional($bitacoraConsumible->caConsumible)->consumible }}</td>
                             <td>{{ $bitacoraConsumible->consumo }}</td>
                             <td>{{ $bitacoraConsumible->fecha }}</td>

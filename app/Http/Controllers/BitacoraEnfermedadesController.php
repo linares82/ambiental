@@ -29,16 +29,27 @@ class BitacoraEnfermedadesController extends Controller
     {
 		$input=$request->all();
 		$r=BitacoraEnfermedade::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['area_id']) and $input['area_id']<>null){
+			$r->where('area_id', '=', $input['area_id']);
+		}
+                if(isset($input['enfermedad_id']) and $input['enfermedad_id']<>null){
+			$r->where('enfermedad_id', '=', $input['enfermedad_id']);
+		}
+                if(isset($input['fecha']) and $input['fecha']<>null){
+			$r->where('fecha', '=', date_format(date_create($input['fecha']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $areas = Area::pluck('area','id')->all();
+                $csEnfermedades = CsEnfermedade::pluck('enfermedad','id')->all();
 		$bitacoraEnfermedades = $r->with('area','empleado','csenfermedade','csaccione','turno','entity','user')->paginate(25);
 		//$bitacoraEnfermedades = BitacoraEnfermedade::with('area','empleado','csenfermedade','csaccione','turno','entity','user')->paginate(25);
 
-        return view('bitacora_enfermedades.index', compact('bitacoraEnfermedades'));
+        return view('bitacora_enfermedades.index', compact('bitacoraEnfermedades','areas','csEnfermedades'));
     }
 
     /**

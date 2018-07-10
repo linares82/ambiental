@@ -25,16 +25,24 @@ class CsElementosInspeccionsController extends Controller
     {
 		$input=$request->all();
 		$r=CsElementosInspeccion::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['grupo_norma_id']) and $input['grupo_norma_id']<>null){
+			$r->where('grupo_norma_id', '=', $input['grupo_norma_id']);
+		}
+                if(isset($input['norma_id']) and $input['norma_id']<>null){
+			$r->where('norma_id', '=', $input['norma_id']);
+		}
+		if(isset($input['elemento']) and $input['elemento']<>""){
+			$r->where('elemento', 'like', '%'.$input['elemento'].'%');
+		}
+                $csGrupoNormas = CsGrupoNorma::pluck('grupo_norma','id')->all();
+                $csNormas = CsNorma::pluck('norma','id')->all();
 		$csElementosInspeccions = $r->with('csgruponorma','csnorma','user')->paginate(25);
 		//$csElementosInspeccions = CsElementosInspeccion::with('csgruponorma','csnorma','user')->paginate(25);
 
-        return view('cs_elementos_inspeccions.index', compact('csElementosInspeccions'));
+        return view('cs_elementos_inspeccions.index', compact('csElementosInspeccions','csGrupoNormas','csNormas'));
     }
 
     /**

@@ -27,16 +27,23 @@ class BitacoraResiduosController extends Controller
     {
 		$input=$request->all();
 		$r=BitacoraResiduo::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['residuo']) and $input['residuo']<>null){
+			$r->where('residuo', '=', $input['residuo']);
+		}
+                if(isset($input['fecha']) and $input['fecha']<>null){
+			$r->where('fecha', '=', date_format(date_create($input['fecha']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $caResiduos = CaResiduo::pluck('residuo','id')->all();
 		$bitacoraResiduos = $r->with('caresiduo','bnd','empleado','entity','user')->paginate(25);
 		//$bitacoraResiduos = BitacoraResiduo::with('caresiduo','bnd','empleado','entity','user')->paginate(25);
 
-        return view('bitacora_residuos.index', compact('bitacoraResiduos'));
+        return view('bitacora_residuos.index', compact('bitacoraResiduos','caResiduos'));
     }
 
     /**

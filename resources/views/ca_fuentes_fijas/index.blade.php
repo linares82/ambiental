@@ -69,6 +69,21 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('planta') ? 'has-error' : '' }}">
+                                                    <label for="planta" class="control-label">{{ trans('ca_fuentes_fijas.planta') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="planta" type="text" id="planta" value="{{ old('planta') }}" minlength="1" maxlength="255" placeholder="{{ trans('ca_fuentes_fijas.planta__placeholder') }}">
+                                                        {!! $errors->first('planta', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('marca') ? 'has-error' : '' }}">
+                                                    <label for="marca" class="control-label">{{ trans('ca_fuentes_fijas.marca') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="marca" type="text" id="marca" value="{{ old('marca') }}" minlength="1" maxlength="255" placeholder="{{ trans('ca_fuentes_fijas.marca__placeholder') }}">
+                                                        {!! $errors->first('marca', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +97,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('ca_fuentes_fijas.planta') }}</th>
                             <th>{{ trans('ca_fuentes_fijas.marca') }}</th>
                             
@@ -91,6 +107,7 @@
                     <tbody>
                     @foreach($caFuentesFijas as $caFuentesFija)
                         <tr>
+                            <td>{{ $caFuentesFija->id }}</td>
                             <td>{{ $caFuentesFija->planta }}</td>
                             <td>{{ $caFuentesFija->marca }}</td>
                             

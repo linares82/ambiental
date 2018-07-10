@@ -22,9 +22,13 @@ class PuestosController extends Controller
     public function index(Request $request)
     {
 		$input=$request->all();
+                
 		$r=Puesto::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['puesto']) and $input['puesto']<>null){
+			$r->where('puesto', 'like', '%'.$input['puesto'].'%');
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');

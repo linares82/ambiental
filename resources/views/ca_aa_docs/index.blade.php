@@ -69,6 +69,45 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('material_id') ? 'has-error' : '' }}">
+                                                    <label for="material_id" class="control-label">{{ trans('ca_aa_docs.material_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="material_id" name="material_id">
+                                                                    <option value="" style="display: none;" {{ old('material_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('ca_aa_docs.material_id__placeholder') }}</option>
+                                                                @foreach ($caMaterials as $key => $caMaterial)
+                                                                            <option value="{{ $key }}" {{ old('material_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $caMaterial }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('material_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('categoria_id') ? 'has-error' : '' }}">
+                                                    <label for="categoria_id" class="control-label">{{ trans('ca_aa_docs.categoria_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="categoria_id" name="categoria_id">
+                                                                    <option value="" style="display: none;" {{ old('categoria_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('ca_aa_docs.categoria_id__placeholder') }}</option>
+                                                                @foreach ($caCategorias as $key => $caCategorium)
+                                                                            <option value="{{ $key }}" {{ old('categoria_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $caCategorium }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('categoria_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('doc') ? 'has-error' : '' }}">
+                                                    <label for="doc" class="control-label">{{ trans('ca_aa_docs.doc') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="doc" type="text" id="doc" value="{{ old('doc') }}" minlength="1" maxlength="255" placeholder="{{ trans('ca_aa_docs.doc__placeholder') }}">
+                                                        {!! $errors->first('doc', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +121,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('ca_aa_docs.material_id') }}</th>
                             <th>{{ trans('ca_aa_docs.categoria_id') }}</th>
                             <th>{{ trans('ca_aa_docs.doc') }}</th>
@@ -92,6 +132,7 @@
                     <tbody>
                     @foreach($caAaDocs as $caAaDoc)
                         <tr>
+                            <td>{{ $caAaDoc->id }}</td>
                             <td>{{ optional($caAaDoc->caMaterial)->material }}</td>
                             <td>{{ optional($caAaDoc->caCategoria)->categoria }}</td>
                             <td>{{ $caAaDoc->doc }}</td>

@@ -26,9 +26,9 @@ class CsEnfermedadesController extends Controller
 		if(isset($input['id']) and $input['id']<>0){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['enfermedad']) and $input['enfermedad']<>""){
+			$r->where('enfermedad', 'like', '%'.$input['enfermedad'].'%');
+		}
 		$csEnfermedades = $r->with('user')->paginate(25);
 		//$csEnfermedades = CsEnfermedade::with('user')->paginate(25);
 

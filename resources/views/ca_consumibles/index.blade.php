@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('consumible') ? 'has-error' : '' }}">
+                                                    <label for="consumible" class="control-label">{{ trans('ca_consumibles.consumible') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="consumible" type="text" id="consumible" value="{{ old('consumible') }}" minlength="1" maxlength="255" placeholder="{{ trans('ca_consumibles.consumible__placeholder') }}">
+                                                        {!! $errors->first('consumible', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('ca_consumibles.consumible') }}</th>
                             <th>{{ trans('ca_consumibles.unidad') }}</th>
 
@@ -91,6 +99,7 @@
                     <tbody>
                     @foreach($caConsumibles as $caConsumible)
                         <tr>
+                            <td>{{ $caConsumible->id }}</td>
                             <td>{{ $caConsumible->consumible }}</td>
                             <td>{{ $caConsumible->unidad }}</td>
 

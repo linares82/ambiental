@@ -69,6 +69,29 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('documento_id') ? 'has-error' : '' }}">
+                                                    <label for="documento_id" class="control-label">{{ trans('s_documentos.documento_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="documento_id" name="documento_id">
+                                                                    <option value="" style="display: none;" {{ old('documento_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('s_documentos.documento_id__placeholder') }}</option>
+                                                                @foreach ($csCatDocs as $key => $csCatDoc)
+                                                                            <option value="{{ $key }}" {{ old('documento_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csCatDoc }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('documento_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('fec_ini_vigencia') ? 'has-error' : '' }}">
+                                                    <label for="fec_ini_vigencia" class="control-label">{{ trans('s_documentos.fec_ini_vigencia') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fec_ini_vigencia" type="text" id="fec_ini_vigencia" value="{{ old('fec_ini_vigencia') }}" placeholder="{{ trans('s_documentos.fec_ini_vigencia__placeholder') }}">
+                                                        {!! $errors->first('fec_ini_vigencia', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +105,7 @@
                 <table class="table table-striped table-bordered table-hover tblEnc" id="postTable"> 
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('s_documentos.documento_id') }}</th>
                             <th>{{ trans('s_documentos.descripcion') }}</th>
                             <th>Archivos
@@ -105,7 +129,7 @@
                         @elseif($dias < $sDocumento->dias_aviso)
                             <tr class='table-success'>
                         @endif
-                        
+                            <td scope='row'>{{$sDocumento->id }}</td>
                             <td scope='row'>{{ optional($sDocumento->csCatDoc)->cat_doc }}</td>
                             <td>{{ $sDocumento->descripcion }}</td>
                             <td>

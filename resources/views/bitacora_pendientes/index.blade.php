@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('fec_fin') ? 'has-error' : '' }}">
+                                                    <label for="fec_fin" class="control-label">{{ trans('bitacora_pendientes.fec_fin') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fec_fin" type="text" id="fec_fin" value="{{ old('fec_fin') }}" placeholder="{{ trans('bitacora_pendientes.fec_fin__placeholder') }}">
+                                                        {!! $errors->first('fec_fin', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('bitacora_pendientes.pendiente') }}</th>
                             <th>{{ trans('bitacora_pendientes.fec_fin') }}</th>
                             <th>{{ trans('bitacora_pendientes.bit_st_id') }}</th>
@@ -96,6 +104,7 @@
                         $dias = \Carbon\Carbon::now()->diffInDays($bitacoraPendiente->fec_fin);
                         ?>
                         <tr>
+                            <td>{{ $bitacoraPendiente->id }}</td>
                             <td>{{ $bitacoraPendiente->pendiente }}</td>
                             <td>{{ $bitacoraPendiente->fec_fin }}</td>
                             <td>{{ optional($bitacoraPendiente->bitSt)->estatus }}</td>

@@ -33,16 +33,29 @@ class BitacoraSeguridadsController extends Controller
 		$input=$request->all();
 		$r=BitacoraSeguridad::where('id', '<>', '0');
                 $sStBs = SStB::pluck('estatus','id')->all();
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['area_id']) and $input['area_id']<>null){
+			$r->where('area_id', '=', $input['area_id']);
+		}
+                if(isset($input['tpo_deteccion_id']) and $input['tpo_deteccion_id']<>null){
+			$r->where('tpo_deteccion_id', '=', $input['tpo_deteccion_id']);
+		}
+                if(isset($input['tpo_inconformidad_id']) and $input['tpo_inconformidad_id']<>null){
+			$r->where('tpo_inconformidad_id', '=', $input['tpo_inconformidad_id']);
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $csTpoDeteccions = CsTpoDeteccion::pluck('tpo_deteccion','id')->all();
+                $areas = Area::pluck('area','id')->all();
+                $csTpoBitacoras = CsTpoBitacora::pluck('tpo_bitacora','id')->all();
+                $csTpoInconformidades = CsTpoInconformidade::pluck('tpo_inconformidad','id')->all();
 		$bitacoraSeguridads = $r->with('cstpodeteccion','area','cstpobitacora','cstpoinconformidade','csgruponorma','csnorma','empleado','sstb','entity','user')->paginate(25);
 		//$bitacoraSeguridads = BitacoraSeguridad::with('cstpodeteccion','area','cstpobitacora','cstpoinconformidade','csgruponorma','csnorma','empleado','sstb','entity','user')->paginate(25);
 
-        return view('bitacora_seguridads.index', compact('bitacoraSeguridads','sStBs'));
+        return view('bitacora_seguridads.index', compact('bitacoraSeguridads','sStBs','areas','csTpoDeteccions','csTpoBitacoras','csTpoInconformidades'));
     }
 
     /**

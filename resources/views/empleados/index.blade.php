@@ -69,7 +69,14 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-md-4 {{ $errors->has('nombre') ? 'has-error' : '' }}">
+                                                    <label for="nombre" class="control-label">{{ trans('empleados.nombre') }}</label>
+
+                                                        <input class="form-control input-sm " name="nombre" type="text" id="nombre" value="{{ old('nombre') }}" minlength="1" maxlength="255" placeholder="{{ trans('empleados.nombre__placeholder') }}">
+                                                        {!! $errors->first('nombre', '<p class="help-block">:message</p>') !!}
+
+                                                </div>
+                                                <div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
 							</div>
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('empleados.ctrl_interno') }}</th>
                             <th>{{ trans('empleados.nombre') }}</th>
                             <th>{{ trans('empleados.mail') }}</th>
@@ -93,6 +101,7 @@
                     <tbody>
                     @foreach($empleados as $empleado)
                         <tr>
+                            <td>{{ $empleado->id }}</td>
                             <td>{{ $empleado->ctrl_interno }}</td>
                             <td>{{ $empleado->nombre }}</td>
                             <td>{{ $empleado->mail }}</td>

@@ -110,6 +110,7 @@ class UsersController extends Controller
             $rolesRelacionados=array_add($rolesRelacionados, $ur->id, $ur->name);
         }
         $entities=Entity::pluck('rzon_social', 'id');
+        //dd($user);
         return view('users.edit', compact('user', 'roles', 'rolesRelacionados','entities'));
     }
     

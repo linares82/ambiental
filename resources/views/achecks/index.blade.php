@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('area') ? 'has-error' : '' }}">
+                                                    <label for="area" class="control-label">{{ trans('achecks.area') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="area" type="text" id="area" value="{{ old('area') }}" minlength="1" maxlength="255" placeholder="{{ trans('achecks.area__placeholder') }}">
+                                                        {!! $errors->first('area', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('achecks.area') }}</th>
                             <th></th>
                         </tr>
@@ -89,6 +97,7 @@
                     <tbody>
                     @foreach($achecks as $acheck)
                         <tr>
+                            <td>{{ $acheck->id }}</td>
                             <td>{{ $acheck->area }}</td>
 
                             <td>

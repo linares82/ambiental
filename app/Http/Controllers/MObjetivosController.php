@@ -24,12 +24,12 @@ class MObjetivosController extends Controller
     {
 		$input=$request->all();
 		$r=MObjetivo::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['objetivo']) and $input['objetivo']<>null){
+			$r->where('objetivo', 'like', '%'.$input['objetivo'].'%');
+		}
 		$mObjetivos = $r->with('user','entity')->paginate(25);
 		//$mObjetivos = MObjetivo::with('user','entity')->paginate(25);
 

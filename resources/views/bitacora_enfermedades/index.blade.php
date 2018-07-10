@@ -69,6 +69,43 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('area_id') ? 'has-error' : '' }}">
+                                                    <label for="area_id" class="control-label">{{ trans('bitacora_enfermedades.area_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="area_id" name="area_id">
+                                                                    <option value="" style="display: none;" {{ old('area_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('bitacora_enfermedades.area_id__placeholder') }}</option>
+                                                                @foreach ($areas as $key => $area)
+                                                                            <option value="{{ $key }}" {{ old('area_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $area }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('area_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('enfermedad_id') ? 'has-error' : '' }}">
+                                                    <label for="enfermedad_id" class="control-label">{{ trans('bitacora_enfermedades.enfermedad_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="enfermedad_id" name="enfermedad_id">
+                                                                    <option value="" style="display: none;" {{ old('enfermedad_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('bitacora_enfermedades.enfermedad_id__placeholder') }}</option>
+                                                                @foreach ($csEnfermedades as $key => $csEnfermedade)
+                                                                            <option value="{{ $key }}" {{ old('enfermedad_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csEnfermedade }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('enfermedad_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('fecha') ? 'has-error' : '' }}">
+                                                    <label for="fecha" class="control-label">{{ trans('bitacora_enfermedades.fecha') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fecha" type="text" id="fecha" value="{{ old('fecha') }}" placeholder="{{ trans('bitacora_enfermedades.fecha__placeholder') }}">
+                                                        {!! $errors->first('fecha', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +119,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('bitacora_enfermedades.area_id') }}</th>
                             <th>{{ trans('bitacora_enfermedades.fecha') }}</th>
                             <th>{{ trans('bitacora_enfermedades.enfermedad_id') }}</th>
@@ -92,6 +130,7 @@
                     <tbody>
                     @foreach($bitacoraEnfermedades as $bitacoraEnfermedade)
                         <tr>
+                            <td>{{ $bitacoraEnfermedade->id }}</td>
                             <td>{{ optional($bitacoraEnfermedade->area)->area }}</td>
                             <td>{{ $bitacoraEnfermedade->fecha }}</td>
                             <td>{{ optional($bitacoraEnfermedade->csEnfermedade)->enfermedad }}</td>

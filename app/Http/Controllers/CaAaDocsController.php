@@ -32,10 +32,21 @@ class CaAaDocsController extends Controller
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                if(isset($input['material_id']) and $input['material_id']<>null){
+			$r->where('material_id', '=', $input['material_id']);
+		}
+                if(isset($input['categoria_id']) and $input['categoria_id']<>null){
+			$r->where('categoria_id', '=', $input['categoria_id']);
+		}
+		if(isset($input['doc']) and $input['doc']<>null){
+			$r->where('doc', 'like', '%'.$input['doc'].'%');
+		}
+                $caMaterials = CaMaterial::pluck('material','id')->all();
+                $caCategorias = CaCategoria::pluck('categoria','id')->all();
 		$caAaDocs = $r->with('camaterial','cacategoria','user','entity')->paginate(25);
 		//$caAaDocs = CaAaDoc::with('camaterial','cacategoria','user','entity')->paginate(25);
 
-        return view('ca_aa_docs.index', compact('caAaDocs'));
+        return view('ca_aa_docs.index', compact('caAaDocs','caMaterials','caCategorias'));
     }
 
     /**

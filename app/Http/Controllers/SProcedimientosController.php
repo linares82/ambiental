@@ -29,16 +29,27 @@ class SProcedimientosController extends Controller
     {
 		$input=$request->all();
 		$r=SProcedimiento::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['tpo_procedimiento_id']) and $input['tpo_procedimiento_id']<>null){
+			$r->where('tpo_procedimiento_id', '=', $input['tpo_procedimiento_id']);
+		}
+                if(isset($input['tpo_doc_id']) and $input['tpo_doc_id']<>null){
+			$r->where('tpo_doc_id', '=', $input['tpo_doc_id']);
+		}
+                if(isset($input['fec_fin_vigencia']) and $input['fec_fin_vigencia']<>null){
+			$r->where('fec_fin_vigencia', '=', date_format(date_create($input['fec_fin_vigencia']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $csTpoProcedimientos = CsTpoProcedimiento::pluck('tpo_procedimiento','id')->all();
+                $csTpoDocs = CsTpoDoc::pluck('tpo_doc','id')->all();
 		$sProcedimientos = $r->with('cstpoprocedimiento','cstpodoc','bnd','empleado','sestatusprocedimiento','entity','user')->paginate(25);
 		//$sProcedimientos = SProcedimiento::with('cstpoprocedimiento','cstpodoc','bnd','empleado','sestatusprocedimiento','entity','user')->paginate(25);
                 $sEstatusProcedimientos = SEstatusProcedimiento::pluck('estatus','id')->all();
-        return view('s_procedimientos.index', compact('sProcedimientos','sEstatusProcedimientos'));
+        return view('s_procedimientos.index', compact('sProcedimientos','sEstatusProcedimientos','csTpoProcedimientos','csTpoDocs'));
     }
 
     /**

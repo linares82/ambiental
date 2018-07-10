@@ -60,7 +60,7 @@ class User extends Model
     }
     
     public function entity(){
-        return $this->belongsTo('App\Models\Entity');
+        return $this->belongsTo('App\Models\Entity','entity_id','id');
     }
 
     /**

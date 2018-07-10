@@ -27,16 +27,23 @@ class BitacoraPlantasController extends Controller
     {
 		$input=$request->all();
 		$r=BitacoraPlanta::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['planta_id']) and $input['planta_id']<>null){
+			$r->where('planta_id', '=', $input['planta_id']);
+		}
+                if(isset($input['fecha']) and $input['fecha']<>nul){
+			$r->where('fecha', '=', date_format(date_create($input['fecha']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $caPlantas = CaPlanta::pluck('planta','id')->all();
 		$bitacoraPlantas = $r->with('caplanta','turno','empleado','entity','user')->paginate(25);
 		//$bitacoraPlantas = BitacoraPlanta::with('caplanta','turno','empleado','entity','user')->paginate(25);
 
-        return view('bitacora_plantas.index', compact('bitacoraPlantas'));
+        return view('bitacora_plantas.index', compact('bitacoraPlantas','caPlantas'));
     }
 
     /**

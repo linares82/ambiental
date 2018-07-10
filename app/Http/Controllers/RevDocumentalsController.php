@@ -25,16 +25,24 @@ class RevDocumentalsController extends Controller
     {
 		$input=$request->all();
 		$r=RevDocumental::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['anio']) and $input['anio']<>null){
+			$r->where('anio', '=', $input['anio']);
+		}
+                if(isset($input['mes_id']) and $input['mes_id']<>null){
+			$r->where('mes_id', '=', $input['mes_id']);
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                
+                $mese = Meses::pluck('mes','id')->all();
 		$revDocumentals = $r->with('entity','mese','user')->paginate(25);
 		//$revDocumentals = RevDocumental::with('entity','mese','user')->paginate(25);
 
-        return view('rev_documentals.index', compact('revDocumentals'));
+        return view('rev_documentals.index', compact('revDocumentals','mese'));
     }
 
     /**

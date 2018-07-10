@@ -23,12 +23,12 @@ class TpoDocsController extends Controller
     {
 		$input=$request->all();
 		$r=TpoDoc::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['tpo_doc']) and $input['tpo_doc']<>null){
+			$r->where('tpo_doc', 'like', '%'.$input['tpo_doc'].'%');
+		}
 		$tpoDocs = $r->with('user')->paginate(25);
 		//$tpoDocs = TpoDoc::with('user')->paginate(25);
 

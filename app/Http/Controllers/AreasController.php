@@ -24,8 +24,11 @@ class AreasController extends Controller
     {
 		$input=$request->all();
 		$r=Area::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['area']) and $input['area']<>null){
+			$r->where('area', 'like', '%'.$input['area'].'%');
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');

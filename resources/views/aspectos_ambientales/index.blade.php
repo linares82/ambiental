@@ -69,6 +69,46 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('proceso_id') ? 'has-error' : '' }}">
+                                                    <label for="proceso_id" class="control-label">{{ trans('aspectos_ambientales.proceso_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="proceso_id" name="proceso_id">
+                                                                    <option value="" style="display: none;" {{ old('proceso_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('aspectos_ambientales.proceso_id__placeholder') }}</option>
+                                                                @foreach ($aaProcesos as $key => $aaProceso)
+                                                                            <option value="{{ $key }}" {{ old('proceso_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $aaProceso }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('proceso_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('area_id') ? 'has-error' : '' }}">
+                                                    <label for="area_id" class="control-label">{{ trans('aspectos_ambientales.area_id') }}</label><br/>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="area_id" name="area_id">
+                                                                    <option value="" style="display: none;" {{ old('area_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('aspectos_ambientales.area_id__placeholder') }}</option>
+                                                                @foreach ($areas as $key => $area)
+                                                                            <option value="{{ $key }}" {{ old('area_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $area }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('area_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('actividad') ? 'has-error' : '' }}">
+                                                    <label for="actividad" class="control-label">{{ trans('aspectos_ambientales.actividad') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="actividad" type="text" id="actividad" value="{{ old('actividad') }}" minlength="1" maxlength="255" placeholder="{{ trans('aspectos_ambientales.actividad__placeholder') }}">
+                                                        {!! $errors->first('actividad', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +122,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('aspectos_ambientales.proceso_id') }}</th>
                             <th>{{ trans('aspectos_ambientales.area_id') }}</th>
                             <th>{{ trans('aspectos_ambientales.actividad') }}</th>
@@ -93,6 +134,7 @@
                     <tbody>
                     @foreach($aspectosAmbientales as $aspectosAmbientale)
                         <tr>
+                            <td>{{ $aspectosAmbientale->id }}</td>
                             <td>{{ optional($aspectosAmbientale->aaProceso)->proceso }}</td>
                             <td>{{ optional($aspectosAmbientale->area)->area }}</td>
                             <td>{{ $aspectosAmbientale->actividad }}</td>

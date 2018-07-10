@@ -69,6 +69,14 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('objetivo') ? 'has-error' : '' }}">
+                                                    <label for="objetivo" class="control-label">{{ trans('m_objetivos.objetivo') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="objetivo" type="text" id="objetivo" value="{{ old('objetivo') }}" minlength="1" maxlength="255" placeholder="{{ trans('m_objetivos.objetivo__placeholder') }}">
+                                                        {!! $errors->first('objetivo', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +90,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('m_objetivos.objetivo') }}</th>
                             
                             <th></th>
@@ -90,6 +99,7 @@
                     <tbody>
                     @foreach($mObjetivos as $mObjetivo)
                         <tr>
+                            <td>{{ $mObjetivo->id }}</td>
                             <td>{{ $mObjetivo->objetivo }}</td>
                             
                             <td>

@@ -26,9 +26,9 @@ class CaMaterialsController extends Controller
 		if(isset($input['id']) and $input['id']<>0){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['material']) and $input['material']<>""){
+			$r->where('material', 'like', '%'.$input['material'].'%');
+		}
 		$caMaterials = $r->with('user')->paginate(25);
 		//$caMaterials = CaMaterial::with('user')->paginate(25);
 

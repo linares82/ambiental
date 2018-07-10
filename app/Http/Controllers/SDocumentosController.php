@@ -33,13 +33,20 @@ class SDocumentosController extends Controller
 		if(isset($input['id']) and $input['id']<>0){
 			$r->where('id', '=', $input['id']);
 		}
+                if(isset($input['documento_id']) and $input['documento_id']<>0){
+			$r->where('documento_id', '=', $input['documento_id']);
+		}
+                if(isset($input['fec_ini_vigencia']) and $input['fec_ini_vigencia']<>0){
+			$r->where('fec_ini_vigencia', '=', date_format(date_create($input['fec_ini_vigencia']),'Y/m/d'));
+		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $csCatDocs = CsCatDoc::pluck('cat_doc','id')->all();
 		$sDocumentos = $r->with('cscatdoc','bnd','empleado','sestatusprocedimiento','entity','user')->paginate(25);
 		//$sDocumentos = SDocumento::with('cscatdoc','bnd','empleado','sestatusprocedimiento','entity','user')->paginate(25);
 
-        return view('s_documentos.index', compact('sDocumentos','sEstatusProcedimientos'));
+        return view('s_documentos.index', compact('sDocumentos','sEstatusProcedimientos','csCatDocs'));
     }
 
     /**

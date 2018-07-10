@@ -23,12 +23,12 @@ class EfectosController extends Controller
     {
 		$input=$request->all();
 		$r=Efecto::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['efecto']) and $input['efecto']<>null){
+			$r->where('efecto', 'like', '%'.$input['efecto'].'%');
+		}
 		$efectos = $r->with('user')->paginate(25);
 		//$efectos = Efecto::with('user')->paginate(25);
 

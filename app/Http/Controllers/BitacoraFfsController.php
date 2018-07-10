@@ -27,16 +27,23 @@ class BitacoraFfsController extends Controller
     {
 		$input=$request->all();
 		$r=BitacoraFf::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['ca_fuente_fija_id']) and $input['ca_fuente_fija_id']<>null){
+			$r->where('ca_fuente_fija_id', '=', $input['ca_fuente_fija_id']);
+		}
+                if(isset($input['fecha']) and $input['fecha']<>null){
+			$r->where('fecha', '=', date_format(date_create($input['fecha']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $caFuentesFijas = CaFuentesFija::pluck('planta','id')->all();
 		$bitacoraFfs = $r->with('cafuentesfija','turno','empleado','entity','user')->paginate(25);
 		//$bitacoraFfs = BitacoraFf::with('cafuentesfija','turno','empleado','entity','user')->paginate(25);
 
-        return view('bitacora_ffs.index', compact('bitacoraFfs'));
+        return view('bitacora_ffs.index', compact('bitacoraFfs','caFuentesFijas'));
     }
 
     /**

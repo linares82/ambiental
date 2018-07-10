@@ -23,12 +23,12 @@ class CaTpoInconformidadsController extends Controller
     {
 		$input=$request->all();
 		$r=CaTpoInconformidad::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['tpo_inconformidad']) and $input['tpo_inconformidad']<>null){
+			$r->where('tpo_inconformidad', 'like', '%'.$input['tpo_inconformidad'].'%');
+		}
 		$caTpoInconformidads = $r->with('user')->paginate(25);
 		//$caTpoInconformidads = CaTpoInconformidad::with('user')->paginate(25);
 

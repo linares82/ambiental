@@ -69,6 +69,63 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('grupo_id') ? 'has-error' : '' }}">
+                                                    <label for="grupo_id" class="control-label">{{ trans('s_registros.grupo_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="grupo_id" name="grupo_id">
+                                                                    <option value="" style="display: none;" {{ old('grupo_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('s_registros.grupo_id__placeholder') }}</option>
+                                                                @foreach ($csGrupoNormas as $key => $csGrupoNorma)
+                                                                            <option value="{{ $key }}" {{ old('grupo_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csGrupoNorma }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('grupo_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('norma_id') ? 'has-error' : '' }}">
+                                                    <label for="norma_id" class="control-label">{{ trans('s_registros.norma_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="norma_id" name="norma_id">
+                                                                    <option value="" style="display: none;" {{ old('norma_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('s_registros.norma_id__placeholder') }}</option>
+                                                                @foreach ($csNormas as $key => $csNorma)
+                                                                            <option value="{{ $key }}" {{ old('norma_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csNorma }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('norma_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('elemento_id') ? 'has-error' : '' }}">
+                                                    <label for="elemento_id" class="control-label">{{ trans('s_registros.elemento_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="elemento_id" name="elemento_id">
+                                                                    <option value="" style="display: none;" {{ old('elemento_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('s_registros.elemento_id__placeholder') }}</option>
+                                                                @foreach ($csElementosInspeccions as $key => $csElementosInspeccion)
+                                                                            <option value="{{ $key }}" {{ old('elemento_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csElementosInspeccion }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('elemento_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('fec_fin_vigencia') ? 'has-error' : '' }}">
+                                                    <label for="fec_fin_vigencia" class="control-label">{{ trans('s_registros.fec_fin_vigencia') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fec_fin_vigencia" type="text" id="fec_fin_vigencia" value="{{ old('fec_fin_vigencia') }}" placeholder="{{ trans('s_registros.fec_fin_vigencia__placeholder') }}">
+                                                        {!! $errors->first('fec_fin_vigencia', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +139,7 @@
                 <table class="table table-striped table-bordered table-hover tblEnc" id="postTable">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('s_registros.grupo_id') }}</th>
                             <th>{{ trans('s_registros.norma_id') }}</th>
                             <th>{{ trans('s_registros.elemento_id') }}</th>
@@ -100,6 +158,7 @@
                         $dias = \Carbon\Carbon::now()->diffInDays($sRegistro->fec_fin_vigencia);
                         ?>
                         <tr>
+                            <td>{{ $sRegistro->id }}</td>
                             <td>{{ optional($sRegistro->csGrupoNorma)->grupo_norma }}</td>
                             <td>{{ optional($sRegistro->csNorma)->norma }}</td>
                             <td>{{ optional($sRegistro->csElementosInspeccion)->elemento }}</td>

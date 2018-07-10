@@ -69,6 +69,43 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('area_id') ? 'has-error' : '' }}">
+                                                    <label for="area_id" class="control-label">{{ trans('bitacora_accidentes.area_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="area_id" name="area_id">
+                                                                    <option value="" style="display: none;" {{ old('area_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('bitacora_accidentes.area_id__placeholder') }}</option>
+                                                                @foreach ($areas as $key => $area)
+                                                                            <option value="{{ $key }}" {{ old('area_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $area }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('area_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('accidente_id') ? 'has-error' : '' }}" style="clear:left;">
+                                                    <label for="accidente_id" class="control-label">{{ trans('bitacora_accidentes.accidente_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="accidente_id" name="accidente_id">
+                                                                    <option value="" style="display: none;" {{ old('accidente_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('bitacora_accidentes.accidente_id__placeholder') }}</option>
+                                                                @foreach ($csAccidentes as $key => $csAccidente)
+                                                                            <option value="{{ $key }}" {{ old('accidente_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csAccidente }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('accidente_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('fecha') ? 'has-error' : '' }}">
+                                                    <label for="fecha" class="control-label">{{ trans('bitacora_accidentes.fecha') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fecha" type="text" id="fecha" value="{{ old('fecha') }}" placeholder="{{ trans('bitacora_accidentes.fecha__placeholder') }}">
+                                                        {!! $errors->first('fecha', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +119,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('bitacora_accidentes.area_id') }}</th>
                             <th>{{ trans('bitacora_accidentes.fecha') }}</th>
                             <th>{{ trans('bitacora_accidentes.accidente_id') }}</th>
@@ -93,6 +131,7 @@
                     <tbody>
                     @foreach($bitacoraAccidentes as $bitacoraAccidente)
                         <tr>
+                            <td>{{ $bitacoraAccidente->id }}</td>
                             <td>{{ optional($bitacoraAccidente->area)->area }}</td>
                             <td>{{ $bitacoraAccidente->fecha }}</td>
                             <td>{{ optional($bitacoraAccidente->csAccidente)->accidente }}</td>

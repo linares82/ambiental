@@ -30,17 +30,32 @@ class SRegistrosController extends Controller
     {
 		$input=$request->all();
 		$r=SRegistro::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['grupo_id']) and $input['grupo_id']<>null){
+			$r->where('grupo_id', '=', $input['grupo_id']);
+		}
+                if(isset($input['norma_id']) and $input['norma_id']<>null){
+			$r->where('norma_id', '=', $input['norma_id']);
+		}
+                if(isset($input['elemento_id']) and $input['elemento_id']<>null){
+			$r->where('elemento_id', '=', $input['elemento_id']);
+		}
+                if(isset($input['fec_fin_vigencia']) and $input['fec_fin_vigencia']<>null){
+			$r->where('fec_fin_vigencia', '=', date_format(date_create($input['fec_fin_vigencia']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $csGrupoNormas = CsGrupoNorma::pluck('grupo_norma','id')->all();
+                $csNormas = CsNorma::pluck('norma','id')->all();
                 $sEstatusProcedimientos = SEstatusProcedimiento::pluck('estatus','id')->all();
+                $csElementosInspeccions = CsElementosInspeccion::pluck('elemento','id')->all();
 		$sRegistros = $r->with('csgruponorma','csnorma','cselementosinspeccion','bnd','empleado','sestatusprocedimiento','entity','user')->paginate(25);
 		//$sRegistros = SRegistro::with('csgruponorma','csnorma','cselementosinspeccion','bnd','empleado','sestatusprocedimiento','entity','user')->paginate(25);
 
-        return view('s_registros.index', compact('sRegistros','sEstatusProcedimientos'));
+        return view('s_registros.index', compact('sRegistros','sEstatusProcedimientos','csGrupoNormas','csNormas','csElementosInspeccions'));
     }
 
     /**

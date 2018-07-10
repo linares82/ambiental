@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('planta') ? 'has-error' : '' }}">
+                                                    <label for="planta" class="control-label">{{ trans('ca_plantas.planta') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="planta" type="text" id="planta" value="{{ old('planta') }}" minlength="1" maxlength="255" placeholder="{{ trans('ca_plantas.planta__placeholder') }}">
+                                                        {!! $errors->first('planta', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('ca_plantas.planta') }}</th>
                             <th>{{ trans('ca_plantas.ubicacion') }}</th>
                             <th>{{ trans('ca_plantas.tipo_planta') }}</th>
@@ -92,6 +100,7 @@
                     <tbody>
                     @foreach($caPlantas as $caPlanta)
                         <tr>
+                            <td>{{ $caPlanta->id }}</td>
                             <td>{{ $caPlanta->planta }}</td>
                             <td>{{ $caPlanta->ubicacion }}</td>
                             <td>{{ $caPlanta->tipo_planta }}</td>

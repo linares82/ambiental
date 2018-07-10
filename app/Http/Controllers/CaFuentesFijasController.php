@@ -26,9 +26,12 @@ class CaFuentesFijasController extends Controller
 		if(isset($input['id']) and $input['id']<>0){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['planta']) and $input['planta']<>""){
+			$r->where('planta', 'like', '%'.$input['planta'].'%');
+		}
+                if(isset($input['marca']) and $input['marca']<>""){
+			$r->where('marca', 'like', '%'.$input['marca'].'%');
+		}
 		$caFuentesFijas = $r->with('user')->paginate(25);
 		//$caFuentesFijas = CaFuentesFija::with('user')->paginate(25);
 

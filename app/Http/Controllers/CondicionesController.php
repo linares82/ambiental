@@ -24,16 +24,20 @@ class CondicionesController extends Controller
     {
 		$input=$request->all();
 		$r=Condicione::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['impacto_id']) and $input['impacto_id']<>null){
+			$r->where('impacto_id', '=', $input['impacto_id']);
+		}
+		if(isset($input['condicion']) and $input['condicion']<>null){
+			$r->where('condicion', 'like', '%'.$input['condicion'].'%');
+		}
+                $aaImpactos = AaImpacto::pluck('impacto','id')->all();
 		$condiciones = $r->with('aaimpacto')->paginate(25);
 		//$condiciones = Condicione::with('aaimpacto')->paginate(25);
 
-        return view('condiciones.index', compact('condiciones'));
+        return view('condiciones.index', compact('condiciones','aaImpactos'));
     }
 
     /**

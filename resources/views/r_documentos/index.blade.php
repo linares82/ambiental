@@ -69,6 +69,29 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_documento_id') ? 'has-error' : '' }}">
+                                                    <label for="tpo_documento_id" class="control-label">{{ trans('r_documentos.tpo_documento_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="tpo_documento_id" name="tpo_documento_id" >
+                                                                    <option value="" style="display: none;" {{ old('tpo_documento_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('r_documentos.tpo_documento_id__placeholder') }}</option>
+                                                                @foreach ($tpoDocs as $key => $tpoDoc)
+                                                                            <option value="{{ $key }}" {{ old('tpo_documento_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $tpoDoc }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('tpo_documento_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('r_documento') ? 'has-error' : '' }}">
+                                                    <label for="r_documento" class="control-label">{{ trans('r_documentos.r_documento') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="r_documento" type="text" id="r_documento" value="{{ old('r_documento') }}" minlength="1" maxlength="500" placeholder="{{ trans('r_documentos.r_documento__placeholder') }}">
+                                                        {!! $errors->first('r_documento', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +105,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('r_documentos.tpo_documento_id') }}</th>
                             <th>{{ trans('r_documentos.r_documento') }}</th>
                             <th></th>
@@ -90,6 +114,7 @@
                     <tbody>
                     @foreach($rDocumentos as $rDocumento)
                         <tr>
+                            <td>{{ $rDocumento->id }}</td>
                             <td>{{ optional($rDocumento->tpoDoc)->tpo_doc }}</td>
                             <td>{{ $rDocumento->r_documento }}</td>
 

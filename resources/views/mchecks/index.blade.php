@@ -69,6 +69,38 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('a_chequeo') ? 'has-error' : '' }}">
+                                                    <label for="a_chequeo" class="control-label">{{ trans('mchecks.a_chequeo') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="a_chequeo" name="a_chequeo">
+                                                                    <option value="" style="display: none;" {{ old('a_chequeo') == '' ? 'selected' : '' }} disabled selected>{{ trans('mchecks.a_chequeo__placeholder') }}</option>
+                                                                @foreach ($achecks as $key => $acheck)
+                                                                            <option value="{{ $key }}" {{ old('a_chequeo') == $key ? 'selected' : '' }}>
+                                                                                {{ $acheck }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('a_chequeo', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('norma_id') ? 'has-error' : '' }}">
+                                                    <label for="norma_id" class="control-label">{{ trans('mchecks.norma_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="norma_id" name="norma_id" >
+                                                                    <option value="" style="display: none;" {{ old('norma_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('mchecks.norma_id__placeholder') }}</option>
+                                                                @foreach ($normas as $key => $norma)
+                                                                            <option value="{{ $key }}" {{ old('norma_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $norma }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('norma_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +114,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('mchecks.a_chequeo') }}</th>
                             <th>{{ trans('mchecks.norma_id') }}</th>
                             <th>{{ trans('mchecks.no_conformidad') }}</th>
@@ -97,6 +130,7 @@
                     <tbody>
                     @foreach($mchecks as $mcheck)
                         <tr>
+                            <td>{{ $mcheck->id }}</td>
                             <td>{{ optional($mcheck->acheck)->area }}</td>
                             <td>{{ optional($mcheck->norma)->norma }}</td>
                             <td>{{ $mcheck->no_conformidad }}</td>

@@ -23,12 +23,12 @@ class CsTpoProcedimientosController extends Controller
     {
 		$input=$request->all();
 		$r=CsTpoProcedimiento::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['tpo_procedimiento']) and $input['tpo_procedimiento']<>null){
+			$r->where('tpo_procedimiento', 'like', '%'.$input['tpo_procedimiento'].'%');
+		}
 		$csTpoProcedimientos = $r->with('user')->paginate(25);
 		//$csTpoProcedimientos = CsTpoProcedimiento::with('user')->paginate(25);
 

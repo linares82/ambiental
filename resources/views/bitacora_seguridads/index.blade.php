@@ -69,6 +69,52 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('area_id') ? 'has-error' : '' }}">
+                                                    <label for="area_id" class="control-label">{{ trans('bitacora_seguridads.area_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="area_id" name="area_id">
+                                                                    <option value="" style="display: none;" {{ old('area_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('bitacora_seguridads.area_id__placeholder') }}</option>
+                                                                @foreach ($areas as $key => $area)
+                                                                            <option value="{{ $key }}" {{ old('area_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $area }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('area_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_deteccion_id') ? 'has-error' : '' }}">
+                                                    <label for="tpo_deteccion_id" class="control-label">{{ trans('bitacora_seguridads.tpo_deteccion_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="tpo_deteccion_id" name="tpo_deteccion_id">
+                                                                    <option value="" style="display: none;" {{ old('tpo_deteccion_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('bitacora_seguridads.tpo_deteccion_id__placeholder') }}</option>
+                                                                @foreach ($csTpoDeteccions as $key => $csTpoDeteccion)
+                                                                            <option value="{{ $key }}" {{ old('tpo_deteccion_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csTpoDeteccion }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('tpo_deteccion_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_inconformidad_id') ? 'has-error' : '' }}">
+                                                    <label for="tpo_inconformidad_id" class="control-label">{{ trans('bitacora_seguridads.tpo_inconformidad_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="tpo_inconformidad_id" name="tpo_inconformidad_id">
+                                                                    <option value="" style="display: none;" {{ old('tpo_inconformidad_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('bitacora_seguridads.tpo_inconformidad_id__placeholder') }}</option>
+                                                                @foreach ($csTpoInconformidades as $key => $csTpoInconformidade)
+                                                                            <option value="{{ $key }}" {{ old('tpo_inconformidad_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csTpoInconformidade }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('tpo_inconformidad_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +128,7 @@
                 <table class="table table-striped table-bordered table-hover tblEnc">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('bitacora_seguridads.fecha') }}</th>
                             <th>{{ trans('bitacora_seguridads.area_id') }}</th>
                             <th>{{ trans('bitacora_seguridads.tpo_deteccion_id') }}</th>
@@ -100,6 +147,7 @@
                         $dias = \Carbon\Carbon::now()->diffInDays($bitacoraSeguridad->fec_planeada);
                         ?>
                         <tr>
+                            <td>{{ $bitacoraSeguridad->id }}</td>
                             <td>{{ $bitacoraSeguridad->fecha }}</td>
                             <td>{{ optional($bitacoraSeguridad->area)->area }}</td>
                             <td>{{ optional($bitacoraSeguridad->csTpoDeteccion)->tpo_deteccion }}</td>

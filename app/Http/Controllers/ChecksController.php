@@ -28,17 +28,31 @@ class ChecksController extends Controller
     {
 		$input=$request->all();
 		$r=Check::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['cliente_id']) and $input['cliente_id']<>null){
+			$r->where('cliente_id', '=', $input['cliente_id']);
+		}
+                if(isset($input['a_check_id']) and $input['a_check_id']<>null){
+			$r->where('a_check_id', '=', $input['a_check_id']);
+		}
+                if(isset($input['fec_apertura']) and $input['fec_apertura']<>null){
+			$r->where('fec_apertura', '=', date_format(date_create($input['fec_apertura']),'Y/m/d'));
+		}
+                if(isset($input['fec_cierre']) and $input['fec_cierre']<>null){
+			$r->where('fec_cierre', '=', date_format(date_create($input['fec_cierre']),'Y/m/d'));
+		}
+		if(isset($input['solicitud']) and $input['solicitud']<>null){
+			$r->where('solicitud', 'like', '%'.$input['solicitud'].'%');
+		}
+                $clientes = Cliente::pluck('cliente','id')->all();
+                $aChecks = ACheck::pluck('area','id')->all();
 		$checks = $r->with('cliente','acheck','user')->paginate(25);
                 //dd($checks->toArray());
 		//$checks = Check::with('cliente','acheck','user')->paginate(25);
 
-        return view('checks.index', compact('checks'));
+        return view('checks.index', compact('checks','aChecks','clientes'));
     }
 
     /**

@@ -29,16 +29,27 @@ class BitacoraAccidentesController extends Controller
     {
 		$input=$request->all();
 		$r=BitacoraAccidente::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['area_id']) and $input['area_id']<>null){
+			$r->where('area_id', '=', $input['area_id']);
+		}
+                if(isset($input['accidente_id']) and $input['accidente_id']<>null){
+			$r->where('accidente_id', '=', $input['accidente_id']);
+		}
+                if(isset($input['fecha']) and $input['fecha']<>null){
+			$r->where('fecha', '=', date_format(date_create($input['fecha']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $areas = Area::pluck('area','id')->all();
+                $csAccidentes = CsAccidente::pluck('accidente','id')->all();
 		$bitacoraAccidentes = $r->with('area','empleado','csaccidente','csaccione','turno','entity','user')->paginate(25);
 		//$bitacoraAccidentes = BitacoraAccidente::with('area','empleado','csaccidente','csaccione','turno','entity','user')->paginate(25);
 
-        return view('bitacora_accidentes.index', compact('bitacoraAccidentes'));
+        return view('bitacora_accidentes.index', compact('bitacoraAccidentes','areas','csAccidentes'));
     }
 
     /**

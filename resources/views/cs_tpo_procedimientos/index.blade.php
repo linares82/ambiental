@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_procedimiento') ? 'has-error' : '' }}">
+                                                    <label for="tpo_procedimiento" class="control-label">{{ trans('cs_tpo_procedimientos.tpo_procedimiento') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="tpo_procedimiento" type="text" id="tpo_procedimiento" value="{{ old('tpo_procedimiento') }}" minlength="1" maxlength="255" placeholder="{{ trans('cs_tpo_procedimientos.tpo_procedimiento__placeholder') }}">
+                                                        {!! $errors->first('tpo_procedimiento', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('cs_tpo_procedimientos.tpo_procedimiento') }}</th>
                             
                             <th></th>
@@ -90,6 +98,7 @@
                     <tbody>
                     @foreach($csTpoProcedimientos as $csTpoProcedimiento)
                         <tr>
+                            <td>{{ $csTpoProcedimiento->id }}</td>
                             <td>{{ $csTpoProcedimiento->tpo_procedimiento }}</td>
                             
                             <td>

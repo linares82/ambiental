@@ -23,12 +23,12 @@ class MTpoMantosController extends Controller
     {
 		$input=$request->all();
 		$r=MTpoManto::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['tpo_manto']) and $input['tpo_manto']<>null){
+			$r->where('tpo_manto', 'like', '%'.$input['tpo_manto'].'%');
+		}
 		$mTpoMantos = $r->with('user')->paginate(25);
 		//$mTpoMantos = MTpoManto::with('user')->paginate(25);
 

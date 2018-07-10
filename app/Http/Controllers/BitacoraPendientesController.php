@@ -27,8 +27,11 @@ class BitacoraPendientesController extends Controller
     {
 		$input=$request->all();
 		$r=BitacoraPendiente::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['fec_fin']) and $input['fec_fin']<>null){
+			$r->where('fec_fin', '=', date_format(date_create($input['fec_fin']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');

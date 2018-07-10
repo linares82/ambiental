@@ -30,16 +30,27 @@ class ANoConformidadesController extends Controller
     {
 		$input=$request->all();
 		$r=ANoConformidade::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['area_id']) and $input['area_id']<>null){
+			$r->where('area_id', '=', $input['area_id']);
+		}
+                if(isset($input['tpo_deteccion_id']) and $input['tpo_deteccion_id']<>null){
+			$r->where('tpo_deteccion_id', '=', $input['tpo_deteccion_id']);
+		}
+                if(isset($input['fec_planeada']) and $input['fec_planeada']<>null){
+			$r->where('fec_planeada', '=', date_format(date_create($input['fec_planeada']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $areas = Area::pluck('area','id')->all();
+                $csTpoDeteccions = CsTpoDeteccion::pluck('tpo_deteccion','id')->all();
 		$aNoConformidades = $r->with('area','cstpodeteccion','catpobitacora','catponoconformidad','empleado','astnc','entity','user')->paginate(25);
 		//$aNoConformidades = ANoConformidade::with('area','cstpodeteccion','catpobitacora','catponoconformidad','empleado','astnc','entity','user')->paginate(25);
 
-        return view('a_no_conformidades.index', compact('aNoConformidades'));
+        return view('a_no_conformidades.index', compact('aNoConformidades','areas','csTpoDeteccions'));
     }
 
     /**

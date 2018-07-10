@@ -23,12 +23,13 @@ class CaCaDocsController extends Controller
     {
 		$input=$request->all();
 		$r=CaCaDoc::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                
+		if(isset($input['doc']) and $input['doc']<>null){
+			$r->where('doc', 'like', '%'.$input['doc'].'%');
+		}
 		$caCaDocs = $r->with('user')->paginate(25);
 		//$caCaDocs = CaCaDoc::with('user')->paginate(25);
 

@@ -25,16 +25,23 @@ class BitacoraConsumiblesController extends Controller
     {
 		$input=$request->all();
 		$r=BitacoraConsumible::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['consumible_id']) and $input['consumible_id']<>null){
+			$r->where('consumible_id', '=', $input['consumible_id']);
+		}
+                if(isset($input['fecha']) and $input['fecha']<>null){
+			$r->where('fecha', '=', date_format(date_create($input['fecha']),'Y/m/d'));
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $caConsumibles = CaConsumible::pluck('consumible','id')->all();
 		$bitacoraConsumibles = $r->with('caconsumible','entity','user')->paginate(25);
 		//$bitacoraConsumibles = BitacoraConsumible::with('caconsumible','entity','user')->paginate(25);
 
-        return view('bitacora_consumibles.index', compact('bitacoraConsumibles'));
+        return view('bitacora_consumibles.index', compact('bitacoraConsumibles','caConsumibles'));
     }
 
     /**

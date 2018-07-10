@@ -68,7 +68,14 @@
 						<div class="form-group col-md-4 {{ $errors->has('slug') ? 'has-error' : '' }}">
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
-						</div>
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tipo_impacto') ? 'has-error' : '' }}">
+                                                    <label for="tipo_impacto" class="control-label">{{ trans('tipo_impactos.tipo_impacto') }}</label>
+                                                    
+                                                        <input class="form-control input-sm " name="tipo_impacto" type="text" id="tipo_impacto" value="{{ old('tipo_impacto') }}" minlength="1" maxlength="100" placeholder="{{ trans('tipo_impactos.tipo_impacto__placeholder') }}">
+                                                        {!! $errors->first('tipo_impacto', '<p class="help-block">:message</p>') !!}
+                                                    
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('tipo_impactos.tipo_impacto') }}</th>
                             
                             <th></th>
@@ -90,6 +98,7 @@
                     <tbody>
                     @foreach($tipoImpactos as $tipoImpacto)
                         <tr>
+                            <td>{{ $tipoImpacto->id }}</td>
                             <td>{{ $tipoImpacto->tipo_impacto }}</td>
                             
                             <td>

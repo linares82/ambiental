@@ -23,12 +23,12 @@ class CsTpoBitacorasController extends Controller
     {
 		$input=$request->all();
 		$r=CsTpoBitacora::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['tpo_bitacora']) and $input['tpo_bitacora']<>null){
+			$r->where('tpo_bitacora', 'like', '%'.$input['tpo_bitacora'].'%');
+		}
 		$csTpoBitacoras = $r->with('user')->paginate(25);
 		//$csTpoBitacoras = CsTpoBitacora::with('user')->paginate(25);
 

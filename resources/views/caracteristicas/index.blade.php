@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('caracteristica') ? 'has-error' : '' }}">
+                                                    <label for="caracteristica" class="col-md-2 control-label">{{ trans('caracteristicas.caracteristica') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="caracteristica" type="text" id="caracteristica" value="{{ old('caracteristica') }}" minlength="1" maxlength="255" placeholder="{{ trans('caracteristicas.caracteristica__placeholder') }}">
+                                                        {!! $errors->first('caracteristica', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('caracteristicas.caracteristica') }}</th>
                             <th></th>
                         </tr>
@@ -89,6 +97,7 @@
                     <tbody>
                     @foreach($caracteristicas as $caracteristica)
                         <tr>
+                            <td>{{ $caracteristica->id }}</td>
                             <td>{{ $caracteristica->caracteristica }}</td>
                             <td>
 

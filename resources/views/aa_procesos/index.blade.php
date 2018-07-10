@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('proceso') ? 'has-error' : '' }}">
+                                                    <label for="proceso" class="control-label">{{ trans('aa_procesos.proceso') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="proceso" type="text" id="proceso" value="{{ old('proceso') }}" minlength="1" maxlength="255" placeholder="{{ trans('aa_procesos.proceso__placeholder') }}">
+                                                        {!! $errors->first('proceso', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('aa_procesos.proceso') }}</th>
                             <th>{{ trans('aa_procesos.detalle') }}</th>
                            
@@ -91,6 +99,7 @@
                     <tbody>
                     @foreach($aaProcesos as $aaProceso)
                         <tr>
+                            <td>{{ $aaProceso->id }}</td>
                             <td>{{ $aaProceso->proceso }}</td>
                             <td>{{ $aaProceso->detalle }}</td>
                            

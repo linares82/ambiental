@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_doc') ? 'has-error' : '' }}">
+                                                    <label for="tpo_doc" class="control-label">{{ trans('tpo_docs.tpo_doc') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="tpo_doc" type="text" id="tpo_doc" value="{{ old('tpo_doc') }}" minlength="1" maxlength="255" placeholder="{{ trans('tpo_docs.tpo_doc__placeholder') }}">
+                                                        {!! $errors->first('tpo_doc', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('tpo_docs.tpo_doc') }}</th>
                             
                             <th></th>
@@ -90,6 +98,7 @@
                     <tbody>
                     @foreach($tpoDocs as $tpoDoc)
                         <tr>
+                            <td>{{ $tpoDoc->id }}</td>
                             <td>{{ $tpoDoc->tpo_doc }}</td>
                             
                             <td>

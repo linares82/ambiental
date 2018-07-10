@@ -24,16 +24,20 @@ class RDocumentosController extends Controller
     {
 		$input=$request->all();
 		$r=RDocumento::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['tpo_documento_id']) and $input['tpo_documento_id']<>null){
+			$r->where('tpo_documento_id', '=', $input['tpo_documento_id']);
+		}
+		if(isset($input['r_documento']) and $input['r_documento']<>""){
+			$r->where('r_documento', 'like', '%'.$input['r_documento'].'%');
+		}
+                $tpoDocs = TpoDoc::pluck('tpo_doc','id')->all();
 		$rDocumentos = $r->with('tpodoc')->paginate(25);
 		//$rDocumentos = RDocumento::with('tpodoc')->paginate(25);
 
-        return view('r_documentos.index', compact('rDocumentos'));
+        return view('r_documentos.index', compact('rDocumentos','tpoDocs'));
     }
 
     /**

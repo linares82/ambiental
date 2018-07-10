@@ -23,12 +23,12 @@ class MClaseMantosController extends Controller
     {
 		$input=$request->all();
 		$r=MClaseManto::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['clase_manto']) and $input['clase_manto']<>null){
+			$r->where('clase_manto', 'like', '%'.$input['clase_manto'].'%');
+		}
 		$mClaseMantos = $r->with('user')->paginate(25);
 		//$mClaseMantos = MClaseManto::with('user')->paginate(25);
 

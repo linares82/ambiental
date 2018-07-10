@@ -27,8 +27,11 @@ class EmpleadosController extends Controller
     {
 		$input=$request->all();
 		$r=Empleado::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['nombre']) and $input['nombre']<>null){
+			$r->where('nombre', 'like', '%'.$input['nombre']."%");
 		}
                 
 		/*if(isset($input['name']) and $input['name']<>""){

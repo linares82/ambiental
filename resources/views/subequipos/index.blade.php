@@ -69,6 +69,30 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('equipo_id') ? 'has-error' : '' }}">
+                                                    <label for="equipo_id" class="control-label">{{ trans('subequipos.equipo_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="equipo_id" name="equipo_id" >
+                                                                    <option value="" style="display: none;" {{ old('equipo_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('subequipos.equipo_id__placeholder') }}</option>
+                                                                @foreach ($mObjetivos as $key => $mObjetivo)
+                                                                            <option value="{{ $key }}" {{ old('equipo_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $mObjetivo }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('equipo_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('subequipo') ? 'has-error' : '' }}">
+                                                    <label for="subequipo" class="control-label">{{ trans('subequipos.subequipo') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="subequipo" type="text" id="subequipo" value="{{ old('subequipo') }}" minlength="1" maxlength="255" placeholder="{{ trans('subequipos.subequipo__placeholder') }}">
+                                                        {!! $errors->first('subequipo', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +106,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('subequipos.equipo_id') }}</th>
                             <th>{{ trans('subequipos.subequipo') }}</th>
                             <th>{{ trans('subequipos.clase') }}</th>
@@ -95,6 +120,7 @@
                     <tbody>
                     @foreach($subequipos as $subequipo)
                         <tr>
+                            <td>{{ $subequipo->id }}</td>
                             <td>{{ optional($subequipo->mObjetivo)->objetivo }}</td>
                             <td>{{ $subequipo->subequipo }}</td>
                             <td>{{ $subequipo->clase }}</td>

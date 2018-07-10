@@ -24,16 +24,20 @@ class CaTpoNoConformidadsController extends Controller
     {
 		$input=$request->all();
 		$r=CaTpoNoConformidad::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['tpo_bitacora_id']) and $input['tpo_bitacora_id']<>null){
+			$r->where('tpo_bitacora_id', '=', $input['tpo_bitacora_id']);
+		}
+		if(isset($input['tpo_inconformidad']) and $input['tpo_inconformidad']<>""){
+			$r->where('tpo_inconformidad', 'like', '%'.$input['tpo_inconformidad'].'%');
+		}
+                $caTpoBitacoras = CaTpoBitacora::pluck('tpo_bitacora','id')->all();
 		$caTpoNoConformidads = $r->with('catpobitacora')->paginate(25);
 		//$caTpoNoConformidads = CaTpoNoConformidad::with('catpobitacora')->paginate(25);
 
-        return view('ca_tpo_no_conformidads.index', compact('caTpoNoConformidads'));
+        return view('ca_tpo_no_conformidads.index', compact('caTpoNoConformidads','caTpoBitacoras'));
     }
 
     /**

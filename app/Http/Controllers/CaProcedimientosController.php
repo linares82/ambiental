@@ -23,8 +23,11 @@ class CaProcedimientosController extends Controller
     {
 		$input=$request->all();
 		$r=CaProcedimiento::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['procedimiento']) and $input['procedimiento']<>null){
+			$r->where('procedimiento', 'like', '%'.$input['procedimiento'].'%');
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');

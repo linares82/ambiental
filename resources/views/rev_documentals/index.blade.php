@@ -69,6 +69,29 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('anio') ? 'has-error' : '' }}">
+                                                    <label for="anio" class="control-label">{{ trans('rev_documentals.anio') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="anio" type="number" id="anio" value="{{ old('anio') }}" min="-2147483648" max="2147483647" placeholder="{{ trans('rev_documentals.anio__placeholder') }}">
+                                                        {!! $errors->first('anio', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('mes_id') ? 'has-error' : '' }}">
+                                                    <label for="mes_id" class="control-label">{{ trans('rev_documentals.mes_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="mes_id" name="mes_id">
+                                                                    <option value="" style="display: none;" {{ old('mes_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('rev_documentals.mes_id__placeholder') }}</option>
+                                                                @foreach ($mese as $key => $mese)
+                                                                            <option value="{{ $key }}" {{ old('mes_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $mese }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('mes_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">

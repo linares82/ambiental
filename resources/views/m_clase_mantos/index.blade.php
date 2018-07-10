@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('clase_manto') ? 'has-error' : '' }}">
+                                                    <label for="clase_manto" class="control-label">{{ trans('m_clase_mantos.clase_manto') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="clase_manto" type="text" id="clase_manto" value="{{ old('clase_manto') }}" minlength="1" maxlength="255" required="true" placeholder="{{ trans('m_clase_mantos.clase_manto__placeholder') }}">
+                                                        {!! $errors->first('clase_manto', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('m_clase_mantos.clase_manto') }}</th>
                            
                             <th></th>
@@ -90,6 +98,7 @@
                     <tbody>
                     @foreach($mClaseMantos as $mClaseManto)
                         <tr>
+                            <td>{{ $mClaseManto->id }}</td>
                             <td>{{ $mClaseManto->clase_manto }}</td>
                            
                             <td>

@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('doc') ? 'has-error' : '' }}">
+                                                    <label for="doc" class="control-label">{{ trans('ca_ca_docs.doc') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="doc" type="text" id="doc" value="{{ old('doc') }}" minlength="1" maxlength="255" placeholder="{{ trans('ca_ca_docs.doc__placeholder') }}">
+                                                        {!! $errors->first('doc', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('ca_ca_docs.doc') }}</th>
                             
                             <th></th>
@@ -90,6 +98,7 @@
                     <tbody>
                     @foreach($caCaDocs as $caCaDoc)
                         <tr>
+                            <td>{{ $caCaDoc->id }}</td>
                             <td>{{ $caCaDoc->doc }}</td>
                             
                             <td>

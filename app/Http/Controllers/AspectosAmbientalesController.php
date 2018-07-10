@@ -37,16 +37,24 @@ class AspectosAmbientalesController extends Controller
     {
 		$input=$request->all();
 		$r=AspectosAmbientale::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['proceso_id']) and $input['proceso_id']<>null){
+			$r->where('proceso_id', '=', $input['proceso_id']);
+		}
+                if(isset($input['area_id']) and $input['area_id']<>null){
+			$r->where('area_id', '=', $input['area_id']);
+		}
+		if(isset($input['actividad']) and $input['actividad']<>null){
+			$r->where('actividad', 'like', '%'.$input['actividad'].'%');
+		}
+                $aaProcesos = AaProceso::pluck('proceso','id')->all();
+                $areas = Area::pluck('area','id')->all();
 		$aspectosAmbientales = $r->with('aaproceso','area','aaaspecto','aaeme','aacondicione','aaimpacto','puesto','bnd','efecto','duracionaccion','probabilidad','imppotencial','impreal','entity','user')->paginate(25);
 		//$aspectosAmbientales = AspectosAmbientale::with('aaproceso','area','aaaspecto','aaeme','aacondicione','aaimpacto','puesto','bnd','efecto','duracionaccion','probabilidad','imppotencial','impreal','entity','user')->paginate(25);
 
-        return view('aspectos_ambientales.index', compact('aspectosAmbientales'));
+        return view('aspectos_ambientales.index', compact('aspectosAmbientales','aaProcesos','areas'));
     }
 
     /**

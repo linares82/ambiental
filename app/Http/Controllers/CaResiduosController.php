@@ -26,9 +26,9 @@ class CaResiduosController extends Controller
 		if(isset($input['id']) and $input['id']<>0){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['residuo']) and $input['residuo']<>""){
+			$r->where('residuo', 'like', '%'.$input['residuo'].'%');
+		}
 		$caResiduos = $r->with('user')->paginate(25);
 		//$caResiduos = CaResiduo::with('user')->paginate(25);
 

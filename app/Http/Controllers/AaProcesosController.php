@@ -23,12 +23,12 @@ class AaProcesosController extends Controller
     {
 		$input=$request->all();
 		$r=AaProceso::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['proceso']) and $input['proceso']<>null){
+			$r->where('proceso', 'like', '%'.$input['proceso'].'%');
+		}
 		$aaProcesos = $r->with('user')->paginate(25);
 		//$aaProcesos = AaProceso::with('user')->paginate(25);
 

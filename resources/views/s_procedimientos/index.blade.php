@@ -69,6 +69,44 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_procedimiento_id') ? 'has-error' : '' }}">
+                                                    <label for="tpo_procedimiento_id" class="control-label">{{ trans('s_procedimientos.tpo_procedimiento_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="tpo_procedimiento_id" name="tpo_procedimiento_id">
+                                                                    <option value="" style="display: none;" {{ old('tpo_procedimiento_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('s_procedimientos.tpo_procedimiento_id__placeholder') }}</option>
+                                                                @foreach ($csTpoProcedimientos as $key => $csTpoProcedimiento)
+                                                                            <option value="{{ $key }}" {{ old('tpo_procedimiento_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csTpoProcedimiento }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('tpo_procedimiento_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_doc_id') ? 'has-error' : '' }}">
+                                                    <label for="tpo_doc_id" class="control-label">{{ trans('s_procedimientos.tpo_doc_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="tpo_doc_id" name="tpo_doc_id" >
+                                                                    <option value="" style="display: none;" {{ old('tpo_doc_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('s_procedimientos.tpo_doc_id__placeholder') }}</option>
+                                                                @foreach ($csTpoDocs as $key => $csTpoDoc)
+                                                                            <option value="{{ $key }}" {{ old('tpo_doc_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csTpoDoc }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('tpo_doc_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('fec_fin_vigencia') ? 'has-error' : '' }}">
+                                                    <label for="fec_fin_vigencia" class="control-label">{{ trans('s_procedimientos.fec_fin_vigencia') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fec_fin_vigencia" type="text" id="fec_fin_vigencia" value="{{ old('fec_fin_vigencia') }}" placeholder="{{ trans('s_procedimientos.fec_fin_vigencia__placeholder') }}">
+                                                        {!! $errors->first('fec_fin_vigencia', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +120,7 @@
                 <table class="table table-striped table-bordered table-hover tblEnc" id="postTable">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('s_procedimientos.tpo_procedimiento_id') }}</th>
                             <th>{{ trans('s_procedimientos.tpo_doc_id') }}</th>
                             <th>{{ trans('s_procedimientos.descripcion') }}</th>
@@ -99,6 +138,7 @@
                         $dias = \Carbon\Carbon::now()->diffInDays($sProcedimiento->fec_fin_vigencia);
                         ?>
                         <tr>
+                            <td>{{ $sProcedimiento->id }}</td>
                             <td>{{ optional($sProcedimiento->csTpoProcedimiento)->tpo_procedimiento }}</td>
                             <td>{{ optional($sProcedimiento->csTpoDoc)->tpo_doc }}</td>
                             <td>{{ $sProcedimiento->descripcion }}</td>

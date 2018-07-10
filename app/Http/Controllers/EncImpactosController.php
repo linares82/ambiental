@@ -27,16 +27,27 @@ class EncImpactosController extends Controller {
     public function index(Request $request) {
         $input = $request->all();
         $r = EncImpacto::where('id', '<>', '0');
-        if (isset($input['id']) and $input['id'] <> 0) {
+        if (isset($input['id']) and $input['id'] <> null) {
             $r->where('id', '=', $input['id']);
         }
-        /* if(isset($input['name']) and $input['name']<>""){
-          $r->where('name', 'like', '%'.$input['name'].'%');
-          } */
+        if (isset($input['cliente_id']) and $input['cliente_id'] <> null) {
+            $r->where('cliente_id', '=', $input['cliente_id']);
+        }
+        if (isset($input['tpo_impacto_id']) and $input['tpo_impacto_id'] <> null) {
+            $r->where('tpo_impacto_id', '=', $input['tpo_impacto_id']);
+        }
+        if (isset($input['fecha_inicio']) and $input['fecha_inicio'] <> null) {
+            $r->where('fecha_inicio', '=', date_format(date_create($input['fecha_inicio']),'Y/m/d') );
+        }
+        if (isset($input['fecha_fin']) and $input['fecha_fin'] <> null) {
+            $r->where('fecha_fin', '=', date_format(date_create($input['fecha_fin']),'Y/m/d') );
+        }
+        $clientes = Cliente::pluck('cliente', 'id')->all();
+        $tipoImpactos = TipoImpacto::pluck('tipo_impacto', 'id')->all();
         $encImpactos = $r->with('cliente', 'tipoimpacto')->paginate(25);
         //$encImpactos = EncImpacto::with('cliente','tipoimpacto')->paginate(25);
 
-        return view('enc_impactos.index', compact('encImpactos'));
+        return view('enc_impactos.index', compact('encImpactos','tipoImpactos','clientes'));
     }
 
     /**

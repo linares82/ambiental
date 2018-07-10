@@ -24,16 +24,20 @@ class CaCategoriasController extends Controller
     {
 		$input=$request->all();
 		$r=CaCategoria::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['ca_material_id']) and $input['ca_material_id']<>null){
+			$r->where('ca_material_id', '=', $input['ca_material_id']);
+		}
+		if(isset($input['categoria']) and $input['categoria']<>""){
+			$r->where('categoria', 'like', '%'.$input['categoria'].'%');
+		}
+                $caMaterials = CaMaterial::pluck('material','id')->all();
 		$caCategorias = $r->with('camaterial','user')->paginate(25);
 		//$caCategorias = CaCategoria::with('camaterial','user')->paginate(25);
 
-        return view('ca_categorias.index', compact('caCategorias'));
+        return view('ca_categorias.index', compact('caCategorias','caMaterials'));
     }
 
     /**

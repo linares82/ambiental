@@ -26,9 +26,9 @@ class AaAspectosController extends Controller
 		if(isset($input['id']) and $input['id']<>0){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['aspectos']) and $input['aspectos']<>""){
+			$r->where('aspectos', 'like', '%'.$input['aspectos'].'%');
+		}
 		$aaAspectos = $r->with('user')->paginate(25);
 		//$aaAspectos = AaAspecto::with('user')->paginate(25);
 

@@ -23,12 +23,12 @@ class AaImpactosController extends Controller
     {
 		$input=$request->all();
 		$r=AaImpacto::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['impacto']) and $input['impacto']<>null){
+			$r->where('impacto', 'like', '%'.$input['impacto'].'%');
+		}
 		$aaImpactos = $r->with('user')->paginate(25);
 		//$aaImpactos = AaImpacto::with('user')->paginate(25);
 

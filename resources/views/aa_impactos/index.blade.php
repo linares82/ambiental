@@ -69,6 +69,14 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('impacto') ? 'has-error' : '' }}">
+                                                    <label for="impacto" class="control-label">{{ trans('aa_impactos.impacto') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="impacto" type="text" id="impacto" value="{{ old('impacto') }}" minlength="1" maxlength="255" placeholder="{{ trans('aa_impactos.impacto__placeholder') }}">
+                                                        {!! $errors->first('impacto', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +90,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('aa_impactos.impacto') }}</th>
                             <th>{{ trans('aa_impactos.detalle') }}</th>
                             
@@ -91,6 +100,7 @@
                     <tbody>
                     @foreach($aaImpactos as $aaImpacto)
                         <tr>
+                            <td>{{ $aaImpacto->id }}</td>
                             <td>{{ $aaImpacto->impacto }}</td>
                             <td>{{ $aaImpacto->detalle }}</td>
                             

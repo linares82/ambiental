@@ -69,6 +69,13 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_inconformidad') ? 'has-error' : '' }}">
+                                                    <label for="tpo_inconformidad" class="control-label">{{ trans('ca_tpo_inconformidads.tpo_inconformidad') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="tpo_inconformidad" type="text" id="tpo_inconformidad" value="{{ old('tpo_inconformidad') }}" minlength="1" maxlength="255" placeholder="{{ trans('ca_tpo_inconformidads.tpo_inconformidad__placeholder') }}">
+                                                        {!! $errors->first('tpo_inconformidad', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +89,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('ca_tpo_inconformidads.tpo_inconformidad') }}</th>
 
                             <th></th>
@@ -90,6 +98,7 @@
                     <tbody>
                     @foreach($caTpoInconformidads as $caTpoInconformidad)
                         <tr>
+                            <td>{{ $caTpoInconformidad->id }}</td>
                             <td>{{ $caTpoInconformidad->tpo_inconformidad }}</td>
 
                             <td>

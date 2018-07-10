@@ -69,6 +69,14 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('aspectos') ? 'has-error' : '' }}">
+                                                    <label for="aspectos" class="control-label">{{ trans('aa_aspectos.aspectos') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="aspectos" type="text" id="aspectos" value="{{ old('aspectos') }}" minlength="1" maxlength="255" placeholder="{{ trans('aa_aspectos.aspectos__placeholder') }}">
+                                                        {!! $errors->first('aspectos', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +90,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('aa_aspectos.aspectos') }}</th>
                             <th>{{ trans('aa_aspectos.detalle') }}</th>
                             
@@ -91,6 +100,7 @@
                     <tbody>
                     @foreach($aaAspectos as $aaAspecto)
                         <tr>
+                            <td>{{ $aaAspecto->id }}</td>
                             <td>{{ $aaAspecto->aspectos }}</td>
                             <td>{{ $aaAspecto->detalle }}</td>
                             

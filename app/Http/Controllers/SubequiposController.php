@@ -26,16 +26,21 @@ class SubequiposController extends Controller
     {
 		$input=$request->all();
 		$r=Subequipo::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['equipo_id']) and $input['equipo_id']<>null){
+			$r->where('equipo_id', '=', $input['equipo_id']);
+		}
+		if(isset($input['subequipo']) and $input['subequipo']<>null){
+			$r->where('subequipo', 'like', '%'.$input['subequipo'].'%');
+		}
+                $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
+                $areas = Area::pluck('area','id')->all();
 		$subequipos = $r->with('mobjetivo','area','user','entity')->paginate(25);
 		//$subequipos = Subequipo::with('mobjetivo','area','user','entity')->paginate(25);
 
-        return view('subequipos.index', compact('subequipos'));
+        return view('subequipos.index', compact('subequipos','mObjetivos','areas'));
     }
 
     /**

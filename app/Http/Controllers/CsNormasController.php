@@ -24,16 +24,20 @@ class CsNormasController extends Controller
     {
 		$input=$request->all();
 		$r=CsNorma::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['grupo_norma_id']) and $input['grupo_norma_id']<>null){
+			$r->where('grupo_norma_id', '=', $input['grupo_norma_id']);
+		}
+		if(isset($input['norma']) and $input['norma']<>""){
+			$r->where('norma', 'like', '%'.$input['norma'].'%');
+		}
+                $csGrupoNormas = CsGrupoNorma::pluck('grupo_norma','id')->all();
 		$csNormas = $r->with('csgruponorma','user')->paginate(25);
 		//$csNormas = CsNorma::with('csgruponorma','user')->paginate(25);
 
-        return view('cs_normas.index', compact('csNormas'));
+        return view('cs_normas.index', compact('csNormas','csGrupoNormas'));
     }
 
     /**

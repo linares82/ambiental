@@ -26,9 +26,9 @@ class AChecksController extends Controller
 		if(isset($input['id']) and $input['id']<>0){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['area']) and $input['area']<>""){
+			$r->where('area', 'like', '%'.$input['area'].'%');
+		}
 		$aChecks = $r->with('user')->paginate(25);
 		//$aChecks = ACheck::with('user')->paginate(25);
 

@@ -23,8 +23,11 @@ class ClientesController extends Controller
     {
 		$input=$request->all();
 		$r=Cliente::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['cliente']) and $input['cliente']<>null){
+			$r->where('cliente', 'like', '%'.$input['cliente'].'%');
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');

@@ -82,6 +82,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('sms.monto') }}</th>
                             <th></th>
                         </tr>
@@ -89,6 +90,7 @@
                     <tbody>
                     @foreach($sms as $sm)
                         <tr>
+                            <td>{{ $sm->id }}</td>
                             <td>{{ $sm->monto }}</td>
                             <td>
 

@@ -27,13 +27,17 @@ class CsTpoInconformidadesController extends Controller
 		if(isset($input['id']) and $input['id']<>0){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['tpo_bitacora_id']) and $input['tpo_bitacora_id']<>0){
+			$r->where('tpo_bitacora_id', '=', $input['tpo_bitacora_id']);
+		}
+		if(isset($input['tpo_inconformidad']) and $input['tpo_inconformidad']<>""){
+			$r->where('tpo_inconformidad', 'like', '%'.$input['tpo_inconformidad'].'%');
+		}
+                $csTpoBitacoras = CsTpoBitacora::pluck('tpo_bitacora','id')->all();
 		$csTpoInconformidades = $r->with('cstpobitacora','user')->paginate(25);
 		//$csTpoInconformidades = CsTpoInconformidade::with('cstpobitacora','user')->paginate(25);
 
-        return view('cs_tpo_inconformidades.index', compact('csTpoInconformidades'));
+        return view('cs_tpo_inconformidades.index', compact('csTpoInconformidades','csTpoBitacoras'));
     }
 
     /**

@@ -69,6 +69,46 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('grupo_norma_id') ? 'has-error' : '' }}">
+                                                    <label for="grupo_norma_id" class="control-label">{{ trans('cs_elementos_inspeccions.grupo_norma_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="grupo_norma_id" name="grupo_norma_id">
+                                                                    <option value="" style="display: none;" {{ old('grupo_norma_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('cs_elementos_inspeccions.grupo_norma_id__placeholder') }}</option>
+                                                                @foreach ($csGrupoNormas as $key => $csGrupoNorma)
+                                                                            <option value="{{ $key }}" {{ old('grupo_norma_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csGrupoNorma }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('grupo_norma_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('norma_id') ? 'has-error' : '' }}">
+                                                    <label for="norma_id" class="control-label">{{ trans('cs_elementos_inspeccions.norma_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="norma_id" name="norma_id">
+                                                                    <option value="" style="display: none;" {{ old('norma_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('cs_elementos_inspeccions.norma_id__placeholder') }}</option>
+                                                                @foreach ($csNormas as $key => $csNorma)
+                                                                            <option value="{{ $key }}" {{ old('norma_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $csNorma }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('norma_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('elemento') ? 'has-error' : '' }}">
+                                                    <label for="elemento" class="control-label">{{ trans('cs_elementos_inspeccions.elemento') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="elemento" type="text" id="elemento" value="{{ old('elemento') }}" minlength="1" maxlength="255" placeholder="{{ trans('cs_elementos_inspeccions.elemento__placeholder') }}">
+                                                        {!! $errors->first('elemento', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +122,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('cs_elementos_inspeccions.grupo_norma_id') }}</th>
                             <th>{{ trans('cs_elementos_inspeccions.norma_id') }}</th>
                             <th>{{ trans('cs_elementos_inspeccions.elemento') }}</th>
@@ -92,6 +133,7 @@
                     <tbody>
                     @foreach($csElementosInspeccions as $csElementosInspeccion)
                         <tr>
+                            <td>{{ $csElementosInspeccion->id }}</td>
                             <td>{{ optional($csElementosInspeccion->csGrupoNorma)->grupo_norma }}</td>
                             <td>{{ optional($csElementosInspeccion->csNorma)->norma }}</td>
                             <td>{{ $csElementosInspeccion->elemento }}</td>

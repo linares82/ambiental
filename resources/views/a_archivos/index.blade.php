@@ -64,11 +64,42 @@
 				<div class="col-md-12">
 					<form method="GET" action="{{ route('a_archivos.a_archivo.index') }}" id="search_form" name="search_form" accept-charset="UTF-8" class="">
 						{{ csrf_field() }}
-						<input name="_method" type="hidden" value="GET">
+						<input name="_method" type="hidden" value="POST">
 						<div class="form-group col-md-4 {{ $errors->has('slug') ? 'has-error' : '' }}">
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-8 {{ $errors->has('documento_id') ? 'has-error' : '' }}">
+                                                    <label for="documento_id" class="control-label">{{ trans('a_archivos.documento_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="documento_id" name="documento_id">
+                                                                    <option value="" style="display: none;" {{ old('documento_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('a_archivos.documento_id__placeholder') }}</option>
+                                                                @foreach ($caCaDocs as $key => $caCaDoc)
+                                                                            <option value="{{ $key }}" {{ old('documento_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $caCaDoc }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('documento_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+                                                <div class="form-group col-md-4 {{ $errors->has('fec_ini_vigencia') ? 'has-error' : '' }}">
+                                                    <label for="fec_ini_vigencia" class="control-label">{{ trans('a_archivos.fec_ini_vigencia') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fec_ini_vigencia" type="text" id="fec_ini_vigencia" value="{{ old('fec_ini_vigencia') }}" placeholder="{{ trans('a_archivos.fec_ini_vigencia__placeholder') }}">
+                                                        {!! $errors->first('fec_ini_vigencia', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('fec_fin_vigencia') ? 'has-error' : '' }}">
+                                                    <label for="fec_fin_vigencia" class="control-label">{{ trans('a_archivos.fec_fin_vigencia') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm date-picker" name="fec_fin_vigencia" type="text" id="fec_fin_vigencia" value="{{ old('fec_fin_vigencia') }}"  placeholder="{{ trans('a_archivos.fec_fin_vigencia__placeholder') }}">
+                                                        {!! $errors->first('fec_fin_vigencia', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +113,7 @@
                 <table class="table table-striped table-bordered table-hover tblEnc" id="postTable">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('a_archivos.documento_id') }}</th>
                             <th>{{ trans('a_archivos.descripcion') }}</th>
                             <th>{{ trans('a_archivos.archivo') }}</th>
@@ -95,6 +127,7 @@
                     <tbody>
                     @foreach($aArchivos as $aArchivo)
                         <tr>
+                            <th>{{$aArchivo->id}}</th>
                             <td>{{ optional($aArchivo->caCaDoc)->doc }}</td>
                             <td>{{ $aArchivo->descripcion }}</td>
                             <td><a href="#" class="add-modal btn btn-xs btn-warning" data-a_archivo='{{$aArchivo->id}}'>Agregar</a>
@@ -523,3 +556,16 @@ $(document).ready(function() {
 
 </script>
 @endpush
+@push('scripts')
+<script type="text/javascript">
+    
+    $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+    })
+    //show datepicker when clicking on the icon
+    .next().on(ace.click_event, function(){
+            $(this).prev().focus();
+    });
+</script>
+@endpush    

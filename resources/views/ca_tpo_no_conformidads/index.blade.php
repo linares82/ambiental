@@ -69,6 +69,30 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_bitacora_id') ? 'has-error' : '' }}">
+                                                    <label for="tpo_bitacora_id" class="control-label">{{ trans('ca_tpo_no_conformidads.tpo_bitacora_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="tpo_bitacora_id" name="tpo_bitacora_id" >
+                                                                    <option value="" style="display: none;" {{ old('tpo_bitacora_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('ca_tpo_no_conformidads.tpo_bitacora_id__placeholder') }}</option>
+                                                                @foreach ($caTpoBitacoras as $key => $caTpoBitacora)
+                                                                            <option value="{{ $key }}" {{ old('tpo_bitacora_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $caTpoBitacora }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('tpo_bitacora_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('tpo_inconformidad') ? 'has-error' : '' }}">
+                                                    <label for="tpo_inconformidad" class="control-label">{{ trans('ca_tpo_no_conformidads.tpo_inconformidad') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="tpo_inconformidad" type="text" id="tpo_inconformidad" value="{{ old('tpo_inconformidad') }}" minlength="1" maxlength="500" placeholder="{{ trans('ca_tpo_no_conformidads.tpo_inconformidad__placeholder') }}">
+                                                        {!! $errors->first('tpo_inconformidad', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +106,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('ca_tpo_no_conformidads.tpo_bitacora_id') }}</th>
                             <th>{{ trans('ca_tpo_no_conformidads.tpo_inconformidad') }}</th>
                             <th></th>
@@ -90,6 +115,7 @@
                     <tbody>
                     @foreach($caTpoNoConformidads as $caTpoNoConformidad)
                         <tr>
+                            <td>{{ $caTpoNoConformidad->id }}</td>
                             <td>{{ optional($caTpoNoConformidad->caTpoBitacora)->tpo_bitacora }}</td>
                             <td>{{ $caTpoNoConformidad->tpo_inconformidad }}</td>
                             <td>

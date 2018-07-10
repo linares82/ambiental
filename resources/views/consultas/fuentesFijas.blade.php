@@ -41,7 +41,7 @@
                 </ul>
             @endif
 
-        <form method="POST" action="{{ route('condiciones.condicione.store') }}" accept-charset="UTF-8" id="create_condicione_form" name="create_condicione_form" class="">
+        <form method="POST" action="{{ route('consultas.consulta.postFuentefija') }}" accept-charset="UTF-8" id="create_condicione_form" name="create_condicione_form" class="">
             {{ csrf_field() }}
 
         <div class="form-group col-md-6 {{ $errors->has('cia_f') ? 'has-error' : '' }}">
@@ -143,7 +143,7 @@
         <div class="form-group col-md-6 {{ $errors->has('fecha_f') ? 'has-error' : '' }}">
             <label for="fecha_f" class="control-label">Fecha de:</label>
             <!--<div class="col-md-10">-->
-                <input class="form-control input-sm " name="fecha_f" type="text" id="fecha_f" value="" minlength="1" maxlength="500" required="true" placeholder="">
+                <input class="form-control input-sm date-picker" name="fecha_f" type="text" id="fecha_f" value="" minlength="1" maxlength="500" required="true" placeholder="">
                 {!! $errors->first('condicion', '<p class="help-block">:message</p>') !!}
             <!--</div>-->
         </div>
@@ -151,7 +151,7 @@
         <div class="form-group col-md-6 {{ $errors->has('fecha_t') ? 'has-error' : '' }}">
             <label for="fecha_t" class="control-label">Fecha a:</label>
             <!--<div class="col-md-10">-->
-                <input class="form-control input-sm " name="fecha_t" type="text" id="fecha_t" value="" minlength="1" maxlength="500" required="true" placeholder="">
+                <input class="form-control input-sm date-picker" name="fecha_t" type="text" id="fecha_t" value="" minlength="1" maxlength="500" required="true" placeholder="">
                 {!! $errors->first('condicion', '<p class="help-block">:message</p>') !!}
             <!--</div>-->
         </div>
@@ -169,4 +169,15 @@
 
 @endsection
 
-
+@push('scripts')
+<script type="text/javascript">
+    $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+    })
+    //show datepicker when clicking on the icon
+    .next().on(ace.click_event, function(){
+            $(this).prev().focus();
+    });
+</script>
+@endpush    

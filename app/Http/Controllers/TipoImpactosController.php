@@ -23,8 +23,11 @@ class TipoImpactosController extends Controller
     {
 		$input=$request->all();
 		$r=TipoImpacto::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['tipo_impacto']) and $input['tipo_impacto']<>null){
+			$r->where('tipo_impacto', 'like', '%'.$input['tipo_impacto'].'%');
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');

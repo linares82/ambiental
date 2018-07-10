@@ -23,12 +23,12 @@ class CsGrupoNormasController extends Controller
     {
 		$input=$request->all();
 		$r=CsGrupoNorma::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['grupo_norma']) and $input['grupo_norma']<>"null"){
+			$r->where('grupo_norma', 'like', '%'.$input['grupo_norma'].'%');
+		}
 		$csGrupoNormas = $r->with('user')->paginate(25);
 		//$csGrupoNormas = CsGrupoNorma::with('user')->paginate(25);
 

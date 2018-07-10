@@ -24,16 +24,20 @@ class CsTpoDocsController extends Controller
     {
 		$input=$request->all();
 		$r=CsTpoDoc::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+                if(isset($input['tpo_procedimiento_id']) and $input['tpo_procedimiento_id']<>null){
+			$r->where('tpo_procedimiento_id', '=', $input['tpo_procedimiento_id']);
+		}
+		if(isset($input['tpo_doc']) and $input['tpo_doc']<>""){
+			$r->where('tpo_doc', 'like', '%'.$input['tpo_doc'].'%');
+		}
+                $csTpoProcedimientos = CsTpoProcedimiento::pluck('tpo_procedimiento','id')->all();
 		$csTpoDocs = $r->with('cstpoprocedimiento','user')->paginate(25);
 		//$csTpoDocs = CsTpoDoc::with('cstpoprocedimiento','user')->paginate(25);
 
-        return view('cs_tpo_docs.index', compact('csTpoDocs'));
+        return view('cs_tpo_docs.index', compact('csTpoDocs','csTpoProcedimientos'));
     }
 
     /**

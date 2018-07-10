@@ -23,12 +23,12 @@ class CsAccidentesController extends Controller
     {
 		$input=$request->all();
 		$r=CsAccidente::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
 		}
-		/*if(isset($input['name']) and $input['name']<>""){
-			$r->where('name', 'like', '%'.$input['name'].'%');
-		}*/
+		if(isset($input['accidente']) and $input['accidente']<>null){
+			$r->where('accidente', 'like', '%'.$input['accidente'].'%');
+		}
 		$csAccidentes = $r->with('user')->paginate(25);
 		//$csAccidentes = CsAccidente::with('user')->paginate(25);
 

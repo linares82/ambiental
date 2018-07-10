@@ -30,16 +30,32 @@ class MMantenimientosController extends Controller
     {
 		$input=$request->all();
 		$r=MMantenimiento::where('id', '<>', '0');
-		if(isset($input['id']) and $input['id']<>0){
+		if(isset($input['id']) and $input['id']<>null){
 			$r->where('id', '=', $input['id']);
+		}
+                if(isset($input['m_tpo_manto_id']) and $input['m_tpo_manto_id']<>null){
+			$r->where('m_tpo_manto_id', '=', $input['m_tpo_manto_id']);
+		}
+                if(isset($input['objetivo_id']) and $input['objetivo_id']<>null){
+			$r->where('objetivo_id', '=', $input['objetivo_id']);
+		}
+                if(isset($input['subequipo_id']) and $input['subequipo_id']<>null){
+			$r->where('subequipo_id', '=', $input['subequipo_id']);
+		}
+                if(isset($input['estatus_id']) and $input['estatus_id']<>null){
+			$r->where('estatus_id', '=', $input['estatus_id']);
 		}
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
+                $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
+                $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
+                $subequipos = Subequipo::pluck('subequipo','id')->all();
+                $mEstatuses = MEstatus::pluck('id','id')->all();
 		$mMantenimientos = $r->with('mtpomanto','mobjetivo','subequipo','empleado','bnd','mestatus','entity','user')->paginate(25);
 		//$mMantenimientos = MMantenimiento::with('mtpomanto','mobjetivo','subequipo','empleado','bnd','mestatus','entity','user')->paginate(25);
 
-        return view('m_mantenimientos.index', compact('mMantenimientos'));
+        return view('m_mantenimientos.index', compact('mMantenimientos','mTpoMantos','mObjetivos','mEstatuses','subequipos'));
     }
 
     /**
@@ -50,13 +66,13 @@ class MMantenimientosController extends Controller
     public function create()
     {
         $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
-$mObjetivos = MObjetivo::pluck('objetivo','id')->all();
-$subequipos = Subequipo::pluck('subequipo','id')->all();
-$empleados = Empleado::pluck('ctrl_interno','id')->all();
-$bnds = Bnd::pluck('bnd','id')->all();
-$mEstatuses = MEstatus::pluck('id','id')->all();
-$entities = Entity::pluck('rzon_social','id')->all();
-$users = User::pluck('name','id')->all();
+        $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
+        $subequipos = Subequipo::pluck('subequipo','id')->all();
+        $empleados = Empleado::pluck('ctrl_interno','id')->all();
+        $bnds = Bnd::pluck('bnd','id')->all();
+        $mEstatuses = MEstatus::pluck('id','id')->all();
+        $entities = Entity::pluck('rzon_social','id')->all();
+        $users = User::pluck('name','id')->all();
         
         return view('m_mantenimientos.create', compact('mTpoMantos','mObjetivos','subequipos','empleados','bnds','empleados','empleados','bnds','bnds','bnds','bnds','bnds','mEstatuses','bnds','bnds','bnds','entities','users','users'));
     }

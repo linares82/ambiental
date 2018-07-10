@@ -69,6 +69,30 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('impacto_id') ? 'has-error' : '' }}">
+                                                    <label for="impacto_id" class="control-label">{{ trans('condiciones.impacto_id') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <select class="form-control chosen" id="impacto_id" name="impacto_id">
+                                                                    <option value="" style="display: none;" {{ old('impacto_id') == '' ? 'selected' : '' }} disabled selected>{{ trans('condiciones.impacto_id__placeholder') }}</option>
+                                                                @foreach ($aaImpactos as $key => $aaImpacto)
+                                                                            <option value="{{ $key }}" {{ old('impacto_id') == $key ? 'selected' : '' }}>
+                                                                                {{ $aaImpacto }}
+                                                                            </option>
+                                                                        @endforeach
+                                                        </select>
+
+                                                        {!! $errors->first('impacto_id', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
+                                                <div class="form-group col-md-4 {{ $errors->has('condicion') ? 'has-error' : '' }}">
+                                                    <label for="condicion" class="control-label">{{ trans('condiciones.condicion') }}</label>
+                                                    <!--<div class="col-md-10">-->
+                                                        <input class="form-control input-sm " name="condicion" type="text" id="condicion" value="{{ old('condicion') }}" minlength="1" maxlength="500" placeholder="{{ trans('condiciones.condicion__placeholder') }}">
+                                                        {!! $errors->first('condicion', '<p class="help-block">:message</p>') !!}
+                                                    <!--</div>-->
+                                                </div>
+
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -82,6 +106,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>{{ trans('condiciones.impacto_id') }}</th>
                             <th>{{ trans('condiciones.condicion') }}</th>
                             <th></th>
@@ -90,6 +115,7 @@
                     <tbody>
                     @foreach($condiciones as $condicione)
                         <tr>
+                            <td>{{ $condicione->id }}</td>
                             <td>{{ optional($condicione->aaImpacto)->impacto }}</td>
                             <td>{{ $condicione->condicion }}</td>
                             <td>
