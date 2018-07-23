@@ -28,7 +28,7 @@ class AArchivosFormRequest extends FormRequest
         $rules = [
             'documento_id' => 'required',
             'descripcion' => 'required|string|min:1|max:255',
-            'archivo' => 'required|string|min:1|max:255',
+            'archivo' => 'string|min:1|max:255',
 //            'fec_ini_vigencia' => 'required|date_format:j/n/Y g:i A',
 //            'fec_fin_vigencia' => 'required|date_format:j/n/Y g:i A',
             'aviso' => 'required',

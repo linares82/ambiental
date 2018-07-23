@@ -91,6 +91,7 @@ class ARrAmbientalesController extends Controller
             $data['usu_alta_id']=Auth::user()->id;
             $data['entity_id']=Auth::user()->entity_id;
             $data['st_archivo_id']=1;
+            $data['archivo']="";
             ARrAmbientale::create($data);
 
             return redirect()->route('a_rr_ambientales.a_rr_ambientale.index')

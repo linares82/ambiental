@@ -35,7 +35,7 @@ class SRegistrosFormRequest extends FormRequest
             'dias_aviso' => 'required|numeric|min:-2147483648|max:2147483647',
             'responsable_id' => 'required',
 //            'fec_fin_vigencia' => 'required|date_format:j/n/Y g:i A',
-            'archivo' => 'required|string|min:1|max:255',
+//            'archivo' => 'required|string|min:1|max:255',
 //            'estatus_id' => 'required',
 //            'entity_id' => 'required',
 //            'usu_alta_id' => 'required',

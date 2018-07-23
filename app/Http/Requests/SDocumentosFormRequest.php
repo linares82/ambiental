@@ -33,7 +33,7 @@ class SDocumentosFormRequest extends FormRequest
             'aviso' => 'required',
             'dias_aviso' => 'required|numeric|min:-2147483648|max:2147483647',
             'responsable_id' => 'required',
-            'archivo' => 'required|string|min:1|max:255',
+//            'archivo' => 'required|string|min:1|max:255',
             'observaciones' => 'required|string|min:1|max:255',
 //            'estatus_id' => 'required',
 //            'entity_id' => 'required',

@@ -41,14 +41,6 @@
     <!--</div>-->
 </div>
 
-<div class="form-group col-md-4 {{ $errors->has('archivo') ? 'has-error' : '' }}">
-    <label for="archivo" class="control-label">{{ trans('a_archivos.archivo') }}</label>
-    <!--<div class="col-md-10">-->
-        <input class="form-control input-sm " name="archivo" type="text" id="archivo" value="{{ old('archivo', optional($aArchivo)->archivo) }}" minlength="1" maxlength="255" required="true" placeholder="{{ trans('a_archivos.archivo__placeholder') }}">
-        {!! $errors->first('archivo', '<p class="help-block">:message</p>') !!}
-    <!--</div>-->
-</div>
-
 <div class="form-group col-md-4 {{ $errors->has('aviso') ? 'has-error' : '' }}">
     <label for="aviso" class="control-label">{{ trans('a_archivos.aviso') }}</label>
     <!--<div class="col-md-10">-->

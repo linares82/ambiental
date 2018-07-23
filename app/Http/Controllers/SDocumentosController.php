@@ -79,10 +79,11 @@ $users = User::pluck('name','id')->all();
             
             $data = $request->getData();
             
-			$data['usu_mod_id']=Auth::user()->id;
+	    $data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
             $data['entity_id']=Auth::user()->entity_id;
             $data['estatus_id']=1;
+            $data['archivo']="";
             SDocumento::create($data);
 
             return redirect()->route('s_documentos.s_documento.index')

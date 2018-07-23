@@ -82,6 +82,7 @@ class AProcedimientosController extends Controller
             $data['usu_alta_id']=Auth::user()->id;
             $data['entity_id']=Auth::user()->entity_id;
             $data['st_archivo_id']=1;
+            $data['archivo']="";
             AProcedimiento::create($data);
 
             return redirect()->route('a_procedimientos.a_procedimiento.index')
