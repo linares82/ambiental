@@ -6095,3 +6095,118 @@ Route::group(
     ])->middleware('auth');
     
 });
+Route::group(
+[
+    'prefix' => 'bit_doc_accidentes',
+], function () {
+
+    Route::get('/', [
+        'uses'=>'BitDocAccidentesController@index',
+        'middleware'=>'permission:bit_doc_accidentes.bit_doc_accidente.index',
+        'as'=>'bit_doc_accidentes.bit_doc_accidente.index'
+    ])->middleware('auth');
+
+    Route::get('/create',[
+        'uses'=>'BitDocAccidentesController@create',
+        'middleware'=> 'permission:bit_doc_accidentes.bit_doc_accidente.create',
+        'as'=>'bit_doc_accidentes.bit_doc_accidente.create'
+    ])->middleware('auth');
+
+    Route::get('/show/{bitDocAccidente}',[
+        'uses'=>'BitDocAccidentesController@show',
+        'middleware'=>'permission:bit_doc_accidentes.bit_doc_accidente.show',
+        'as'=>'bit_doc_accidentes.bit_doc_accidente.show'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::get('/{bitDocAccidente}/edit',[
+        'uses'=>'BitDocAccidentesController@edit',
+        'middleware'=>'permission:bit_doc_accidentes.bit_doc_accidente.edit',
+        'as'=>'bit_doc_accidentes.bit_doc_accidente.edit'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::post('/', [
+        'uses'=>'BitDocAccidentesController@store',
+        'middleware'=>'permission:bit_doc_accidentes.bit_doc_accidente.store',
+        'as'=>'bit_doc_accidentes.bit_doc_accidente.store'
+    ])->middleware('auth');
+               
+    Route::put('bit_doc_accidente/{bitDocAccidente}', [
+        'uses'=>'BitDocAccidentesController@update',
+        'middleware'=>'permission:bit_doc_accidentes.bit_doc_accidente.update',
+        'as'=>'bit_doc_accidentes.bit_doc_accidente.update'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::delete('/bit_doc_accidente/{bitDocAccidente}',[
+        'uses'=>'BitDocAccidentesController@destroy',
+        'middleware'=>'permission:bit_doc_accidentes.bit_doc_accidente.destroy',
+        'as'=>'bit_doc_accidentes.bit_doc_accidente.destroy'
+    ])->middleware('auth')->where('id', '[0-9]+');
+    Route::post('/cargaArchivo', [
+        'uses'=>'BitDocAccidentesController@cargaArchivo',
+        //'middleware'=>'permission:files_customers.files_customer.cargaArchivo',
+        'as'=>'bit_doc_accidentes.bit_doc_accidente.cargaArchivo'
+    ])->middleware('auth');
+    Route::get('/GetFiles',[
+        'uses'=>'BitDocAccidentesController@getFiles',
+        //'middleware'=>'permission:ln_impactos.ln_impacto.getByEnc',
+        'as'=>'bit_doc_accidentes.bit_doc_accidente.getFiles'
+    ])->middleware('auth')->where('id', '[0-9]+');
+});
+
+Route::group(
+[
+    'prefix' => 'bit_doc_enfermedades',
+], function () {
+
+    Route::get('/', [
+        'uses'=>'BitDocEnfermedadesController@index',
+        'middleware'=>'permission:bit_doc_enfermedades.bit_doc_enfermedade.index',
+        'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.index'
+    ])->middleware('auth');
+
+    Route::get('/create',[
+        'uses'=>'BitDocEnfermedadesController@create',
+        'middleware'=> 'permission:bit_doc_enfermedades.bit_doc_enfermedade.create',
+        'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.create'
+    ])->middleware('auth');
+
+    Route::get('/show/{bitDocEnfermedade}',[
+        'uses'=>'BitDocEnfermedadesController@show',
+        'middleware'=>'permission:bit_doc_enfermedades.bit_doc_enfermedade.show',
+        'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.show'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::get('/{bitDocEnfermedade}/edit',[
+        'uses'=>'BitDocEnfermedadesController@edit',
+        'middleware'=>'permission:bit_doc_enfermedades.bit_doc_enfermedade.edit',
+        'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.edit'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::post('/', [
+        'uses'=>'BitDocEnfermedadesController@store',
+        'middleware'=>'permission:bit_doc_enfermedades.bit_doc_enfermedade.store',
+        'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.store'
+    ])->middleware('auth');
+               
+    Route::put('bit_doc_enfermedade/{bitDocEnfermedade}', [
+        'uses'=>'BitDocEnfermedadesController@update',
+        'middleware'=>'permission:bit_doc_enfermedades.bit_doc_enfermedade.update',
+        'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.update'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::delete('/bit_doc_enfermedade/{bitDocEnfermedade}',[
+        'uses'=>'BitDocEnfermedadesController@destroy',
+        'middleware'=>'permission:bit_doc_enfermedades.bit_doc_enfermedade.destroy',
+        'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.destroy'
+    ])->middleware('auth')->where('id', '[0-9]+');
+    Route::post('/cargaArchivo', [
+        'uses'=>'BitDocEnfermedadesController@cargaArchivo',
+        //'middleware'=>'permission:files_customers.files_customer.cargaArchivo',
+        'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.cargaArchivo'
+    ])->middleware('auth');
+    Route::get('/GetFiles',[
+        'uses'=>'BitDocEnfermedadesController@getFiles',
+        //'middleware'=>'permission:ln_impactos.ln_impacto.getByEnc',
+        'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.getFiles'
+    ])->middleware('auth')->where('id', '[0-9]+');
+});

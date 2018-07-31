@@ -104,6 +104,20 @@ return [
             'visibility' => 'public',
         ],
         
+        'bit_doc_accidente' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/bit_doc_accidente'),
+            'url' => env('APP_URL').'/storage/bit_doc_accidente',
+            'visibility' => 'public',
+        ],
+        
+        'bit_doc_enfermedade' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/bit_doc_enfermedade'),
+            'url' => env('APP_URL').'/storage/bit_doc_enfermedade',
+            'visibility' => 'public',
+        ],
+        
         'entities' => [
             'driver' => 'local',
             'root' => storage_path('app/public/entities'),

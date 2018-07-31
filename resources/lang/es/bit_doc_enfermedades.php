@@ -1,0 +1,33 @@
+<?php
+
+return [
+    'id' => 'Id',
+    'id__placeholder' => 'Capturar id ...',
+    'bitacora_enfermedade_id' => 'Bitacora Enfermedade',
+    'bitacora_enfermedade_id__placeholder' => 'Seleccionar bitacora enfermedade',
+    'documento' => 'Documento',
+    'documento__placeholder' => 'Capturar documento ...',
+    'archivo' => 'Archivo',
+    'archivo__placeholder' => 'Capturar archivo ...',
+    'created_at' => 'Created At',
+    'created_at__placeholder' => 'Capturar created at ...',
+    'updated_at' => 'Updated At',
+    'updated_at__placeholder' => 'Capturar updated at ...',
+    'deleted_at' => 'Deleted At',
+    'deleted_at__placeholder' => 'Capturar deleted at ...',
+    'create' => 'Crear Nuevo Bit Doc Enfermedade',
+    'delete' => 'Borrar Bit Doc Enfermedade',
+    'edit' => 'Editar Bit Doc Enfermedade',
+    'show' => 'Mostrar Bit Doc Enfermedade',
+    'show_all' => 'Mostrar Todos Bit Doc Enfermedade',
+    'add' => 'Agregar',
+    'update' => 'Actualizar',
+    'confirm_delete' => 'Borrar Bit Doc Enfermedade?',
+    'none_available' => 'No hay Bit Doc Enfermedades Disponibles!',
+    'model_plural' => 'Bit Doc Enfermedades',
+    'model_was_added' => 'Bit Doc Enfermedade fué agregado exitosamente!',
+    'model_was_updated' => 'Bit Doc Enfermedade fué actualizado exitosamente!',
+    'model_was_deleted' => 'Bit Doc Enfermedade fué borrado exitosamente!',
+    'unexpected_error' => 'Problema inesperado al procesar su petición!',
+
+];

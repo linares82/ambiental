@@ -618,5 +618,15 @@
         "model-name": "FilesRevDocumentalLn",
         "resource-file": "files_rev_documental_lns.json",
         "table-name": "files_rev_documental_lns"
+    },
+    {
+        "model-name": "BitDocAccidente",
+        "resource-file": "bit_doc_accidentes.json",
+        "table-name": "bit_doc_accidentes"
+    },
+    {
+        "model-name": "BitDocEnfermedade",
+        "resource-file": "bit_doc_enfermedades.json",
+        "table-name": "bit_doc_enfermedades"
     }
 ]
