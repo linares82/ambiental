@@ -148,11 +148,11 @@
                             <td>{{ $sDocumento->fec_fin_vigencia }}</td>
                             <td>
                                 @if($dias > $sDocumento->dias_aviso)
-                                    <span class='label label-danger'>
+                                    <span class='label label-success'>
                                 @elseif($dias = $sDocumento->dias_aviso)
                                     <span class='label label-warning'>
                                 @elseif($dias < $sDocumento->dias_aviso)
-                                    <span class='label label-success'>
+                                    <span class='label label-danger'>
                                 @endif
                                 {{ $dias}}</td>
                                 </span>
