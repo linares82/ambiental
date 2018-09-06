@@ -67,6 +67,10 @@
 							<label for="id" class="control-label">Id</label>
 							<input class="form-control input-sm" name="id" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
 						</div>
+                                                <div class="form-group col-md-4 {{ $errors->has('slug') ? 'has-error' : '' }}">
+							<label for="name" class="control-label">Nombre</label>
+							<input class="form-control input-sm" name="name" id="name" type="text" id="slug" minlength="1" maxlength="255" placeholder="Capturar id ...">
+						</div>
 						<div class="form-group">
 							<div class="col-md-offset-2 col-md-10">
 								<input class="btn btn-info btn-app btn-xs" type="submit" value="Buscar">
@@ -80,6 +84,7 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>{{ trans('users.id') }}</th>
                             <th>{{ trans('users.name') }}</th>
                             <th>{{ trans('users.email') }}</th>
 
@@ -89,6 +94,7 @@
                     <tbody>
                     @foreach($users as $user)
                         <tr>
+                            <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
 
