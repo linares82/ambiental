@@ -97,7 +97,13 @@ class BitacoraSeguridadsController extends Controller
             $data['entity_id']=Auth::user()->entity_id;
             $data['anio']=date('Y', strtotime($request->get('fecha')));;
             $data['mes']=date('m', strtotime($request->get('fecha')));
-            BitacoraSeguridad::create($data);
+            $data['estatus_id']=1;
+            try{
+                BitacoraSeguridad::create($data);
+            }catch(Exception $e)
+            {
+                dd($e);
+            }
 
             return redirect()->route('bitacora_seguridads.bitacora_seguridad.index')
                              ->with('success_message', trans('bitacora_seguridads.model_was_added'));
