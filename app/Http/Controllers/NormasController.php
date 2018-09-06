@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Auth;
 use Log;
+use DB;
 
 class NormasController extends Controller
 {
@@ -155,6 +156,6 @@ class NormasController extends Controller
         }
     }
 
-
+    
 
 }

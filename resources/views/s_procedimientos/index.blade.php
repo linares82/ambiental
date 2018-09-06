@@ -149,17 +149,17 @@
                                 </button>
                             </td>
                             <td>{{ $sProcedimiento->fec_fin_vigencia }}</td>
-                            <th>
-                                @if($dias > $sProcedimiento->dias_aviso)
+                            <td>
+                                @if($dias > 0 and \Carbon\Carbon::now()->gt($sProcedimiento->fec_fin_vigencia))
                                     <span class='label label-danger'>
-                                @elseif($dias = $sProcedimiento->dias_aviso)
+                                @elseif($dias <= $sProcedimiento->dias_aviso and \Carbon\Carbon::now()->lt($sProcedimiento->fec_fin_vigencia))
                                     <span class='label label-warning'>
-                                @elseif($dias < $sProcedimiento->dias_aviso)
+                                @elseif($dias > $sProcedimiento->dias_aviso and \Carbon\Carbon::now()->lt($sProcedimiento->fec_fin_vigencia))
                                     <span class='label label-success'>
                                 @endif
-                                {{ $dias}}</td>
+                                {{ $dias}}
                                 </span>
-                            </th>
+                            </td>
                             <td>
                                 {{ optional($sProcedimiento->sEstatusProcedimiento)->estatus }}
                                 <a href="#" class="add-modalEstatus btn btn-xs btn-primary" data-s_procedimiento='{{$sProcedimiento->id}}'>Cambiar</a>

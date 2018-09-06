@@ -126,11 +126,11 @@
                             <td>{{ $bitacoraConsumible->fecha }}</td>
                             <td>{{ optional($bitacoraConsumible->caConsumible)->unidad }}</td>
                             <td>
-                                @if($dias > 0)
+                                @if($dias > 0 )
                                     <span class='label label-danger'>
-                                @elseif($dias = 0)
+                                @elseif($dias == 0 )
                                     <span class='label label-warning'>
-                                @elseif($dias < 0)
+                                @elseif($dias < 0 )
                                     <span class='label label-success'>
                                 @endif
                                 {{ $dias}}</td>

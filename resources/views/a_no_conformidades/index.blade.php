@@ -145,16 +145,16 @@
                 <td>{{ optional($aNoConformidade->aStNc)->estatus }}</td>
                 <td>{{ $aNoConformidade->fec_planeada }}</td>
                 <td>
-                    @if($dias > 0)
-                    <span class='label label-danger'>
-                        @elseif($dias = 0)
+                    @if($dias > 0 and \Carbon\Carbon::now()->gt($aNoConformidade->fec_planeada))
+                        <span class='label label-danger'>
+                    @elseif($dias <= $aNoConformidade->dias_aviso and \Carbon\Carbon::now()->lt($aNoConformidade->fec_planeada))
                         <span class='label label-warning'>
-                            @elseif($dias < 0)
-                            <span class='label label-success'>
-                                @endif
-                                {{ $dias}}</td>
-                            </span>
+                    @elseif($dias > $aNoConformidade and \Carbon\Carbon::now()->lt($aNoConformidade->fec_planeada))
+                        <span class='label label-success'>
+                    @endif
+                                {{ $dias}}                            </span>
                             </td>
+                            
 
                             <td>
 

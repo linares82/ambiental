@@ -628,5 +628,10 @@
         "model-name": "BitDocEnfermedade",
         "resource-file": "bit_doc_enfermedades.json",
         "table-name": "bit_doc_enfermedades"
+    },
+    {
+        "model-name": "FilesCsNorma",
+        "resource-file": "files_cs_normas.json",
+        "table-name": "files_cs_normas"
     }
 ]

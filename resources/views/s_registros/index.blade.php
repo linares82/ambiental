@@ -171,12 +171,12 @@
                             </td>
                             <td>{{ $sRegistro->fec_fin_vigencia }}</td>
                             <td>
-                                @if($dias > $sRegistro->dias_aviso)
-                                    <span class='label label-danger'>
-                                @elseif($dias = $sRegistro->dias_aviso)
-                                    <span class='label label-warning'>
-                                @elseif($dias < $sRegistro->dias_aviso)
+                                @if($dias > $sRegistro->dias_aviso and \Carbon\Carbon::now()->lt($sRegistro->fec_fin_vigencia))
                                     <span class='label label-success'>
+                                @elseif($dias <= $sRegistro->dias_aviso and \Carbon\Carbon::now()->lt($sRegistro->fec_fin_vigencia))
+                                    <span class='label label-warning'>
+                                @elseif($dias > 0 and \Carbon\Carbon::now()->gt($sRegistro->fec_fin_vigencia))
+                                    <span class='label label-danger' >
                                 @endif
                                 {{ $dias}}</td>
                                 </span>

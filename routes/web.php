@@ -1835,6 +1835,10 @@ Route::group(
         'middleware'=>'permission:cs_normas.cs_norma.destroy',
         'as'=>'cs_normas.cs_norma.destroy'
     ])->middleware('auth')->where('id', '[0-9]+');
+    Route::get('/cmbNormas', array(
+        'as' => 'cs_normas.cs_norma.cmbNormas',
+        'uses' => 'CsNormasController@cmbNormas')
+    );
 });
 
 Route::group(
@@ -6208,5 +6212,63 @@ Route::group(
         'uses'=>'BitDocEnfermedadesController@getFiles',
         //'middleware'=>'permission:ln_impactos.ln_impacto.getByEnc',
         'as'=>'bit_doc_enfermedades.bit_doc_enfermedade.getFiles'
+    ])->middleware('auth')->where('id', '[0-9]+');
+});
+
+Route::group(
+[
+    'prefix' => 'files_cs_normas',
+], function () {
+
+    Route::get('/', [
+        'uses'=>'FilesCsNormasController@index',
+        'middleware'=>'permission:files_cs_normas.files_cs_norma.index',
+        'as'=>'files_cs_normas.files_cs_norma.index'
+    ])->middleware('auth');
+
+    Route::get('/create',[
+        'uses'=>'FilesCsNormasController@create',
+        'middleware'=> 'permission:files_cs_normas.files_cs_norma.create',
+        'as'=>'files_cs_normas.files_cs_norma.create'
+    ])->middleware('auth');
+
+    Route::get('/show/{filesCsNorma}',[
+        'uses'=>'FilesCsNormasController@show',
+        'middleware'=>'permission:files_cs_normas.files_cs_norma.show',
+        'as'=>'files_cs_normas.files_cs_norma.show'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::get('/{filesCsNorma}/edit',[
+        'uses'=>'FilesCsNormasController@edit',
+        'middleware'=>'permission:files_cs_normas.files_cs_norma.edit',
+        'as'=>'files_cs_normas.files_cs_norma.edit'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::post('/', [
+        'uses'=>'FilesCsNormasController@store',
+        'middleware'=>'permission:files_cs_normas.files_cs_norma.store',
+        'as'=>'files_cs_normas.files_cs_norma.store'
+    ])->middleware('auth');
+               
+    Route::put('files_cs_norma/{filesCsNorma}', [
+        'uses'=>'FilesCsNormasController@update',
+        'middleware'=>'permission:files_cs_normas.files_cs_norma.update',
+        'as'=>'files_cs_normas.files_cs_norma.update'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::delete('/files_cs_norma/{filesCsNorma}',[
+        'uses'=>'FilesCsNormasController@destroy',
+        'middleware'=>'permission:files_cs_normas.files_cs_norma.destroy',
+        'as'=>'files_cs_normas.files_cs_norma.destroy'
+    ])->middleware('auth')->where('id', '[0-9]+');
+    Route::post('/cargaArchivo', [
+        'uses'=>'FilesCsNormasController@cargaArchivo',
+        //'middleware'=>'permission:files_customers.files_customer.cargaArchivo',
+        'as'=>'files_cs_normas.files_cs_norma.cargaArchivo'
+    ])->middleware('auth');
+    Route::get('/GetFiles',[
+        'uses'=>'FilesCsNormasController@getFiles',
+        //'middleware'=>'permission:ln_impactos.ln_impacto.getByEnc',
+        'as'=>'files_cs_normas.files_cs_norma.getFiles'
     ])->middleware('auth')->where('id', '[0-9]+');
 });

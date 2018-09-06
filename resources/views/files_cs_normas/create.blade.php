@@ -10,7 +10,7 @@
 			</li>
 
 			<li>
-				<a href="{{ route('cs_elementos_inspeccions.cs_elementos_inspeccion.index') }}">{{ trans('cs_elementos_inspeccions.model_plural') }}</a>
+				<a href="{{ route('files_cs_normas.files_cs_norma.index') }}">{{ trans('files_cs_normas.model_plural') }}</a>
 			</li>
 			<li class="active">Crear</li>
 		</ul><!-- /.breadcrumb -->
@@ -20,11 +20,11 @@
         <div class="panel-heading clearfix">
             
             <span class="pull-left">
-                <h4 class="mt-5 mb-5">{{ trans('cs_elementos_inspeccions.create') }}</h4>
+                <h4 class="mt-5 mb-5">{{ trans('files_cs_normas.create') }}</h4>
             </span>
-            @ifUserCan('cs_elementos_inspeccions.cs_elementos_inspeccion.index')
+            @ifUserCan('files_cs_normas.files_cs_norma.index')
             <div class="btn-group btn-group-sm pull-right" role="group">
-                <a href="{{ route('cs_elementos_inspeccions.cs_elementos_inspeccion.index') }}" class="btn btn-primary" title="{{ trans('cs_elementos_inspeccions.show_all') }}">
+                <a href="{{ route('files_cs_normas.files_cs_norma.index') }}" class="btn btn-primary" title="{{ trans('files_cs_normas.show_all') }}">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                 </a>
             </div>
@@ -41,15 +41,15 @@
                 </ul>
             @endif
 
-            <form method="POST" action="{{ route('cs_elementos_inspeccions.cs_elementos_inspeccion.store') }}" accept-charset="UTF-8" id="cs_elementos_inspeccion_form" name="create_cs_elementos_inspeccion_form" class="">
+            <form method="POST" action="{{ route('files_cs_normas.files_cs_norma.store') }}" accept-charset="UTF-8" id="create_files_cs_norma_form" name="create_files_cs_norma_form" class="">
             {{ csrf_field() }}
-            @include ('cs_elementos_inspeccions.form', [
-                                        'csElementosInspeccion' => null,
+            @include ('files_cs_normas.form', [
+                                        'filesCsNorma' => null,
                                       ])
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input class="btn btn-primary" type="submit" value="{{ trans('cs_elementos_inspeccions.add') }}">
+                        <input class="btn btn-primary" type="submit" value="{{ trans('files_cs_normas.add') }}">
                     </div>
                 </div>
 

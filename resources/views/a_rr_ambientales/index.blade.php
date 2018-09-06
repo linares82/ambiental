@@ -168,13 +168,13 @@
                 </td>
                 <td>{{ $aRrAmbientale->fec_fin_vigencia }}</td>
                 <td>
-                    @if($dias > 0)
-                    <span class='label label-danger'>
-                        @elseif($dias = 0)
+                    @if($dias > $aRrAmbientale->dias_aviso and \Carbon\Carbon::now()->lt($aRrAmbientale->fec_fin_vigencia))
+                        <span class='label label-success'>
+                    @elseif($dias <= $aRrAmbientale->dias_aviso and \Carbon\Carbon::now()->lt($aRrAmbientale->fec_fin_vigencia))
                         <span class='label label-warning'>
-                            @elseif($dias < 0)
-                            <span class='label label-success'>
-                                @endif
+                    @elseif($dias > 0 and \Carbon\Carbon::now()->gt($aRrAmbientale->fec_fin_vigencia))
+                        <span class='label label-danger' >
+                    @endif
                                 {{ $dias}}</td>
                             </span>
                             </td>

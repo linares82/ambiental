@@ -38,3 +38,40 @@
         {!! $errors->first('elemento', '<p class="help-block">:message</p>') !!}
     <!--</div>-->
 </div>
+
+@push('scripts')
+<script type="text/javascript">
+    
+    jQuery(document).ready(function () {
+        
+        function cmbNormas() {
+            var a = $('#cs_elementos_inspeccion_form').serialize();
+            $.ajax({
+                url: "{{url('cs_normas/cmbNormas')}}",
+                type: 'GET',
+                data: a,
+                dataType: 'json',
+                beforeSend: function () {
+                    $("#loading1").show();
+                },
+                complete: function () {
+                    $("#loading1").hide();
+                },
+                success: function (s) {
+
+                    $('select#norma_id').empty();
+                    $.each(s, function (i) {
+                        $('select#norma_id').append("<option " + s[i].selectec + " value=\"" + s[i].id + "\">" + s[i].norma + "<\/option>");
+                    });
+                    $("select#norma_id").trigger("chosen:updated");
+                }
+            });
+        }
+
+        $("#grupo_norma_id").change(function (event) {
+            cmbNormas();
+        });
+        
+    });
+</script>
+@endpush    

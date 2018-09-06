@@ -62,6 +62,13 @@ return [
             'visibility' => 'public',
         ],
         
+        'files_cs_norma' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/files_cs_norma'),
+            'url' => env('APP_URL').'/storage/files_cs_norma',
+            'visibility' => 'public',
+        ],
+        
         'files_s_procedimiento' => [
             'driver' => 'local',
             'root' => storage_path('app/public/files_s_procedimiento'),

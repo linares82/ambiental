@@ -11,6 +11,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Auth;
 use Log;
+use DB;
 
 class CsNormasController extends Controller
 {
@@ -162,6 +163,37 @@ $users = User::pluck('name','id')->all();
         }
     }
 
-
+    public function cmbNormas(Request $request){
+		$final = array();
+		if($request->ajax()){
+                        $data=$request->all();
+                        //dd($data);
+			$grupo_norma = e($data['grupo_norma_id']);
+			
+			
+			$result = DB::table('cs_normas as s')
+					->where('s.grupo_norma_id', '=', $grupo_norma)
+					->get();
+			//dd($result);
+			if(isset($data['norma_id']) and e($data['norma_id'])<>0){
+				foreach($result as $r1){
+					if($r1->id==e($data['norma_id'])){
+						array_push($final, array('id'=>$r1->id, 
+                                                                        'norma'=>$r1->norma, 
+                                                                        'selectec'=>'Selected'));
+					}else{
+						array_push($final, array('id'=>$r1->id, 
+                                                                        'norma'=>$r1->norma, 
+                                                                        'selectec'=>''));
+					}
+				}
+				//return $final;
+                                echo json_encode($final);
+			}else{
+				//return $result;	
+                                echo json_encode($result);
+			}
+		}
+	}
 
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CsNorma extends Model
+class FilesCsNorma extends Model
 {
     
     use SoftDeletes;
@@ -17,7 +17,7 @@ class CsNorma extends Model
      *
      * @var string
      */
-    protected $table = 'cs_normas';
+    protected $table = 'files_cs_normas';
 
     /**
     * The database primary key value.
@@ -32,8 +32,9 @@ class CsNorma extends Model
      * @var array
      */
     protected $fillable = [
-                  'grupo_norma_id',
-                  'norma',
+                  'cs_norma_id',
+                  'descripcion',
+                  'file_path',
                   'usu_alta_id',
                   'usu_mod_id'
               ];
@@ -53,11 +54,11 @@ class CsNorma extends Model
     protected $casts = [];
     
     /**
-     * Get the csGrupoNorma for this model.
+     * Get the csNorma for this model.
      */
-    public function csGrupoNorma()
+    public function csNorma()
     {
-        return $this->belongsTo('App\Models\CsGrupoNorma','grupo_norma_id','id');
+        return $this->belongsTo('App\Models\CsNorma','cs_norma_id','id');
     }
 
     /**
@@ -66,38 +67,6 @@ class CsNorma extends Model
     public function user()
     {
         return $this->belongsTo('App\Models\User','usu_mod_id','id');
-    }
-
-    /**
-     * Get the bitacoraSeguridads for this model.
-     */
-    public function bitacoraSeguridads()
-    {
-        return $this->hasMany('App\Models\BitacoraSeguridad','norma_id','id');
-    }
-
-    /**
-     * Get the csElementosInspeccion for this model.
-     */
-    public function csElementosInspeccion()
-    {
-        return $this->hasOne('App\Models\CsElementosInspeccion','norma_id','id');
-    }
-
-    /**
-     * Get the revDocumentoalLn for this model.
-     */
-    public function revDocumentoalLn()
-    {
-        return $this->hasOne('App\Models\RevDocumentoalLn','norma_id','id');
-    }
-
-    /**
-     * Get the sRegistro for this model.
-     */
-    public function sRegistro()
-    {
-        return $this->hasOne('App\Models\SRegistro','norma_id','id');
     }
 
 

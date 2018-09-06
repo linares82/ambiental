@@ -23,10 +23,4 @@
     <!--</div>-->
 </div>
 
-<div class="form-group col-md-4 {{ $errors->has('archivo') ? 'has-error' : '' }}">
-    <label for="archivo" class="control-label">{{ trans('cs_normas.archivo') }}</label>
-    <!--<div class="col-md-10">-->
-        <input class="form-control input-sm " name="archivo" type="text" id="archivo" value="{{ old('archivo', optional($csNorma)->archivo) }}" minlength="1" maxlength="255" required="true" placeholder="{{ trans('cs_normas.archivo__placeholder') }}">
-        {!! $errors->first('archivo', '<p class="help-block">:message</p>') !!}
-    <!--</div>-->
-</div>
+

@@ -121,13 +121,15 @@
                     @foreach($sDocumentos as $sDocumento)
                         <?php 
                         $dias = \Carbon\Carbon::now()->diffInDays($sDocumento->fec_fin_vigencia);
+                        //dd($dias);
+                        //dd(\Carbon\Carbon::now()->lt($sDocumento->fec_fin_vigencia));
                         ?>
                         @if($dias > $sDocumento->dias_aviso)
-                            <tr class='table-danger'>
-                        @elseif($dias = $sDocumento->dias_aviso)
-                            <tr class='table-warning'>
-                        @elseif($dias < $sDocumento->dias_aviso)
                             <tr class='table-success'>
+                        @elseif($dias == $sDocumento->dias_aviso)
+                            <tr class='table-warning'>
+                        @elseif($dias < $sDocumento->dias_aviso && \Carbon\Carbon::now()->gt($sDocumento->fec_fin_vigencia)==true)
+                            <tr class='table-danger'>
                         @endif
                             <td scope='row'>{{$sDocumento->id }}</td>
                             <td scope='row'>{{ optional($sDocumento->csCatDoc)->cat_doc }}</td>
@@ -147,12 +149,13 @@
                             </td>
                             <td>{{ $sDocumento->fec_fin_vigencia }}</td>
                             <td>
-                                @if($dias > $sDocumento->dias_aviso)
+                                
+                                @if($dias > $sDocumento->dias_aviso and \Carbon\Carbon::now()->lt($sDocumento->fec_fin_vigencia))
                                     <span class='label label-success'>
-                                @elseif($dias = $sDocumento->dias_aviso)
+                                @elseif($dias <= $sDocumento->dias_aviso and \Carbon\Carbon::now()->lt($sDocumento->fec_fin_vigencia))
                                     <span class='label label-warning'>
-                                @elseif($dias < $sDocumento->dias_aviso)
-                                    <span class='label label-danger'>
+                                @elseif($dias > 0 and \Carbon\Carbon::now()->gt($sDocumento->fec_fin_vigencia))
+                                    <span class='label label-danger' >
                                 @endif
                                 {{ $dias}}</td>
                                 </span>

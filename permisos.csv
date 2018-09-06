@@ -1,8 +1,8 @@
 id,slug,name,created,update
-666,files_rev_documental_lns.files_rev_documental.index,files_rev_documental_lns.files_rev_documental.index,01/01/2018 00:00,01/01/2018 00:00
-667,files_rev_documental_lns.files_rev_documental.create,files_rev_documental_lns.files_rev_documental.create,01/01/2018 00:00,01/01/2018 00:00
-668,files_rev_documental_lns.files_rev_documental.show,files_rev_documental_lns.files_rev_documental.show,01/01/2018 00:00,01/01/2018 00:00
-669,files_rev_documental_lns.files_rev_documental.edit,files_rev_documental_lns.files_rev_documental.edit,01/01/2018 00:00,01/01/2018 00:00
-670,files_rev_documental_lns.files_rev_documental.store,files_rev_documental_lns.files_rev_documental.store,01/01/2018 00:00,01/01/2018 00:00
-671,files_rev_documental_lns.files_rev_documental.update,files_rev_documental_lns.files_rev_documental.update,01/01/2018 00:00,01/01/2018 00:00
-672,files_rev_documental_lns.files_rev_documental.destroy,files_rev_documental_lns.files_rev_documental.destroy,01/01/2018 00:00,01/01/2018 00:00
+693,files_cs_normas.files_cs_norma.index,files_cs_normas.files_cs_norma.index,01/01/2018 00:00,01/01/2018 00:00
+694,files_cs_normas.files_cs_norma.create,files_cs_normas.files_cs_norma.create,01/01/2018 00:00,01/01/2018 00:00
+695,files_cs_normas.files_cs_norma.show,files_cs_normas.files_cs_norma.show,01/01/2018 00:00,01/01/2018 00:00
+696,files_cs_normas.files_cs_norma.edit,files_cs_normas.files_cs_norma.edit,01/01/2018 00:00,01/01/2018 00:00
+697,files_cs_normas.files_cs_norma.store,files_cs_normas.files_cs_norma.store,01/01/2018 00:00,01/01/2018 00:00
+698,files_cs_normas.files_cs_norma.update,files_cs_normas.files_cs_norma.update,01/01/2018 00:00,01/01/2018 00:00
+699,files_cs_normas.files_cs_norma.destroy,files_cs_normas.files_cs_norma.destroy,01/01/2018 00:00,01/01/2018 00:00

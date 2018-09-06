@@ -10,7 +10,7 @@
 			</li>
 
 			<li>
-				<a href="{{ route('cs_elementos_inspeccions.cs_elementos_inspeccion.index') }}">{{ trans('cs_elementos_inspeccions.model_plural') }}</a>
+				<a href="{{ route('files_cs_normas.files_cs_norma.index') }}">{{ trans('files_cs_normas.model_plural') }}</a>
 			</li>
 			<li class="active">Editar</li>
 		</ul><!-- /.breadcrumb -->
@@ -20,16 +20,16 @@
         <div class="panel-heading clearfix">
 
             <div class="pull-left">
-                <h4 class="mt-5 mb-5">{{ !empty($title) ? $title : trans('cs_elementos_inspeccions.model_plural') }}</h4>
+                <h4 class="mt-5 mb-5">{{ !empty($title) ? $title : '{{ trans('files_cs_normas.model_plural') }}' }}</h4>
             </div>
             <div class="btn-group btn-group-sm pull-right" role="group">
-                @ifUserCan('cs_elementos_inspeccions.cs_elementos_inspeccion.index')
-                <a href="{{ route('cs_elementos_inspeccions.cs_elementos_inspeccion.index') }}" class="btn btn-primary" title="{{ trans('cs_elementos_inspeccions.show_all') }}">
+                @ifUserCan('files_cs_normas.files_cs_norma.index')
+                <a href="{{ route('files_cs_normas.files_cs_norma.index') }}" class="btn btn-primary" title="{{ trans('files_cs_normas.show_all') }}">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                 </a>
                 @endif
-                @ifUserCan('cs_elementos_inspeccions.cs_elementos_inspeccion.create')
-                <a href="{{ route('cs_elementos_inspeccions.cs_elementos_inspeccion.create') }}" class="btn btn-success" title="{{ trans('cs_elementos_inspeccions.create') }}">
+                @ifUserCan('files_cs_normas.files_cs_norma.create')
+                <a href="{{ route('files_cs_normas.files_cs_norma.create') }}" class="btn btn-success" title="{{ trans('files_cs_normas.create') }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
                 @endif
@@ -46,16 +46,16 @@
                 </ul>
             @endif
 
-            <form method="POST" action="{{ route('cs_elementos_inspeccions.cs_elementos_inspeccion.update', $csElementosInspeccion->id) }}" id="cs_elementos_inspeccion_form" name="edit_cs_elementos_inspeccion_form" accept-charset="UTF-8" class="">
+            <form method="POST" action="{{ route('files_cs_normas.files_cs_norma.update', $filesCsNorma->id) }}" id="edit_files_cs_norma_form" name="edit_files_cs_norma_form" accept-charset="UTF-8" class="">
             {{ csrf_field() }}
             <input name="_method" type="hidden" value="PUT">
-            @include ('cs_elementos_inspeccions.form', [
-                                        'csElementosInspeccion' => $csElementosInspeccion,
+            @include ('files_cs_normas.form', [
+                                        'filesCsNorma' => $filesCsNorma,
                                       ])
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input class="btn btn-primary" type="submit" value="{{ trans('cs_elementos_inspeccions.update') }}">
+                        <input class="btn btn-primary" type="submit" value="{{ trans('files_cs_normas.update') }}">
                     </div>
                 </div>
             </form>
@@ -64,7 +64,3 @@
     </div>
 
 @endsection
-
-
-
-
