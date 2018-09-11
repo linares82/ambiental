@@ -194,7 +194,7 @@ Route::group(
          
     Route::get('/create',[
         'uses'=>'UsersController@create',
-        'middleware'=>'role:users.user.create',
+        'middleware'=>'permission:users.user.create',
         'as'=>'users.user.create'
     ])->middleware('auth');
 
@@ -206,7 +206,7 @@ Route::group(
 
     Route::get('/{user}/edit',[
         'uses'=>'UsersController@edit',
-        //'middleware'=>'permission:users.user.edit',
+        'middleware'=>'permission:users.user.edit',
         'as'=>'users.user.edit'
     ])->middleware('auth')->where('id', '[0-9]+');
     

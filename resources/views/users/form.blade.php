@@ -50,7 +50,7 @@
 </div>
 @endif
 
-@if(isset($user->multi_entidad) and $user->multi_entidad==1)
+
 <div class="form-group col-md-6 col-xs-12 {{ $errors->has('entity_id') ? 'has-error' : '' }}">
     <label for="entity_id" class="control-label">{{ trans('users.entity_id') }}</label>
     
@@ -66,4 +66,3 @@
         {!! $errors->first('entity_id', '<p class="help-block">:message</p>') !!}
     
 </div>
-@endif

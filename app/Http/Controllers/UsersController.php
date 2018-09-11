@@ -22,6 +22,7 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
+        
 		$input=$request->all();
 		$r=User::where('id', '<>', '0');
 		if(isset($input['id']) and $input['id']<>0){

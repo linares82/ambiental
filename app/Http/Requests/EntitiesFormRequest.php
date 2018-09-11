@@ -34,7 +34,7 @@ class EntitiesFormRequest extends FormRequest
             //'logo' => 'string|min:1|max:255',
             //'usu_alta_id' => 'required',
             //'usu_mod_id' => 'required',
-            'multi_entidad' => 'boolean',
+            //'multi_entidad' => 'boolean',
             'entidad_id' => 'nullable',
             //'tema' => 'required|string|min:1|max:255',
     

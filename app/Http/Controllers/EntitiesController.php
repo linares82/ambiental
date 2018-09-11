@@ -61,8 +61,14 @@ class EntitiesController extends Controller
         try {
             
             $data = $request->getData();
+            $data['usu_alta_id']=Auth::user()->id;
+            $data['usu_mod_id']=Auth::user()->id;
+            try{
+                $entidad=Entity::create($data);
+            }catch(Exception $e){
+                dd($e);
+            }
             
-            $entidad=Entity::create($data);
 
             return redirect()->route('entities.entity.edit', $entidad->id)
                              ->with('success_message', trans('entities.model_was_added'));
@@ -117,6 +123,7 @@ class EntitiesController extends Controller
         try {
             //dd($request->getData());
             $data = $request->getData();
+            $data['usu_mod_id']=Auth::user()->id;
             
             $entity = Entity::findOrFail($id);
             $entity->update($data);

@@ -35,6 +35,8 @@
                 <h4 class="mt-5 mb-5">{{ trans('users.model_plural') }}</h4>
             </div>
 
+            
+            
             <div class="btn-group btn-group-sm pull-right" role="group">
                 <a href="{{ route('users.user.create') }}" class="btn btn-success btn-xs" title="{{ trans('users.create') }}">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -81,6 +83,12 @@
 			</div>
 			<div class="table-responsive">
 
+                            @ifUserCan('users.user.create')
+                si puede
+                @else
+                no puede
+                @endif
+            
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
