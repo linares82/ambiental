@@ -58,7 +58,7 @@
 <div class="form-group col-md-4 {{ $errors->has('fecha_carga') ? 'has-error' : '' }}">
     <label for="fecha_carga" class="control-label">{{ trans('subequipos.fecha_carga') }}</label>
     <!--<div class="col-md-10">-->
-        <input class="form-control input-sm " name="fecha_carga" type="text" id="fecha_carga" value="{{ old('fecha_carga', optional($subequipo)->fecha_carga) }}" required="true" placeholder="{{ trans('subequipos.fecha_carga__placeholder') }}">
+        <input class="form-control input-sm date-picker" name="fecha_carga" type="text" id="fecha_carga" value="{{ old('fecha_carga', optional($subequipo)->fecha_carga) }}" required="true" placeholder="{{ trans('subequipos.fecha_carga__placeholder') }}">
         {!! $errors->first('fecha_carga', '<p class="help-block">:message</p>') !!}
     <!--</div>-->
 </div>
@@ -86,5 +86,4 @@
         {!! $errors->first('ubicacion', '<p class="help-block">:message</p>') !!}
     <!--</div>-->
 </div>
-
 

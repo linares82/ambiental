@@ -68,9 +68,9 @@ class MMantenimientosController extends Controller
         $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
         $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
         $subequipos = Subequipo::pluck('subequipo','id')->all();
-        $empleados = Empleado::pluck('ctrl_interno','id')->all();
+        $empleados = Empleado::pluck('nombre','id')->all();
         $bnds = Bnd::pluck('bnd','id')->all();
-        $mEstatuses = MEstatus::pluck('id','id')->all();
+        $mEstatuses = MEstatus::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
         
@@ -131,9 +131,10 @@ class MMantenimientosController extends Controller
         $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
         $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
         $subequipos = Subequipo::pluck('subequipo','id')->all();
-        $empleados = Empleado::pluck('ctrl_interno','id')->all();
+        $empleados = Empleado::pluck('nombre','id')->all();
         $bnds = Bnd::where('id', '>', 0)->pluck('bnd','id')->all();
         $mEstatuses = MEstatus::pluck('estatus','id')->all();
+        //dd($mEstatuses);
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
 

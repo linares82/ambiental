@@ -476,7 +476,10 @@
             $.ajax({
                 url: "{{url('/m_mantenimientos/conEquipo')}}",
                 type: 'GET',
-                data: a,
+                data: {
+                    objetivo_id:$('#objetivo_id').val(),
+                    subequipo_id:$('#subequipo_id').val()
+                },
                 dataType: 'json',
                 beforeSend: function () {
                     $("#loading1").show();
@@ -496,6 +499,7 @@
                                 $('#municipio_id-field').append("<option value='" + key + "'>" + element + "</option>");
                                 });
                     */
+                   conSubequipo();
                 }
             });
     

@@ -32,7 +32,7 @@ class SubequiposFormRequest extends FormRequest
             'marca' => 'required|string|min:1|max:255',
             'modelo' => 'required|string|min:1|max:255',
             'no_serie' => 'required|string|min:1|max:255',
-            'fecha_carga' => 'required|date_format:j/n/Y g:i A',
+            //'fecha_carga' => 'required|date_format:j/n/Y g:i A',
             'area_id' => 'required',
             'ubicacion' => 'required|string|min:1|max:255',
 //            'usu_alta_id' => 'required',
