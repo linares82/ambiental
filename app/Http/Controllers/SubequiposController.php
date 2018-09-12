@@ -73,8 +73,14 @@ $entities = Entity::pluck('rzon_social','id')->all();
             
 			$data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
-            $data['entity_id']=Auth::user()->entidad_id;
-            Subequipo::create($data);
+            $data['entity_id']=Auth::user()->entity_id;
+            //dd($data);
+            try
+            {
+                Subequipo::create($data);
+            }catch(Exception $e){
+                dd($e);
+            }            
 
             return redirect()->route('subequipos.subequipo.index')
                              ->with('success_message', trans('subequipos.model_was_added'));
