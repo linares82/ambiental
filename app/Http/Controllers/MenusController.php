@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\User;
+use App\Models\Entity;
 use App\Models\Permisssion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MenusFormRequest;
@@ -155,6 +156,7 @@ $users = User::pluck('id','id')->all();
 
 
     public function armaMenu($padre = 1) {
+        $this->getEntityName();
         if (session()->has('menu')) {
             return session('menu');
         } else {
@@ -247,5 +249,12 @@ $users = User::pluck('id','id')->all();
         }
     }
 
+    public function getEntityName(){
+        //dd(Entity::find(Auth::user()->entity_id)->value('rzon_social'));
+        //return Auth::user()->entity_id;
+        $entidad= Entity::find(Auth::user()->entity_id);
+        //dd($entidad);
+        return $entidad->rzon_social;
+    }
 
 }

@@ -178,7 +178,7 @@
 
                                                                 <!--<i class="ace-icon fa fa-caret-down"></i>-->
                             </a>
-
+                            
                             <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                                 <li>
                                     <a href="#">
@@ -200,7 +200,7 @@
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
     document.getElementById('logout-form').submit();">
-                                        Salir
+                                        Salir de 
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -208,6 +208,23 @@
                                     </form>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="light-green dropdown-modal">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                    <!--<img class="nav-user-photo" src="{{ asset('ace-master/assets/images/avatars/user.jpg') }}" alt="Jason's Photo" />
+                                -->
+                                <span class="user-info">
+                                    <small>
+                                    <?php 
+                                        echo $menu->getEntityName();
+                                    ?>
+                                        
+                                    </small>
+                                    
+                                </span>
+
+                                                                <!--<i class="ace-icon fa fa-caret-down"></i>-->
+                            </a>
                         </li>
                         <li class="green">
                             <a href="{{ route('users.user.editPerfil', Auth::user()->id) }}">

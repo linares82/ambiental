@@ -47,7 +47,7 @@
 
             <form method="POST" action="{{ route('users.user.update', $user->id) }}" id="edit_user_form" name="edit_user_form" accept-charset="UTF-8" class="form-horizontal">
             {{ csrf_field() }}
-            <input name="_method" type="hidden" value="PUT">
+            <input name="_method" type="hidden" value="POST">
             @include ('users.form', [
                                         'user' => $user,
                                       ])
