@@ -30,6 +30,10 @@ class MObjetivosController extends Controller
 		if(isset($input['objetivo']) and $input['objetivo']<>null){
 			$r->where('objetivo', 'like', '%'.$input['objetivo'].'%');
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
 		$mObjetivos = $r->with('user','entity')->paginate(25);
 		//$mObjetivos = MObjetivo::with('user','entity')->paginate(25);
 

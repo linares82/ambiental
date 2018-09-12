@@ -35,6 +35,10 @@ class SubequiposController extends Controller
 		if(isset($input['subequipo']) and $input['subequipo']<>null){
 			$r->where('subequipo', 'like', '%'.$input['subequipo'].'%');
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
                 $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
                 $areas = Area::pluck('area','id')->all();
 		$subequipos = $r->with('mobjetivo','area','user','entity')->paginate(25);

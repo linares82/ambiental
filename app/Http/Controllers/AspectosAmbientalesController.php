@@ -49,6 +49,10 @@ class AspectosAmbientalesController extends Controller
 		if(isset($input['actividad']) and $input['actividad']<>null){
 			$r->where('actividad', 'like', '%'.$input['actividad'].'%');
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
                 $aaProcesos = AaProceso::pluck('proceso','id')->all();
                 $areas = Area::pluck('area','id')->all();
 		$aspectosAmbientales = $r->with('aaproceso','area','aaaspecto','aaeme','aacondicione','aaimpacto','puesto','bnd','efecto','duracionaccion','probabilidad','imppotencial','impreal','entity','user')->paginate(25);

@@ -45,6 +45,10 @@ class BitacoraSeguridadsController extends Controller
                 if(isset($input['tpo_inconformidad_id']) and $input['tpo_inconformidad_id']<>null){
 			$r->where('tpo_inconformidad_id', '=', $input['tpo_inconformidad_id']);
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/

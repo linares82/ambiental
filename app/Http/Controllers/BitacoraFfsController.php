@@ -36,6 +36,10 @@ class BitacoraFfsController extends Controller
                 if(isset($input['fecha']) and $input['fecha']<>null){
 			$r->where('fecha', '=', date_format(date_create($input['fecha']),'Y/m/d'));
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/

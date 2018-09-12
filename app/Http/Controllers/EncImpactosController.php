@@ -42,6 +42,10 @@ class EncImpactosController extends Controller {
         if (isset($input['fecha_fin']) and $input['fecha_fin'] <> null) {
             $r->where('fecha_fin', '=', date_format(date_create($input['fecha_fin']),'Y/m/d') );
         }
+        if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
         $clientes = Cliente::pluck('cliente', 'id')->all();
         $tipoImpactos = TipoImpacto::pluck('tipo_impacto', 'id')->all();
         $encImpactos = $r->with('cliente', 'tipoimpacto')->paginate(25);

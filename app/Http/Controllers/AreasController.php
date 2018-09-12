@@ -30,6 +30,10 @@ class AreasController extends Controller
                 if(isset($input['area']) and $input['area']<>null){
 			$r->where('area', 'like', '%'.$input['area'].'%');
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/

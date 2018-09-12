@@ -42,6 +42,10 @@ class ANoConformidadesController extends Controller
                 if(isset($input['fec_planeada']) and $input['fec_planeada']<>null){
 			$r->where('fec_planeada', '=', date_format(date_create($input['fec_planeada']),'Y/m/d'));
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/

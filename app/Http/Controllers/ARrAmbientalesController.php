@@ -42,6 +42,10 @@ class ARrAmbientalesController extends Controller
                 if(isset($input['documento_id']) and $input['documento_id']<>null){
 			$r->where('documento_id', '=', $input['documento_id']);
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
