@@ -254,7 +254,7 @@ $users = User::pluck('id','id')->all();
         //return Auth::user()->entity_id;
         $entidad= Entity::find(Auth::user()->entity_id);
         //dd($entidad);
-        return $entidad->rzon_social;
+        return $entidad->abreviatura;
     }
 
 }
