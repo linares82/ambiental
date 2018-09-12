@@ -110,19 +110,65 @@ class MMantenimiento extends Model
     /**
      * Get the empleado for this model.
      */
-    public function empleado()
+    public function solicitante()
+    {
+        return $this->belongsTo('App\Models\Empleado','solicitante_id','id');
+    }
+    
+    public function ejecutor()
+    {
+        return $this->belongsTo('App\Models\Empleado','ejecutor_id','id');
+    }
+    
+    public function responsable()
     {
         return $this->belongsTo('App\Models\Empleado','responsable_id','id');
     }
+    
+    
 
     /**
      * Get the bnd for this model.
      */
-    public function bnd()
+    public function tpp()
+    {
+        return $this->belongsTo('App\Models\Bnd','tpp_bnd','id');
+    }
+    
+    public function supervision()
+    {
+        return $this->belongsTo('App\Models\Bnd','supervision_bnd','id');
+    }
+    
+    public function conoceProcedimiento()
+    {
+        return $this->belongsTo('App\Models\Bnd','conoce_procedimiento_bnd','id');
+    }
+    
+    public function llevaEquipo()
+    {
+        return $this->belongsTo('App\Models\Bnd','lleva_equipo_bnd','id');
+    }
+    
+    public function cumplePuntos()
+    {
+        return $this->belongsTo('App\Models\Bnd','cumple_puntos_bnd','id');
+    }
+
+    public function eventualidades()
+    {
+        return $this->belongsTo('App\Models\Bnd','eventualidades_bnd','id');
+    }
+    
+    public function levantarFormato()
+    {
+        return $this->belongsTo('App\Models\Bnd','levantar_formato_bnd','id');
+    }
+    
+    public function registroBitacora()
     {
         return $this->belongsTo('App\Models\Bnd','registro_bitacora_bnd','id');
     }
-
     /**
      * Get the mEstatus for this model.
      */

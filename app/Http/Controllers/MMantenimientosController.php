@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 use Auth;
 use Log;
 use DB;
+use PDF;
+
 class MMantenimientosController extends Controller
 {
 
@@ -52,7 +54,7 @@ class MMantenimientosController extends Controller
                 $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
                 $subequipos = Subequipo::pluck('subequipo','id')->all();
                 $mEstatuses = MEstatus::pluck('id','id')->all();
-		$mMantenimientos = $r->with('mtpomanto','mobjetivo','subequipo','empleado','bnd','mestatus','entity','user')->paginate(25);
+		$mMantenimientos = $r->paginate(25);
 		//$mMantenimientos = MMantenimiento::with('mtpomanto','mobjetivo','subequipo','empleado','bnd','mestatus','entity','user')->paginate(25);
 
         return view('m_mantenimientos.index', compact('mMantenimientos','mTpoMantos','mObjetivos','mEstatuses','subequipos'));
@@ -238,4 +240,58 @@ class MMantenimientosController extends Controller
 					->distinct()->get();
 		}
 	}
+        
+    public function rptFormato($id){
+		/*$usuario=User::find(Auth::user()->id)->name;
+		$carpeta=base_path().'/public/reportes/reportes/'.$usuario;
+		//$img  =  User::find(Sentry::getUser()->id)->Entidad->logo;
+		
+		$no_orden=$m->no_orden;
+		
+		if(!file_exists($carpeta)){
+			mkdir($carpeta);
+		}
+
+		if(file_exists($carpeta . '/mantenimiento.pdf')){
+			unlink($carpeta . '/mantenimiento.pdf');
+		}
+*/
+
+		//dd($carpeta . '/mantenimiento');
+		
+		/*JasperPHP::process(
+	    base_path() . '/public/reportes/reportes/mantenimiento.jasper', 
+	    $carpeta . '/mantenimiento',
+	    array("pdf"), 
+	    array('id'=>$id,
+	    	  //'ruta_img'=>base_path().'/public/uploads/cias/'.$img),
+			  'codigo'=> Hash::make($no_orden)),
+	    Config::get('database.connections.mysql') //DB connection array
+	    )->execute();
+		
+	    for($i=0;$i<1000;$i++){
+	    	if(!file_exists($carpeta.'/mantenimiento.pdf')){
+	    		sleep(3);
+	    	}else{
+	    		sleep(3);
+	    		break;
+	    	}
+	    }
+	    return Response::download($carpeta.'/mantenimiento.pdf');	    
+		*/
+		//dd($m);
+                $m = MMantenimiento::find($id);
+		$entidad  =  Entity::find(Auth::user()->entity_id);
+                
+		$img=asset('storage/entities/'.$entidad->logo);
+		$fecha=date('d/m/Y');
+		//dd($img);
+		$pdf = PDF::loadView('m_mantenimientos.orden_mantor', array('m'=>$m, 'img'=>$img, 'fecha'=>$fecha))
+		->setPaper('letter','portrait');
+		return $pdf->download('reporte.pdf');		
+		
+		//return View::make('m_mantenimientos.orden_mantor', array('m'=>$m, 'img'=>$img, 'fecha'=>$fecha));
+	}
+
+
 }

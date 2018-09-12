@@ -172,6 +172,9 @@
                         {{ csrf_field() }}
 
                         <div class="btn-group btn-group-xs pull-right" role="group">
+                            <a href="{{ route('m_mantenimientos.m_mantenimiento.reporte', $mMantenimiento->id ) }}" class="btn btn-warning btn-xs" title="Reporte">
+                                <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+                            </a>
                             @ifUserCan('m_mantenimientos.m_mantenimiento.show')
                             <a href="{{ route('m_mantenimientos.m_mantenimiento.show', $mMantenimiento->id ) }}" class="btn btn-info btn-xs" title="{{ trans('m_mantenimientos.show') }}">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>

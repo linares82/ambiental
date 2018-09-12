@@ -63,7 +63,8 @@ class PuestosController extends Controller
         try {
             
             $data = $request->getData();
-            
+            $data['usu_alta_id']=Auth::user()->id;
+            $data['usu_mod_id']=Auth::user()->id;
             Puesto::create($data);
 
             return redirect()->route('puestos.puesto.index')
@@ -118,7 +119,7 @@ class PuestosController extends Controller
         try {
             
             $data = $request->getData();
-            
+            $data['usu_alta_id']=Auth::user()->id;
             $puesto = Puesto::findOrFail($id);
             $puesto->update($data);
 

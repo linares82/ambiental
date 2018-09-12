@@ -4084,6 +4084,11 @@ Route::group(
         'as' => 'm_mantenimientos.m_mantenimiento.conSubequipo',
         'uses' => 'MMantenimientosController@conSubequipo')
     );
+    Route::get('/reporte/{id}', [
+        'uses'=>'MMantenimientosController@rptFormato',
+        //'middleware'=>'permission:m_mantenimientos.m_mantenimiento.index',
+        'as'=>'m_mantenimientos.m_mantenimiento.reporte'
+    ])->middleware('auth');
 });
 
 Route::group(
