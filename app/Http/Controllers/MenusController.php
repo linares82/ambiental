@@ -188,14 +188,17 @@ $users = User::pluck('id','id')->all();
                 $autenticado = Auth::user();
                 //Log::info($autenticado);
                 //dd($item);
-                if ($item->permiso_id <> "home" and $item->permiso_id <> "logout") {
-                    Log::info($item->permiso_id);
+                if ($item->permiso_id != "home" and $item->permiso_id != "logout") {
+                    //Log::info($item->permiso_id);
                     
                     if (Auth::check()) {
-                        $permiso = Auth::user()->can($item->permiso_id);
+                        //dd(Auth::user()->canDo('permissions.permission.index'));
+                        $permiso = Auth::user()->canDo($item->permiso_id);
+                        //dd($permiso);
                     }
+                    
                 } else {
-                    Log::info("Sin permiso para ".$item->permiso_id);
+                    //Log::info("Sin permiso para ".$item->permiso_id);
                     //dd($item->permiso);
                     $permiso = true;
                 }
