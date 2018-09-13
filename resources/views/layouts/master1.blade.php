@@ -209,7 +209,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="light-green dropdown-modal">
+                        <li class="green">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                                     <!--<img class="nav-user-photo" src="{{ asset('ace-master/assets/images/avatars/user.jpg') }}" alt="Jason's Photo" />
                                 -->

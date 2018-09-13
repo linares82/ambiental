@@ -29,6 +29,10 @@ class ClientesController extends Controller
                 if(isset($input['cliente']) and $input['cliente']<>null){
 			$r->where('cliente', 'like', '%'.$input['cliente'].'%');
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/

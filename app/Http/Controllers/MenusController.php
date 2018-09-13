@@ -11,6 +11,7 @@ use App\Http\Requests\MenusFormRequest;
 use Exception;
 use Illuminate\Http\Request;
 use Auth;
+use Log;
 
 class MenusController extends Controller
 {
@@ -182,15 +183,19 @@ $users = User::pluck('id','id')->all();
         if (!empty($menu)) {
             //dd($menu);
             foreach ($menu as $item) {
+                $permiso=false;
                 //$permiso=User::find(Auth::user()->id)->can($item->permiso);
                 $autenticado = Auth::user();
                 //Log::info($autenticado);
-
-                if ($item->permiso <> "home" and $item->permiso <> "logout") {
+                //dd($item);
+                if ($item->permiso_id <> "home" and $item->permiso_id <> "logout") {
+                    Log::info($item->permiso_id);
+                    
                     if (Auth::check()) {
-                        $permiso = Auth::user()->can($item->permiso);
+                        $permiso = Auth::user()->can($item->permiso_id);
                     }
                 } else {
+                    Log::info("Sin permiso para ".$item->permiso_id);
                     //dd($item->permiso);
                     $permiso = true;
                 }

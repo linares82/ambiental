@@ -30,6 +30,10 @@ class PuestosController extends Controller
                 if(isset($input['puesto']) and $input['puesto']<>null){
 			$r->where('puesto', 'like', '%'.$input['puesto'].'%');
 		}
+                if (Auth::user()->canDo('filtro_entity')) {
+                    //dd('si puede');
+                    $r->where('entity_id', '=', Auth::user()->entity_id);
+                }
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
