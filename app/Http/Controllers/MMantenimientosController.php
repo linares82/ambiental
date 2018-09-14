@@ -56,7 +56,7 @@ class MMantenimientosController extends Controller
 		}*/
                 $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
                 $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
-                $subequipos = Subequipo::pluck('subequipo','id')->all();
+                $subequipos = Subequipo::where('entity_id', Auth::user()->entity_id)->pluck('subequipo','id')->all();
                 $mEstatuses = MEstatus::pluck('id','id')->all();
 		$mMantenimientos = $r->paginate(25);
 		//$mMantenimientos = MMantenimiento::with('mtpomanto','mobjetivo','subequipo','empleado','bnd','mestatus','entity','user')->paginate(25);
@@ -73,7 +73,7 @@ class MMantenimientosController extends Controller
     {
         $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
         $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
-        $subequipos = Subequipo::pluck('subequipo','id')->all();
+        $subequipos = Subequipo::where('entity_id', Auth::user()->entity_id)->pluck('subequipo','id')->all();
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $bnds = Bnd::pluck('bnd','id')->all();
         $mEstatuses = MEstatus::pluck('estatus','id')->all();
@@ -136,7 +136,7 @@ class MMantenimientosController extends Controller
         $mMantenimiento = MMantenimiento::findOrFail($id);
         $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
         $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
-        $subequipos = Subequipo::pluck('subequipo','id')->all();
+        $subequipos = Subequipo::where('entity_id', Auth::user()->entity_id)->pluck('subequipo','id')->all();
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $bnds = Bnd::where('id', '>', 0)->pluck('bnd','id')->all();
         $mEstatuses = MEstatus::pluck('estatus','id')->all();
