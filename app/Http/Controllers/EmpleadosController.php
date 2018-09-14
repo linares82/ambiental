@@ -54,8 +54,8 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-        $areas = Area::pluck('area','id')->all();
-        $puestos = Puesto::pluck('puesto','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
+        $puestos = Puesto::where('entity_id',Auth::user()->entity_id)->pluck('puesto','id')->all();
         $bnds = Bnd::where('id','>',0)->pluck('bnd','id')->all();
         $jeves = Empleado::where('bnd_subordinados', '=', 1)->pluck('nombre','id')->all();
         $users = User::pluck('name','id')->all();
@@ -115,8 +115,8 @@ class EmpleadosController extends Controller
     public function edit($id)
     {
         $empleado = Empleado::findOrFail($id);
-        $areas = Area::pluck('area','id')->all();
-        $puestos = Puesto::pluck('puesto','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
+        $puestos = Puesto::where('entity_id',Auth::user()->entity_id)->pluck('puesto','id')->all();
         $bnds = Bnd::where('id','>',0)->pluck('bnd','id')->all();
         $jeves = Empleado::where('bnd_subordinados', '=', 1)->pluck('nombre','id')->all();
         $users = User::pluck('name','id')->all();

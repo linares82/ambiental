@@ -39,8 +39,8 @@ class SubequiposController extends Controller
                     //dd('si puede');
                     $r->where('entity_id', '=', Auth::user()->entity_id);
                 }
-                $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
-                $areas = Area::pluck('area','id')->all();
+                $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
+                $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
 		$subequipos = $r->with('mobjetivo','area','user','entity')->paginate(25);
 		//$subequipos = Subequipo::with('mobjetivo','area','user','entity')->paginate(25);
 
@@ -54,8 +54,8 @@ class SubequiposController extends Controller
      */
     public function create()
     {
-        $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
-$areas = Area::pluck('area','id')->all();
+        $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
+$areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
 $users = User::pluck('name','id')->all();
 $entities = Entity::pluck('rzon_social','id')->all();
         
@@ -120,8 +120,8 @@ $entities = Entity::pluck('rzon_social','id')->all();
     public function edit($id)
     {
         $subequipo = Subequipo::findOrFail($id);
-        $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
-$areas = Area::pluck('area','id')->all();
+        $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
+$areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
 $users = User::pluck('name','id')->all();
 $entities = Entity::pluck('rzon_social','id')->all();
 

@@ -61,7 +61,7 @@ class AProcedimientosController extends Controller
     {
         $caProcedimientos = CaProcedimiento::pluck('procedimiento','id')->all();
         $bnds = Bnd::pluck('bnd','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $aStArchivos = AStArchivo::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
@@ -125,7 +125,7 @@ class AProcedimientosController extends Controller
         $aProcedimiento = AProcedimiento::findOrFail($id);
         $caProcedimientos = CaProcedimiento::pluck('procedimiento','id')->all();
         $bnds = Bnd::pluck('bnd','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $aStArchivos = AStArchivo::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();

@@ -59,7 +59,7 @@ class BitacoraPlantasController extends Controller
     {
         $caPlantas = CaPlanta::pluck('planta','id')->all();
 $turnos = Turno::pluck('turno','id')->all();
-$empleados = Empleado::pluck('ctrl_interno','id')->all();
+$empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('ctrl_interno','id')->all();
 $entities = Entity::pluck('rzon_social','id')->all();
 $users = User::pluck('name','id')->all();
         
@@ -121,7 +121,7 @@ $users = User::pluck('name','id')->all();
         $bitacoraPlanta = BitacoraPlanta::findOrFail($id);
         $caPlantas = CaPlanta::pluck('planta','id')->all();
 $turnos = Turno::pluck('turno','id')->all();
-$empleados = Empleado::pluck('ctrl_interno','id')->all();
+$empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('ctrl_interno','id')->all();
 $entities = Entity::pluck('rzon_social','id')->all();
 $users = User::pluck('name','id')->all();
 

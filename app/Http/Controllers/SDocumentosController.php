@@ -62,7 +62,7 @@ class SDocumentosController extends Controller
     {
         $csCatDocs = CsCatDoc::pluck('cat_doc','id')->all();
 $bnds = Bnd::pluck('bnd','id')->all();
-$empleados = Empleado::pluck('nombre','id')->all();
+$empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
 $sEstatusProcedimientos = SEstatusProcedimiento::pluck('estatus','id')->all();
 $entities = Entity::pluck('rzon_social','id')->all();
 $users = User::pluck('name','id')->all();
@@ -126,7 +126,7 @@ $users = User::pluck('name','id')->all();
         $sDocumento = SDocumento::findOrFail($id);
         $csCatDocs = CsCatDoc::pluck('cat_doc','id')->all();
 $bnds = Bnd::pluck('bnd','id')->all();
-$empleados = Empleado::pluck('nombre','id')->all();
+$empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
 $sEstatusProcedimientos = SEstatusProcedimiento::pluck('estatus','id')->all();
 $entities = Entity::pluck('rzon_social','id')->all();
 $users = User::pluck('name','id')->all();

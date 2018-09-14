@@ -48,7 +48,7 @@ class BitacoraAccidentesController extends Controller
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
-                $areas = Area::pluck('area','id')->all();
+                $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
                 $csAccidentes = CsAccidente::pluck('accidente','id')->all();
 		$bitacoraAccidentes = $r->with('area','empleado','csaccidente','csaccione','turno','entity','user')->paginate(25);
 		//$bitacoraAccidentes = BitacoraAccidente::with('area','empleado','csaccidente','csaccione','turno','entity','user')->paginate(25);
@@ -63,8 +63,8 @@ class BitacoraAccidentesController extends Controller
      */
     public function create()
     {
-        $areas = Area::pluck('area','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $csAccidentes = CsAccidente::pluck('accidente','id')->all();
         $csAcciones = CsAccione::pluck('accion','id')->all();
         $turnos = Turno::pluck('turno','id')->all();
@@ -128,8 +128,8 @@ class BitacoraAccidentesController extends Controller
     public function edit($id)
     {
         $bitacoraAccidente = BitacoraAccidente::findOrFail($id);
-        $areas = Area::pluck('area','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $csAccidentes = CsAccidente::pluck('accidente','id')->all();
         $csAcciones = CsAccione::pluck('accion','id')->all();
         $turnos = Turno::pluck('turno','id')->all();

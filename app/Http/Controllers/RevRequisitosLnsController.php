@@ -52,10 +52,10 @@ class RevRequisitosLnsController extends Controller
         $revRequisitos = RevRequisito::pluck('anio','id')->all();
         $aaImpactos = AaImpacto::pluck('impacto','id')->all();
         $condiciones = Condicione::pluck('condicion','id')->all();
-        $areas = Area::pluck('area','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
         $estatusCondiciones = EstatusCondicione::pluck('estatus','id')->all();
         $importancia = Importancium::pluck('importancia','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $users = User::pluck('name','id')->all();
         
         return view('rev_requisitos_lns.create', compact('revRequisitos','aaImpactos','condiciones','areas','estatusCondiciones','importancia','empleados','users','users'));
@@ -115,10 +115,10 @@ class RevRequisitosLnsController extends Controller
         $revRequisitos = RevRequisito::pluck('anio','id')->all();
         $aaImpactos = AaImpacto::pluck('impacto','id')->all();
         $condiciones = Condicione::pluck('condicion','id')->all();
-        $areas = Area::pluck('area','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
         $estatusCondiciones = EstatusCondicione::pluck('estatus','id')->all();
         $importancia = Importancium::pluck('importancia','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $users = User::pluck('name','id')->all();
 
         return view('rev_requisitos_lns.edit', compact('revRequisitosLn','revRequisitos','aaImpactos','condiciones','areas','estatusCondiciones','importancia','empleados','users','users'));

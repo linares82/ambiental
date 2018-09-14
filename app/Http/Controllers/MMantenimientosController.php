@@ -55,7 +55,7 @@ class MMantenimientosController extends Controller
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
                 $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
-                $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
+                $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
                 $subequipos = Subequipo::pluck('subequipo','id')->all();
                 $mEstatuses = MEstatus::pluck('id','id')->all();
 		$mMantenimientos = $r->paginate(25);
@@ -72,9 +72,9 @@ class MMantenimientosController extends Controller
     public function create()
     {
         $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
-        $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
+        $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
         $subequipos = Subequipo::pluck('subequipo','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $bnds = Bnd::pluck('bnd','id')->all();
         $mEstatuses = MEstatus::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
@@ -135,9 +135,9 @@ class MMantenimientosController extends Controller
     {
         $mMantenimiento = MMantenimiento::findOrFail($id);
         $mTpoMantos = MTpoManto::pluck('tpo_manto','id')->all();
-        $mObjetivos = MObjetivo::pluck('objetivo','id')->all();
+        $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
         $subequipos = Subequipo::pluck('subequipo','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $bnds = Bnd::where('id', '>', 0)->pluck('bnd','id')->all();
         $mEstatuses = MEstatus::pluck('estatus','id')->all();
         //dd($mEstatuses);

@@ -59,7 +59,7 @@ class BitacoraFfsController extends Controller
     {
         $caFuentesFijas = CaFuentesFija::pluck('planta','id')->all();
         $turnos = Turno::pluck('turno','id')->all();
-        $empleados = Empleado::pluck('ctrl_interno','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('ctrl_interno','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
         
@@ -122,7 +122,7 @@ class BitacoraFfsController extends Controller
         $bitacoraFf = BitacoraFf::findOrFail($id);
         $caFuentesFijas = CaFuentesFija::pluck('planta','id')->all();
         $turnos = Turno::pluck('turno','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
 

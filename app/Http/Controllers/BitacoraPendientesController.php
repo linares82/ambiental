@@ -50,7 +50,7 @@ class BitacoraPendientesController extends Controller
     public function create()
     {
         $bnds = Bnd::pluck('bnd','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $bitSts = BitSt::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
@@ -112,7 +112,7 @@ class BitacoraPendientesController extends Controller
     {
         $bitacoraPendiente = BitacoraPendiente::findOrFail($id);
         $bnds = Bnd::pluck('bnd','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $bitSts = BitSt::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();

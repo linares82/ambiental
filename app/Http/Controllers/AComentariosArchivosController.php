@@ -44,7 +44,7 @@ class AComentariosArchivosController extends Controller
      */
     public function create()
     {
-        $aArchivos = AArchivo::pluck('descripcion','id')->all();
+        $aArchivos = AArchivo::where('entity_id',Auth::user()->entity_id)->pluck('descripcion','id')->all();
 $aStArchivos = AStArchivo::pluck('estatus','id')->all();
 $users = User::pluck('name','id')->all();
         
@@ -106,7 +106,7 @@ $users = User::pluck('name','id')->all();
     public function edit($id)
     {
         $aComentariosArchivo = AComentariosArchivo::findOrFail($id);
-        $aArchivos = AArchivo::pluck('descripcion','id')->all();
+        $aArchivos = AArchivo::where('entity_id',Auth::user()->entity_id)->pluck('descripcion','id')->all();
 $aStArchivos = AStArchivo::pluck('estatus','id')->all();
 $users = User::pluck('name','id')->all();
 

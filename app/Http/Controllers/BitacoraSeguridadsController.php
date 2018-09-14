@@ -53,7 +53,7 @@ class BitacoraSeguridadsController extends Controller
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
                 $csTpoDeteccions = CsTpoDeteccion::pluck('tpo_deteccion','id')->all();
-                $areas = Area::pluck('area','id')->all();
+                $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
                 $csTpoBitacoras = CsTpoBitacora::pluck('tpo_bitacora','id')->all();
                 $csTpoInconformidades = CsTpoInconformidade::pluck('tpo_inconformidad','id')->all();
 		$bitacoraSeguridads = $r->with('cstpodeteccion','area','cstpobitacora','cstpoinconformidade','csgruponorma','csnorma','empleado','sstb','entity','user')->paginate(25);
@@ -70,12 +70,12 @@ class BitacoraSeguridadsController extends Controller
     public function create()
     {
         $csTpoDeteccions = CsTpoDeteccion::pluck('tpo_deteccion','id')->all();
-        $areas = Area::pluck('area','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
         $csTpoBitacoras = CsTpoBitacora::pluck('tpo_bitacora','id')->all();
         $csTpoInconformidades = CsTpoInconformidade::pluck('tpo_inconformidad','id')->all();
         $csGrupoNormas = CsGrupoNorma::pluck('grupo_norma','id')->all();
         $csNormas = CsNorma::pluck('norma','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $sStBs = SStB::pluck('id','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
@@ -144,12 +144,12 @@ class BitacoraSeguridadsController extends Controller
     {
         $bitacoraSeguridad = BitacoraSeguridad::findOrFail($id);
         $csTpoDeteccions = CsTpoDeteccion::pluck('tpo_deteccion','id')->all();
-$areas = Area::pluck('area','id')->all();
+$areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
 $csTpoBitacoras = CsTpoBitacora::pluck('tpo_bitacora','id')->all();
 $csTpoInconformidades = CsTpoInconformidade::pluck('tpo_inconformidad','id')->all();
 $csGrupoNormas = CsGrupoNorma::pluck('grupo_norma','id')->all();
 $csNormas = CsNorma::pluck('norma','id')->all();
-$empleados = Empleado::pluck('nombre','id')->all();
+$empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
 $sStBs = SStB::pluck('id','id')->all();
 $entities = Entity::pluck('rzon_social','id')->all();
 $users = User::pluck('name','id')->all();

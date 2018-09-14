@@ -44,7 +44,7 @@ class FilesAArchivosController extends Controller
      */
     public function create()
     {
-        $aArchivos = AArchivo::pluck('descripcion','id')->all();
+        $aArchivos = AArchivo::where('entity_id',Auth::user()->entity_id)->pluck('descripcion','id')->all();
 $users = User::pluck('name','id')->all();
         
         return view('files_a_archivos.create', compact('aArchivos','users','users'));
@@ -101,7 +101,7 @@ $users = User::pluck('name','id')->all();
     public function edit($id)
     {
         $filesAArchivo = FilesAArchivo::findOrFail($id);
-        $aArchivos = AArchivo::pluck('descripcion','id')->all();
+        $aArchivos = AArchivo::where('entity_id',Auth::user()->entity_id)->pluck('descripcion','id')->all();
 $users = User::pluck('name','id')->all();
 
         return view('files_a_archivos.edit', compact('filesAArchivo','aArchivos','users','users'));

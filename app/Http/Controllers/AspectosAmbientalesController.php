@@ -54,7 +54,7 @@ class AspectosAmbientalesController extends Controller
                     $r->where('entity_id', '=', Auth::user()->entity_id);
                 }
                 $aaProcesos = AaProceso::pluck('proceso','id')->all();
-                $areas = Area::pluck('area','id')->all();
+                $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
 		$aspectosAmbientales = $r->with('aaproceso','area','aaaspecto','aaeme','aacondicione','aaimpacto','puesto','bnd','efecto','duracionaccion','probabilidad','imppotencial','impreal','entity','user')->paginate(25);
 		//$aspectosAmbientales = AspectosAmbientale::with('aaproceso','area','aaaspecto','aaeme','aacondicione','aaimpacto','puesto','bnd','efecto','duracionaccion','probabilidad','imppotencial','impreal','entity','user')->paginate(25);
 
@@ -69,12 +69,12 @@ class AspectosAmbientalesController extends Controller
     public function create()
     {
         $aaProcesos = AaProceso::pluck('proceso','id')->all();
-        $areas = Area::pluck('area','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
         $aaAspectos = AaAspecto::pluck('aspectos','id')->all();
         $aaEmes = AaEme::pluck('eme','id')->all();
         $aaCondiciones = AaCondicione::pluck('condicion','id')->all();
         $aaImpactos = AaImpacto::pluck('impacto','id')->all();
-        $puestos = Puesto::pluck('puesto','id')->all();
+        $puestos = Puesto::where('entity_id',Auth::user()->entity_id)->pluck('puesto','id')->all();
         $bnds = Bnd::where('id', '>', 0)->pluck('bnd','id')->all();
         $efectos = Efecto::pluck('descripcion','id')->all();
         $duracionAccions = DuracionAccion::pluck('duracion_accion','id')->all();
@@ -140,12 +140,12 @@ class AspectosAmbientalesController extends Controller
     {
         $aspectosAmbientale = AspectosAmbientale::findOrFail($id);
         $aaProcesos = AaProceso::pluck('proceso','id')->all();
-        $areas = Area::pluck('area','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
         $aaAspectos = AaAspecto::pluck('aspectos','id')->all();
         $aaEmes = AaEme::pluck('eme','id')->all();
         $aaCondiciones = AaCondicione::pluck('condicion','id')->all();
         $aaImpactos = AaImpacto::pluck('impacto','id')->all();
-        $puestos = Puesto::pluck('puesto','id')->all();
+        $puestos = Puesto::where('entity_id',Auth::user()->entity_id)->pluck('puesto','id')->all();
         $bnds = Bnd::where('id', '>', 0)->pluck('bnd','id')->all();
         $efectos = Efecto::pluck('descripcion','id')->all();
         $duracionAccions = DuracionAccion::pluck('duracion_accion','id')->all();

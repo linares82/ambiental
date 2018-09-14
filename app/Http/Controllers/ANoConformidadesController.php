@@ -49,7 +49,7 @@ class ANoConformidadesController extends Controller
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
-                $areas = Area::pluck('area','id')->all();
+                $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
                 $csTpoDeteccions = CsTpoDeteccion::pluck('tpo_deteccion','id')->all();
 		$aNoConformidades = $r->with('area','cstpodeteccion','catpobitacora','catponoconformidad','empleado','astnc','entity','user')->paginate(25);
 		//$aNoConformidades = ANoConformidade::with('area','cstpodeteccion','catpobitacora','catponoconformidad','empleado','astnc','entity','user')->paginate(25);
@@ -64,11 +64,11 @@ class ANoConformidadesController extends Controller
      */
     public function create()
     {
-        $areas = Area::pluck('area','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
         $csTpoDeteccions = CsTpoDeteccion::pluck('tpo_deteccion','id')->all();
         $caTpoBitacoras = CaTpoBitacora::pluck('tpo_bitacora','id')->all();
         $caTpoNoConformidads = CaTpoNoConformidad::pluck('tpo_inconformidad','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $aStNcs = AStNc::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
@@ -131,11 +131,11 @@ class ANoConformidadesController extends Controller
     public function edit($id)
     {
         $aNoConformidade = ANoConformidade::findOrFail($id);
-        $areas = Area::pluck('area','id')->all();
+        $areas = Area::where('entity_id',Auth::user()->entity_id)->pluck('area','id')->all();
         $csTpoDeteccions = CsTpoDeteccion::pluck('tpo_deteccion','id')->all();
         $caTpoBitacoras = CaTpoBitacora::pluck('tpo_bitacora','id')->all();
         $caTpoNoConformidads = CaTpoNoConformidad::pluck('tpo_inconformidad','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $aStNcs = AStNc::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();

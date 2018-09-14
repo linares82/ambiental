@@ -70,7 +70,7 @@ class ARrAmbientalesController extends Controller
         $caCategorias = CaCategoria::pluck('categoria','id')->all();
         $caAaDocs = CaAaDoc::pluck('doc','id')->all();
         $bnds = Bnd::where('id','>',0)->pluck('bnd','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $aStArchivos = AStArchivo::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
@@ -136,7 +136,7 @@ class ARrAmbientalesController extends Controller
         $caCategorias = CaCategoria::pluck('categoria','id')->all();
         $caAaDocs = CaAaDoc::pluck('doc','id')->all();
         $bnds = Bnd::where('id','>',0)->pluck('bnd','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $aStArchivos = AStArchivo::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();

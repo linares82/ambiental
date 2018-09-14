@@ -57,7 +57,7 @@ class RevDocumentalLnsController extends Controller
         $csNormas = CsNorma::pluck('norma','id')->all();
         $estatusRequisitos = EstatusRequisito::pluck('estatus','id')->all();
         $importancia = Importancium::pluck('importancia','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $users = User::pluck('name','id')->all();
         
         return view('rev_documental_lns.create', compact('revDocumentals','tpoDocs','rDocumentos','csGrupoNormas','csNormas','estatusRequisitos','importancia','empleados','users','users'));
@@ -121,7 +121,7 @@ class RevDocumentalLnsController extends Controller
         $csNormas = CsNorma::pluck('norma','id')->all();
         $estatusRequisitos = EstatusRequisito::pluck('estatus','id')->all();
         $importancia = Importancium::pluck('importancia','id')->all();
-        $empleados = Empleado::pluck('nombre','id')->all();   
+        $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();   
         $users = User::pluck('name','id')->all();
 
         //dd($revDocumentalLn->files);
