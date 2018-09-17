@@ -47,5 +47,5 @@ return [
     'model_was_updated' => 'Entidad fué actualizado exitosamente!',
     'model_was_deleted' => 'Entidad fué borrado exitosamente!',
     'unexpected_error' => 'Problema inesperado al procesar su petición!',
-
+    'filtred_by_entity' => '¿Filtro por entidad activado?'
 ];

@@ -49,7 +49,8 @@ class AspectosAmbientalesController extends Controller
 		if(isset($input['actividad']) and $input['actividad']<>null){
 			$r->where('actividad', 'like', '%'.$input['actividad'].'%');
 		}
-                if (Auth::user()->canDo('filtro_entity')) {
+                $entity=Entity::find(Auth::user()->entity_id);
+                if (Auth::user()->canDo('filtro_entity') or $entity->filtred_by_entity==1) {
                     //dd('si puede');
                     $r->where('entity_id', '=', Auth::user()->entity_id);
                 }

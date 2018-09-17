@@ -34,7 +34,8 @@ class RevRequisitosController extends Controller
                 if(isset($input['mes_id']) and $input['mes_id']<>null){
 			$r->where('mes_id', '=', $input['mes_id']);
 		}
-                if (Auth::user()->canDo('filtro_entity')) {
+                $entity=Entity::find(Auth::user()->entity_id);
+                if (Auth::user()->canDo('filtro_entity') or $entity->filtred_by_entity==1) {
                     //dd('si puede');
                     $r->where('entity_id', '=', Auth::user()->entity_id);
                 }

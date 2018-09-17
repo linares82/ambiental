@@ -54,6 +54,7 @@ class EntitiesFormRequest extends FormRequest
         $data = $this->only(['rzon_social','responsable','dir1','dir2','rfc','abreviatura','logo','usu_alta_id','usu_mod_id','multi_entidad']);
 
         $data['multi_entidad'] = $this->has('multi_entidad');
+        $data['filtred_by_entity'] = $this->has('filtred_by_entity');
 
         return $data;
     }

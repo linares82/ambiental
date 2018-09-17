@@ -31,7 +31,8 @@ class UsersController extends Controller
                 if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', "%".$input['name']."%");
 		}
-                if (Auth::user()->canDo('filtro_entity')) {
+                $entity=Entity::find(Auth::user()->entity_id);
+                if (Auth::user()->canDo('filtro_entity') or $entity->filtred_by_entity==1) {
                     //dd('si puede');
                     $r->where('entity_id', '=', Auth::user()->entity_id);
                 }

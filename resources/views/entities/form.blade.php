@@ -61,6 +61,20 @@
     
 </div>
 
+<div class="form-group col-md-3 {{ $errors->has('filtred_by_entity') ? 'has-error' : '' }}">
+    <label for="filtred_by_entity" class="control-label">{{ trans('entities.filtred_by_entity') }}</label>
+    
+        <div class="checkbox">
+            <label for="filtred_by_entity">
+            	<input id="filtred_by_entity" class="" name="filtred_by_entity" type="checkbox" value="1" {{ old('filtred_by_entity', optional($entity)->filtred_by_entity) == '1' ? 'checked' : '' }}>
+                Si
+            </label>
+        </div>
+
+        {!! $errors->first('multi_entidad', '<p class="help-block">:message</p>') !!}
+    
+</div>
+
 <!--<div class="form-group col-md-4 {{ $errors->has('logo') ? 'has-error' : '' }}">
     <label for="logo" class="control-label">{{ trans('entities.logo') }}</label>
     

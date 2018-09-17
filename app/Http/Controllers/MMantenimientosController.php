@@ -47,7 +47,8 @@ class MMantenimientosController extends Controller
                 if(isset($input['estatus_id']) and $input['estatus_id']<>null){
 			$r->where('estatus_id', '=', $input['estatus_id']);
 		}
-                if (Auth::user()->canDo('filtro_entity')) {
+                $entity=Entity::find(Auth::user()->entity_id);
+                if (Auth::user()->canDo('filtro_entity') or $entity->filtred_by_entity==1) {
                     //dd('si puede');
                     $r->where('entity_id', '=', Auth::user()->entity_id);
                 }

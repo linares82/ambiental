@@ -39,7 +39,8 @@ class SDocumentosController extends Controller
                 if(isset($input['fec_ini_vigencia']) and $input['fec_ini_vigencia']<>0){
 			$r->where('fec_ini_vigencia', '=', date_format(date_create($input['fec_ini_vigencia']),'Y/m/d'));
 		}
-                if (Auth::user()->canDo('filtro_entity')) {
+                $entity=Entity::find(Auth::user()->entity_id);
+                if (Auth::user()->canDo('filtro_entity') or $entity->filtred_by_entity==1) {
                     //dd('si puede');
                     $r->where('entity_id', '=', Auth::user()->entity_id);
                 }

@@ -33,7 +33,9 @@ class EmpleadosController extends Controller
                 if(isset($input['nombre']) and $input['nombre']<>null){
 			$r->where('nombre', 'like', '%'.$input['nombre']."%");
 		}
-                if (Auth::user()->canDo('filtro_entity')) {
+                //$entity=Entity::find(Auth::user()->entity_id);
+                $entity=Entity::find(Auth::user()->entity_id);
+                if (Auth::user()->canDo('filtro_entity') or $entity->filtred_by_entity==1) {
                     //dd('si puede');
                     $r->where('entity_id', '=', Auth::user()->entity_id);
                 }

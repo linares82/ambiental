@@ -43,7 +43,8 @@ class Entity extends Model
                   'usu_mod_id',
                   'multi_entidad',
                   'entidad_id',
-                  'tema'
+                  'tema',
+                  'filtred_by_entity'
               ];
 
     /**
