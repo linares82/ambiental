@@ -364,6 +364,22 @@
                     $("#search_form").toggle(1000);
                 });
                 $(".chosen").chosen({width: "100%"});
+                
+                //aplica clases para el menu
+                let optSelected=$('.active');
+                
+                $.ajax({
+                    url: '{{ route("menus.menu.clases") }}',
+                    type: 'GET',
+                    data: "id="+optSelected.attr('id'),
+                    dataType: 'json',
+                    success: function(data){
+                        $.each(data, function (i) {
+                        document.getElementById(data[i]).classList.add('active');
+                        document.getElementById(data[i]).classList.add('open');
+                        });
+                    }
+                });
             });
             $('.date-picker').datepicker({
                     autoclose: true,

@@ -167,6 +167,10 @@ Route::group(
     Route::get('/{menu}/edit','MenusController@edit')
          ->name('menus.menu.edit')
          ->where('id', '[0-9]+');
+    
+    Route::get('/clasesMenu','MenusController@clasesMenu')
+         ->name('menus.menu.clases')
+         ->where('id', '[0-9]+');
 
     Route::post('/', 'MenusController@store')
          ->name('menus.menu.store');

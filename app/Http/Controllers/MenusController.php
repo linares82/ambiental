@@ -16,6 +16,7 @@ use Log;
 class MenusController extends Controller
 {
 	public $menuArmado = "";
+        public $ids=array();
     /**
      * Display a listing of the menus.
      *
@@ -157,17 +158,20 @@ $users = User::pluck('id','id')->all();
 
 
     public function armaMenu($padre = 1) {
+        
         $this->getEntityName();
-        if (session()->has('menu')) {
+        /*if (session()->has('menu')) {
             return session('menu');
         } else {
+         * 
+         */
             $m = $this->armaMenuPrincipal();
             session(['menu' => $m]);
 
             //dd($this->menuArmado);
             return session('menu');
             //return $this->menuArmado;
-        }
+        //}
     }
 
     public function armaMenuPrincipal($padre = 1) {
@@ -211,17 +215,17 @@ $users = User::pluck('id','id')->all();
 
                     if ($r == 1) {
                         if ($item->parametros == "_blank") {
-                            $this->menuArmado = $this->menuArmado . "<li class='dropdown-toggle'>
+                            $this->menuArmado = $this->menuArmado . "<li class='dropdown-toggle' id='".$item->id."'>
 									                <a href=' " . $link . " ' target='" . $item->parametros . "' class='dropdown-toggle'>
-														<i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span> <b class='arrow fa fa-angle-down'></b>
-													</a>
+                                                                                            <i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span> <b class='arrow fa fa-angle-down'></b>
+											</a>
 													
 									                <ul class='submenu'>";
                         } else {
-                            $this->menuArmado = $this->menuArmado . "<li class='dropdown-toggle'>
+                            $this->menuArmado = $this->menuArmado . "<li class='dropdown-toggle' id='".$item->id."'>
 									                <a href=' " . $link . " ' class='dropdown-toggle'>
-														<i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span> </i><b class='arrow fa fa-angle-down'></b>
-													</a>
+                                                                                            <i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span> </i><b class='arrow fa fa-angle-down'></b>
+											</a>
 									                <ul class='submenu'>";
                         }
 
@@ -229,11 +233,24 @@ $users = User::pluck('id','id')->all();
                         $this->menuArmado = $this->menuArmado . "</ul></li>";
                     } else {
                         //dd($this->menuArmado);
-                        if ($item->parametros == "_blank") {
-                            $this->menuArmado = $this->menuArmado . "<li class='' ><a href='" . $link . "' target='" . $item->parametros . "'><i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span></a><b class='arrow'></b></li>";
-                        } else {
-                            $this->menuArmado = $this->menuArmado . "<li class='' ><a href='" . $link . "'><i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span></a><b class='arrow'></b></li>";
+                        $uri = $_SERVER['REQUEST_URI'];
+                        $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+                        $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                        
+                        if($url==$link){
+                            if ($item->parametros == "_blank") {
+                            $this->menuArmado = $this->menuArmado . "<li class='active' id='".$item->id."' ><a href='" . $link . "' target='" . $item->parametros . "'><i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span></a><b class='arrow'></b></li>";
+                            } else {
+                                $this->menuArmado = $this->menuArmado . "<li class='active' id='".$item->id."' ><a href='" . $link . "'><i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span></a><b class='arrow'></b></li>";
+                            }
+                        }else{
+                            if ($item->parametros == "_blank") {
+                                $this->menuArmado = $this->menuArmado . "<li class='' id='".$item->id."'><a href='" . $link . "' target='" . $item->parametros . "'><i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span></a><b class='arrow'></b></li>";
+                            } else {
+                                $this->menuArmado = $this->menuArmado . "<li class='' id='".$item->id."'><a href='" . $link . "'><i class='menu-icon " . $item->imagen . "'></i><span class='menu-text'>" . $item->item . "</span></a><b class='arrow'></b></li>";
+                            }
                         }
+                        
                     }
                     //Log::info($this->menuArmado);
                 }
@@ -265,4 +282,19 @@ $users = User::pluck('id','id')->all();
         return $entidad->abreviatura;
     }
 
+    public function clasesMenu(Request $request){
+        $ids=$this->getIds($request->get('id'));
+        echo json_encode($this->ids);
+    }
+    
+    public function getIds($id){
+        $opt=Menu::find($id);
+        
+        if($opt->depende_de>1){
+            //$this->ids=$this->ids.$opt->depende_de.",";
+            array_push($this->ids,$opt->depende_de);
+            $this->getIds($opt->depende_de);
+        }
+                
+    }
 }
