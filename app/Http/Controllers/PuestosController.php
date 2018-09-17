@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Puesto;
+use App\Models\Entity;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PuestosFormRequest;
 use Exception;
 use Illuminate\Http\Request;
+
 use Auth;
 use Log;
 
