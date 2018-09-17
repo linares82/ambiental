@@ -46,6 +46,10 @@ class ChecksController extends Controller
 		if(isset($input['solicitud']) and $input['solicitud']<>null){
 			$r->where('solicitud', 'like', '%'.$input['solicitud'].'%');
 		}
+		if (Auth::user()->canDo('filtro_entity')) {
+			//dd('si puede');
+			$r->where('entity_id', '=', Auth::user()->entity_id);
+		}
                 $clientes = Cliente::pluck('cliente','id')->all();
                 $aChecks = ACheck::pluck('area','id')->all();
 		$checks = $r->with('cliente','acheck','user')->paginate(25);
