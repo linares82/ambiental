@@ -90,6 +90,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('empleados.entity_id') }}</th>
                             <th>{{ trans('empleados.ctrl_interno') }}</th>
                             <th>{{ trans('empleados.nombre') }}</th>
                             <th>{{ trans('empleados.mail') }}</th>
@@ -102,6 +103,7 @@
                     @foreach($empleados as $empleado)
                         <tr>
                             <td>{{ $empleado->id }}</td>
+                            <td>{{ $empleado->entity->abreviatura }}</td>
                             <td>{{ $empleado->ctrl_interno }}</td>
                             <td>{{ $empleado->nombre }}</td>
                             <td>{{ $empleado->mail }}</td>

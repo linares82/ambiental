@@ -93,6 +93,7 @@
                     <thead>
                         <tr>
                             <th>{{ trans('users.id') }}</th>
+                            <th>{{ trans('users.entity_id') }}</th>
                             <th>{{ trans('users.name') }}</th>
                             <th>{{ trans('users.email') }}</th>
 
@@ -103,6 +104,7 @@
                     @foreach($users as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
+                            <td>{{ $user->entity->abreviatura }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
 

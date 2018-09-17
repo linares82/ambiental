@@ -105,6 +105,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('bitacora_residuos.entity_id') }}</th>
                             <th>{{ trans('bitacora_residuos.residuo') }}</th>
                             <th>{{ trans('bitacora_residuos.cantidad') }}</th>
                             <th>{{ trans('bitacora_residuos.fecha') }}</th>
@@ -120,6 +121,7 @@
                         ?>
                         <tr>
                             <td>{{ $bitacoraResiduo->id }}</td>
+                            <td>{{ $bitacoraResiduo->entity->abreviatura }}</td>
                             <td>{{ optional($bitacoraResiduo->caResiduo)->residuo }}</td>
                             <td>{{ $bitacoraResiduo->cantidad }}</td>
                             <td>{{ $bitacoraResiduo->fecha }}</td>

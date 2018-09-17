@@ -91,6 +91,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('m_objetivos.entity_id') }}</th>
                             <th>{{ trans('m_objetivos.objetivo') }}</th>
                             
                             <th></th>
@@ -100,6 +101,7 @@
                     @foreach($mObjetivos as $mObjetivo)
                         <tr>
                             <td>{{ $mObjetivo->id }}</td>
+                            <td>{{ $mObjetivo->entity->abreviatura }}</td>
                             <td>{{ $mObjetivo->objetivo }}</td>
                             
                             <td>

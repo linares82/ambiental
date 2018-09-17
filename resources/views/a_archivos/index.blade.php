@@ -115,6 +115,7 @@
                         <tr>
                             <th>Id</th>
                             <th>{{ trans('a_archivos.documento_id') }}</th>
+                            <th>{{ trans('a_archivos.entity_id') }}</th>
                             <th>{{ trans('a_archivos.descripcion') }}</th>
                             <th>{{ trans('a_archivos.archivo') }}</th>
                             <th>{{ trans('a_archivos.st_archivo_id') }}</th>
@@ -128,6 +129,7 @@
                     @foreach($aArchivos as $aArchivo)
                         <tr>
                             <th>{{$aArchivo->id}}</th>
+                            <td>{{$aArchivo->entity->abreviatura}}</td>
                             <td>{{ optional($aArchivo->caCaDoc)->doc }}</td>
                             <td>{{ $aArchivo->descripcion }}</td>
                             <td><a href="#" class="add-modal btn btn-xs btn-warning" data-a_archivo='{{$aArchivo->id}}'>Agregar</a>

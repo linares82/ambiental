@@ -138,6 +138,7 @@
         <thead>
             <tr>
                 <th>{{ trans('checks.id') }}</th>
+                <th>{{ trans('checks.entity_id') }}</th>
                 <th>Lineas</th>
                 <th>{{ trans('checks.cliente') }}</th>
                 <th>{{ trans('checks.a_check_id') }}</th>
@@ -152,6 +153,7 @@
             @foreach($checks as $check)
             <tr>
                 <td>{{ $check->id }}</td>
+                <td>{{ optional($check->entity)->abreviatura }}</td>
                 <td>
                     <button class="btn btn-success btnVerLineas pull-right btn-xs" lang="mesaj" data-check="{{$check->id}}" data-href="formation_json_parents" style="margin-left:10px;" >
                         <span class="fa fa-eye" aria-hidden="true"></span> Ver

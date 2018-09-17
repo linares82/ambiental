@@ -66,6 +66,11 @@ class Puesto extends Model
     {
         return $this->hasMany('App\Models\AspectosAmbientale','puesto_id','id');
     }
+    
+    public function entity()
+    {
+        return $this->belongsTo('App\Models\Entity','entity_id','id');
+    }
 
     /**
      * Get the empleados for this model.

@@ -90,6 +90,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('areas.entity_id') }}</th>
                             <th>{{ trans('areas.area') }}</th>
                             <th></th>
                         </tr>
@@ -98,6 +99,7 @@
                     @foreach($areas as $area)
                         <tr>
                             <td>{{ $area->id }}</td>
+                            <td>{{ $area->entity->abreviatura }}</td>
                             <td>{{ $area->area }}</td>
                             <td>
 

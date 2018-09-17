@@ -106,6 +106,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('bitacora_consumibles.entity_id') }}</th>
                             <th>{{ trans('bitacora_consumibles.consumible_id') }}</th>
                             <th>{{ trans('bitacora_consumibles.consumo') }}</th>
                             <th>{{ trans('bitacora_consumibles.fecha') }}</th>
@@ -121,6 +122,7 @@
                         ?>
                         <tr>
                             <td>{{ $bitacoraConsumible->id }}</td>
+                            <td>{{ $bitacoraConsumible->entity->abreviatura }}</td>
                             <td>{{ optional($bitacoraConsumible->caConsumible)->consumible }}</td>
                             <td>{{ $bitacoraConsumible->consumo }}</td>
                             <td>{{ $bitacoraConsumible->fecha }}</td>

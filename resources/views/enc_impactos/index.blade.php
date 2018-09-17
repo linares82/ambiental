@@ -131,6 +131,7 @@
                 <thead>
                     <tr>
                         <th>{{ trans('enc_impactos.id') }}</th>
+                        <th>{{ trans('enc_impactos.entity_id') }}</th>
                         <th>Lineas</th>
                         <th>{{ trans('enc_impactos.cliente_id') }}</th>
                         <th>{{ trans('enc_impactos.tipo_impacto_id') }}</th>
@@ -144,6 +145,7 @@
                     @foreach($encImpactos as $encImpacto)
                     <tr>
                         <td>{{ $encImpacto->id }}</td>
+                        <td>{{ $encImpacto->entity->abreviatura }}</td>
                         <td>                                
 <!--                            <div class="action-buttons">
                                 <a href="#" class="green bigger-140 show-details-btn" title="Show Details">

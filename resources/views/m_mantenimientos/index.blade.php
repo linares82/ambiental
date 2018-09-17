@@ -147,6 +147,7 @@
         <thead>
             <tr>
                 <th>{{ trans('m_mantenimientos.no_orden') }}</th>
+                <th>{{ trans('m_mantenimientos.entity_id') }}</th>
                 <th>{{ trans('m_mantenimientos.m_tpo_manto_id') }}</th>
                 <th>{{ trans('m_mantenimientos.objetivo_id') }}</th>
                 <th>{{ trans('m_mantenimientos.subequipo_id') }}</th>
@@ -159,6 +160,7 @@
             @foreach($mMantenimientos as $mMantenimiento)
             <tr>
                 <td>{{ $mMantenimiento->no_orden }}</td>
+                <td>{{ $mMantenimiento->entity->abreviatura }}</td>
                 <td>{{ optional($mMantenimiento->mTpoManto)->tpo_manto }}</td>
                 <td>{{ optional($mMantenimiento->mObjetivo)->objetivo }}</td>
                 <td>{{ optional($mMantenimiento->subequipo)->subequipo }}</td>

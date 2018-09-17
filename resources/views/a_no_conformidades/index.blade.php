@@ -121,6 +121,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>{{ trans('a_no_conformidades.entity_id') }}</th>
                 <th>{{ trans('a_no_conformidades.fecha') }}</th>
                 <th>{{ trans('a_no_conformidades.area_id') }}</th>
                 <th>{{ trans('a_no_conformidades.tpo_deteccion_id') }}</th>
@@ -138,6 +139,7 @@
             ?>
             <tr>
                 <td>{{ $aNoConformidade->id }}</td>
+                <td>{{ $aNoConformidade->entity->abreviatura }}</td>
                 <td>{{ $aNoConformidade->fecha }}</td>
                 <td>{{ optional($aNoConformidade->area)->area }}</td>
                 <td>{{ optional($aNoConformidade->csTpoDeteccion)->tpo_deteccion }}</td>

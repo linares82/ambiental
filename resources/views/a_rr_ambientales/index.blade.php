@@ -131,6 +131,7 @@
            <thead>
             <tr>
                 <th>Id</th>
+                <th>{{ trans('a_rr_ambientales.entity_id') }}</th>
                 <th>{{ trans('a_rr_ambientales.material_id') }}</th>
                 <th>{{ trans('a_rr_ambientales.categoria_id') }}</th>
                 <th>{{ trans('a_rr_ambientales.documento_id') }}</th>
@@ -150,6 +151,7 @@
             ?>
             <tr>
                 <td>{{ $aRrAmbientale->id }}</td>
+                <td>{{ $aRrAmbientale->entity->abreviatura }}</td>
                 <td>{{ optional($aRrAmbientale->caMaterial)->material }}</td>
                 <td>{{ optional($aRrAmbientale->caCategoria)->categoria }}</td>
                 <td>{{ optional($aRrAmbientale->caAaDoc)->doc }}</td>

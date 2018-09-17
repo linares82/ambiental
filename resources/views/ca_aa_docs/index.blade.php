@@ -122,6 +122,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('ca_aa_docs.entity_id') }}</th>
                             <th>{{ trans('ca_aa_docs.material_id') }}</th>
                             <th>{{ trans('ca_aa_docs.categoria_id') }}</th>
                             <th>{{ trans('ca_aa_docs.doc') }}</th>
@@ -133,6 +134,7 @@
                     @foreach($caAaDocs as $caAaDoc)
                         <tr>
                             <td>{{ $caAaDoc->id }}</td>
+                            <td>{{ $caAaDoc->entity->abreviatura }}</td>
                             <td>{{ optional($caAaDoc->caMaterial)->material }}</td>
                             <td>{{ optional($caAaDoc->caCategoria)->categoria }}</td>
                             <td>{{ $caAaDoc->doc }}</td>

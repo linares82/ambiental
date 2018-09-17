@@ -123,6 +123,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('aspectos_ambientales.entity_id') }}</th>
                             <th>{{ trans('aspectos_ambientales.proceso_id') }}</th>
                             <th>{{ trans('aspectos_ambientales.area_id') }}</th>
                             <th>{{ trans('aspectos_ambientales.actividad') }}</th>
@@ -135,6 +136,7 @@
                     @foreach($aspectosAmbientales as $aspectosAmbientale)
                         <tr>
                             <td>{{ $aspectosAmbientale->id }}</td>
+                            <td>{{ $aspectosAmbientale->entity->abreviatura }}</td>
                             <td>{{ optional($aspectosAmbientale->aaProceso)->proceso }}</td>
                             <td>{{ optional($aspectosAmbientale->area)->area }}</td>
                             <td>{{ $aspectosAmbientale->actividad }}</td>

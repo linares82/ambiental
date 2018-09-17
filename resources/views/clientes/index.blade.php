@@ -90,6 +90,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('clientes.entity_id') }}</th>
                             <th>{{ trans('clientes.cliente') }}</th>
                             
                             <th></th>
@@ -99,6 +100,7 @@
                     @foreach($clientes as $cliente)
                         <tr>
                             <td>{{ $cliente->id }}</td>
+                            <td>{{ $cliente->entity->abreviatura }}</td>
                             <td>{{ $cliente->cliente }}</td>
                             
                             <td>

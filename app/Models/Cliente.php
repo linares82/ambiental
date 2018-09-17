@@ -33,6 +33,7 @@ class Cliente extends Model
      */
     protected $fillable = [
                   'cliente',
+                  'entity_id',
                   'usu_alta_id',
                   'usu_mod_id'
               ];
@@ -57,6 +58,11 @@ class Cliente extends Model
     public function user()
     {
         return $this->belongsTo('App\Models\User','usu_mod_id','id');
+    }
+    
+    public function entity()
+    {
+        return $this->belongsTo('App\Models\Entity','entity_id','id');
     }
 
     /**

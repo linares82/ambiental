@@ -2,6 +2,7 @@
 
 return [
     'id' => 'Id',
+    'entity_id' => 'Entidad',
     'id__placeholder' => 'Capturar id ...',
     'puesto' => 'Puesto',
     'puesto__placeholder' => 'Capturar Puesto ...',

@@ -106,6 +106,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('bitacora_ffs.entity_id') }}</th>
                             <th>{{ trans('bitacora_ffs.ca_fuente_fija_id') }}</th>
                             <th>{{ trans('bitacora_ffs.fecha') }}</th>
                             <th>{{ trans('bitacora_ffs.turno_id') }}</th>
@@ -121,6 +122,7 @@
                         ?>
                         <tr>
                             <td>{{ $bitacoraFf->id }}</td>
+                            <td>{{ $bitacoraFf->entity->abreviatura }}</td>
                             <td>{{ optional($bitacoraFf->caFuentesFija)->planta }}</td>
                             <td>{{ $bitacoraFf->fecha }}</td>
                             <td>{{ optional($bitacoraFf->turno)->turno }}</td>

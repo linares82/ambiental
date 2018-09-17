@@ -106,6 +106,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('rev_documentals.entity_id') }}</th>
                             <th>Lineas</th>
                             <th>{{ trans('rev_documentals.anio') }}</th>
                             <th>{{ trans('rev_documentals.mes_id') }}</th>
@@ -117,6 +118,7 @@
                     @foreach($revDocumentals as $revDocumental)
                         <tr>
                             <td>{{ $revDocumental->id }}</td>
+                            <td>{{ $revDocumental->entity->abreviatura }}</td>
                             <td>
                                 @ifUserCan('rev_documental_lns.rev_documental_ln.create')
                                 <div class="btn-group btn-group-xs pull-right" role="group">

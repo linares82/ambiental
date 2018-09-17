@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Cliente;
+use App\Models\Entity;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClientesFormRequest;
 use Exception;
@@ -70,6 +71,7 @@ class ClientesController extends Controller
             
 			$data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
+            $data['entity_id']=Auth::user()->entity_id;
             Cliente::create($data);
 
             return redirect()->route('clientes.cliente.index')

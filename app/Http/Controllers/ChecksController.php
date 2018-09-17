@@ -7,6 +7,7 @@ use App\Models\Check;
 use App\Models\CheckL;
 use App\Models\ACheck;
 use App\Models\Cliente;
+use App\Models\Entity;
 use App\Models\Norma;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChecksFormRequest;
@@ -89,6 +90,7 @@ class ChecksController extends Controller
             
 			$data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
+            $data['entity_id']=Auth::user()->entity_id;
             $check=Check::create($data);
 
             return redirect()->route('checks.check.index')

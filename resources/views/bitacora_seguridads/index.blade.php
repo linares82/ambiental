@@ -129,6 +129,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('bitacora_seguridads.entity_id') }}</th>
                             <th>{{ trans('bitacora_seguridads.fecha') }}</th>
                             <th>{{ trans('bitacora_seguridads.area_id') }}</th>
                             <th>{{ trans('bitacora_seguridads.tpo_deteccion_id') }}</th>
@@ -148,6 +149,7 @@
                         ?>
                         <tr>
                             <td>{{ $bitacoraSeguridad->id }}</td>
+                            <td>{{ $bitacoraSeguridad->entity->abreviatura }}</td>
                             <td>{{ $bitacoraSeguridad->fecha }}</td>
                             <td>{{ optional($bitacoraSeguridad->area)->area }}</td>
                             <td>{{ optional($bitacoraSeguridad->csTpoDeteccion)->tpo_deteccion }}</td>

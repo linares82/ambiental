@@ -107,6 +107,7 @@
             <thead>
                 <tr>
                     <th>Id</th>
+                    <th>{{ trans('bitacora_plantas.entity_id') }}</th>
                     <th>{{ trans('bitacora_plantas.planta_id') }}</th>
                     <th>{{ trans('bitacora_plantas.fecha') }}</th>
                     <th>{{ trans('bitacora_plantas.turno_id') }}</th>
@@ -122,6 +123,7 @@
                 ?>
                 <tr>
                     <td>{{ $bitacoraPlanta->id }}</td>
+                    <td>{{ $bitacoraPlanta->entity->abreviatura }}</td>
                     <td>{{ optional($bitacoraPlanta->caPlanta)->planta }}</td>
                     <td>{{ $bitacoraPlanta->fecha }}</td>
                     <td>{{ optional($bitacoraPlanta->turno)->turno }}</td>

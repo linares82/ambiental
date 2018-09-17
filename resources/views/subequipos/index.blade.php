@@ -107,6 +107,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('subequipos.entity_id') }}</th>
                             <th>{{ trans('subequipos.equipo_id') }}</th>
                             <th>{{ trans('subequipos.subequipo') }}</th>
                             <th>{{ trans('subequipos.clase') }}</th>
@@ -121,6 +122,7 @@
                     @foreach($subequipos as $subequipo)
                         <tr>
                             <td>{{ $subequipo->id }}</td>
+                            <td>{{ $subequipo->entity->abreviatura }}</td>
                             <td>{{ optional($subequipo->mObjetivo)->objetivo }}</td>
                             <td>{{ $subequipo->subequipo }}</td>
                             <td>{{ $subequipo->clase }}</td>

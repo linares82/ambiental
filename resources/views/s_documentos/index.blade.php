@@ -106,6 +106,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('s_documentos.entity_id') }}</th>
                             <th>{{ trans('s_documentos.documento_id') }}</th>
                             <th>{{ trans('s_documentos.descripcion') }}</th>
                             <th>Archivos
@@ -132,6 +133,7 @@
                             <tr class='table-danger'>
                         @endif
                             <td scope='row'>{{$sDocumento->id }}</td>
+                            <td scope='row'>{{$sDocumento->entity->abreviatura }}</td>
                             <td scope='row'>{{ optional($sDocumento->csCatDoc)->cat_doc }}</td>
                             <td>{{ $sDocumento->descripcion }}</td>
                             <td>

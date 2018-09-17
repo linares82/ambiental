@@ -58,7 +58,7 @@ class RevRequisito extends Model
      */
     public function entity()
     {
-        return $this->belongsTo('App\Models\Entity','cia_id','id');
+        return $this->belongsTo('App\Models\Entity','entity_id','id');
     }
 
     /**

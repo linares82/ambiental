@@ -39,7 +39,8 @@ class Check extends Model
                   'fec_apertura',
                   'fec_cierre',
                   'usu_alta_id',
-                  'usu_mod_id'
+                  'usu_mod_id',
+                  'entity_id'
               ];
 
     /**
@@ -62,6 +63,11 @@ class Check extends Model
     public function cliente()
     {
         return $this->belongsTo('App\Models\Cliente','cliente_id','id');
+    }
+    
+    public function entity()
+    {
+        return $this->belongsTo('App\Models\Entity','entity_id','id');
     }
 
     /**

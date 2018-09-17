@@ -105,6 +105,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('a_procedimientos.entity_id') }}</th>
                             <th>{{ trans('a_procedimientos.procedimiento_id') }}</th>
                             <th>{{ trans('a_procedimientos.descripcion') }}</th>
                             <th>{{ trans('a_procedimientos.archivo') }}</th>
@@ -121,6 +122,7 @@
                         ?>
                         <tr>
                             <td>{{ $aProcedimiento->id }}</td>
+                            <td>{{ $aProcedimiento->entity->abreviatura }}</td>
                             <td>{{ optional($aProcedimiento->caProcedimiento)->procedimiento }}</td>
                             <td>{{ $aProcedimiento->descripcion }}</td>
                             <td>

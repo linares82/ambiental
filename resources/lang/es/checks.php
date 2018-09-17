@@ -3,6 +3,7 @@
 return [
     'id' => 'Id',
     'id__placeholder' => 'Capturar id ...',
+    'entity_id' => 'Entidad',
     'cliente' => 'Cliente',
     'cliente__placeholder' => 'Capturar Cliente ...',
     'a_check_id' => 'Area',

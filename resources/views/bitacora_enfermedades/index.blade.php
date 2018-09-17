@@ -120,6 +120,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('bitacora_enfermedades.entity_id') }}</th>
                             <th>{{ trans('bitacora_enfermedades.area_id') }}</th>
                             <th>{{ trans('bitacora_enfermedades.fecha') }}</th>
                             <th>{{ trans('bitacora_enfermedades.enfermedad_id') }}</th>
@@ -132,6 +133,7 @@
                     @foreach($bitacoraEnfermedades as $bitacoraEnfermedade)
                         <tr>
                             <td>{{ $bitacoraEnfermedade->id }}</td>
+                            <td>{{ $bitacoraEnfermedade->entity->abreviatura }}</td>
                             <td>{{ optional($bitacoraEnfermedade->area)->area }}</td>
                             <td>{{ $bitacoraEnfermedade->fecha }}</td>
                             <td>{{ optional($bitacoraEnfermedade->csEnfermedade)->enfermedad }}</td>

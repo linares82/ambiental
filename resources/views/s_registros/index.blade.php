@@ -140,6 +140,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('s_registros.entity_id') }}</th>
                             <th>{{ trans('s_registros.grupo_id') }}</th>
                             <th>{{ trans('s_registros.norma_id') }}</th>
                             <th>{{ trans('s_registros.elemento_id') }}</th>
@@ -159,6 +160,7 @@
                         ?>
                         <tr>
                             <td>{{ $sRegistro->id }}</td>
+                            <td>{{ $sRegistro->entity->abreviatura }}</td>
                             <td>{{ optional($sRegistro->csGrupoNorma)->grupo_norma }}</td>
                             <td>{{ optional($sRegistro->csNorma)->norma }}</td>
                             <td>{{ optional($sRegistro->csElementosInspeccion)->elemento }}</td>

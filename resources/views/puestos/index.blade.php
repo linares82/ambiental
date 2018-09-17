@@ -90,6 +90,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('puestos.entity_id') }}</th>
                             <th>{{ trans('puestos.puesto') }}</th>
                             
                             <th></th>
@@ -99,6 +100,7 @@
                     @foreach($puestos as $puesto)
                         <tr>
                             <td>{{ $puesto->id }}</td>
+                            <td>{{ $puesto->entity->abreviatura }}</td>
                             <td>{{ $puesto->puesto }}</td>
                             
                             <td>

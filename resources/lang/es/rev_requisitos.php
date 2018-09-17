@@ -3,8 +3,8 @@
 return [
     'id' => 'Id',
     'id__placeholder' => 'Capturar id ...',
-    'cia_id' => 'Entidad',
-    'cia_id__placeholder' => 'Seleccionar Entidad',
+    'entity_id' => 'Entidad',
+    'entity_id__placeholder' => 'Seleccionar Entidad',
     'anio' => 'Año',
     'anio__placeholder' => 'Capturar Año ...',
     'mes_id' => 'Mes',

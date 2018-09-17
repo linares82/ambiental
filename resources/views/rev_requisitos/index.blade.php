@@ -106,6 +106,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>{{ trans('rev_requisitos.entity_id') }}</th>
                             <th>Lineas</th>
                             <th>{{ trans('rev_requisitos.anio') }}</th>
                             <th>{{ trans('rev_requisitos.mes_id') }}</th>
@@ -118,6 +119,7 @@
                     @foreach($revRequisitos as $revRequisito)
                         <tr>
                             <td>{{ $revRequisito->id }}</td>
+                            <td>{{ $revRequisito->entity->abreviatura }}</td>
                             <td>
                                 @ifUserCan('rev_requisitos_lns.rev_requisitos_ln.create')
                                 <div class="btn-group btn-group-xs pull-right" role="group">
