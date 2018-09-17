@@ -29,7 +29,7 @@ return [
     'obs__placeholder' => 'Capturar Obs. ...',
     'responsable_id' => 'Responsable',
     'responsable_id__placeholder' => 'Seleccionar Responsable',
-    'entity_id' => 'Entity',
+    'entity_id' => Entidad,
     'entity_id__placeholder' => 'Seleccionar entity',
     'usu_alta_id' => 'Alta',
     'usu_alta_id__placeholder' => 'Seleccionar usu alta',

@@ -19,7 +19,7 @@ return [
     'updated_at__placeholder' => 'Capturar updated at ...',
     'deleted_at' => 'Deleted At',
     'deleted_at__placeholder' => 'Capturar deleted at ...',
-    'entity_id' => 'Entity',
+    'entity_id' => Entidad,
     'entity_id__placeholder' => 'Seleccionar entity',
     'create' => 'Crear',
     'delete' => 'Borrar',

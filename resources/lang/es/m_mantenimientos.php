@@ -67,7 +67,7 @@ return [
     'fec_final__placeholder' => 'Capturar fec. final ...',
     'observaciones' => 'Observaciones',
     'observaciones__placeholder' => 'Capturar observaciones ...',
-    'entity_id' => 'Entity',
+    'entity_id' => Entidad,
     'entity_id__placeholder' => 'Seleccionar entity',
     'usu_alta_id' => 'Alta',
     'usu_alta_id__placeholder' => 'Seleccionar usu alta',

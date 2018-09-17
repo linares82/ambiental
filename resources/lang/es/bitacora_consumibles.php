@@ -23,7 +23,7 @@ return [
     'factor_indicador__placeholder' => 'Capturar factor ambiental ...',
     'factor_calculado' => 'Factor Calculado',
     'factor_calculado__placeholder' => 'Capturar factor calculado ...',
-    'entity_id' => 'Entity',
+    'entity_id' => Entidad,
     'entity_id__placeholder' => 'Seleccionar entity',
     'usu_alta_id' => 'Alta',
     'usu_alta_id__placeholder' => 'Seleccionar usu alta',

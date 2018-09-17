@@ -49,7 +49,7 @@ return [
     'observaciones__placeholder' => 'Capturar Observaciones ...',
     'ctrls_opracionales' => 'Controles Operacionales',
     'ctrls_opracionales__placeholder' => 'Capturar Controles Operacionales ...',
-    'entity_id' => 'Entity',
+    'entity_id' => Entidad,
     'entity_id__placeholder' => 'Seleccionar entity',
     'usu_alta_id' => 'Alta',
     'usu_alta_id__placeholder' => 'Seleccionar usu alta',

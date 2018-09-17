@@ -77,7 +77,7 @@ return [
     'utm_x__placeholder' => 'Capturar x ...',
     'utm_y' => 'Y',
     'utm_y__placeholder' => 'Capturar y ...',
-    'entity_id' => 'Entity',
+    'entity_id' => Entidad,
     'entity_id__placeholder' => 'Seleccionar entity',
     'create' => 'Crear',
     'delete' => 'Borrar',
