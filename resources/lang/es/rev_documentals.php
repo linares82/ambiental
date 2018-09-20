@@ -3,7 +3,7 @@
 return [
     'id' => 'Id',
     'id__placeholder' => 'Capturar id ...',
-    'entity_id' => Entidad,
+    'entity_id' => 'Entidad',
     'entity_id__placeholder' => 'Seleccionar entity',
     'anio' => 'Año',
     'anio__placeholder' => 'Capturar Año ...',

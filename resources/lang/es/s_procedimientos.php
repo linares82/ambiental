@@ -21,7 +21,7 @@ return [
     'fec_fin_vigencia__placeholder' => 'Capturar Fec. Fin Vigencia ...',
     'estatus_id' => 'Estatus',
     'estatus_id__placeholder' => 'Seleccionar Estatus',
-    'entity_id' => Entidad,
+    'entity_id' => 'Entidad',
     'entity_id__placeholder' => 'Seleccionar entity',
     'usu_alta_id' => 'Alta',
     'usu_alta_id__placeholder' => 'Seleccionar usu alta',

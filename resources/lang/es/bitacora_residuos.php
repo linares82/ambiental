@@ -41,7 +41,7 @@ return [
     'factor_calculado__placeholder' => 'Capturar factor calculado ...',
     'responsable_id' => 'Responsable',
     'responsable_id__placeholder' => 'Seleccionar Responsable',
-    'entity_id' => Entidad,
+    'entity_id' => 'Entidad',
     'entity_id__placeholder' => 'Seleccionar entity',
     'usu_alta_id' => 'Alta',
     'usu_alta_id__placeholder' => 'Seleccionar usu alta',

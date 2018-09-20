@@ -25,7 +25,7 @@ return [
     'mes__placeholder' => 'Capturar mes ...',
     'turno_id' => 'Turno',
     'turno_id__placeholder' => 'Seleccionar Turno',
-    'entity_id' => Entidad,
+    'entity_id' => 'Entidad',
     'entity_id__placeholder' => 'Seleccionar entity',
     'usu_alta_id' => 'Alta',
     'usu_alta_id__placeholder' => 'Seleccionar usu alta',

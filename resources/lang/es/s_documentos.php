@@ -23,7 +23,7 @@ return [
     'observaciones__placeholder' => 'Capturar Abservaciones ...',
     'estatus_id' => 'Estatus',
     'estatus_id__placeholder' => 'Seleccionar estatus',
-    'entity_id' => Entidad,
+    'entity_id' => 'Entidad',
     'entity_id__placeholder' => 'Seleccionar entity',
     'usu_alta_id' => 'Alta',
     'usu_alta_id__placeholder' => 'Seleccionar usu alta',
