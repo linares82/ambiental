@@ -97,7 +97,7 @@ abstract class HtmlGeneratorBase
 
     /**
      * Gets html code for the show view using the current fields colelction.
-     * If an value is passed, it will only generate the raws based on the giving fields
+     * If an value is passed, it will only generate the raws based on the given fields
      *
      * @param array $fields
      *
@@ -118,7 +118,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets show row html code for the giving field.
+     * Gets show row html code for the given field.
      *
      * @param string $stub
      * @param CreatApps\Models\Field $field
@@ -129,15 +129,30 @@ abstract class HtmlGeneratorBase
     {
         $this->replaceFieldName($stub, $field->name)
             ->replaceModelName($stub, $this->modelName)
-            ->replaceRowFieldValue($stub, $this->getFieldAccessorValue($field, 'show'))
+            ->replaceRowFieldValue($stub, $this->getFieldValueForShow($field))
             ->replaceFieldTitle($stub, $this->getTitle($field->getLabel(), true));
 
         return $stub;
     }
+    /**
+     * Gets the value to use in the show view
+     *
+     * @param Field $field
+     *
+     * @return string
+     */
+    protected function getFieldValueForShow(Field $field)
+    {
+        if ($field->isFile()) {
+            return sprintf("asset('storage/' . %s)", $this->getFieldAccessorValue($field, 'show'));
+        }
+
+        return $this->getFieldAccessorValue($field, 'show');
+    }
 
     /**
      * Gets header cells' html code for the index view using the current fields colelction.
-     * If an value is passed, it will only generate the raws based on the giving fields
+     * If an value is passed, it will only generate the raws based on the given fields
      *
      * @param array $fields
      *
@@ -179,7 +194,7 @@ abstract class HtmlGeneratorBase
 
     /**
      * Gets header body's html code for the index view using the current fields colelction.
-     * If an value is passed, it will only generate the raws based on the giving fields
+     * If an value is passed, it will only generate the raws based on the given fields
      *
      * @param array $fields
      *
@@ -199,7 +214,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets index body cell html code for the giving field.
+     * Gets index body cell html code for the given field.
      *
      * @param string $stub
      * @param CreatApps\Models\Field $field
@@ -292,15 +307,11 @@ abstract class HtmlGeneratorBase
             return sprintf("implode('%s', %s)", $field->optionsDelimiter, $fieldAccessor);
         }
 
-        if ($field->isFile()) {
-            return sprintf("basename(%s)", $fieldAccessor);
-        }
-
         return $fieldAccessor;
     }
 
     /**
-     * It find the union field between a giving collection and the current field collection.
+     * It find the union field between a given collection and the current field collection.
      * If null is provided, the current field collection is returned.
      *
      * @param array $fields
@@ -319,7 +330,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets creates an textarea html field for a giving field.
+     * Gets creates an textarea html field for a given field.
      *
      * @param CrestApps\CodeGeneraotor\Support\Field $field
      * @param CrestApps\CodeGeneraotor\Support\ValidationParser $parser
@@ -382,7 +393,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets creates an checkbox/radio button html field for a giving field.
+     * Gets creates an checkbox/radio button html field for a given field.
      *
      * @param CrestApps\CodeGeneraotor\Support\Field $field
      * @param CrestApps\CodeGeneraotor\Support\ValidationParser $parser
@@ -412,7 +423,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets creates a checkbox or radio button html field for a giving field.
+     * Gets creates a checkbox or radio button html field for a given field.
      *
      * @param CrestApps\CodeGeneraotor\Support\Field $field
      * @param CrestApps\CodeGeneraotor\Support\Label $option
@@ -451,7 +462,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets creates an select menu html field for a giving field.
+     * Gets creates an select menu html field for a given field.
      *
      * @param CrestApps\CodeGeneraotor\Support\Field $field
      * @param CrestApps\CodeGeneraotor\Support\ValidationParser $parser
@@ -562,7 +573,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets creates an password html5 field for a giving field.
+     * Gets creates an password html5 field for a given field.
      *
      * @param CrestApps\CodeGeneraotor\Support\Field $field
      *
@@ -582,7 +593,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets a rangeselector element for a giving field.
+     * Gets a rangeselector element for a given field.
      *
      * @param CrestApps\CodeGeneraotor\Support\Field $field
      *
@@ -604,7 +615,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets a selectmonth element for a giving field.
+     * Gets a selectmonth element for a given field.
      *
      * @param CrestApps\CodeGeneraotor\Support\Field $field
      *
@@ -624,7 +635,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets creates an password html5 field for a giving field.
+     * Gets creates an password html5 field for a given field.
      *
      * @param CrestApps\CodeGeneraotor\Support\Field $field
      * @param CrestApps\CodeGeneraotor\Support\ValidationParser $parser
@@ -654,7 +665,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets creates an standard html5 field for a giving field.
+     * Gets creates an standard html5 field for a given field.
      *
      * @param CrestApps\CodeGeneraotor\Support\Field $field
      * @param CrestApps\CodeGeneraotor\Support\ValidationParser $parser
@@ -685,7 +696,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets the gretest value of the giving parameters. It ignores null or empty string.
+     * Gets the gretest value of the given parameters. It ignores null or empty string.
      *
      * @return numeric
      */
@@ -699,7 +710,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets the smallest value of the giving parameters. It ignores null or empty string.
+     * Gets the smallest value of the given parameters. It ignores null or empty string.
      *
      * @return numeric
      */
@@ -738,7 +749,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Creates html label from a giving field
+     * Creates html label from a given field
      *
      * @param CrestApps\CodeGenerator\Models\Field $field
      *
@@ -800,7 +811,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets an array of key/value string from a giving labels collection.
+     * Gets an array of key/value string from a given labels collection.
      *
      * @param array $labels
      *
@@ -833,7 +844,7 @@ abstract class HtmlGeneratorBase
     }
 
     /**
-     * Gets title to display from a giving label.
+     * Gets title to display from a given label.
      *
      * @param CrestApps\CodeGenerator\Models\Label $label
      * @param bool $raw
@@ -1294,7 +1305,7 @@ abstract class HtmlGeneratorBase
     abstract protected function getFieldMultiple($isMulti);
 
     /**
-     * Gets a plain title from a giving label.
+     * Gets a plain title from a given label.
      *
      * @param CrestApps\CodeGenerator\Models\Label $label
      * @param bool $raw

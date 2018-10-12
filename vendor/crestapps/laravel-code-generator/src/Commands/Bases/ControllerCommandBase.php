@@ -21,7 +21,9 @@ class ControllerCommandBase extends Command
      */
     protected function isConvertEmptyStringsToNullRegistered()
     {
-        $kernal = $this->getLaravel()->make(\App\Http\Kernel::class);
+        $kernalClass = sprintf('\\%s\\Http\\Kernel', Helpers::getAppName());
+
+        $kernal = $this->getLaravel()->make($kernalClass);
 
         return $kernal->hasMiddleware(\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class);
     }
@@ -47,7 +49,7 @@ class ControllerCommandBase extends Command
     }
 
     /**
-     * Gets laravel ready field validation format from a giving string
+     * Gets laravel ready field validation format from a given string
      *
      * @param string $validations
      *
@@ -87,7 +89,7 @@ class ControllerCommandBase extends Command
     }
 
     /**
-     * Extracts the custom validation rules' short name from the giving rules array.
+     * Extracts the custom validation rules' short name from the given rules array.
      *
      * @param array $rules
      *
@@ -112,7 +114,7 @@ class ControllerCommandBase extends Command
     }
 
     /**
-     * Extracts the custom validation rules' short name from the giving rules array.
+     * Extracts the custom validation rules' short name from the given rules array.
      *
      * @param array $rules
      *
@@ -134,7 +136,7 @@ class ControllerCommandBase extends Command
     }
 
     /**
-     * Extracts the custom validation rules from the giving rules array.
+     * Extracts the custom validation rules from the given rules array.
      *
      * @param array $rules
      *
@@ -174,7 +176,7 @@ class ControllerCommandBase extends Command
     }
 
     /**
-     * Get the short name of the giving custom validation rule.
+     * Get the short name of the given custom validation rule.
      *
      * @param string $rule
      *
@@ -200,7 +202,7 @@ class ControllerCommandBase extends Command
     }
 
     /**
-     * Get the full class name of the giving custom valiation rule.
+     * Get the full class name of the given custom valiation rule.
      *
      * @param string $rule
      *
@@ -453,7 +455,7 @@ EOF;
     }
 
     /**
-     * Replaces the visibility level of a giving stub
+     * Replaces the visibility level of a given stub
      *
      * @param  string  $stub
      * @param  string  $level
