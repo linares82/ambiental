@@ -170,7 +170,7 @@ $users = User::pluck('name','id')->all();
 
         public function getComentarios(Request $request){
         //dd($request->all());
-        $lineas=AComentariosRrs::select('a_comentarios_rrs.id', 'comentario', 'estatus')
+        $lineas=AComentariosRrs::select('a_comentarios_rrs.id', 'comentario', 'estatus','a_comentarios_rrs.created_at')
                                 ->join('a_st_rrs as st', 'st.id','=','a_comentarios_rrs.a_st_rr_id')
                                 ->where('a_rr_id', '=', $request->get('a_rr_ambientale'))
                                 ->get();
@@ -179,7 +179,8 @@ $users = User::pluck('name','id')->all();
             array_push($resultado, array(
                                          'id'=>$l->id,
                                          'comentario'=>$l->comentario,
-                                         'estatus'=>$l->estatus
+                                         'estatus'=>$l->estatus,
+                                         'created_at'=>$l->created_at
                                          ));
         }
         echo json_encode($resultado);

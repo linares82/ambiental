@@ -196,20 +196,24 @@ $users = User::pluck('name','id')->all();
         //dd($datos);
         $documento=ARrAmbLeye::find($datos['id']);
         $registrosActivos=ARrAmbLeye::where('entity_id',$documento->entity_id)->where('activo',1)->get();
+        //dd($registrosActivos->toArray());
         
         foreach($registrosActivos as $registro){
+            //dd($registro);
+            //dd(date('Y/m/d',strtotime($registro->fec_fin_vigencia)));
             $regRevisar=ARrAmbientale::where('material_id',$registro->material_id)
                                      ->where('categoria_id',$registro->categoria_id)
                                      ->where('documento_id',$registro->documento_id)
                                      ->where('descripcion',$registro->descripcion)
                                      ->first();
+            
             if(count($regRevisar)==0){
                 $nuevo=new ARrAmbientale;
                 $nuevo->material_id=$registro->material_id;
                 $nuevo->categoria_id=$registro->categoria_id;
                 $nuevo->documento_id=$registro->documento_id;
                 $nuevo->descripcion=$registro->descripcion;
-                $nuevo->fec_fin_vigencia=date_format(date_create($registro->fec_fin_vigencia,'Y/m/d'));
+                $nuevo->fec_fin_vigencia=date('Y/m/d',strtotime($registro->fec_fin_vigencia));
                 $nuevo->aviso=$registro->aviso;
                 $nuevo->dias_aviso=$registro->dias_aviso;
                 $nuevo->usu_alta_id=$registro->usu_alta_id;
@@ -221,9 +225,10 @@ $users = User::pluck('name','id')->all();
                 
                 $nuevo->save();
             }
-            return redirect()->route('a_rr_amb_leyes.a_rr_amb_leye.index')
-                    ->with('success_message', 'Proceso Terminado');
+            
         }
+        return redirect()->route('a_rr_amb_leyes.a_rr_amb_leye.index')
+                    ->with('success_message', 'Proceso Terminado');
     }
 
 }

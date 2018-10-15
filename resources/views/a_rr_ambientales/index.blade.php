@@ -112,10 +112,23 @@
                 </option>
                 @endforeach
             </select>
+            </div>
+                
+            <div class="form-group col-md-4 {{ $errors->has('st_rr_id') ? 'has-error' : '' }}">
+                    <label for="st_rr_id" class="control-label">Estatus</label>
+                    <!--<div class="col-md-10">-->
+                    <select class="form-control chosen" id="st_rr_id" name="st_rr_id">
+                        <option value="" style="display: none;" {{ old('st_rr_id') == '' ? 'selected' : '' }} disabled selected>Estatus</option>
+                        @foreach ($aStRrs as $key => $aStRr)
+                        <option value="{{ $key }}" {{ old('st_rr_id') == $key ? 'selected' : '' }}>
+                                {{ $aStRr }}
+                    </option>
+                    @endforeach
+                </select>
 
-            {!! $errors->first('documento_id', '<p class="help-block">:message</p>') !!}
-            <!--</div>-->
-        </div>
+                {!! $errors->first('documento_id', '<p class="help-block">:message</p>') !!}
+                <!--</div>-->
+            </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -530,6 +543,7 @@
                                                 '<th>Consecutivo</th>' +
                                                 '<th>Comentario</th>' +
                                                 '<th>Estatus</th>' +
+                                                '<th>Creado</th>' +
                                                 '<th></th>' +
                                                 '</tr>' +
                                                 '</thead>' +
@@ -549,6 +563,7 @@
                                                 '<td>' + j + '</td>' +
                                                 '<td>' + anaVeri[i].comentario + '</td>' +
                                                 '<td>' + anaVeri[i].estatus + '</td>' +
+                                                '<td>' + anaVeri[i].created_at + '</td>' +
                                                 '<td>' +
                                                 '<form method="POST" action="' + '{!! url('') !!}' + '/' + anaVeri[i].id + '" accept-charset="UTF-8">' +
                                                 '<input name="_method" value="DELETE" type="hidden">' +
