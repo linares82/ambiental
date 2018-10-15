@@ -63,7 +63,7 @@ $users = User::pluck('name','id')->all();
         try {
             
             $data = $request->getData();
-            
+            //dd($data);
 		$data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
             
@@ -71,13 +71,13 @@ $users = User::pluck('name','id')->all();
             AComentariosRrs::create($data);
             
             $aRrAmbientale=ARrAmbientale::find($data['a_rr_id']);
-            $aRrAmbientale->st_archivo_id=$data['a_st_rr_id'];
+            $aRrAmbientale->st_rr_id=$data['a_st_rr_id'];
             $aRrAmbientale->save();
 
 
-            return redirect()->route('a_comentarios_rrs.a_comentarios_rrs.index')
+            /*return redirect()->route('a_comentarios_rrs.a_comentarios_rrs.index')
                              ->with('success_message', trans('a_comentarios_rrs.model_was_added'));
-
+*/
         } catch (Exception $exception) {
             Log::info($exception);
             return back()->withInput()
@@ -171,7 +171,7 @@ $users = User::pluck('name','id')->all();
         public function getComentarios(Request $request){
         //dd($request->all());
         $lineas=AComentariosRrs::select('a_comentarios_rrs.id', 'comentario', 'estatus')
-                                ->join('a_st_archivos as st', 'st.id','=','s_comentarios_rrs.a_st_rr_id')
+                                ->join('a_st_rrs as st', 'st.id','=','a_comentarios_rrs.a_st_rr_id')
                                 ->where('a_rr_id', '=', $request->get('a_rr_ambientale'))
                                 ->get();
         $resultado=array();

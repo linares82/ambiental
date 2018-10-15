@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Entity;
-use \App\Models\TipoEntity;
+use App\Models\TipoEntity;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EntitiesFormRequest;
 use Exception;

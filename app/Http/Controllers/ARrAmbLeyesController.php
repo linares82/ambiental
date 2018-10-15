@@ -196,7 +196,7 @@ $users = User::pluck('name','id')->all();
         //dd($datos);
         $documento=ARrAmbLeye::find($datos['id']);
         $registrosActivos=ARrAmbLeye::where('entity_id',$documento->entity_id)->where('activo',1)->get();
-        $registrosExistentes= ARrAmbientale::where('entity_id',$documento->entity_id)->get();
+        
         foreach($registrosActivos as $registro){
             $regRevisar=ARrAmbientale::where('material_id',$registro->material_id)
                                      ->where('categoria_id',$registro->categoria_id)
@@ -209,7 +209,7 @@ $users = User::pluck('name','id')->all();
                 $nuevo->categoria_id=$registro->categoria_id;
                 $nuevo->documento_id=$registro->documento_id;
                 $nuevo->descripcion=$registro->descripcion;
-                $nuevo->fec_fin_vigencia=$registro->fec_fin_vigencia;
+                $nuevo->fec_fin_vigencia=date_format(date_create($registro->fec_fin_vigencia,'Y/m/d'));
                 $nuevo->aviso=$registro->aviso;
                 $nuevo->dias_aviso=$registro->dias_aviso;
                 $nuevo->usu_alta_id=$registro->usu_alta_id;
