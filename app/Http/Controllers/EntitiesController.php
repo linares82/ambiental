@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Entity;
+use \App\Models\TipoEntity;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EntitiesFormRequest;
 use Exception;
@@ -44,9 +45,10 @@ class EntitiesController extends Controller
     public function create()
     {
         $users = User::pluck('name','id')->all();
+        $tipoEntities = TipoEntity::pluck('tipo_entity','id')->all();
         //$entidads = Entity::pluck('id','id')->all();
         
-        return view('entities.create', compact('users','users'));
+        return view('entities.create', compact('users','tipoEntities'));
     }
 
     /**
@@ -105,9 +107,11 @@ class EntitiesController extends Controller
     {
         $entity = Entity::findOrFail($id);
         $users = User::pluck('name','id')->all();
+        $tipoEntities = TipoEntity::pluck('tipo_entity','id')->all();
+        //dd($entity);
         //$entidads = Entity::pluck('id','id')->all();
 
-        return view('entities.edit', compact('entity','users','users'));
+        return view('entities.edit', compact('entity','users','tipoEntities'));
     }
 
     /**

@@ -47,7 +47,20 @@
     
 </div>
 
-<div class="form-group col-md-2 {{ $errors->has('multi_entidad') ? 'has-error' : '' }}">
+<div class="form-group col-md-4 {{ $errors->has('tipo_entity_id') ? 'has-error' : '' }}">
+    <label for="tipo_entity_id" class="control-label">Tipo Entidad</label>
+    <!--<div class="col-md-10">-->
+    <select class="form-control chosen" id="tipo_entity_id" name="tipo_entity_id">
+        <option value="" style="display: none;" {{ old('tipo_entity_id', optional($entity)->tipo_entity_id ?: '') == '' ? 'selected' : '' }} disabled selected>Tipo Entidad</option>
+        @foreach ($tipoEntities as $key => $tipoEntity)
+        <option value="{{ $key }}" {{ old('tipo_entity_id', optional($entity)->tipo_entity_id) == $key ? 'selected' : '' }}>
+                {{ $tipoEntity }}
+        </option>
+    @endforeach
+</select>
+</div>
+
+<div class="form-group col-md-3 {{ $errors->has('multi_entidad') ? 'has-error' : '' }}">
     <label for="multi_entidad" class="control-label">{{ trans('entities.multi_entidad') }}</label>
     
         <div class="checkbox">
@@ -60,6 +73,8 @@
         {!! $errors->first('multi_entidad', '<p class="help-block">:message</p>') !!}
     
 </div>
+
+
 
 <div class="form-group col-md-3 {{ $errors->has('filtred_by_entity') ? 'has-error' : '' }}">
     <label for="filtred_by_entity" class="control-label">{{ trans('entities.filtred_by_entity') }}</label>

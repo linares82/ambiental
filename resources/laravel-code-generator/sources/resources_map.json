@@ -633,5 +633,20 @@
         "model-name": "FilesCsNorma",
         "resource-file": "files_cs_normas.json",
         "table-name": "files_cs_normas"
+    },
+    {
+        "model-name": "AStRr",
+        "resource-file": "a_st_rrs.json",
+        "table-name": "a_st_rrs"
+    },
+    {
+        "model-name": "TipoEntity",
+        "resource-file": "tipo_entities.json",
+        "table-name": "tipo_entities"
+    },
+    {
+        "model-name": "ARrAmbLeye",
+        "resource-file": "a_rr_amb_leyes.json",
+        "table-name": "a_rr_amb_leyes"
     }
 ]

@@ -28,6 +28,7 @@ use App\Models\CsAccione;
 use App\Models\CsEnfermedade;
 use App\Models\CsTpoDeteccion;
 use App\Models\Empleado;
+use App\Models\ARrAmbientale;
 use Auth;
 use PDF;
 use DB;
@@ -562,5 +563,62 @@ class ConsultasController extends Controller {
 		return $pdf->download('reporte.pdf');		
 		
 		//return view('consultas.mantenimientosr', compact('ms', 'img', 'fecha'));
+	}
+        
+        public function getReqReg(){
+	$entities = Entity::pluck('rzon_social','id')->all();
+	return view('consultas.req_reg', compact('entities'));	
+	}
+
+	public function postReqReg(Request $request){
+		$input = $request->all();
+                //dd($input);
+                $entidad=Entity::find($input['entity_f']);
+		$usuario=Auth::user()->username;
+		$carpeta=base_path().'/public/reportes/reportes/'.$usuario;
+		$img  =  Entity::where('id',Auth::user()->entity_id)->value('logo');
+		
+		/* Reglas de validacion */
+		$rules = array(
+			'entity_f' => 'not_in:0',
+		);
+		
+		$validation = Validator::make($input, $rules, $this->rulesMessages);
+		if (!$validation->passes()){
+			return Redirect::route('consulta.accidente')
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'Existen errores de validación.');
+		}
+
+		
+		$datos= ARrAmbientale::select('m.material','c.categoria','d.doc','a_rr_ambientales.descripcion','a_rr_ambientales.fec_fin_vigencia',
+                                              'e.nombre as responsable','st.estatus','st.avance')
+                                     ->join('ca_materials as m','m.id','=','a_rr_ambientales.material_id')
+                                     ->join('ca_aa_docs as d', 'd.id','=','a_rr_ambientales.documento_id')
+                                     ->join('ca_categorias as c','c.id','=','a_rr_ambientales.categoria_id')
+                                     ->join('a_st_rrs as st','st.id','=', 'a_rr_ambientales.st_rr_id')
+                                     ->join('empleados as e','e.id','=','a_rr_ambientales.responsable_id')
+                                     ->join('a_rr_amb_leyes as l', 'l.descripcion','=','a_rr_ambientales.descripcion')
+                                     ->where('a_rr_ambientales.entity_id',$input['entity_f'])
+                                     ->where('l.activo','=',1)
+                                     ->get();
+		
+		$img=asset('storage/entities/'.$img);
+                $cantidad=count($datos);
+                if($cantidad<>0){
+                    $fecha=date('d/m/Y');
+                    //dd($datos);
+                    $pdf = PDF::loadView('consultas.req_regr', array('datos'=>$datos, 
+                                                                     'img'=>$img, 
+                                                                     'fecha'=>$fecha,
+                                                                     'entidad'=>$entidad->rzon_social,
+                                                                     'cantidad'=>$cantidad))
+                    ->setPaper('letter','portrait');
+                    return $pdf->download('reporte.pdf');
+                }
+		
+                return redirect()->route('consultas.consulta.getReqReg')
+                             ->with('msj','Sin resultados');
 	}
 }

@@ -8,7 +8,7 @@ use App\Models\Entity;
 use App\Models\CaAaDoc;
 use App\Models\Empleado;
 use App\Models\CaMaterial;
-use App\Models\AStArchivo;
+use App\Models\AStRr;
 use App\Models\CaCategoria;
 use App\Models\ARrAmbientale;
 use App\Http\Controllers\Controller;
@@ -50,11 +50,11 @@ class ARrAmbientalesController extends Controller
 		/*if(isset($input['name']) and $input['name']<>""){
 			$r->where('name', 'like', '%'.$input['name'].'%');
 		}*/
-                $aStRrs = AStArchivo::pluck('estatus','id')->all();
+                $aStRrs = AStRr::pluck('estatus','id')->all();
                 $caMaterials = CaMaterial::pluck('material','id')->all();
                 $caCategorias = CaCategoria::pluck('categoria','id')->all();
                 $caAaDocs = CaAaDoc::pluck('doc','id')->all();
-		$aRrAmbientales = $r->with('camaterial','cacategoria','caaadoc','bnd','empleado','astarchivo','entity','user')->paginate(25);
+		$aRrAmbientales = $r->with('camaterial','cacategoria','caaadoc','bnd','empleado','astrr','entity','user')->paginate(25);
 		//$aRrAmbientales = ARrAmbientale::with('camaterial','cacategoria','caaadoc','bnd','empleado','astarchivo','entity','user')->paginate(25);
 
         return view('a_rr_ambientales.index', compact('aRrAmbientales','aStRrs','caMaterials','caCategorias','caAaDocs'));
@@ -72,7 +72,7 @@ class ARrAmbientalesController extends Controller
         $caAaDocs = CaAaDoc::pluck('doc','id')->all();
         $bnds = Bnd::where('id','>',0)->pluck('bnd','id')->all();
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
-        $aStArchivos = AStArchivo::pluck('estatus','id')->all();
+        $aStArchivos = AStRr::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
         
@@ -118,7 +118,7 @@ class ARrAmbientalesController extends Controller
      */
     public function show($id)
     {
-        $aRrAmbientale = ARrAmbientale::with('camaterial','cacategoria','caaadoc','bnd','empleado','astarchivo','entity','user')->findOrFail($id);
+        $aRrAmbientale = ARrAmbientale::with('camaterial','cacategoria','caaadoc','bnd','empleado','astrr','entity','user')->findOrFail($id);
 
         return view('a_rr_ambientales.show', compact('aRrAmbientale'));
     }
@@ -138,7 +138,7 @@ class ARrAmbientalesController extends Controller
         $caAaDocs = CaAaDoc::pluck('doc','id')->all();
         $bnds = Bnd::where('id','>',0)->pluck('bnd','id')->all();
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
-        $aStArchivos = AStArchivo::pluck('estatus','id')->all();
+        $aStArchivos = AStRr::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
 
@@ -197,6 +197,6 @@ class ARrAmbientalesController extends Controller
         }
     }
 
-
+    
 
 }

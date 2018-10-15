@@ -6107,6 +6107,17 @@ Route::group(
         'as'=>'consultas.consulta.postEnfermedades'
     ])->middleware('auth');
     
+    Route::get('/getReqReg', [
+        'uses'=>'ConsultasController@getReqReg',
+        'middleware'=>'permission:consultas.consulta.getReqReg',
+        'as'=>'consultas.consulta.getReqReg'
+    ])->middleware('auth');
+    
+    Route::post('/postReqReg', [
+        'uses'=>'ConsultasController@postReqReg',
+        'middleware'=>'permission:consultas.consulta.getReqReg',
+        'as'=>'consultas.consulta.postReqReg'
+    ])->middleware('auth');
 });
 Route::group(
 [
@@ -6280,4 +6291,156 @@ Route::group(
         //'middleware'=>'permission:ln_impactos.ln_impacto.getByEnc',
         'as'=>'files_cs_normas.files_cs_norma.getFiles'
     ])->middleware('auth')->where('id', '[0-9]+');
+});
+
+Route::group(
+[
+    'prefix' => 'a_st_rrs',
+], function () {
+
+    Route::get('/', [
+        'uses'=>'AStRrsController@index',
+        'middleware'=>'permission:a_st_rrs.a_st_rr.index',
+        'as'=>'a_st_rrs.a_st_rr.index'
+    ])->middleware('auth');
+
+    Route::get('/create',[
+        'uses'=>'AStRrsController@create',
+        'middleware'=> 'permission:a_st_rrs.a_st_rr.create',
+        'as'=>'a_st_rrs.a_st_rr.create'
+    ])->middleware('auth');
+
+    Route::get('/show/{aStRr}',[
+        'uses'=>'AStRrsController@show',
+        'middleware'=>'permission:a_st_rrs.a_st_rr.show',
+        'as'=>'a_st_rrs.a_st_rr.show'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::get('/{aStRr}/edit',[
+        'uses'=>'AStRrsController@edit',
+        'middleware'=>'permission:a_st_rrs.a_st_rr.edit',
+        'as'=>'a_st_rrs.a_st_rr.edit'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::post('/', [
+        'uses'=>'AStRrsController@store',
+        'middleware'=>'permission:a_st_rrs.a_st_rr.store',
+        'as'=>'a_st_rrs.a_st_rr.store'
+    ])->middleware('auth');
+               
+    Route::put('a_st_rr/{aStRr}', [
+        'uses'=>'AStRrsController@update',
+        'middleware'=>'permission:a_st_rrs.a_st_rr.update',
+        'as'=>'a_st_rrs.a_st_rr.update'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::delete('/a_st_rr/{aStRr}',[
+        'uses'=>'AStRrsController@destroy',
+        'middleware'=>'permission:a_st_rrs.a_st_rr.destroy',
+        'as'=>'a_st_rrs.a_st_rr.destroy'
+    ])->middleware('auth')->where('id', '[0-9]+');
+});
+
+Route::group(
+[
+    'prefix' => 'tipo_entities',
+], function () {
+
+    Route::get('/', [
+        'uses'=>'TipoEntitiesController@index',
+        'middleware'=>'permission:tipo_entities.tipo_entity.index',
+        'as'=>'tipo_entities.tipo_entity.index'
+    ])->middleware('auth');
+
+    Route::get('/create',[
+        'uses'=>'TipoEntitiesController@create',
+        'middleware'=> 'permission:tipo_entities.tipo_entity.create',
+        'as'=>'tipo_entities.tipo_entity.create'
+    ])->middleware('auth');
+
+    Route::get('/show/{tipoEntity}',[
+        'uses'=>'TipoEntitiesController@show',
+        'middleware'=>'permission:tipo_entities.tipo_entity.show',
+        'as'=>'tipo_entities.tipo_entity.show'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::get('/{tipoEntity}/edit',[
+        'uses'=>'TipoEntitiesController@edit',
+        'middleware'=>'permission:tipo_entities.tipo_entity.edit',
+        'as'=>'tipo_entities.tipo_entity.edit'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::post('/', [
+        'uses'=>'TipoEntitiesController@store',
+        'middleware'=>'permission:tipo_entities.tipo_entity.store',
+        'as'=>'tipo_entities.tipo_entity.store'
+    ])->middleware('auth');
+               
+    Route::put('tipo_entity/{tipoEntity}', [
+        'uses'=>'TipoEntitiesController@update',
+        'middleware'=>'permission:tipo_entities.tipo_entity.update',
+        'as'=>'tipo_entities.tipo_entity.update'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::delete('/tipo_entity/{tipoEntity}',[
+        'uses'=>'TipoEntitiesController@destroy',
+        'middleware'=>'permission:tipo_entities.tipo_entity.destroy',
+        'as'=>'tipo_entities.tipo_entity.destroy'
+    ])->middleware('auth')->where('id', '[0-9]+');
+});
+
+Route::group(
+[
+    'prefix' => 'a_rr_amb_leyes',
+], function () {
+
+    Route::get('/', [
+        'uses'=>'ARrAmbLeyesController@index',
+        'middleware'=>'permission:a_rr_amb_leyes.a_rr_amb_leye.index',
+        'as'=>'a_rr_amb_leyes.a_rr_amb_leye.index'
+    ])->middleware('auth');
+
+    Route::get('/create',[
+        'uses'=>'ARrAmbLeyesController@create',
+        'middleware'=> 'permission:a_rr_amb_leyes.a_rr_amb_leye.create',
+        'as'=>'a_rr_amb_leyes.a_rr_amb_leye.create'
+    ])->middleware('auth');
+
+    Route::get('/show/{aRrAmbLeye}',[
+        'uses'=>'ARrAmbLeyesController@show',
+        'middleware'=>'permission:a_rr_amb_leyes.a_rr_amb_leye.show',
+        'as'=>'a_rr_amb_leyes.a_rr_amb_leye.show'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::get('/{aRrAmbLeye}/edit',[
+        'uses'=>'ARrAmbLeyesController@edit',
+        'middleware'=>'permission:a_rr_amb_leyes.a_rr_amb_leye.edit',
+        'as'=>'a_rr_amb_leyes.a_rr_amb_leye.edit'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::post('/', [
+        'uses'=>'ARrAmbLeyesController@store',
+        'middleware'=>'permission:a_rr_amb_leyes.a_rr_amb_leye.store',
+        'as'=>'a_rr_amb_leyes.a_rr_amb_leye.store'
+    ])->middleware('auth');
+               
+    Route::put('a_rr_amb_leye/{aRrAmbLeye}', [
+        'uses'=>'ARrAmbLeyesController@update',
+        'middleware'=>'permission:a_rr_amb_leyes.a_rr_amb_leye.update',
+        'as'=>'a_rr_amb_leyes.a_rr_amb_leye.update'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::delete('/a_rr_amb_leye/{aRrAmbLeye}',[
+        'uses'=>'ARrAmbLeyesController@destroy',
+        'middleware'=>'permission:a_rr_amb_leyes.a_rr_amb_leye.destroy',
+        'as'=>'a_rr_amb_leyes.a_rr_amb_leye.destroy'
+    ])->middleware('auth')->where('id', '[0-9]+');
+    
+    Route::get('a_rr_amb_leye/generar', [
+        'uses'=>'ARrAmbLeyesController@generar',
+        'middleware'=>'permission:a_rr_amb_leyes.a_rr_amb_leye.generar',
+        'as'=>'a_rr_amb_leyes.a_rr_amb_leye.generar'
+    ])->middleware('auth')->where('id', '[0-9]+');
+    
+    
 });

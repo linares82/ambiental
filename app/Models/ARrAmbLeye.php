@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ARrAmbientale extends Model
+class ARrAmbLeye extends Model
 {
     
     use SoftDeletes;
@@ -17,7 +17,7 @@ class ARrAmbientale extends Model
      *
      * @var string
      */
-    protected $table = 'a_rr_ambientales';
+    protected $table = 'a_rr_amb_leyes';
 
     /**
     * The database primary key value.
@@ -37,12 +37,10 @@ class ARrAmbientale extends Model
                   'documento_id',
                   'descripcion',
                   'fec_fin_vigencia',
-                  'archivo',
                   'aviso',
                   'dias_aviso',
-                  'responsable_id',
-                  'st_rr_id',
                   'entity_id',
+                  'activo',
                   'usu_alta_id',
                   'usu_mod_id'
               ];
@@ -52,7 +50,7 @@ class ARrAmbientale extends Model
      *
      * @var array
      */
-    protected $dates = ['fec_fin_vigencia','deleted_at', 'updated_at', 'created_at'];
+    protected $dates = [];
     
     /**
      * The attributes that should be cast to native types.
@@ -94,22 +92,6 @@ class ARrAmbientale extends Model
     }
 
     /**
-     * Get the empleado for this model.
-     */
-    public function empleado()
-    {
-        return $this->belongsTo('App\Models\Empleado','responsable_id','id');
-    }
-
-    /**
-     * Get the aStArchivo for this model.
-     */
-    public function aStRr()
-    {
-        return $this->belongsTo('App\Models\AStRr','st_rr_id','id');
-    }
-
-    /**
      * Get the entity for this model.
      */
     public function entity()
@@ -123,22 +105,6 @@ class ARrAmbientale extends Model
     public function user()
     {
         return $this->belongsTo('App\Models\User','usu_mod_id','id');
-    }
-
-    /**
-     * Get the aComentariosRr for this model.
-     */
-    public function aComentariosRr()
-    {
-        return $this->hasOne('App\Models\AComentariosRr','a_rr_id','id');
-    }
-
-    /**
-     * Get the aRrAmbDocs for this model.
-     */
-    public function aRrAmbDocs()
-    {
-        return $this->hasMany('App\Models\ARrAmbDoc','a_rr_ambiental_id','id');
     }
 
     /**
@@ -158,10 +124,10 @@ class ARrAmbientale extends Model
      * @param  string  $value
      * @return array
      */
-//    public function getFecFinVigenciaAttribute($value)
-//    {
-//        return date('j/n/Y g:i A', strtotime($value));
-//    }
+    public function getFecFinVigenciaAttribute($value)
+    {
+        return date('j/n/Y g:i A', strtotime($value));
+    }
 
     /**
      * Get created_at in array format

@@ -44,6 +44,7 @@ class Entity extends Model
                   'multi_entidad',
                   'entidad_id',
                   'tema',
+                  'tipo_entity_id',
                   'filtred_by_entity'
               ];
 

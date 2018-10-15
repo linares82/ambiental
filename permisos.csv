@@ -1,8 +1,8 @@
 id,slug,name,created,update
-693,files_cs_normas.files_cs_norma.index,files_cs_normas.files_cs_norma.index,01/01/2018 00:00,01/01/2018 00:00
-694,files_cs_normas.files_cs_norma.create,files_cs_normas.files_cs_norma.create,01/01/2018 00:00,01/01/2018 00:00
-695,files_cs_normas.files_cs_norma.show,files_cs_normas.files_cs_norma.show,01/01/2018 00:00,01/01/2018 00:00
-696,files_cs_normas.files_cs_norma.edit,files_cs_normas.files_cs_norma.edit,01/01/2018 00:00,01/01/2018 00:00
-697,files_cs_normas.files_cs_norma.store,files_cs_normas.files_cs_norma.store,01/01/2018 00:00,01/01/2018 00:00
-698,files_cs_normas.files_cs_norma.update,files_cs_normas.files_cs_norma.update,01/01/2018 00:00,01/01/2018 00:00
-699,files_cs_normas.files_cs_norma.destroy,files_cs_normas.files_cs_norma.destroy,01/01/2018 00:00,01/01/2018 00:00
+701,a_rr_amb_leyes.a_rr_amb_leye.index,a_rr_amb_leyes.a_rr_amb_leye.index,01/01/2018 00:00,01/01/2018 00:00
+702,a_rr_amb_leyes.a_rr_amb_leye.create,a_rr_amb_leyes.a_rr_amb_leye.create,01/01/2018 00:00,01/01/2018 00:00
+703,a_rr_amb_leyes.a_rr_amb_leye.show,a_rr_amb_leyes.a_rr_amb_leye.show,01/01/2018 00:00,01/01/2018 00:00
+704,a_rr_amb_leyes.a_rr_amb_leye.edit,a_rr_amb_leyes.a_rr_amb_leye.edit,01/01/2018 00:00,01/01/2018 00:00
+705,a_rr_amb_leyes.a_rr_amb_leye.store,a_rr_amb_leyes.a_rr_amb_leye.store,01/01/2018 00:00,01/01/2018 00:00
+706,a_rr_amb_leyes.a_rr_amb_leye.update,a_rr_amb_leyes.a_rr_amb_leye.update,01/01/2018 00:00,01/01/2018 00:00
+707,a_rr_amb_leyes.a_rr_amb_leye.destroy,a_rr_amb_leyes.a_rr_amb_leye.destroy,01/01/2018 00:00,01/01/2018 00:00

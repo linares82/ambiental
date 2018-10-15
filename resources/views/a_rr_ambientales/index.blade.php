@@ -138,6 +138,7 @@
                 <th>{{ trans('a_rr_ambientales.descripcion') }}</th>
                 <th>{{ trans('a_rr_ambientales.archivo') }}</th>
                 <th>{{ trans('a_rr_ambientales.st_archivo_id') }}</th>
+                <th>Avance</th>
                 <th>{{ trans('a_rr_ambientales.fec_fin_vigencia') }}</th>
                 <th>Dias Restantes</th>
 
@@ -162,12 +163,13 @@
                         <span class="fa fa-eye" aria-hidden="true"></span> Ver
                     </button>
                 </td>
-                <td>{{ optional($aRrAmbientale->aStArchivo)->estatus }}
+                <td>{{ optional($aRrAmbientale->aStRr)->estatus }}
                     <a href="#" class="add-modalEstatus btn btn-xs btn-primary" data-a_rr_ambientale='{{$aRrAmbientale->id}}'>Cambiar</a>
                     <button class="btn btn-success btnVerComentarios pull-right btn-xs" lang="mesaj" data-a_rr_ambientale="{{$aRrAmbientale->id}}" data-href="formation_json_parents" style="margin-left:10px;" >
                         <span class="fa fa-eye" aria-hidden="true"></span> Ver
                     </button>
                 </td>
+                <td>{{ optional($aRrAmbientale->aStRr)->avance }}</td>
                 <td>{{ $aRrAmbientale->fec_fin_vigencia }}</td>
                 <td>
                     @if($dias > $aRrAmbientale->dias_aviso and \Carbon\Carbon::now()->lt($aRrAmbientale->fec_fin_vigencia))

@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        \Artisan::call('ian:cambiarStReqReg');
         return view('home');
     }
 }
