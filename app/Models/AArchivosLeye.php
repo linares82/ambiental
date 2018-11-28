@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class AArchivo extends Model
+class AArchivosLeye extends Model
 {
     
     use SoftDeletes;
@@ -17,7 +17,7 @@ class AArchivo extends Model
      *
      * @var string
      */
-    protected $table = 'a_archivos';
+    protected $table = 'a_archivos_leyes';
 
     /**
     * The database primary key value.
@@ -34,15 +34,12 @@ class AArchivo extends Model
     protected $fillable = [
                   'documento_id',
                   'descripcion',
-                  'archivo',
-                  'fec_ini_vigencia',
+                  'fec_inicio_vigencia',
                   'fec_fin_vigencia',
                   'aviso',
                   'dias_aviso',
-                  'responsable_id',
-                  'obs',
-                  'st_archivo_id',
                   'entity_id',
+                  'activo',
                   'usu_alta_id',
                   'usu_mod_id'
               ];
@@ -62,11 +59,11 @@ class AArchivo extends Model
     protected $casts = [];
     
     /**
-     * Get the caCaDoc for this model.
+     * Get the caAaDoc for this model.
      */
-    public function caCaDoc()
+    public function caAaDoc()
     {
-        return $this->belongsTo('App\Models\CaCaDoc','documento_id','id');
+        return $this->belongsTo('App\Models\CaAaDoc','documento_id','id');
     }
 
     /**
@@ -75,22 +72,6 @@ class AArchivo extends Model
     public function bnd()
     {
         return $this->belongsTo('App\Models\Bnd','aviso','id');
-    }
-
-    /**
-     * Get the empleado for this model.
-     */
-    public function empleado()
-    {
-        return $this->belongsTo('App\Models\Empleado','responsable_id','id');
-    }
-
-    /**
-     * Get the aStArchivo for this model.
-     */
-    public function aStArchivo()
-    {
-        return $this->belongsTo('App\Models\AStArchivo','st_archivo_id','id');
     }
 
     /**
@@ -110,32 +91,14 @@ class AArchivo extends Model
     }
 
     /**
-     * Get the aArchiDocs for this model.
-     */
-    public function aArchiDocs()
-    {
-        return $this->hasMany('App\Models\AArchiDoc','a_archivo_id','id');
-    }
-
-    /**
-     * Get the aComentariosArchivo for this model.
-     */
-    public function aComentariosArchivo()
-    {
-        return $this->hasOne('App\Models\AComentariosArchivo','a_archivo_id','id');
-    }
-
-    /**
-     * Set the fec_ini_vigencia.
+     * Set the fec_inicio_vigencia.
      *
      * @param  string  $value
      * @return void
      */
-    public function setFecIniVigenciaAttribute($value)
+    public function setFecInicioVigenciaAttribute($value)
     {
-        
-        $this->attributes['fec_ini_vigencia'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
-        
+        $this->attributes['fec_inicio_vigencia'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
     }
 
     /**
@@ -144,19 +107,18 @@ class AArchivo extends Model
      * @param  string  $value
      * @return void
      */
-    
     public function setFecFinVigenciaAttribute($value)
     {
         $this->attributes['fec_fin_vigencia'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
     }
 
     /**
-     * Get fec_ini_vigencia in array format
+     * Get fec_inicio_vigencia in array format
      *
      * @param  string  $value
      * @return array
      */
-    public function getFecIniVigenciaAttribute($value)
+    public function getFecInicioVigenciaAttribute($value)
     {
         return date('j/n/Y g:i A', strtotime($value));
     }

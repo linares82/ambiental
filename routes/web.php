@@ -6444,3 +6444,109 @@ Route::group(
     
     
 });
+
+Route::group(
+[
+    'prefix' => 'a_archivos_leyes',
+], function () {
+
+    Route::get('/', [
+        'uses'=>'AArchivosLeyesController@index',
+        'middleware'=>'permission:a_archivos_leyes.a_archivos_leye.index',
+        'as'=>'a_archivos_leyes.a_archivos_leye.index'
+    ])->middleware('auth');
+
+    Route::get('/create',[
+        'uses'=>'AArchivosLeyesController@create',
+        'middleware'=> 'permission:a_archivos_leyes.a_archivos_leye.create',
+        'as'=>'a_archivos_leyes.a_archivos_leye.create'
+    ])->middleware('auth');
+
+    Route::get('/show/{aArchivosLeye}',[
+        'uses'=>'AArchivosLeyesController@show',
+        'middleware'=>'permission:a_archivos_leyes.a_archivos_leye.show',
+        'as'=>'a_archivos_leyes.a_archivos_leye.show'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::get('/{aArchivosLeye}/edit',[
+        'uses'=>'AArchivosLeyesController@edit',
+        'middleware'=>'permission:a_archivos_leyes.a_archivos_leye.edit',
+        'as'=>'a_archivos_leyes.a_archivos_leye.edit'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::post('/', [
+        'uses'=>'AArchivosLeyesController@store',
+        'middleware'=>'permission:a_archivos_leyes.a_archivos_leye.store',
+        'as'=>'a_archivos_leyes.a_archivos_leye.store'
+    ])->middleware('auth');
+               
+    Route::put('a_archivos_leye/{aArchivosLeye}', [
+        'uses'=>'AArchivosLeyesController@update',
+        'middleware'=>'permission:a_archivos_leyes.a_archivos_leye.update',
+        'as'=>'a_archivos_leyes.a_archivos_leye.update'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::delete('/a_archivos_leye/{aArchivosLeye}',[
+        'uses'=>'AArchivosLeyesController@destroy',
+        'middleware'=>'permission:a_archivos_leyes.a_archivos_leye.destroy',
+        'as'=>'a_archivos_leyes.a_archivos_leye.destroy'
+    ])->middleware('auth')->where('id', '[0-9]+');
+    Route::get('a_archivos_leye/generar', [
+        'uses'=>'AArchivosLeyesController@generar',
+        'middleware'=>'permission:a_archivos_leyes.a_archivos_leye.generar',
+        'as'=>'a_archivos_leyes.a_archivos_leye.generar'
+    ])->middleware('auth')->where('id', '[0-9]+');
+});
+
+Route::group(
+[
+    'prefix' => 's_documentos_leyes',
+], function () {
+
+    Route::get('/', [
+        'uses'=>'SDocumentosLeyesController@index',
+        'middleware'=>'permission:s_documentos_leyes.s_documentos_leye.index',
+        'as'=>'s_documentos_leyes.s_documentos_leye.index'
+    ])->middleware('auth');
+
+    Route::get('/create',[
+        'uses'=>'SDocumentosLeyesController@create',
+        'middleware'=> 'permission:s_documentos_leyes.s_documentos_leye.create',
+        'as'=>'s_documentos_leyes.s_documentos_leye.create'
+    ])->middleware('auth');
+
+    Route::get('/show/{sDocumentosLeye}',[
+        'uses'=>'SDocumentosLeyesController@show',
+        'middleware'=>'permission:s_documentos_leyes.s_documentos_leye.show',
+        'as'=>'s_documentos_leyes.s_documentos_leye.show'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::get('/{sDocumentosLeye}/edit',[
+        'uses'=>'SDocumentosLeyesController@edit',
+        'middleware'=>'permission:s_documentos_leyes.s_documentos_leye.edit',
+        'as'=>'s_documentos_leyes.s_documentos_leye.edit'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::post('/', [
+        'uses'=>'SDocumentosLeyesController@store',
+        'middleware'=>'permission:s_documentos_leyes.s_documentos_leye.store',
+        'as'=>'s_documentos_leyes.s_documentos_leye.store'
+    ])->middleware('auth');
+               
+    Route::put('s_documentos_leye/{sDocumentosLeye}', [
+        'uses'=>'SDocumentosLeyesController@update',
+        'middleware'=>'permission:s_documentos_leyes.s_documentos_leye.update',
+        'as'=>'s_documentos_leyes.s_documentos_leye.update'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+    Route::delete('/s_documentos_leye/{sDocumentosLeye}',[
+        'uses'=>'SDocumentosLeyesController@destroy',
+        'middleware'=>'permission:s_documentos_leyes.s_documentos_leye.destroy',
+        'as'=>'s_documentos_leyes.s_documentos_leye.destroy'
+    ])->middleware('auth')->where('id', '[0-9]+');
+    Route::get('s_documentos_leye/generar', [
+        'uses'=>'SDocumentosLeyesController@generar',
+        'middleware'=>'permission:s_documentos_leyes.s_documentos_leye.generar',
+        'as'=>'s_documentos_leyes.s_documentos_leye.generar'
+    ])->middleware('auth')->where('id', '[0-9]+');
+});

@@ -648,5 +648,15 @@
         "model-name": "ARrAmbLeye",
         "resource-file": "a_rr_amb_leyes.json",
         "table-name": "a_rr_amb_leyes"
+    },
+    {
+        "model-name": "AArchivosLeye",
+        "resource-file": "a_archivos_leyes.json",
+        "table-name": "a_archivos_leyes"
+    },
+    {
+        "model-name": "SDocumentosLeye",
+        "resource-file": "s_documentos_leyes.json",
+        "table-name": "s_documentos_leyes"
     }
 ]

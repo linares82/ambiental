@@ -1,8 +1,8 @@
 id,slug,name,created,update
-701,a_rr_amb_leyes.a_rr_amb_leye.index,a_rr_amb_leyes.a_rr_amb_leye.index,01/01/2018 00:00,01/01/2018 00:00
-702,a_rr_amb_leyes.a_rr_amb_leye.create,a_rr_amb_leyes.a_rr_amb_leye.create,01/01/2018 00:00,01/01/2018 00:00
-703,a_rr_amb_leyes.a_rr_amb_leye.show,a_rr_amb_leyes.a_rr_amb_leye.show,01/01/2018 00:00,01/01/2018 00:00
-704,a_rr_amb_leyes.a_rr_amb_leye.edit,a_rr_amb_leyes.a_rr_amb_leye.edit,01/01/2018 00:00,01/01/2018 00:00
-705,a_rr_amb_leyes.a_rr_amb_leye.store,a_rr_amb_leyes.a_rr_amb_leye.store,01/01/2018 00:00,01/01/2018 00:00
-706,a_rr_amb_leyes.a_rr_amb_leye.update,a_rr_amb_leyes.a_rr_amb_leye.update,01/01/2018 00:00,01/01/2018 00:00
-707,a_rr_amb_leyes.a_rr_amb_leye.destroy,a_rr_amb_leyes.a_rr_amb_leye.destroy,01/01/2018 00:00,01/01/2018 00:00
+710,a_archivos_leyes.a_archivos_leye.index,a_archivos_leyes.a_archivos_leye.index,01/01/2018 00:00,01/01/2018 00:00
+711,a_archivos_leyes.a_archivos_leye.create,a_archivos_leyes.a_archivos_leye.create,01/01/2018 00:00,01/01/2018 00:00
+712,a_archivos_leyes.a_archivos_leye.show,a_archivos_leyes.a_archivos_leye.show,01/01/2018 00:00,01/01/2018 00:00
+713,a_archivos_leyes.a_archivos_leye.edit,a_archivos_leyes.a_archivos_leye.edit,01/01/2018 00:00,01/01/2018 00:00
+714,a_archivos_leyes.a_archivos_leye.store,a_archivos_leyes.a_archivos_leye.store,01/01/2018 00:00,01/01/2018 00:00
+715,a_archivos_leyes.a_archivos_leye.update,a_archivos_leyes.a_archivos_leye.update,01/01/2018 00:00,01/01/2018 00:00
+716,a_archivos_leyes.a_archivos_leye.destroy,a_archivos_leyes.a_archivos_leye.destroy,01/01/2018 00:00,01/01/2018 00:00
