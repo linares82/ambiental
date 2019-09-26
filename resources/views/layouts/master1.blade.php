@@ -295,7 +295,7 @@
                 <div class="footer-inner">
                     <div class="footer-content">
                         <span class="bigger-60">
-                            Derechos reservados 2107, {{ config('app.name', 'Laravel') }}
+                            Derechos reservados 2019, {{ config('app.name', 'Laravel') }}
                         </span>
 
                     </div>
