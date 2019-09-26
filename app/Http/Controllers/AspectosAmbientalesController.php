@@ -113,7 +113,7 @@ class AspectosAmbientalesController extends Controller
                              ->with('success_message', trans('aspectos_ambientales.model_was_added'));
 
         } catch (Exception $exception) {
-
+            dd($exception);
             return back()->withInput()
                          ->withErrors(['unexpected_error' => trans('aspectos_ambientales.unexpected_error')]);
         }

@@ -361,7 +361,9 @@
                 $('#imp_potencial_id').removeAttr('disabled').trigger("chosen:updated");
                 console.log($('#bnd_potencial option:selected').val());
             }else{
+                $('#probabilidad_id').val(0);
                 $('#probabilidad_id').attr('disabled', 'disabled').trigger("chosen:updated");
+                $('#imp_potencial_id').val(0);
                 $('#imp_potencial_id').attr('disabled', 'disabled').trigger("chosen:updated");
                 console.log($('#bnd_potencial option:selected').val());
             }
@@ -372,7 +374,9 @@
                 $('#imp_real_id').removeAttr('disabled').trigger("chosen:updated");
                 console.log($('#bnd_real option:selected').val());
             }else{
+                $('#frecuencia_id').val(0);
                 $('#frecuencia_id').attr('disabled', 'disabled').trigger("chosen:updated");
+                $('#imp_real_id').val(0);
                 $('#imp_real_id').attr('disabled', 'disabled').trigger("chosen:updated");
                 console.log($('#bnd_real option:selected').val());
             }
