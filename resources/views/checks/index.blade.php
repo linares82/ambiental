@@ -279,7 +279,7 @@
                     btnEditarLn = '<button type="button" class="btn btn-xs btn-primary btnEditLinea" data-linea=' + anaVeri[i].id + '>' +
                     '<i class="glyphicon glyphicon-pencil"></i> Editar' +
                     '</button>'
-                    @endif
+            @endif
                     var btnEliminarLn = "";
             @ifUserCan('ln_impactos.ln_impacto.destroy')
                     btnEliminarLn = '<button type="submit" class="btn btn-danger btn-xs" title="Eliminar" onclick="return confirm(&quot; Eliminar &quot;)">' +
@@ -310,8 +310,7 @@
             // set next row
             $tablosonrakisatir = $(yenitablosatir).insertAfter($tablosatir);
             $(".btnEditLinea").click(function(){
-            //window.location = '{{url("/ln_impactos/edit/")}}'+'/'+$(this).data('linea');
-            window.open('{{url("/check_ls/edit/")}}' + '/' + $(this).data('linea'), '_blank');
+            //window.open('{{url("/check_ls/edit/")}}' + '/' + $(this).data('linea'), '_blank');
             });
             }
     });

@@ -211,7 +211,7 @@
     <h4>Calificacion del Impacto</h4>
 </div>
 
-<div class="form-group col-md-4 {{ $errors->has('severidad_id') ? 'has-error' : '' }}">
+<div class="form-group col-md-12 {{ $errors->has('severidad_id') ? 'has-error' : '' }}">
     <label for="severidad_id" class="control-label">{{ trans('aspectos_ambientales.severidad_id') }}</label>
     <!--<div class="col-md-10">-->
         <select class="form-control chosen" id="severidad_id" name="severidad_id" required="true">
@@ -243,21 +243,38 @@
     <!--</div>-->
 </div>
 
-<div class="form-group col-md-4 {{ $errors->has('frecuencia_id') ? 'has-error' : '' }}">
-    <label for="frecuencia_id" class="control-label">{{ trans('aspectos_ambientales.frecuencia_id') }}</label>
+<div class="form-group col-md-4 {{ $errors->has('probabilidad_id') ? 'has-error' : '' }}">
+    <label for="probabilidad_id" class="control-label">{{ trans('aspectos_ambientales.probabilidad_id') }}</label>
     <!--<div class="col-md-10">-->
-        <select class="form-control chosen" id="frecuencia_id" name="frecuencia_id" required="true">
-        	    <option value="" style="display: none;" {{ old('frecuencia_id', optional($aspectosAmbientale)->frecuencia_id ?: '') == '' ? 'selected' : '' }} disabled selected>{{ trans('aspectos_ambientales.frecuencia_id__placeholder') }}</option>
-        	@foreach ($duracionAccions as $key => $duracionAccion)
-			    <option value="{{ $key }}" {{ old('frecuencia_id', optional($aspectosAmbientale)->frecuencia_id) == $key ? 'selected' : '' }}>
-			    	{{ $duracionAccion }}
+        <select class="form-control chosen" id="probabilidad_id" name="probabilidad_id" required="true" disabled=true>
+        	    <option value="" style="display: none;" {{ old('probabilidad_id', optional($aspectosAmbientale)->probabilidad_id ?: '') == '' ? 'selected' : '' }} disabled selected>{{ trans('aspectos_ambientales.probabilidad_id__placeholder') }}</option>
+        	@foreach ($probabilidads as $key => $probabilidad)
+			    <option value="{{ $key }}" {{ old('probabilidad_id', optional($aspectosAmbientale)->probabilidad_id) == $key ? 'selected' : '' }}>
+			    	{{ $probabilidad }}
 			    </option>
 			@endforeach
         </select>
         
-        {!! $errors->first('frecuencia_id', '<p class="help-block">:message</p>') !!}
+        {!! $errors->first('probabilidad_id', '<p class="help-block">:message</p>') !!}
     <!--</div>-->
 </div>
+
+<div class="form-group col-md-4 {{ $errors->has('imp_potencial_id') ? 'has-error' : '' }}">
+    <label for="imp_potencial_id" class="control-label">{{ trans('aspectos_ambientales.imp_potencial_id') }}</label><br/>
+    <!--<div class="col-md-10">-->
+        <select class="form-control chosen" id="imp_potencial_id" name="imp_potencial_id" required="true" disabled=true>
+        	    <option value="" style="display: none;" {{ old('area_id', optional($aspectosAmbientale)->imp_potencial_id ?: '') == '' ? 'selected' : '' }} disabled selected>{{ trans('aspectos_ambientales.imp_potencial__placeholder') }}</option>
+        	@foreach ($impPotencials as $key => $impPotencial)
+			    <option value="{{ $key }}" {{ old('imp_potencial_id', optional($aspectosAmbientale)->imp_potencial_id) == $key ? 'selected' : '' }}>
+			    	{{ $impPotencial }}
+			    </option>
+			@endforeach
+        </select>
+        
+        {!! $errors->first('area_id', '<p class="help-block">:message</p>') !!}
+    <!--</div>-->
+</div>
+
 
 <div class="form-group col-md-4 {{ $errors->has('bnd_real') ? 'has-error' : '' }}">
     <label for="bnd_real" class="control-label">{{ trans('aspectos_ambientales.bnd_real') }}</label>
@@ -275,21 +292,40 @@
     <!--</div>-->
 </div>
 
-<div class="form-group col-md-4 {{ $errors->has('probabilidad_id') ? 'has-error' : '' }}">
-    <label for="probabilidad_id" class="control-label">{{ trans('aspectos_ambientales.probabilidad_id') }}</label>
+
+<div class="form-group col-md-4 {{ $errors->has('frecuencia_id') ? 'has-error' : '' }}">
+    <label for="frecuencia_id" class="control-label">{{ trans('aspectos_ambientales.frecuencia_id') }}</label>
     <!--<div class="col-md-10">-->
-        <select class="form-control chosen" id="probabilidad_id" name="probabilidad_id" required="true">
-        	    <option value="" style="display: none;" {{ old('probabilidad_id', optional($aspectosAmbientale)->probabilidad_id ?: '') == '' ? 'selected' : '' }} disabled selected>{{ trans('aspectos_ambientales.probabilidad_id__placeholder') }}</option>
-        	@foreach ($probabilidads as $key => $probabilidad)
-			    <option value="{{ $key }}" {{ old('probabilidad_id', optional($aspectosAmbientale)->probabilidad_id) == $key ? 'selected' : '' }}>
-			    	{{ $probabilidad }}
+        <select class="form-control chosen" id="frecuencia_id" name="frecuencia_id" required="true" disabled=true>
+        	    <option value="" style="display: none;" {{ old('frecuencia_id', optional($aspectosAmbientale)->frecuencia_id ?: '') == '' ? 'selected' : '' }} disabled selected>{{ trans('aspectos_ambientales.frecuencia_id__placeholder') }}</option>
+        	@foreach ($duracionAccions as $key => $duracionAccion)
+			    <option value="{{ $key }}" {{ old('frecuencia_id', optional($aspectosAmbientale)->frecuencia_id) == $key ? 'selected' : '' }}>
+			    	{{ $duracionAccion }}
 			    </option>
 			@endforeach
         </select>
         
-        {!! $errors->first('probabilidad_id', '<p class="help-block">:message</p>') !!}
+        {!! $errors->first('frecuencia_id', '<p class="help-block">:message</p>') !!}
     <!--</div>-->
 </div>
+
+
+<div class="form-group col-md-4 {{ $errors->has('imp_real_id') ? 'has-error' : '' }}">
+    <label for="imp_real_id" class="control-label">{{ trans('aspectos_ambientales.imp_real_id') }}</label><br/>
+    <!--<div class="col-md-10">-->
+        <select class="form-control chosen" id="imp_real_id" name="imp_real_id" required="true" disabled=true>
+        	    <option value="" style="display: none;" {{ old('area_id', optional($aspectosAmbientale)->imp_real_id ?: '') == '' ? 'selected' : '' }} disabled selected>{{ trans('aspectos_ambientales.imp_real_id__placeholder') }}</option>
+        	@foreach ($impReals as $key => $impReal)
+			    <option value="{{ $key }}" {{ old('imp_real_id', optional($aspectosAmbientale)->imp_real_id) == $key ? 'selected' : '' }}>
+			    	{{ $impReal }}
+			    </option>
+			@endforeach
+        </select>
+        
+        {!! $errors->first('area_id', '<p class="help-block">:message</p>') !!}
+    <!--</div>-->
+</div>
+
 
 <div class="form-group col-md-12 {{ $errors->has('observaciones') ? 'has-error' : '' }}">
     <label for="observaciones" class="control-label">{{ trans('aspectos_ambientales.observaciones') }}</label>
@@ -307,3 +343,39 @@
     <!--</div>-->
 </div>
 
+@push('scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+        activarDesactivarCmbPotencial();
+        activarDesactivarCmbReal()
+        $('#bnd_potencial').change(function(){
+            activarDesactivarCmbPotencial();
+        });
+        $('#bnd_real').change(function(){
+            activarDesactivarCmbReal();
+        });
+    });
+    function activarDesactivarCmbPotencial(){
+         if($('#bnd_potencial option:selected').val()==1){
+                $('#probabilidad_id').removeAttr('disabled').trigger("chosen:updated");
+                $('#imp_potencial_id').removeAttr('disabled').trigger("chosen:updated");
+                console.log($('#bnd_potencial option:selected').val());
+            }else{
+                $('#probabilidad_id').attr('disabled', 'disabled').trigger("chosen:updated");
+                $('#imp_potencial_id').attr('disabled', 'disabled').trigger("chosen:updated");
+                console.log($('#bnd_potencial option:selected').val());
+            }
+    }
+    function activarDesactivarCmbReal(){
+         if($('#bnd_real option:selected').val()==1){
+                $('#frecuencia_id').removeAttr('disabled').trigger("chosen:updated");
+                $('#imp_real_id').removeAttr('disabled').trigger("chosen:updated");
+                console.log($('#bnd_real option:selected').val());
+            }else{
+                $('#frecuencia_id').attr('disabled', 'disabled').trigger("chosen:updated");
+                $('#imp_real_id').attr('disabled', 'disabled').trigger("chosen:updated");
+                console.log($('#bnd_real option:selected').val());
+            }
+    }
+</script>
+@endpush    

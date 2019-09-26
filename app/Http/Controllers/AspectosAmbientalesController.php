@@ -81,11 +81,14 @@ class AspectosAmbientalesController extends Controller
         $duracionAccions = DuracionAccion::pluck('duracion_accion','id')->all();
         $probabilidads = Probabilidad::pluck('probabilidad','id')->all();
         $impPotencials = ImpPotencial::pluck('imp_potencial','id')->all();
+        
         $impReals = ImpReal::pluck('imp_real','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
+        //dd($impReals);
         
-        return view('aspectos_ambientales.create', compact('aaProcesos','areas','aaAspectos','aaEmes','aaCondiciones','aaImpactos','puestos','bnds','bnds','bnds','bnds','efectos','bnds','duracionAccions','bnds','probabilidads','impPotencials','impReals','entities','users','users'));
+        return view('aspectos_ambientales.create', compact('aaProcesos','areas','aaAspectos','aaEmes','aaCondiciones','aaImpactos','puestos','bnds',
+                        'bnds','bnds','bnds','efectos','bnds','duracionAccions','bnds','probabilidads','impPotencials','impReals','entities','users','users'));
     }
 
     /**
@@ -152,6 +155,7 @@ class AspectosAmbientalesController extends Controller
         $duracionAccions = DuracionAccion::pluck('duracion_accion','id')->all();
         $probabilidads = Probabilidad::pluck('probabilidad','id')->all();
         $impPotencials = ImpPotencial::pluck('imp_potencial','id')->all();
+        //dd($impPotencials);
         $impReals = ImpReal::pluck('imp_real','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
