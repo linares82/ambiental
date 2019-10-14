@@ -176,6 +176,14 @@
     <!--</div>-->
 </div>
 
+<div class="form-group col-md-4 {{ $errors->has('factor_calculado') ? 'has-error' : '' }}">
+    <label for="factor_calculado" class="control-label">{{ trans('bitacora_residuos.factor_calculado') }}</label>
+    <!--<div class="col-md-10">-->
+        <input class="form-control input-sm " name="factor_calculado" type="number" id="factor_indicador" value="{{ old('factor_indicador', optional($bitacoraResiduo)->factor_indicador) }}" min="-999999" max="999999" required="true" placeholder="{{ trans('bitacora_residuos.factor_calculado__placeholder') }}" step="any">
+        {!! $errors->first('factor_calculado', '<p class="help-block">:message</p>') !!}
+    <!--</div>-->
+</div>
+
 
 @push('scripts')
 <script type="text/javascript">
