@@ -212,6 +212,17 @@ class MMantenimiento extends Model
         $this->attributes['fec_planeada'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
     }
 
+    public function setFecInicioAttribute($value)
+    {
+        $this->attributes['fec_inicio'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
+    }
+
+    public function setFecIniAttribute($value)
+    {
+        $this->attributes['fec_ini'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
+    }
+
+
     /**
      * Get fec_planeada in array format
      *
@@ -230,6 +241,16 @@ class MMantenimiento extends Model
      * @return array
      */
     public function getCreatedAtAttribute($value)
+    {
+        return date('j/n/Y g:i A', strtotime($value));
+    }
+
+    public function getFecIniAttribute($value)
+    {
+        return date('j/n/Y g:i A', strtotime($value));
+    }
+
+    public function getFecInicioAttribute($value)
     {
         return date('j/n/Y g:i A', strtotime($value));
     }
@@ -255,5 +276,6 @@ class MMantenimiento extends Model
     {
         return date('j/n/Y g:i A', strtotime($value));
     }
+
 
 }

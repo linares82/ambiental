@@ -172,6 +172,11 @@ class AArchivo extends Model
         return date('j/n/Y g:i A', strtotime($value));
     }
 
+    public function getFecFinVigencia()
+    {
+        return date('j/n/Y', strtotime($this->fec_fin_vigencia));
+    }
+
     /**
      * Get created_at in array format
      *

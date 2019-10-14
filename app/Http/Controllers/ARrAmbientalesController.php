@@ -100,14 +100,16 @@ class ARrAmbientalesController extends Controller
             $data['usu_alta_id']=Auth::user()->id;
             $data['entity_id']=Auth::user()->entity_id;
             $data['st_archivo_id']=1;
+            $data['st_rr_id'] = 1;
             $data['archivo']="";
+
             ARrAmbientale::create($data);
 
             return redirect()->route('a_rr_ambientales.a_rr_ambientale.index')
                              ->with('success_message', trans('a_rr_ambientales.model_was_added'));
 
         } catch (Exception $exception) {
-
+            dd($exception);
             return back()->withInput()
                          ->withErrors(['unexpected_error' => trans('a_rr_ambientales.unexpected_error')]);
         }

@@ -151,7 +151,7 @@
                         <span class='label label-danger'>
                     @elseif($dias <= $aNoConformidade->dias_aviso and \Carbon\Carbon::now()->lt($aNoConformidade->fec_planeada))
                         <span class='label label-warning'>
-                    @elseif($dias > $aNoConformidade and \Carbon\Carbon::now()->lt($aNoConformidade->fec_planeada))
+                    @elseif($dias > $aNoConformidade->dias and \Carbon\Carbon::now()->lt($aNoConformidade->fec_planeada))
                         <span class='label label-success'>
                     @endif
                                 {{ $dias}}                            </span>

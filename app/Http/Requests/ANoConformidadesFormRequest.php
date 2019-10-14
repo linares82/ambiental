@@ -27,7 +27,7 @@ class ANoConformidadesFormRequest extends FormRequest
     {
         $rules = [
             'no_conformidad' => 'required|string|min:1|max:255',
-            'fecha' => 'required|date_format:j/n/Y g:i A',
+           // 'fecha' => 'required|date_format:j/n/Y g:i A',
 //            'anio' => 'required|numeric|min:-2147483648|max:2147483647',
 //            'mes' => 'required|numeric|min:-2147483648|max:2147483647',
             'area_id' => 'required',

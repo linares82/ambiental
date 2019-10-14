@@ -173,7 +173,7 @@ $users = User::pluck('name','id')->all();
                 $r = Storage::disk('files_a_rr_ambientale')->put($nombre, \File::get($file));
                 //dd($r);
                 $data['descripcion']=$request->get('descripcion');
-                $data['a_rr_ambiental_id']=$request->get("a_rr_ambientale");
+                $data['a_rr_ambiental_id']=$request->get("a_rr_ambiental_id");
                 $data['file_path']=$nombre;
                 $data['usu_mod_id']=Auth::user()->id;
                 $data['usu_alta_id']=Auth::user()->id;

@@ -26,7 +26,7 @@
 <div class="form-group col-md-4 {{ $errors->has('fec_ini_vigencia') ? 'has-error' : '' }}">
     <label for="fec_ini_vigencia" class="control-label">{{ trans('a_procedimientos.fec_ini_vigencia') }}</label>
     <!--<div class="col-md-10">-->
-        <input class="form-control input-sm " name="fec_ini_vigencia" type="text" id="fec_ini_vigencia" value="{{ old('fec_ini_vigencia', optional($aProcedimiento)->fec_ini_vigencia) }}" required="true" placeholder="{{ trans('a_procedimientos.fec_ini_vigencia__placeholder') }}">
+        <input class="form-control input-sm date-picker" name="fec_ini_vigencia" type="text" id="fec_ini_vigencia" value="{{ old('fec_ini_vigencia', optional($aProcedimiento)->fec_ini_vigencia) }}" required="true" placeholder="{{ trans('a_procedimientos.fec_ini_vigencia__placeholder') }}">
         {!! $errors->first('fec_ini_vigencia', '<p class="help-block">:message</p>') !!}
     <!--</div>-->
 </div>
@@ -34,7 +34,7 @@
 <div class="form-group col-md-4 {{ $errors->has('fec_fin_vigencia') ? 'has-error' : '' }}">
     <label for="fec_fin_vigencia" class="control-label">{{ trans('a_procedimientos.fec_fin_vigencia') }}</label>
     <!--<div class="col-md-10">-->
-        <input class="form-control input-sm " name="fec_fin_vigencia" type="text" id="fec_fin_vigencia" value="{{ old('fec_fin_vigencia', optional($aProcedimiento)->fec_fin_vigencia) }}" required="true" placeholder="{{ trans('a_procedimientos.fec_fin_vigencia__placeholder') }}">
+        <input class="form-control input-sm date-picker" name="fec_fin_vigencia" type="text" id="fec_fin_vigencia" value="{{ old('fec_fin_vigencia', optional($aProcedimiento)->fec_fin_vigencia) }}" required="true" placeholder="{{ trans('a_procedimientos.fec_fin_vigencia__placeholder') }}">
         {!! $errors->first('fec_fin_vigencia', '<p class="help-block">:message</p>') !!}
     <!--</div>-->
 </div>
@@ -87,3 +87,16 @@
     <!--</div>-->
 </div>
 
+@push('scripts')
+<script type="text/javascript">
+    
+    $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+    })
+    //show datepicker when clicking on the icon
+    .next().on(ace.click_event, function(){
+            $(this).prev().focus();
+    });
+</script>
+@endpush    

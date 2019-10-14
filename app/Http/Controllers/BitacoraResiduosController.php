@@ -91,7 +91,7 @@ class BitacoraResiduosController extends Controller
                              ->with('success_message', trans('bitacora_residuos.model_was_added'));
 
         } catch (Exception $exception) {
-
+            dd($exception);
             return back()->withInput()
                          ->withErrors(['unexpected_error' => trans('bitacora_residuos.unexpected_error')]);
         }

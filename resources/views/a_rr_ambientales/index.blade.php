@@ -419,7 +419,7 @@
                                         },
                                         //una vez finalizado correctamente
                                         success: function (data) {
-                                        location.reload();
+                                        //location.reload();
                                         },
                                         //si ha ocurrido un error
                                         error: function (data) {

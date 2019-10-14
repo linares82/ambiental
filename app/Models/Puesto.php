@@ -33,6 +33,7 @@ class Puesto extends Model
      */
     protected $fillable = [
                   'puesto',
+                  'entity_id',
                   'usu_alta_id',
                   'usu_mod_id'
               ];

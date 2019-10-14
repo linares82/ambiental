@@ -127,6 +127,10 @@
                     </thead>
                     <tbody>
                     @foreach($aArchivos as $aArchivo)
+                        <?php
+                        //$dias=0;
+                        $dias = \Carbon\Carbon::now()->diffInDays($aArchivo->getFecFinVigencia());
+                        ?>
                         <tr>
                             <th>{{$aArchivo->id}}</th>
                             <td>{{$aArchivo->entity->abreviatura}}</td>
@@ -143,7 +147,11 @@
                                 </button>
                             </td>
                             <td>{{ $aArchivo->fec_fin_vigencia }}</td>
-                            <td>Dias Restantes</td>
+                            <td>
+                                 
+                                  {{ $dias}}
+                                            
+                            </td>
                             
                             <td>
 

@@ -72,13 +72,14 @@ class PuestosController extends Controller
             $data = $request->getData();
             $data['usu_alta_id']=Auth::user()->id;
             $data['usu_mod_id']=Auth::user()->id;
+            $data['entity_id'] = Auth::user()->entity_id;
             Puesto::create($data);
 
             return redirect()->route('puestos.puesto.index')
                              ->with('success_message', trans('puestos.model_was_added'));
 
         } catch (Exception $exception) {
-
+            //dd($exception);
             return back()->withInput()
                          ->withErrors(['unexpected_error' => trans('puestos.unexpected_error')]);
         }
