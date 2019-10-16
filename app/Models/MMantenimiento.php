@@ -219,7 +219,7 @@ class MMantenimiento extends Model
 
     public function setFecFinalAttribute($value)
     {
-        $this->attributes['fec_ini'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
+        $this->attributes['fec_final'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
     }
 
 
