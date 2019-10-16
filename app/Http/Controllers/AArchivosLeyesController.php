@@ -107,7 +107,7 @@ $users = User::pluck('name','id')->all();
     {
         $aArchivosLeye = AArchivosLeye::findOrFail($id);
         $caAaDocs = CaAaDoc::pluck('doc','id')->all();
-$bnds = Bnd::pluck('bnd','id')->all();
+$bnds = Bnd::where('id', '>', 0)->pluck('bnd', 'id');
 $entities = Entity::pluck('rzon_social','id')->all();
 $users = User::pluck('name','id')->all();
 

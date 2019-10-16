@@ -58,7 +58,7 @@
 <div class="form-group col-md-8 {{ $errors->has('detalle_s') ? 'has-error' : '' }}">
     
     <!--<div class="col-md-10">-->
-        <input class="form-control input-sm date-picker" name="detalle_s" type="text" id="detalle_s" value="" placeholder="">
+        <input class="form-control input-sm" name="detalle_s" type="text" id="detalle_s" value="" placeholder="">
         
     <!--</div>-->
 </div>

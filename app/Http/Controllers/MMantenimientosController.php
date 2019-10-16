@@ -76,7 +76,7 @@ class MMantenimientosController extends Controller
         $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
         $subequipos = Subequipo::where('entity_id', Auth::user()->entity_id)->pluck('subequipo','id')->all();
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
-        $bnds = Bnd::pluck('bnd','id')->all();
+        $bnds = Bnd::where('id','>',0)->pluck('bnd','id');
         $mEstatuses = MEstatus::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
@@ -140,7 +140,7 @@ class MMantenimientosController extends Controller
         $mObjetivos = MObjetivo::where('entity_id',Auth::user()->entity_id)->pluck('objetivo','id')->all();
         $subequipos = Subequipo::where('entity_id', Auth::user()->entity_id)->pluck('subequipo','id')->all();
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
-        $bnds = Bnd::where('id', '>', 0)->pluck('bnd','id')->all();
+        $bnds = Bnd::where('id', '>', 0)->pluck('bnd', 'id');
         $mEstatuses = MEstatus::pluck('estatus','id')->all();
         //dd($mEstatuses);
         $entities = Entity::pluck('rzon_social','id')->all();

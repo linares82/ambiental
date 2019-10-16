@@ -66,7 +66,7 @@ class SProcedimientosController extends Controller
     {
         $csTpoProcedimientos = CsTpoProcedimiento::pluck('tpo_procedimiento','id')->all();
         $csTpoDocs = CsTpoDoc::pluck('tpo_doc','id')->all();
-        $bnds = Bnd::pluck('bnd','id')->all();
+        $bnds = Bnd::where('id', '>', 0)->pluck('bnd', 'id');
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $sEstatusProcedimientos = SEstatusProcedimiento::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
@@ -131,7 +131,7 @@ class SProcedimientosController extends Controller
         $sProcedimiento = SProcedimiento::findOrFail($id);
         $csTpoProcedimientos = CsTpoProcedimiento::pluck('tpo_procedimiento','id')->all();
         $csTpoDocs = CsTpoDoc::pluck('tpo_doc','id')->all();
-        $bnds = Bnd::pluck('bnd','id')->all();
+        $bnds = Bnd::where('id', '>', 0)->pluck('bnd', 'id');
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $sEstatusProcedimientos = SEstatusProcedimiento::pluck('estatus','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();

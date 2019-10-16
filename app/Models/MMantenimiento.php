@@ -217,7 +217,7 @@ class MMantenimiento extends Model
         $this->attributes['fec_inicio'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
     }
 
-    public function setFecIniAttribute($value)
+    public function setFecFinalAttribute($value)
     {
         $this->attributes['fec_ini'] = !empty($value) ? date($this->getDateFormat(), strtotime($value)) : null;
     }
@@ -245,7 +245,7 @@ class MMantenimiento extends Model
         return date('j/n/Y g:i A', strtotime($value));
     }
 
-    public function getFecIniAttribute($value)
+    public function getFecFinalAttribute($value)
     {
         return date('j/n/Y g:i A', strtotime($value));
     }

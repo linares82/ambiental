@@ -59,7 +59,7 @@ class BitacoraResiduosController extends Controller
     public function create()
     {
         $caResiduos = CaResiduo::pluck('residuo','id')->all();
-        $bnds = Bnd::pluck('bnd','id')->all();
+        $bnds = Bnd::where('id', '>', 0)->pluck('bnd', 'id');
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();
@@ -122,7 +122,7 @@ class BitacoraResiduosController extends Controller
     {
         $bitacoraResiduo = BitacoraResiduo::findOrFail($id);
         $caResiduos = CaResiduo::pluck('residuo','id')->all();
-        $bnds = Bnd::pluck('bnd','id')->all();
+        $bnds = Bnd::where('id', '>', 0)->pluck('bnd', 'id');
         $empleados = Empleado::where('entity_id',Auth::user()->entity_id)->pluck('nombre','id')->all();
         $entities = Entity::pluck('rzon_social','id')->all();
         $users = User::pluck('name','id')->all();

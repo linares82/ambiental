@@ -114,8 +114,8 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>{{ trans('a_archivos.documento_id') }}</th>
                             <th>{{ trans('a_archivos.entity_id') }}</th>
+                            <th>{{ trans('a_archivos.documento_id') }}</th>
                             <th>{{ trans('a_archivos.descripcion') }}</th>
                             <th>{{ trans('a_archivos.archivo') }}</th>
                             <th>{{ trans('a_archivos.st_archivo_id') }}</th>
@@ -148,9 +148,7 @@
                             </td>
                             <td>{{ $aArchivo->fec_fin_vigencia }}</td>
                             <td>
-                                 
-                                  {{ $dias}}
-                                            
+                                  {{ $dias}}            
                             </td>
                             
                             <td>
