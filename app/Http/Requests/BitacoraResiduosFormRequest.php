@@ -63,7 +63,7 @@ class BitacoraResiduosFormRequest extends FormRequest
      */
     public function getData()
     {
-        $data = $this->only(['residuo','cantidad','fecha','anio','mes','lugar_generacion','ubicacion','dispocision','transportista','manifiesto','resp_tecnico','requiere_vobo','registro_residuos','peligrosidad','fec_ingreso','cedula_operacion','factor_indicador','factor_calculado','responsable_id','entity_id','usu_alta_id','usu_mod_id','fec_salida']);
+        $data = $this->only(['residuo','cantidad','fecha','anio','mes','lugar_generacion','ubicacion','dispocision','transportista','manifiesto','resp_tecnico','requiere_vobo','registro_residuos','peligrosidad','fec_ingreso','cedula_operacion','factor_indicador','factor_calculado','responsable_id','entity_id','usu_alta_id','usu_mod_id','fec_salida','aut_transportista']);
 
 
 

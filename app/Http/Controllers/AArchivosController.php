@@ -99,7 +99,7 @@ class AArchivosController extends Controller
         } catch (Exception $exception) {
 
             return back()->withInput()
-                         ->withErrors(['unexpected_error' => trans('a_archivos.unexpected_error')]);
+                         ->withErrors(['unexpected_error' => $exception->getMessage()]);
         }
     }
 

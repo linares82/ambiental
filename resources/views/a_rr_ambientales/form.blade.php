@@ -113,5 +113,74 @@
     .next().on(ace.click_event, function(){
             $(this).prev().focus();
     });
+
+    $('#material_id').change(function(){
+        getCmbDoc();
+        getCmbCategorias()
+    });
+
+    $('#categoria_id').change(function(){
+        getCmbDoc();
+    });
+
+    function getCmbDoc(){
+        //var $example = $("#especialidad_id-field").select2();
+        
+            $.ajax({
+                url: '{{ route("ca_aa_docs.ca_aa_doc.cmbDocXMaterialCategoria") }}',
+                type: 'GET',
+                 data: {
+                    'material':$('#material_id option:selected').val(),
+                    'categoria':$('#categoria_id option:selected').val(),
+                    'documento':$('#documento_id option:selected').val()
+                 },
+                dataType: 'json',
+                beforeSend : function(){$("#loading3").show();},
+                complete : function(){$("#loading3").hide();},
+                success: function(data){
+                    //alert(data);
+                    //$example.select2("destroy");
+                    //$('#documento_id').html('');
+                    $('#documento_id').empty();
+                    $('#documento_id').append($('<option></option>').text('Seleccionar').val('0'));
+                    
+                    $.each(data, function(i) {
+                        //alert(data[i].name);
+                        $('#documento_id').append("<option "+data[i].selectec+" value=\""+data[i].id+"\">"+data[i].name+"<\/option>");
+                    });
+                    $("#documento_id").trigger("chosen:updated");
+                }
+            });       
+    }
+
+    function getCmbCategorias(){
+        //var $example = $("#especialidad_id-field").select2();
+        
+            $.ajax({
+                url: '{{ route("ca_categorias.ca_categoria.cmbCategoriaXMaterial") }}',
+                type: 'GET',
+                 data: {
+                    'material':$('#material_id option:selected').val(),
+                    'categoria':$('#categoria_id option:selected').val(),
+                 },
+                dataType: 'json',
+                beforeSend : function(){$("#loading3").show();},
+                complete : function(){$("#loading3").hide();},
+                success: function(data){
+                    //alert(data);
+                    //$example.select2("destroy");
+                    //$('#documento_id').html('');
+                    $('#categoria_id').empty();
+                    $('#categoria_id').append($('<option></option>').text('Seleccionar').val('0'));
+                    
+                    $.each(data, function(i) {
+                        //alert(data[i].name);
+                        $('#categoria_id').append("<option "+data[i].selectec+" value=\""+data[i].id+"\">"+data[i].name+"<\/option>");
+                    });
+                    $("#categoria_id").trigger("chosen:updated");
+                }
+            });       
+    }
+
 </script>
 @endpush    

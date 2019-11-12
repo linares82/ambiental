@@ -143,7 +143,7 @@ class BitacoraResiduosController extends Controller
         try {
             
             $data = $request->getData();
-            
+            //dd($data);
             $bitacoraResiduo = BitacoraResiduo::findOrFail($id);
 			$data['usu_mod_id']=Auth::user()->id;
             $data['anio']=date('Y', strtotime($request->get('fecha')));;

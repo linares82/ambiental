@@ -52,7 +52,7 @@ class AArchivo extends Model
      *
      * @var array
      */
-    protected $dates = [];
+    protected $dates = ['fec_fin_vigencia'];
     
     /**
      * The attributes that should be cast to native types.
@@ -175,6 +175,11 @@ class AArchivo extends Model
     public function getFecFinVigencia()
     {
         return date('j/n/Y', strtotime($this->fec_fin_vigencia));
+    }
+
+    public function getFecFinVigencia2()
+    {
+        return date('Y-m-d', strtotime($this->fec_fin_vigencia));
     }
 
     /**

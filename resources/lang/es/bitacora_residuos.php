@@ -21,6 +21,8 @@ return [
     'dispocision__placeholder' => 'Capturar disposición ...',
     'transportista' => 'Transportista',
     'transportista__placeholder' => 'Capturar transportista ...',
+    'aut_transportista' => 'A.Transportista',
+    'aut_transportista__placeholder' => 'Capturar A. transportista ...',
     'manifiesto' => 'Manifiesto',
     'manifiesto__placeholder' => 'Capturar Manifiesto ...',
     'resp_tecnico' => 'Resp. Técnico Bitacora',

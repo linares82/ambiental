@@ -54,7 +54,8 @@ class BitacoraResiduo extends Model
                   'entity_id',
                   'usu_alta_id',
                   'usu_mod_id',
-                  'fec_salida'
+                  'fec_salida',
+                  'aut_transportista'
               ];
 
     /**

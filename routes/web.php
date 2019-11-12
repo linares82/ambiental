@@ -1263,6 +1263,12 @@ Route::group(
         'middleware'=>'permission:ca_categorias.ca_categoria.destroy',
         'as'=>'ca_categorias.ca_categoria.destroy'
     ])->middleware('auth')->where('id', '[0-9]+');
+
+        Route::get('/ca_categoria/cmbCategoriaXMaterial', [
+            'uses' => 'CaCategoriasController@cmbCategoriaXMaterial',
+            //'middleware'=>'permission:ca_aa_docs.ca_aa_doc.edit',
+            'as' => 'ca_categorias.ca_categoria.cmbCategoriaXMaterial'
+        ])->middleware('auth')->where('id', '[0-9]+');
 });
 
 Route::group(
@@ -1311,6 +1317,14 @@ Route::group(
         'middleware'=>'permission:ca_aa_docs.ca_aa_doc.destroy',
         'as'=>'ca_aa_docs.ca_aa_doc.destroy'
     ])->middleware('auth')->where('id', '[0-9]+');
+
+     Route::get('/ca_aa_doc/cmbDocXMaterialCategoria',[
+        'uses'=> 'CaAaDocsController@cmbDocXMaterialCategoria',
+        //'middleware'=>'permission:ca_aa_docs.ca_aa_doc.edit',
+        'as'=> 'ca_aa_docs.ca_aa_doc.cmbDocXMaterialCategoria'
+    ])->middleware('auth')->where('id', '[0-9]+');
+
+        
 });
 
 Route::group(

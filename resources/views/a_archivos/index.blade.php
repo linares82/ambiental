@@ -128,8 +128,10 @@
                     <tbody>
                     @foreach($aArchivos as $aArchivo)
                         <?php
-                        //$dias=0;
-                        $dias = \Carbon\Carbon::now()->diffInDays($aArchivo->getFecFinVigencia());
+                        $dias=0;
+                        //dd($aArchivo->fec_fin_vigencia);
+                        $fin=\Carbon\Carbon::now()->createFromFormat('Y-m-d',$aArchivo->getFecFinVigencia2());
+                        $dias = \Carbon\Carbon::now()->diffInDays($fin);
                         ?>
                         <tr>
                             <th>{{$aArchivo->id}}</th>

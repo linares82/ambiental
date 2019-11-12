@@ -184,6 +184,14 @@
     <!--</div>-->
 </div>
 
+<div class="form-group col-md-4 {{ $errors->has('aut_transportista') ? 'has-error' : '' }}">
+    <label for="aut_transportista" class="control-label">Autorizacion Transportista</label>
+    <!--<div class="col-md-10">-->
+        <input class="form-control input-sm " name="aut_transportista" type="text" id="aut_transportista" value="{{ old('aut_transportista', optional($bitacoraResiduo)->aut_transportista) }}"  placeholder="{{ trans('bitacora_residuos.aut_transportista__placeholder') }}" step="any">
+        {!! $errors->first('aut_transportista', '<p class="help-block">:message</p>') !!}
+    <!--</div>-->
+</div>
+
 
 @push('scripts')
 <script type="text/javascript">

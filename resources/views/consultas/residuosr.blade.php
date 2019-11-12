@@ -108,7 +108,7 @@
                         {{ $r->transportista }}
                     </td>
                     <td style="border:1px solid #ccc;">
-
+                        {{ $r->aut_transportista}}
                     </td>
                     <td style="border:1px solid #ccc;">
                         {{ $r->empleado->nombre }}

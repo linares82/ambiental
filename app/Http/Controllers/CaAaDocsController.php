@@ -13,6 +13,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Auth;
 use Log;
+use DB;
 
 class CaAaDocsController extends Controller
 {
@@ -79,6 +80,7 @@ $entities = Entity::pluck('rzon_social','id')->all();
             
 			$data['usu_mod_id']=Auth::user()->id;
             $data['usu_alta_id']=Auth::user()->id;
+            $data['entity_id'] = Auth::user()->entity_id;
             CaAaDoc::create($data);
 
             return redirect()->route('ca_aa_docs.ca_aa_doc.index')
@@ -87,7 +89,7 @@ $entities = Entity::pluck('rzon_social','id')->all();
         } catch (Exception $exception) {
 
             return back()->withInput()
-                         ->withErrors(['unexpected_error' => trans('ca_aa_docs.unexpected_error')]);
+                         ->withErrors(['unexpected_error' => $exception->getMessage()]);
         }
     }
 
@@ -175,6 +177,45 @@ $entities = Entity::pluck('rzon_social','id')->all();
         }
     }
 
+    public function cmbDocXMaterialCategoria(Request $request){
+        if ($request->ajax()) {
+            //dd($request->all());
+            $material = $request->get('material');
+            $categoria = $request->get('categoria');
+            $documento = $request->get('documento');
 
+            $final = array();
+            $r = DB::table('ca_aa_docs as doc')
+                ->select('doc.id', 'doc.doc as name')
+                ->where('doc.material_id', '=', $material)
+                ->where('doc.categoria_id', '=', $categoria)
+                ->where('doc.id', '>', '0')
+                ->distinct()
+                ->get();
+            //dd($r);
+            if (isset($documento) and $documento <> 0) {
+                foreach ($r as $r1) {
+                    if ($r1->id == $documento) {
+                        array_push($final, array(
+                            'id' => $r1->id,
+                            'name' => $r1->name,
+                            'selectec' => 'Selected'
+                        ));
+                    } else {
+                        array_push($final, array(
+                            'id' => $r1->id,
+                            'name' => $r1->name,
+                            'selectec' => ''
+                        ));
+                    }
+                }
+                return $final;
+            } else {
+                return $r;
+            }
+        }
+    }
+
+    
 
 }

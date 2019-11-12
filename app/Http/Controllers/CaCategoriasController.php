@@ -11,6 +11,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Auth;
 use Log;
+use DB;
 
 class CaCategoriasController extends Controller
 {
@@ -162,6 +163,42 @@ $users = User::pluck('name','id')->all();
         }
     }
 
+    public function cmbCategoriaXMaterial(Request $request)
+    {
+        if ($request->ajax()) {
+            //dd($request->all());
+            $material = $request->get('material');
+            $categoria = $request->get('categoria');
 
+            $final = array();
+            $r = DB::table('ca_categorias as cat')
+                ->select('cat.id', 'cat.categoria as name')
+                ->where('cat.ca_material_id', '=', $material)
+                ->where('cat.id', '>', '0')
+                ->distinct()
+                ->get();
+            //dd($r);
+            if (isset($categoria) and $categoria <> 0) {
+                foreach ($r as $r1) {
+                    if ($r1->id == $categoria) {
+                        array_push($final, array(
+                            'id' => $r1->id,
+                            'name' => $r1->name,
+                            'selectec' => 'Selected'
+                        ));
+                    } else {
+                        array_push($final, array(
+                            'id' => $r1->id,
+                            'name' => $r1->name,
+                            'selectec' => ''
+                        ));
+                    }
+                }
+                return $final;
+            } else {
+                return $r;
+            }
+        }
+    }
 
 }
