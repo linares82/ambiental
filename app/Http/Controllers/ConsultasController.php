@@ -12,6 +12,9 @@ use App\Models\AStNc;
 use App\Models\BitacoraResiduo;
 use App\Models\BitacoraConsumible;
 use App\Models\MMantenimiento;
+use App\Models\MEstatus;
+use App\Models\MObjetivo;
+use App\Models\MTpoManto;
 use App\Models\BitacoraFf;
 use App\Models\BitacoraPlanta;
 use App\Models\ANoConformidade;
@@ -506,10 +509,10 @@ class ConsultasController extends Controller {
 	}
 
 	public function getManto(){
-		$objetivos_ls=M_objetivo::Cia(User::find(Sentry::getUser()->id)->getCia())->pluck('objetivo','id');
-		$estatus_ls=M_estatus::pluck('estatus','id');
-		$tpo_mantos_ls=M_tpo_manto::pluck('tpo_manto','id');
-		$areas_ls=Area::Cia(User::find(Sentry::getUser()->id)->getCia())->pluck('area','id');
+		$objetivos_ls=MObjetivo::where('entity_id', Auth::user()->entity_id)->pluck('objetivo','id');
+		$estatus_ls=MEstatus::pluck('estatus','id');
+		$tpo_mantos_ls=MTpoManto::pluck('tpo_manto','id');
+		$areas_ls=Area::where('entity_id', Auth::user()->entity_id)->pluck('area','id');
 		$cias_ls=Entity::pluck('abreviatura','id');
 		return view('consultas.manto', 
 				  compact('cias_ls', 'objetivos_ls', 'estatus_ls', 'tpo_mantos_ls',
@@ -551,6 +554,10 @@ class ConsultasController extends Controller {
 									->whereBetween('objetivo_id', array($input['objetivo_f'], $input['objetivo_t']))
 									->whereBetween('estatus_id', array($input['estatus_f'], $input['estatus_t']))
 									->whereBetween('m_tpo_manto_id', array($input['tpo_manto_f'], $input['tpo_manto_t']))
+									->with('entity')
+									->with('subequipo')
+									->with('mEstatus')
+									->with('mObjetivo')
 									->get();
 		
 		//dd($request->all());

@@ -1,8 +1,47 @@
-@extends('layouts.tabs')
+@extends('layouts.master1')
 
-@section('contenido_tab')
+@section('content')
+	<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+		<ul class="breadcrumb">
+			<li>
+				<a href="{{route('home')}}">
+				<i class="ace-icon fa fa-home home-icon"></i>
+				</a>
+			</li>
 
-{{ Form::open(array('route' => 'consulta.manto', 'class' => 'form', 'method' => 'POST')) }}
+			<li>
+				<a href="{{ route('condiciones.condicione.index') }}">{{ trans('condiciones.model_plural') }}</a>
+			</li>
+			<li class="active">Crear</li>
+		</ul><!-- /.breadcrumb -->
+	</div>
+    <div class="panel panel-default">
+
+        <div class="panel-heading clearfix">
+            
+            <span class="pull-left">
+                <h4 class="mt-5 mb-5">{{ trans('condiciones.create') }}</h4>
+            </span>
+            @ifUserCan('condiciones.condicione.index')
+            <div class="btn-group btn-group-sm pull-right" role="group">
+                <a href="{{ route('condiciones.condicione.index') }}" class="btn btn-primary" title="{{ trans('condiciones.show_all') }}">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                </a>
+            </div>
+            @endif
+        </div>
+
+        <div class="panel-body">
+        
+            @if ($errors->any())
+                <ul class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+
+{{ Form::open(array('route' => 'consultas.consulta.postManto', 'class' => 'form', 'method' => 'POST')) }}
     <div class="easyui-tabs" style="width:auto;height:auto;">
         <div title="Crear" style="padding:10px;">  
 
@@ -22,54 +61,128 @@
                 </div>
             </div>
 
-        <div class="row_2 @if ( $errors->has('cia_f')) has-error @endif">
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
             {{ Form::label('cia_f', 'Entidad de:') }}
-              {{ Form::select('cia_f', $cias_ls, Input::old('cia_f'))  }}
+	       <select class="form-control chosen" id="cia_f" name="cia_f" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($cias_ls as $key => $cia)
+                                    <option value="{{ $key }}">
+                                        {{ $cia }}
+                                    </option>
+                                @endforeach
+                </select>
+
             {{ $errors->first('cia_f', '<div class="errorMessage">:message</div>') }}
         </div>
-        <div class="row_2 @if ( $errors->has('cia_t')) has-error @endif">
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
             {{ Form::label('cia_t', 'Entidad a:') }}
-              {{ Form::select('cia_t', $cias_ls, Input::old('cia_t'))  }}
+	    <select class="form-control chosen" id="cia_t" name="cia_t" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($cias_ls as $key => $cia)
+                                    <option value="{{ $key }}">
+                                        {{ $cia }}
+                                    </option>
+                                @endforeach
+                </select>
+
             {{ $errors->first('cia_t', '<div class="errorMessage">:message</div>') }}
         </div>
-        <div class="row_2 @if ( $errors->has('area_f')) has-error @endif">
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
             {{ Form::label('area_f', 'Area de:') }}
-              {{ Form::select('area_f', $areas_ls, Input::old('area_f'))  }}
+            <select class="form-control chosen" id="area_f" name="area_f" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($areas_ls as $key => $cia)
+                                    <option value="{{ $key }}">
+                                        {{ $cia }}
+                                    </option>
+                                @endforeach
+                </select>
             {{ $errors->first('area_f', '<div class="errorMessage">:message</div>') }}
         </div>
-        <div class="row_2 @if ( $errors->has('area_t')) has-error @endif">
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
             {{ Form::label('area_t', 'Area a:') }}
-              {{ Form::select('area_t', $areas_ls, Input::old('area_t'))  }}
+            <select class="form-control chosen" id="area_t" name="area_t" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($areas_ls as $key => $cia)
+                                    <option value="{{ $key }}">
+                                        {{ $cia }}
+                                    </option>
+                                @endforeach
+                </select>
             {{ $errors->first('area_t', '<div class="errorMessage">:message</div>') }}
         </div>
-        <div class="row_2 @if ( $errors->has('objetivo_f')) has-error @endif">
-            {{ Form::label('objetivo_f', 'Objetivo de:') }}
-              {{ Form::select('objetivo_f', $objetivos_ls, Input::old('objetivo_f'))  }}
+
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
+	     {{ Form::label('objetivo_t', 'Objetivo de:') }}
+              <select class="form-control chosen" id="objetivo_f" name="objetivo_f" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($objetivos_ls as $key => $objetivo)
+                                    <option value="{{ $key }}">
+                                        {{ $objetivo }}
+                                    </option>
+                                @endforeach
+                </select>
             {{ $errors->first('objetivo_f', '<div class="errorMessage">:message</div>') }}
         </div>
-        <div class="row_2 @if ( $errors->has('objetivo_t')) has-error @endif">
+
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
             {{ Form::label('objetivo_t', 'Objetivo a:') }}
-              {{ Form::select('objetivo_t', $objetivos_ls, Input::old('objetivo_t'))  }}
+              <select class="form-control chosen" id="objetivo_t" name="objetivo_t" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($objetivos_ls as $key => $objetivo)
+                                    <option value="{{ $key }}">
+                                        {{ $objetivo }}
+                                    </option>
+                                @endforeach
+                </select>
             {{ $errors->first('objetivo_t', '<div class="errorMessage">:message</div>') }}
         </div>
-        <div class="row_2 @if ( $errors->has('estatus_f')) has-error @endif">
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
             {{ Form::label('estatus_f', 'Estatus de:') }}
-              {{ Form::select('estatus_f', $estatus_ls, Input::old('estatus_f'))  }}
+              <select class="form-control chosen" id="estatus_f" name="estatus_f" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($estatus_ls as $key => $estatus)
+                                    <option value="{{ $key }}">
+                                        {{ $estatus }}
+                                    </option>
+                                @endforeach
+                </select>
             {{ $errors->first('estatus_f', '<div class="errorMessage">:message</div>') }}
         </div>
-        <div class="row_2 @if ( $errors->has('estatus_t')) has-error @endif">
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
             {{ Form::label('estatus_t', 'Estatus a:') }}
-              {{ Form::select('estatus_t', $estatus_ls, Input::old('estatus_t'))  }}
+              <select class="form-control chosen" id="estatus_t" name="estatus_t" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($estatus_ls as $key => $estatus)
+                                    <option value="{{ $key }}">
+                                        {{ $estatus }}
+                                    </option>
+                                @endforeach
+                </select>
             {{ $errors->first('estatus_t', '<div class="errorMessage">:message</div>') }}
         </div>
-        <div class="row_2 @if ( $errors->has('tpo_manto_f')) has-error @endif">
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
             {{ Form::label('tpo_manto_f', 'Tipo Manto. de:') }}
-              {{ Form::select('tpo_manto_f', $tpo_mantos_ls, Input::old('tpo_manto_f'))  }}
+              <select class="form-control chosen" id="tpo_manto_f" name="tpo_manto_f" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($tpo_mantos_ls as $key => $tpo_manto)
+                                    <option value="{{ $key }}">
+                                        {{ $tpo_manto }}
+                                    </option>
+                                @endforeach
+                </select>
             {{ $errors->first('tpo_manto_f', '<div class="errorMessage">:message</div>') }}
         </div>
-        <div class="row_2 @if ( $errors->has('tpo_manto_t')) has-error @endif">
+        <div class="form-group col-md-6 {{ $errors->has('area_t') ? 'has-error' : '' }}">
             {{ Form::label('tpo_manto_t', 'Tipo Manto a:') }}
-              {{ Form::select('tpo_manto_t', $tpo_mantos_ls, Input::old('tpo_manto_t'))  }}
+              <select class="form-control chosen" id="tpo_manto_t" name="tpo_manto_t" required="true">
+                            <option value="" style="display: none;"  disabled selected>Seleccionar</option>
+                                @foreach ($tpo_mantos_ls as $key => $tpo_manto)
+                                    <option value="{{ $key }}">
+                                        {{ $tpo_manto }}
+                                    </option>
+                                @endforeach
+                </select>
             {{ $errors->first('tpo_manto_t', '<div class="errorMessage">:message</div>') }}
         </div>
         
@@ -81,30 +194,18 @@
 
 {{ Form::close() }}
 
-@stop
-@section('js_local')
+@endsection
+
+@push('scripts')
 <script type="text/javascript">
-
-    function myformatter(date){
-        var y = date.getFullYear();
-        var m = date.getMonth()+1;
-        var d = date.getDate();
-        return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
-    }
-    function myparser(s){
-        if (!s) return new Date();
-        var ss = (s.split('-'));
-        var y = parseInt(ss[0],10);
-        var m = parseInt(ss[1],10);
-        var d = parseInt(ss[2],10);
-        if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
-            return new Date(y,m-1,d);
-        } else {
-            return new Date();
-        }
-    }
-
+    $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+    })
+    //show datepicker when clicking on the icon
+    .next().on(ace.click_event, function(){
+            $(this).prev().focus();
+    });
 </script>
-@stop
-
+@endpush    
 

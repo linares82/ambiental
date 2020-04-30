@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MMantenimiento extends Model
 {
-    
+
     use SoftDeletes;
 
 
@@ -20,10 +20,10 @@ class MMantenimiento extends Model
     protected $table = 'm_mantenimientos';
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id';
 
     /**
@@ -32,42 +32,44 @@ class MMantenimiento extends Model
      * @var array
      */
     protected $fillable = [
-                  'no_orden',
-                  'codigo',
-                  'm_tpo_manto_id',
-                  'objetivo_id',
-                  'subequipo_id',
-                  'solicitante_id',
-                  'fec_planeada',
-                  'aviso_bnd',
-                  'dias_aviso',
-                  'fec_inicio',
-                  'descripcion',
-                  'lugar',
-                  'ejecutor_id',
-                  'responsable_id',
-                  'recomendaciones',
-                  'materiales',
-                  'horas_inv',
-                  'costo',
-                  'tpp_bnd',
-                  'riesgos',
-                  'supervision_bnd',
-                  'conoce_procedimiento_bnd',
-                  'lleva_equipo_bnd',
-                  'cumple_puntos_bnd',
-                  'estatus_id',
-                  'eventualidades_bnd',
-                  'levantar_formato_bnd',
-                  'registro_bitacora_bnd',
-                  'accion',
-                  'resultado',
-                  'fec_final',
-                  'observaciones',
-                  'entity_id',
-                  'usu_alta_id',
-                  'usu_mod_id'
-              ];
+        'no_orden',
+        'codigo',
+        'm_tpo_manto_id',
+        'objetivo_id',
+        'subequipo_id',
+        'solicitante_id',
+        'fec_planeada',
+        'aviso_bnd',
+        'dias_aviso',
+        'fec_inicio',
+        'descripcion',
+        'lugar',
+        'ejecutor_id',
+        'responsable_id',
+        'recomendaciones',
+        'materiales',
+        'horas_inv',
+        'costo',
+        'tpp_bnd',
+        'riesgos',
+        'supervision_bnd',
+        'conoce_procedimiento_bnd',
+        'lleva_equipo_bnd',
+        'cumple_puntos_bnd',
+        'estatus_id',
+        'eventualidades_bnd',
+        'levantar_formato_bnd',
+        'registro_bitacora_bnd',
+        'accion',
+        'resultado',
+        'fec_final',
+        'observaciones',
+        'entity_id',
+        'usu_alta_id',
+        'usu_mod_id',
+        'hora_inicio',
+        'hora_fin'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -75,20 +77,20 @@ class MMantenimiento extends Model
      * @var array
      */
     protected $dates = [];
-    
+
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [];
-    
+
     /**
      * Get the mTpoManto for this model.
      */
     public function mTpoManto()
     {
-        return $this->belongsTo('App\Models\MTpoManto','m_tpo_manto_id','id');
+        return $this->belongsTo('App\Models\MTpoManto', 'm_tpo_manto_id', 'id');
     }
 
     /**
@@ -96,7 +98,7 @@ class MMantenimiento extends Model
      */
     public function mObjetivo()
     {
-        return $this->belongsTo('App\Models\MObjetivo','objetivo_id','id');
+        return $this->belongsTo('App\Models\MObjetivo', 'objetivo_id', 'id');
     }
 
     /**
@@ -104,7 +106,7 @@ class MMantenimiento extends Model
      */
     public function subequipo()
     {
-        return $this->belongsTo('App\Models\Subequipo','subequipo_id','id');
+        return $this->belongsTo('App\Models\Subequipo', 'subequipo_id', 'id');
     }
 
     /**
@@ -112,69 +114,69 @@ class MMantenimiento extends Model
      */
     public function solicitante()
     {
-        return $this->belongsTo('App\Models\Empleado','solicitante_id','id');
+        return $this->belongsTo('App\Models\Empleado', 'solicitante_id', 'id');
     }
-    
+
     public function ejecutor()
     {
-        return $this->belongsTo('App\Models\Empleado','ejecutor_id','id');
+        return $this->belongsTo('App\Models\Empleado', 'ejecutor_id', 'id');
     }
-    
+
     public function responsable()
     {
-        return $this->belongsTo('App\Models\Empleado','responsable_id','id');
+        return $this->belongsTo('App\Models\Empleado', 'responsable_id', 'id');
     }
-    
-    
+
+
 
     /**
      * Get the bnd for this model.
      */
     public function tpp()
     {
-        return $this->belongsTo('App\Models\Bnd','tpp_bnd','id');
+        return $this->belongsTo('App\Models\Bnd', 'tpp_bnd', 'id');
     }
-    
+
     public function supervision()
     {
-        return $this->belongsTo('App\Models\Bnd','supervision_bnd','id');
+        return $this->belongsTo('App\Models\Bnd', 'supervision_bnd', 'id');
     }
-    
+
     public function conoceProcedimiento()
     {
-        return $this->belongsTo('App\Models\Bnd','conoce_procedimiento_bnd','id');
+        return $this->belongsTo('App\Models\Bnd', 'conoce_procedimiento_bnd', 'id');
     }
-    
+
     public function llevaEquipo()
     {
-        return $this->belongsTo('App\Models\Bnd','lleva_equipo_bnd','id');
+        return $this->belongsTo('App\Models\Bnd', 'lleva_equipo_bnd', 'id');
     }
-    
+
     public function cumplePuntos()
     {
-        return $this->belongsTo('App\Models\Bnd','cumple_puntos_bnd','id');
+        return $this->belongsTo('App\Models\Bnd', 'cumple_puntos_bnd', 'id');
     }
 
     public function eventualidades()
     {
-        return $this->belongsTo('App\Models\Bnd','eventualidades_bnd','id');
+        return $this->belongsTo('App\Models\Bnd', 'eventualidades_bnd', 'id');
     }
-    
+
     public function levantarFormato()
     {
-        return $this->belongsTo('App\Models\Bnd','levantar_formato_bnd','id');
+        return $this->belongsTo('App\Models\Bnd', 'levantar_formato_bnd', 'id');
     }
-    
+
     public function registroBitacora()
     {
-        return $this->belongsTo('App\Models\Bnd','registro_bitacora_bnd','id');
+        return $this->belongsTo('App\Models\Bnd', 'registro_bitacora_bnd', 'id');
     }
     /**
      * Get the mEstatus for this model.
      */
     public function mEstatus()
     {
-        return $this->belongsTo('App\Models\MEstatus','estatus_id','id');
+        return $this->belongsTo('App\Models\MEstatus', 'estatus_id', 'id');
     }
 
     /**
@@ -182,7 +184,7 @@ class MMantenimiento extends Model
      */
     public function entity()
     {
-        return $this->belongsTo('App\Models\Entity','entity_id','id');
+        return $this->belongsTo('App\Models\Entity', 'entity_id', 'id');
     }
 
     /**
@@ -190,7 +192,7 @@ class MMantenimiento extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User','usu_mod_id','id');
+        return $this->belongsTo('App\Models\User', 'usu_mod_id', 'id');
     }
 
     /**
@@ -198,7 +200,7 @@ class MMantenimiento extends Model
      */
     public function mantoDocs()
     {
-        return $this->hasMany('App\Models\MantoDoc','mantenimiento_id','id');
+        return $this->hasMany('App\Models\MantoDoc', 'mantenimiento_id', 'id');
     }
 
     /**
@@ -231,7 +233,11 @@ class MMantenimiento extends Model
      */
     public function getFecPlaneadaAttribute($value)
     {
-        return date('j/n/Y g:i A', strtotime($value));
+        if (is_null($value)) {
+            return null;
+        } else {
+            return date('d/m/Y', strtotime($value));
+        }
     }
 
     /**
@@ -247,12 +253,20 @@ class MMantenimiento extends Model
 
     public function getFecFinalAttribute($value)
     {
-        return date('j/n/Y g:i A', strtotime($value));
+        if (is_null($value)) {
+            return null;
+        } else {
+            return date('d/m/Y', strtotime($value));
+        }
     }
 
     public function getFecInicioAttribute($value)
     {
-        return date('j/n/Y g:i A', strtotime($value));
+        if (is_null($value)) {
+            return null;
+        } else {
+            return date('d/m/Y', strtotime($value));
+        }
     }
 
     /**
@@ -276,6 +290,4 @@ class MMantenimiento extends Model
     {
         return date('j/n/Y g:i A', strtotime($value));
     }
-
-
 }

@@ -6132,6 +6132,18 @@ Route::group(
         'middleware'=>'permission:consultas.consulta.getReqReg',
         'as'=>'consultas.consulta.postReqReg'
     ])->middleware('auth');
+
+    Route::get('/getManto', [
+        'uses'=>'ConsultasController@getManto',
+        'middleware'=>'permission:consultas.consulta.getManto',
+        'as'=>'consultas.consulta.getManto'
+    ])->middleware('auth');
+    
+    Route::post('/postManto', [
+        'uses'=>'ConsultasController@postManto',
+        'middleware'=>'permission:consultas.consulta.getManto',
+        'as'=>'consultas.consulta.postManto'
+    ])->middleware('auth');
 });
 Route::group(
 [

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Subequipo extends Model
 {
-    
+
     use SoftDeletes;
 
 
@@ -20,10 +20,10 @@ class Subequipo extends Model
     protected $table = 'subequipos';
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id';
 
     /**
@@ -32,19 +32,19 @@ class Subequipo extends Model
      * @var array
      */
     protected $fillable = [
-                  'equipo_id',
-                  'subequipo',
-                  'clase',
-                  'marca',
-                  'modelo',
-                  'no_serie',
-                  'fecha_carga',
-                  'area_id',
-                  'ubicacion',
-                  'usu_alta_id',
-                  'usu_mod_id',
-                  'entity_id'
-              ];
+        'equipo_id',
+        'subequipo',
+        'clase',
+        'marca',
+        'modelo',
+        'no_serie',
+        'fecha_carga',
+        'area_id',
+        'ubicacion',
+        'usu_alta_id',
+        'usu_mod_id',
+        'entity_id'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -52,20 +52,20 @@ class Subequipo extends Model
      * @var array
      */
     protected $dates = [];
-    
+
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [];
-    
+
     /**
      * Get the mObjetivo for this model.
      */
     public function mObjetivo()
     {
-        return $this->belongsTo('App\Models\MObjetivo','equipo_id','id');
+        return $this->belongsTo('App\Models\MObjetivo', 'equipo_id', 'id');
     }
 
     /**
@@ -73,7 +73,7 @@ class Subequipo extends Model
      */
     public function area()
     {
-        return $this->belongsTo('App\Models\Area','area_id','id');
+        return $this->belongsTo('App\Models\Area', 'area_id', 'id');
     }
 
     /**
@@ -81,7 +81,7 @@ class Subequipo extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User','usu_mod_id','id');
+        return $this->belongsTo('App\Models\User', 'usu_mod_id', 'id');
     }
 
     /**
@@ -89,7 +89,7 @@ class Subequipo extends Model
      */
     public function entity()
     {
-        return $this->belongsTo('App\Models\Entity','entity_id','id');
+        return $this->belongsTo('App\Models\Entity', 'entity_id', 'id');
     }
 
     /**
@@ -97,7 +97,7 @@ class Subequipo extends Model
      */
     public function mMantenimientos()
     {
-        return $this->hasMany('App\Models\MMantenimiento','subequipo_id','id');
+        return $this->hasMany('App\Models\MMantenimiento', 'subequipo_id', 'id');
     }
 
     /**
@@ -119,7 +119,7 @@ class Subequipo extends Model
      */
     public function getFechaCargaAttribute($value)
     {
-        return date('j/n/Y g:i A', strtotime($value));
+        return date('d/m/Y', strtotime($value));
     }
 
     /**
@@ -154,5 +154,4 @@ class Subequipo extends Model
     {
         return date('j/n/Y g:i A', strtotime($value));
     }
-
 }

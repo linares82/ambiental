@@ -76,9 +76,6 @@ class MMantenimientosFormRequest extends FormRequest
     public function getData()
     {
         $data = $this->only(['no_orden','codigo','m_tpo_manto_id','objetivo_id','subequipo_id','solicitante_id','fec_planeada','aviso_bnd','dias_aviso','fec_inicio','descripcion','lugar','ejecutor_id','responsable_id','recomendaciones','materiales','horas_inv','costo','tpp_bnd','riesgos','supervision_bnd','conoce_procedimiento_bnd','lleva_equipo_bnd','cumple_puntos_bnd','estatus_id','eventualidades_bnd','levantar_formato_bnd','registro_bitacora_bnd','accion','resultado','fec_final','observaciones','entity_id','usu_alta_id','usu_mod_id']);
-
-
-
         return $data;
     }
 

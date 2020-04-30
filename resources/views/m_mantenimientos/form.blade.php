@@ -84,7 +84,7 @@
 <div class="form-group col-md-4 {{ $errors->has('fec_planeada') ? 'has-error' : '' }}">
     <label for="fec_planeada" class="control-label">{{ trans('m_mantenimientos.fec_planeada') }}</label>
     <!--<div class="col-md-10">-->
-        <input class="form-control input-sm date-picker" name="fec_planeada" type="text" id="fec_planeada" value="{{ old('fec_planeada', optional($mMantenimiento)->fec_planeada) }}" required="true" placeholder="{{ trans('m_mantenimientos.fec_planeada__placeholder') }}">
+        <input class="form-control input-sm date-picker" name="fec_planeada" type="text" id="fec_planeada" value="{{ old('fec_planeada', optional($mMantenimiento)->fec_planeada) }}" placeholder="{{ trans('m_mantenimientos.fec_planeada__placeholder') }}">
         {!! $errors->first('fec_planeada', '<p class="help-block">:message</p>') !!}
     <!--</div>-->
 </div>
@@ -116,8 +116,15 @@
 <div class="form-group col-md-4 {{ $errors->has('fec_inicio') ? 'has-error' : '' }}">
     <label for="fec_inicio" class="control-label">{{ trans('m_mantenimientos.fec_inicio') }}</label>
     <!--<div class="col-md-10">-->
-        <input class="form-control input-sm date-picker" name="fec_inicio" type="text" id="fec_inicio" value="{{ old('fec_inicio', optional($mMantenimiento)->fec_inicio) }}" minlength="1" required="true" placeholder="{{ trans('m_mantenimientos.fec_inicio__placeholder') }}">
+        <input class="form-control input-sm date-picker" name="fec_inicio" type="text" id="fec_inicio" value="{{ old('fec_inicio', optional($mMantenimiento)->fec_inicio) }}" minlength="1" placeholder="{{ trans('m_mantenimientos.fec_inicio__placeholder') }}">
         {!! $errors->first('fec_inicio', '<p class="help-block">:message</p>') !!}
+    <!--</div>-->
+</div>
+<div class="form-group col-md-4 {{ $errors->has('hora_inicio') ? 'has-error' : '' }}">
+    <label for="hora_inicio" class="control-label">Hora(Formato de 24 hrs.)</label>
+    <!--<div class="col-md-10">-->
+        <input class="form-control input-sm" name="hora_inicio" type="text" id="hora_inicio" value="{{ old('hora_inicio', optional($mMantenimiento)->hora_inicio) }}" minlength="1" >
+        {!! $errors->first('hora_inicio', '<p class="help-block">:message</p>') !!}
     <!--</div>-->
 </div>
 
@@ -231,18 +238,16 @@
 
     <div class="form-group col-md-4 row_1 {{ $errors->has('supervision_bnd') ? 'has-error' : '' }}">
         <label for="supervision_bnd" class="control-label">{{ trans('m_mantenimientos.supervision_bnd') }}</label>
-        <!--<div class="col-md-10">-->
             <select class="form-control chosen" id="supervision_bnd" name="supervision_bnd" required="true">
                         <option value="" style="display: none;" {{ old('supervision_bnd', optional($mMantenimiento)->supervision_bnd ?: '') == '' ? 'selected' : '' }} disabled selected>{{ trans('m_mantenimientos.supervision_bnd__placeholder') }}</option>
                     @foreach ($bnds as $key => $bnd)
                                 <option value="{{ $key }}" {{ old('supervision_bnd', optional($mMantenimiento)->supervision_bnd) == $key ? 'selected' : '' }}>
                                     {{ $bnd }}
                                 </option>
-                            @endforeach
+                    @endforeach
             </select>
 
             {!! $errors->first('supervision_bnd', '<p class="help-block">:message</p>') !!}
-        <!--</div>-->
     </div>
 
     <div class="form-group col-md-4 row_1 {{ $errors->has('conoce_procedimiento_bnd') ? 'has-error' : '' }}" style="clear:left;">
@@ -381,7 +386,15 @@
         <label for="fec_final" class="control-label">{{ trans('m_mantenimientos.fec_final') }}</label>
         <!--<div class="col-md-10">-->
             <input class="form-control input-sm date-picker" name="fec_final" type="text" id="fec_final" value="{{ old('fec_final', optional($mMantenimiento)->fec_final) }}" minlength="1" placeholder="{{ trans('m_mantenimientos.fec_final__placeholder') }}">
+            
             {!! $errors->first('fec_final', '<p class="help-block">:message</p>') !!}
+        <!--</div>-->
+    </div>
+    <div class="form-group col-md-4 {{ $errors->has('hora_fin') ? 'has-error' : '' }}">
+        <label for="hora_fin" class="control-label">Hora (Formato de 24 hrs.) </label>
+        <!--<div class="col-md-10">-->
+            <input class="form-control input-sm" name="hora_fin" type="text" id="hora_fin" value="{{ old('hora_fin', optional($mMantenimiento)->hora_fin) }}" minlength="1" >
+            {!! $errors->first('hora_fin', '<p class="help-block">:message</p>') !!}
         <!--</div>-->
     </div>
 </div>
@@ -403,27 +416,30 @@
             autoclose: true,
             todayHighlight: true
     })
+
+    
     //show datepicker when clicking on the icon
     .next().on(ace.click_event, function(){
             $(this).prev().focus();
     });
     
     jQuery(document).ready(function () {
+/*
         var st = $("#estatus_id option:selected").val();
         if (st == 3) {
             //$("#row_1 :input").attr("disabled", true);
             $('.row_1').find('input, textarea, select').attr('disabled', 'disabled');
             $('.row').find('input, textarea, select').attr('disabled', 'disabled');
-        }
-        
+        }*/
+        /*
         $("#riesgos").val('');
         $("#supervision_bnd").val('2');
         $("#conoce_procedimiento_bnd").val('2');
         $("#lleva_equipo_bnd").val('2');
         $("#cumple_puntos_bnd").val('2');
-
+*/
         //console.log($("#tpp_bnd option:selected").val());
-
+/*
         if ($("#tpp_bnd option:selected").val() == 1) {
             $("#seccion_tpp").show();
         } else {
@@ -434,7 +450,8 @@
         } else {
             $("#seccion_estatus").hide();
         }
-
+        */
+/*
         $("#supervision_bnd").val('2');
         $("#conoce_procedimiento_bnd").val('2');
         $("#lleva_equipo_bnd").val('2');
@@ -443,7 +460,7 @@
         $("#eventualidades_bnd").val('2');
         $("#levantar_formato_bnd").val('2');
         $("#registro_bitacora_bnd").val('2');
-        
+  */      
         $("#tpp_bnd").change(function (event) {
             var r = $("#tpp_bnd option:selected").val();
             

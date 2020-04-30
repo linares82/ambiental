@@ -1,18 +1,20 @@
-@extends('layouts.tabs')
+<html>
+    <head>
+        <style>
+            @media print {
+               table, th, td
+                {
+                    border-collapse:collapse;
+                    border: 1px solid black;
+                    width:100%;
+                    text-align:right;
+                }
+            }
+        </style>
 
-@section('contenido_tab')
-<style>
-@media print {
-   table, th, td
-    {
-        border-collapse:collapse;
-        border: 1px solid black;
-        width:100%;
-        text-align:right;
-    }
-}
-</style>
-
+    </head>
+    <body>
+        <div id="printeArea">
 
 <table style="width:100%;height:auto;border:1px solid #ccc;font-size: 0.75em;">
     <tr>
@@ -43,8 +45,11 @@
             <th data-options="field:'nombre'" style="border:1px solid #ccc;">
                 Subequipo
             </th>
+            <th data-options="field:'nombre'" style="border:1px solid #ccc;">
+                Fecha Captura
+            </th>
             <th data-options="field:'cantidad'" style="border:1px solid #ccc;">
-                Fecha
+                Fecha Inicio
             </th>
             <th data-options="field:'unidad'" style="border:1px solid #ccc;">
                 No. Orden
@@ -54,6 +59,9 @@
             </th>
             <th data-options="field:'lugar_generacion'" style="border:1px solid #ccc;">
                 Descripcion
+            </th>
+            <th data-options="field:'lugar_generacion'" style="border:1px solid #ccc;">
+                Tipo
             </th>
             <th data-options="field:'lugar_generacion'" style="border:1px solid #ccc;">
                 Ejecutor
@@ -68,16 +76,10 @@
                 Resultado
             </th>
             <th data-options="field:'ubicacion'" style="border:1px solid #ccc;">
-                F. Final
-            </th>
-            <th data-options="field:'disposicion'" style="border:1px solid #ccc;">
-                Responsable Estación
-            </th>
-            <th data-options="field:'transportista'" style="border:1px solid #ccc;">
-                Firma Responsable Estación
+                Fec. Final
             </th>
             <th data-options="field:'manifiesto'" style="border:1px solid #ccc;">
-                Firma Responsable Actividad
+                Responsable Actividad
             </th>
             <th data-options="field:'peligroso'" style="border:1px solid #ccc;">
                 Estatus
@@ -88,19 +90,25 @@
         @foreach($ms as $m)
         <tr>
             <td style="border:1px solid #ccc;height:60px">
-                {{ $m->cia->rzon_social }}
+                {{ optional($m->entity)->rzon_social }}
             </td>
             <td style="border:1px solid #ccc;">
-                {{ $m->equipo->rArea->area }}
+		@php
+		$subequipo=\App\Models\Subequipo::find($m->subequipo_id);
+		@endphp
+                {{ $subequipo->area->area }}
             </td>
             <td style="border:1px solid #ccc;">
-                {{ $m->objetivo->objetivo }}
+                {{ optional($m->mObjetivo)->objetivo }}
             </td>
             <td style="border:1px solid #ccc;">
-                {{ $m->equipo->subequipo }}
+                {{ $subequipo->subequipo }}
             </td>
             <td style="border:1px solid #ccc;">
-                {{ $m->fec_inicio }}
+                {{ $subequipo->created_at }}
+            </td>
+            <td style="border:1px solid #ccc;">
+                {{ $m->fec_inicio }} {{ $m->hora_inicio }}
             </td>
             <td style="border:1px solid #ccc;">
                 {{ $m->no_orden }}
@@ -111,6 +119,10 @@
             <td style="border:1px solid #ccc;">
                 {{ $m->descripcion }}
             </td>
+            <td style="border:1px solid #ccc;">
+                {{ $m->mTpoManto->tpo_manto }}
+            </td>
+
             <td style="border:1px solid #ccc;">
                 {{ $m->ejecutor->nombre }}
             </td>
@@ -124,27 +136,23 @@
                 {{ $m->resultado }}
             </td>
             <td style="border:1px solid #ccc;">
-                {{ $m->fec_final }}
-            </td>
-            <td style="border:1px solid #ccc;">
-                {{ $m->responsable->nombre }}
-            </td>
-            <td style="border:1px solid #ccc;">
-            
+                {{ $m->fec_final }} {{ $m->hora_fin }}
             </td>
             <td style="border:1px solid #ccc;">
 
             </td>
             <td style="border:1px solid #ccc;">
-                {{ $m->estatus->estatus }}
+                {{ $m->mEstatus->estatus }}
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+</div>
+    </body>
+</html>
 
-@stop
-@section('js_local')
+
     <script type="text/php">
         if (isset($pdf))
             {
@@ -152,4 +160,3 @@
             $pdf->page_text(670, 580, "Pagina {PAGE_NUM} de {PAGE_COUNT}", $font, 9, array(0, 0, 0));
             }
     </script>
-@stop
